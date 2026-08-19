@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AIRA - Detailed Interview Report</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: #fff; padding: 0; font-size: 12px; line-height: 1.4; }
+  .report { max-width: 100%; margin: 0; background: #fff; }
+  
+  /* Header with Logo */
+  .header { background: linear-gradient(135deg, #93c5fd 0%, #bfdbfe 100%); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; }
+  .header .title-text { color: #000; font-size: 18px; font-weight: 700; line-height: 1.4; max-width: 60%; }
+  .header .title-text .role { font-weight: 800; color: #0f172a; }
+  .header .title-text .company { font-weight: 700; color: #1e3a8a; }
+  .logo-box { background: #fff; padding: 10px 16px; border-radius: 8px; height: 60px; display: flex; align-items: center; }
+  .logo-box img { height: 44px; display: block; }
+
+  /* VERDICT BANNER */
+  .verdict-banner { padding: 18px 20px; display: flex; align-items: center; gap: 16px; }
+  .verdict-banner.pass { background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%); }
+  .verdict-banner.fail { background: #fca5a5; padding: 14px 20px; }
+  .verdict-badge { width: 56px; height: 56px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0; color: #fca5a5; }
+  .verdict-content { flex: 1; color: #000; }
+  .verdict-status { font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+  .verdict-subtitle { font-size: 12px; opacity: 0.9; margin-top: 2px; }
+  .verdict-score-box { text-align: center; background: #fff; border-radius: 8px; padding: 8px 12px; }
+  .verdict-score-box .number { font-size: 26px; font-weight: 800; color: #fca5a5; }
+  .verdict-score-box .label { font-size: 8px; color: #000; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+  
+  /* Quick Stats Strip */
+  .stats-strip { display: grid; grid-template-columns: 25% 25% 25% 25%; background: #f8fafc; border-bottom: 1px solid #e5e7eb; }
+  .stat { padding: 12px 8px; text-align: center; border-right: 1px solid #e5e7eb; }
+  .stat:last-child { border-right: none; }
+  .stat .value { font-size: 18px; font-weight: 800; color: #1e3a8a; }
+  .stat .label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.3px; color: #64748b; margin-top: 2px; }
+  
+  /* Candidate + Interview Row */
+  .info-section { display: grid; grid-template-columns: 50% 50%; border-bottom: 1px solid #e5e7eb; }
+  .info-box { padding: 14px 18px 8px 18px ; }
+  .info-box:first-child { border-right: 1px solid #e5e7eb; }
+  .info-box .title { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: #1e3a8a; font-weight: 700; margin-bottom: 10px; }
+  
+  /* Updated Candidate Card Layout */
+  .candidate-card { display: flex; gap: 16px; align-items: stretch; }
+  .candidate-avatar { 
+    width: 200px; 
+    height: 200px; 
+    min-width: 200px;
+    border-radius: 12px; 
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6); 
+    color: #fff; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 72px; 
+    font-weight: 700; 
+    flex-shrink: 0; 
+    overflow: hidden; 
+  }
+  .candidate-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .candidate-info-wrapper { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px;
+    min-height: 200px;
+    margin-top: 50px;
+  }
+  .candidate-info-title { 
+    font-size: 10px; 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+    color: #1e3a8a; 
+    font-weight: 700; 
+    margin-bottom: 8px; 
+  }
+  .candidate-details { 
+    background: #f8fafc; 
+    padding: 10px 12px; 
+    border-radius: 6px; 
+    margin-bottom: 6px;
+  }
+  .candidate-details .name { font-size: 12px; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
+  .candidate-details .email { font-size: 10px; color: #64748b; margin-top: 3px; }
+  .candidate-details .phone { font-size: 10px; color: #64748b; margin-top: 3px; }
+  .candidate-details .label { font-size: 9px; text-transform: uppercase; color: #94a3b8; font-weight: 600; margin-bottom: 2px; }
+  .candidate-details .value { font-size: 11px; font-weight: 600; color: #334155; }
+  .candidate-details .position-tag { display: inline-block; background: #e0e7ff; color: #3730a3; padding: 4px 10px; border-radius: 4px; font-size: 10px; font-weight: 600; margin-top: 8px; }
+  .company-box { 
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9); 
+    border: 1px solid #e2e8f0; 
+    border-radius: 8px; 
+    padding: 10px 12px; 
+    margin-top: auto;
+  }
+  .company-box .company-label { font-size: 9px; text-transform: uppercase; color: #64748b; font-weight: 600; margin-bottom: 3px; }
+  .company-box .company-name { font-size: 13px; font-weight: 700; color: #0f172a; display: flex; align-items: center; gap: 6px; }
+  
+  .interview-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 8px; 
+  }
+  .interview-cell { 
+    background: #f8fafc; 
+    padding: 8px 10px; 
+    border-radius: 6px; 
+  }
+  .interview-cell.wide { grid-column: span 2; }
+  .interview-cell .value.mono { font-family: monospace; font-size: 10px; }
+  .interview-cell.company-position-cell { 
+    grid-column: 1 / -1;  /* Span full width - row 1 */
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+  }
+  .interview-cell .info-item { 
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .interview-cell .info-item .label { 
+    font-size: 9px; 
+    text-transform: uppercase; 
+    color: #94a3b8; 
+    font-weight: 600;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+  .interview-cell .info-item .value { 
+    font-size: 11px; 
+    font-weight: 600; 
+    color: #334155;
+    margin-top: 0;
+  }
+  
+  /* Section styling */
+  .section { padding: 14px 18px; border-bottom: 1px solid #e5e7eb; }
+  .section-header { font-size: 12px; font-weight: 700; color: #1e3a8a; margin-bottom: 10px; }
+  
+  /* Analysis Cards - Resume & Interview */
+  .analysis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .analysis-card { background: linear-gradient(180deg, #f8fafc, #fff); border: 1px solid #e5e7eb; border-radius: 10px; padding: 14px; }
+  .analysis-card .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .analysis-card .card-title { font-size: 11px; font-weight: 700; color: #334155; }
+  .analysis-card .card-score { font-size: 24px; font-weight: 800; }
+  .analysis-card .card-score.high { color: #059669; }
+  .analysis-card .card-score.mid { color: #d97706; }
+  .analysis-card .card-score.low { color: #dc2626; }
+  .analysis-card .card-text { font-size: 11px; color: #64748b; line-height: 1.5; }
+  
+  /* Assessment Summary */
+  .assessment-text { background: #f0f9ff; padding: 12px; border-radius: 8px; border-left: 3px solid #0ea5e9; font-size: 11px; color: #0c4a6e; line-height: 1.55; }
+  
+  /* Strengths & Areas */
+  .feedback-section { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 14px 18px; background: #fafbfc; border-bottom: 1px solid #e5e7eb; }
+  .feedback-box { border-radius: 10px; padding: 14px; }
+  .feedback-box.strengths { background: linear-gradient(180deg, #ecfdf5, #d1fae5); border: 1px solid #a7f3d0; }
+  .feedback-box.areas { background: linear-gradient(180deg, #fff7ed, #ffedd5); border: 1px solid #fed7aa; }
+  .feedback-box h3 { font-size: 12px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .feedback-box.strengths h3 { color: #065f46; }
+  .feedback-box.areas h3 { color: #9a3412; }
+  .feedback-list { list-style: none; }
+  .feedback-list li { font-size: 11px; padding: 5px 0; border-bottom: 1px dashed rgba(0,0,0,0.08); display: flex; align-items: flex-start; gap: 6px; }
+  .feedback-list li:last-child { border-bottom: none; }
+  .feedback-box.strengths .feedback-list li { color: #064e3b; }
+  .feedback-box.areas .feedback-list li { color: #7c2d12; }
+  
+  /* Performance Metrics - Horizontal 2-Column Layout */
+  .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
+  .metric-row { display: flex; align-items: center; gap: 10px; padding: 8px 10px; background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 6px; }
+  .metric-row .name { width: 110px; font-size: 11px; color: #334155; font-weight: 600; flex-shrink: 0; }
+  .metric-row .bar { flex: 1; height: 8px; background: #e5e7eb; border-radius: 4px; overflow: hidden; min-width: 60px; }
+  .metric-row .bar-fill { height: 100%; border-radius: 4px; }
+  .metric-row .bar-fill.high { background: linear-gradient(90deg, #10b981, #34d399); }
+  .metric-row .bar-fill.mid { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .metric-row .bar-fill.low { background: linear-gradient(90deg, #ef4444, #f87171); }
+  .metric-row .score { min-width: 32px; font-size: 13px; font-weight: 800; text-align: right; }
+  .metric-row .score.high { color: #059669; }
+  .metric-row .score.mid { color: #d97706; }
+  .metric-row .score.low { color: #dc2626; }
+  
+  /* Skills Section */
+  .skills-gap-box { background: linear-gradient(180deg, #fffbeb, #fef3c7); border: 1px solid #fcd34d; border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; }
+  .skills-gap-box h4 { font-size: 11px; font-weight: 700; color: #92400e; margin-bottom: 4px; }
+  .skills-gap-box p { font-size: 10px; color: #78350f; line-height: 1.45; margin: 0; }
+  
+  /* Skills Table */
+  .skills-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
+  .skills-table th { text-align: left; font-size: 9px; text-transform: uppercase; letter-spacing: 0.4px; color: #64748b; padding: 8px 10px; background: #f8fafc; border-bottom: 2px solid #e5e7eb; }
+  .skills-table th:nth-child(3), .skills-table th:nth-child(4) { text-align: center; }
+  .skills-table td { padding: 10px; border-bottom: 1px solid #f1f5f9; font-size: 11px; vertical-align: middle; }
+  .skills-table tr:last-child td { border-bottom: none; }
+  .skills-table .skill-name { font-weight: 600; color: #334155; }
+  .skills-table .proficiency { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 9px; font-weight: 700; text-transform: uppercase; }
+  .skills-table .proficiency.high { background: #d1fae5; color: #065f46; }
+  .skills-table .proficiency.mid { background: #fef3c7; color: #92400e; }
+  .skills-table .proficiency.low { background: #fee2e2; color: #991b1b; }
+  .skills-table .score-pill { display: inline-block; padding: 3px 8px; border-radius: 12px; font-weight: 700; font-size: 11px; }
+  .skills-table .score-pill.high { background: #d1fae5; color: #059669; }
+  .skills-table .score-pill.mid { background: #fef3c7; color: #d97706; }
+  .skills-table .score-pill.low { background: #fee2e2; color: #dc2626; }
+  .skills-table .status { text-align: center; }
+  .skills-table .status-icon { width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; }
+  .skills-table .status-icon.pass { background: #d1fae5; color: #059669; }
+  .skills-table .status-icon.fail { background: #fee2e2; color: #dc2626; }
+  
+  /* Detailed Skill Analysis Cards */
+  .skill-detail-card { padding: 10px 12px; border-radius: 8px; margin-bottom: 8px; border-left: 3px solid; }
+  .skill-detail-card.high { background: #f0fdf4; border-color: #10b981; }
+  .skill-detail-card.mid { background: #fffbeb; border-color: #f59e0b; }
+  .skill-detail-card.low { background: #fef2f2; border-color: #ef4444; }
+  .skill-detail-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+  .skill-detail-header .left { display: flex; align-items: center; gap: 6px; }
+  .skill-detail-header .skill-name { font-weight: 700; font-size: 11px; color: #0f172a; }
+  .skill-detail-header .level-badge { font-size: 8px; padding: 2px 5px; border-radius: 3px; font-weight: 600; }
+  .skill-detail-header .level-badge.high { background: #d1fae5; color: #065f46; }
+  .skill-detail-header .level-badge.mid { background: #fef3c7; color: #92400e; }
+  .skill-detail-header .level-badge.low { background: #fee2e2; color: #991b1b; }
+  .skill-detail-header .score { font-size: 12px; font-weight: 800; }
+  .skill-detail-header .score.high { color: #059669; }
+  .skill-detail-header .score.mid { color: #d97706; }
+  .skill-detail-header .score.low { color: #dc2626; }
+  .skill-detail-body { font-size: 10px; color: #475569; line-height: 1.45; }
+  .skill-detail-body .row { margin-bottom: 3px; }
+  .skill-detail-body strong { color: #334155; }
+  
+  /* Question Cards */
+  .question-section { padding: 14px 18px; border-bottom: 1px solid #e5e7eb; }
+  .question-card { border: 1px solid #e5e7eb; border-radius: 10px; padding: 14px; margin-bottom: 12px; background: #fafbfc; }
+  .question-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
+  .question-pill { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #1e3a8a; background: linear-gradient(180deg, #eef4ff, #e3edff); border: 1px solid #cfe1ff; border-radius: 20px; }
+  .question-score { display: flex; align-items: baseline; gap: 4px; background: linear-gradient(180deg, #f7fbff, #e7f0ff); border: 2px solid #cfe1ff; border-radius: 8px; padding: 6px 12px; font-weight: 800; }
+  .question-score .num { font-size: 20px; color: #2563eb; }
+  .question-score .den { color: #64748b; font-weight: 700; font-size: 12px; }
+  .question-title { font-size: 13px; font-weight: 600; color: #0f172a; margin-bottom: 10px; }
+  .question-title strong { font-weight: 800; color: #1e3a8a; }
+  
+  .response-panel { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px; margin-bottom: 8px; }
+  .response-panel.analysis { background: #ecfdf5; border-color: #a7f3d0; }
+  .response-panel h4 { font-size: 10px; text-transform: uppercase; letter-spacing: 0.4px; color: #64748b; margin-bottom: 6px; }
+  .response-panel .text { font-size: 11px; line-height: 1.5; color: #334155; }
+  
+  /* Question Metrics Grid */
+  .question-metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-bottom: 10px; }
+  .q-metric { display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: #fff; border: 1px solid #e5e7eb; border-radius: 6px; }
+  .q-metric .name { flex: 1; font-size: 10px; font-weight: 600; color: #334155; }
+  .q-metric .bar { width: 40px; height: 4px; background: #e5e7eb; border-radius: 2px; overflow: hidden; }
+  .q-metric .bar-fill { height: 100%; border-radius: 2px; }
+  .q-metric .bar-fill.high { background: linear-gradient(90deg, #10b981, #34d399); }
+  .q-metric .bar-fill.mid { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .q-metric .bar-fill.low { background: linear-gradient(90deg, #ef4444, #f87171); }
+  .q-metric .score { font-size: 10px; font-weight: 700; min-width: 24px; text-align: right; }
+  .q-metric .score.high { color: #059669; }
+  .q-metric .score.mid { color: #d97706; }
+  .q-metric .score.low { color: #dc2626; }
+  
+  /* Chips */
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 600; }
+  .chip.good { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+  .chip.bad { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+  
+  /* Strengths/Weaknesses in Question */
+  .sw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .sw-box h4 { font-size: 10px; text-transform: uppercase; letter-spacing: 0.4px; color: #64748b; margin-bottom: 6px; }
+  
+  /* Authenticity Evidence Styles (displayed as metric row, evidence shown for medium/low) */
+  .authenticity-evidence { border-radius: 8px; padding: 10px; margin-top: 8px; }
+  .authenticity-evidence.high { background: linear-gradient(180deg, #fef2f2, #fee2e2); border: 1px solid #f87171; }
+  .authenticity-evidence.high h4 { color: #991b1b; }
+  .authenticity-evidence.high .evidence-text { color: #7c2d12; }
+  .authenticity-evidence.high .observation { color: #991b1b; }
+  .authenticity-evidence.medium { background: linear-gradient(180deg, #fffbeb, #fef3c7); border: 1px solid #fcd34d; }
+  .authenticity-evidence.medium h4 { color: #92400e; }
+  .authenticity-evidence.medium .evidence-text { color: #78350f; }
+  .authenticity-evidence.medium .observation { color: #92400e; }
+  .authenticity-evidence h4 { font-size: 10px; text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 4px; }
+  .authenticity-evidence .evidence-text { font-size: 11px; line-height: 1.45; }
+  .authenticity-evidence .observation { padding: 4px 0; border-bottom: 1px dashed rgba(0, 0, 0, 0.1); font-size: 10px; }
+  .authenticity-evidence .observation:last-child { border-bottom: none; }
+  
+  /* Timeline */
+  .timeline-section { padding: 14px 18px; border-bottom: 1px solid #e5e7eb; }
+  .timeline-header { font-size: 14px; font-weight: 700; color: #1e3a8a; text-align: center; margin-bottom: 4px; }
+  .timeline-sub { font-size: 11px; color: #64748b; text-align: center; margin-bottom: 12px; }
+  
+  .chat { margin-top: 10px; }
+  .msg { display: flex; gap: 8px; margin-bottom: 10px; }
+  .msg.left { justify-content: flex-start; }
+  .msg.right { justify-content: flex-end; }
+  
+  .bubble { max-width: 70%; border-radius: 12px; padding: 10px 12px; background: #fff; border: 1px solid #e5e7eb; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .msg.right .bubble { background: linear-gradient(180deg, #eaf5ff, #dff0ff); border-color: #b9ddff; }
+  .bubble .who { font-size: 10px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+  .msg.left .bubble .who { color: #1e40af; }
+  .msg.right .bubble .who { color: #0e7490; justify-content: flex-end; }
+  .bubble .who img { width: 20px; height: 20px; border-radius: 50%; object-fit: cover; }
+  .bubble .msg-text { font-size: 11px; line-height: 1.45; color: #0f172a; }
+  .bubble .time { font-size: 9px; margin-top: 4px; color: #64748b; }
+  .msg.left .bubble .time { text-align: left; }
+  .msg.right .bubble .time { text-align: right; }
+  
+  /* Warning/Exit message styles */
+  .msg.type-warning .bubble, .msg.type-video_off .bubble { background: linear-gradient(180deg, #fff3bf, #fde68a); border-color: #f59e0b; }
+  .msg.type-warning .bubble .who, .msg.type-video_off .bubble .who { color: #92400e; }
+  .msg.type-exit .bubble { background: linear-gradient(180deg, #fecaca, #fca5a5); border-color: #ef4444; }
+  .msg.type-exit .bubble .who { color: #991b1b; }
+  
+  .footer { text-align: center; padding: 12px;background: linear-gradient(135deg, #93c5fd 0%, #bfdbfe 100%); color: #64748b; font-size: 10px; }
+  
+  /* Print styles */
+  @page { size: A4; margin: 5mm; }
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    body { font-size: 10px; }
+    .question-card, .skill-detail-card, .msg { page-break-inside: avoid !important; break-inside: avoid !important; }
+    .section-header, .question-header { page-break-after: avoid !important; }
+  }
+</style>
+</head>
+<body>
+<div class="report">
+  <!-- Header with Logo -->
+  <div class="header">
+    <div class="title-text">
+      Detailed Interview Report
+    </div>
+    <div class="logo-box">
+      <img src="./interview_reports/AIRA_LOGO.jpg" alt="AIRA Logo" />
+    </div>
+  </div>
+  
+  <!-- VERDICT BANNER -->
+  <div class="verdict-banner fail">
+    <div class="verdict-badge">✗</div>
+    <div class="verdict-content">
+      <div class="verdict-status">FAILED INTERVIEW ROUND</div>
+      <div class="verdict-subtitle">
+        
+        
+        
+        
+          Candidate requires further evaluation or training before proceeding.
+        
+      </div>
+    </div>
+    <div class="verdict-score-box">
+      <div class="number">0.8</div>
+      <div class="label">Overall Score</div>
+    </div>
+  </div>
+  
+  <!-- Quick Stats -->
+  <div class="stats-strip">
+    <div class="stat">
+      <div class="value">5/5</div>
+      <div class="label">Questions</div>
+    </div>
+    <div class="stat">
+      <div class="value">6 minutes and 15 seconds</div>
+      <div class="label">Duration</div>
+    </div>
+    <div class="stat">
+      <div class="value">0/3</div>
+      <div class="label">Skills Passed</div>
+    </div>
+    <div class="stat">
+      <div class="value">Connect</div>
+      <div class="label">Mode</div>
+    </div>
+  </div>
+  
+  <!-- Candidate + Interview -->
+  <div class="info-section">
+    <div class="info-box">
+      <div class="candidate-card">
+        <div class="candidate-avatar">
+          
+          <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Candidate Photo" />
+          
+        </div>
+        <div class="candidate-info-wrapper">
+          <div class="candidate-info-title">Candidate Details</div>
+          <div class="candidate-details">
+            <div class="value">Radha Krishnan</div>
+            <div class="value">radha.krishnan.product_manager.test@airahr.ai</div>
+            <div class="value">None</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="info-box">
+      <div class="title">📅 Interview Details</div>
+      <div class="interview-grid">
+        <div class="interview-cell company-position-cell">
+          <div class="info-item">
+            <div class="label">Company:</div>
+            <div class="value">AIRA Load Test Corp</div>
+          </div>
+          <div class="info-item">
+            <div class="label">Position:</div>
+            <div class="value">Product Manager</div>
+          </div>
+        </div>
+        <div class="interview-cell">
+          <div class="info-item">
+            <div class="label">Date:</div>
+            <div class="value">2026-06-18</div>
+          </div>
+        </div>
+        <div class="interview-cell">
+          <div class="info-item">
+            <div class="label">Time:</div>
+            <div class="value">01:03 PM</div>
+          </div>
+        </div>
+        <div class="interview-cell">
+          <div class="info-item">
+            <div class="label">Timezone:</div>
+            <div class="value">Asia/Kolkata</div>
+          </div>
+        </div>
+        <div class="interview-cell">
+          <div class="info-item">
+            <div class="label">Room ID:</div>
+            <div class="value mono">AIRA-20260618-1704-481C</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Resume & Interview Analysis Cards -->
+  <div class="section">
+    <div class="section-header">📊 Performance Analysis</div>
+    <div class="analysis-grid">
+      <div class="analysis-card">
+        <div class="card-header">
+          <div class="card-title">📋 Resume Analysis</div>
+          <div class="card-score high">3.8/5</div>
+        </div>
+        <div class="card-text">Strong product instinct. Prioritisation frameworks and data-driven decision-making to be probed.</div>
+      </div>
+      <div class="analysis-card">
+        <div class="card-header">
+          <div class="card-title">🎯 Interview Analysis</div>
+          <div class="card-score low">0.8/5</div>
+        </div>
+        <div class="card-text">The candidate's performance fell below expectations as they often struggled to grasp the scenarios presented and deliver appropriate responses. Their answers lacked coherence, depth, and relevance, highlighting deficiencies in domain knowledge and analytical skills. Additionally, a technical problem occurred when displaying the candidate's image.</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Overall Assessment -->
+  
+  <div class="section">
+    <div class="section-header">📝 Overall Assessment</div>
+    <div class="assessment-text">
+      The candidate achieved a score of 0.8/5 (failed interview round). The candidate's performance fell below expectations as they often struggled to grasp the scenarios presented and deliver appropriate responses. Their answers lacked coherence, depth, and relevance, highlighting deficiencies in domain knowledge and analytical skills. Additionally, a technical problem occurred when displaying the candidate's image. Based on the comprehensive evaluation across 5 interview questions, further development is recommended.
+    </div>
+  </div>
+  
+  
+  <!-- Authenticity Analysis -->
+  
+  <div class="section">
+    <div class="section-header">🔍 Authenticity Analysis</div>
+    <div class="assessment-text" style="display: flex; gap: 16px; align-items: flex-start;">
+      <div style="flex: 0 0 80px; text-align: center; padding: 12px; background: linear-gradient(180deg, #fef2f2, #fecaca); border-radius: 10px;">
+        <div style="font-size: 24px; font-weight: 800; color: #dc2626;">0%</div>
+        <div style="font-size: 9px; color: #64748b; text-transform: uppercase;">Authenticity</div>
+      </div>
+      <div style="flex: 1;">
+        <div style="font-weight: 600; margin-bottom: 6px; color: #dc2626;">
+          🚨 Suspicious - Possible AI Assistance
+        </div>
+        <div style="font-size: 11px; color: #475569; line-height: 1.5;">
+          
+            Responses appear unusually polished with minimal natural speech patterns. Combined with detected signals, this warrants human review to verify authenticity.
+          
+        </div>
+        
+        <div style="margin-top: 8px; font-size: 10px; color: #991b1b; background: #fef2f2; padding: 6px 10px; border-radius: 6px; border-left: 3px solid #dc2626;">
+          ⚠️ 2 answer(s) flagged as potentially AI-generated
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- Strengths & Areas -->
+  
+  <div class="feedback-section">
+    <div class="feedback-box strengths">
+      <h3>✓ Key Strengths</h3>
+      <ul class="feedback-list">
+        
+        <li>✓ Technical Knowledge</li>
+        
+        <li>✓ Experience</li>
+        
+      </ul>
+    </div>
+    <div class="feedback-box areas">
+      <h3>⚠ Areas for Development</h3>
+      <ul class="feedback-list">
+        
+        <li>⚠ Requires fundamental training in core job requirements and domain knowledge</li>
+        
+        <li>⚠ Needs significant improvement in interview preparation and question comprehension</li>
+        
+        <li>⚠ Candidate requires comprehensive training before being suitable for this position</li>
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+  <!-- Performance Metrics - Horizontal 2-Column Layout -->
+  
+  <div class="section">
+    <div class="section-header">📊 Performance Metrics</div>
+    <div class="metrics-grid">
+      
+      <div class="metric-row">
+        <div class="name">Communication</div>
+        <div class="bar"><div class="bar-fill low" style="width:20%"></div></div>
+        <div class="score low">1.0</div>
+      </div>
+      
+      <div class="metric-row">
+        <div class="name">Experience</div>
+        <div class="bar"><div class="bar-fill low" style="width:6%"></div></div>
+        <div class="score low">0.3</div>
+      </div>
+      
+      <div class="metric-row">
+        <div class="name">Confidence</div>
+        <div class="bar"><div class="bar-fill low" style="width:26%"></div></div>
+        <div class="score low">1.3</div>
+      </div>
+      
+      <div class="metric-row">
+        <div class="name">Domain Knowledge</div>
+        <div class="bar"><div class="bar-fill low" style="width:28%"></div></div>
+        <div class="score low">1.4</div>
+      </div>
+      
+      <div class="metric-row">
+        <div class="name">CV Justification</div>
+        <div class="bar"><div class="bar-fill low" style="width:6%"></div></div>
+        <div class="score low">0.3</div>
+      </div>
+      
+      <div class="metric-row">
+        <div class="name">Skills</div>
+        <div class="bar"><div class="bar-fill low" style="width:6%"></div></div>
+        <div class="score low">0.3</div>
+      </div>
+      
+    </div>
+  </div>
+  
+  
+  <!-- Mandatory Skills Evaluation -->
+  
+  <div class="section">
+    <div class="section-header">🎯 Mandatory Skills Evaluation</div>
+    
+    
+    <div class="skills-gap-box">
+      <h4>📋 Skills Gap Summary</h4>
+      <p>The candidate demonstrated significant gaps in all tested skills, including product management decision-making, user research strategy, and user sentiment analysis. Their responses were largely irrelevant and lacked the necessary depth and understanding required for the role.</p>
+    </div>
+    
+    
+    <!-- Skills Summary Stats -->
+    <div style="display: flex; gap: 12px; margin-bottom: 14px;">
+      <div style="flex: 1; background: linear-gradient(180deg, #ecfdf5, #d1fae5); border: 1px solid #a7f3d0; border-radius: 8px; padding: 12px; text-align: center;">
+        <div style="font-size: 24px; font-weight: 800; color: #059669;">0/3</div>
+        <div style="font-size: 10px; color: #065f46; text-transform: uppercase; font-weight: 600;">Skills Passed</div>
+      </div>
+      <div style="flex: 1; background: linear-gradient(180deg, #f0f9ff, #e0f2fe); border: 1px solid #7dd3fc; border-radius: 8px; padding: 12px; text-align: center;">
+        <div style="font-size: 24px; font-weight: 800; color: #0284c7;">0.3/5</div>
+        <div style="font-size: 10px; color: #0369a1; text-transform: uppercase; font-weight: 600;">Overall Skills Score</div>
+      </div>
+    </div>
+    
+    <!-- Skills Table -->
+    <table class="skills-table">
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>Proficiency</th>
+          <th>Score</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td class="skill-name">Product Management Decision Making</td>
+          <td><span class="proficiency low">None</span></td>
+          <td style="text-align:center"><span class="score-pill low">0.4</span></td>
+          <td class="status"><span class="status-icon fail">✗</span></td>
+        </tr>
+        
+        <tr>
+          <td class="skill-name">User Research Strategy</td>
+          <td><span class="proficiency low">None</span></td>
+          <td style="text-align:center"><span class="score-pill low">0.2</span></td>
+          <td class="status"><span class="status-icon fail">✗</span></td>
+        </tr>
+        
+        <tr>
+          <td class="skill-name">User Sentiment Analysis</td>
+          <td><span class="proficiency low">None</span></td>
+          <td style="text-align:center"><span class="score-pill low">0.4</span></td>
+          <td class="status"><span class="status-icon fail">✗</span></td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+    <!-- Detailed Skill Analysis -->
+    <div class="section-header" style="margin-top:14px;">🔍 Detailed Skill Analysis</div>
+    
+    <div class="skill-detail-card low">
+      <div class="skill-detail-header">
+        <div class="left">
+          <span>✗</span>
+          <span class="skill-name">Product Management Decision Making</span>
+          <span class="level-badge low">None</span>
+        </div>
+        <span class="score low">0.4/5</span>
+      </div>
+      <div class="skill-detail-body">
+        
+        <div class="row"><strong>Questions Asked:</strong> You're leading a product initiative to enhance user engagement for a platform that currently has around 50K monthly users. You have two options: either build a new feature set that requires significant engineering resources or invest in a third-party analytics tool to better understand user behavior. The catch is, you have a budget constraint that limits you to using only open-source tools. Which direction do you choose, and what do you think you'll lose by not going with the other option?; Imagine you're tasked with designing a new feature for a product that currently serves about 10K daily active users. You need to prioritize between enhancing the user interface for better engagement or optimizing the backend for performance. The catch is, you have to do this within a 2-week deadline. How do you decide which path to take, and what factors influence your decision?; Your team is in the middle of a critical product launch for a new feature aimed at 30,000 users, but suddenly, your lead engineer informs you that the feature is not performing well in testing and may not meet the launch deadline. The catch is, you have to make a decision on whether to delay the launch or push forward with the current version, knowing that user feedback will be crucial for future iterations. How do you approach this situation, and what factors influence your decision?</div>
+        
+        <div class="row"><strong>Evidence:</strong> The candidate's responses were irrelevant and did not address the decision-making scenarios presented in the questions.</div>
+        <div class="row"><strong>Assessment:</strong> The candidate demonstrated a significant gap in understanding product management decision-making processes. Their answers were vague and did not reflect any structured approach to evaluating options or making informed decisions.</div>
+      </div>
+    </div>
+    
+    <div class="skill-detail-card low">
+      <div class="skill-detail-header">
+        <div class="left">
+          <span>✗</span>
+          <span class="skill-name">User Research Strategy</span>
+          <span class="level-badge low">None</span>
+        </div>
+        <span class="score low">0.2/5</span>
+      </div>
+      <div class="skill-detail-body">
+        
+        <div class="row"><strong>Questions Asked:</strong> Imagine you're tasked with designing a user research strategy for a new product aimed at around 20,000 potential users. You need to gather insights quickly to inform your product roadmap, but the catch is you must do this without using any paid APIs. What methods would you choose to gather user feedback, and how would you ensure the data is actionable for your team?</div>
+        
+        <div class="row"><strong>Evidence:</strong> The candidate mentioned integrating an API with an internal tool but did not address how to gather user feedback without paid APIs or ensure data actionability.</div>
+        <div class="row"><strong>Assessment:</strong> The candidate failed to demonstrate any understanding of user research methods or how to gather actionable insights. Their response was incomplete and did not align with the question's requirements.</div>
+      </div>
+    </div>
+    
+    <div class="skill-detail-card low">
+      <div class="skill-detail-header">
+        <div class="left">
+          <span>✗</span>
+          <span class="skill-name">User Sentiment Analysis</span>
+          <span class="level-badge low">None</span>
+        </div>
+        <span class="score low">0.4/5</span>
+      </div>
+      <div class="skill-detail-body">
+        
+        <div class="row"><strong>Questions Asked:</strong> It's 2 AM, and your team just received feedback from a major client that the recent feature rollout is causing confusion among users. You have only a few hours before the client meeting to gather insights and propose a solution. How do you quickly assess user sentiment and what steps do you take to address the issue, given that you can only use open-source tools?</div>
+        
+        <div class="row"><strong>Evidence:</strong> The candidate's response was vague and did not address how to assess user sentiment or propose a solution based on feedback.</div>
+        <div class="row"><strong>Assessment:</strong> The candidate did not demonstrate any understanding of how to quickly assess user sentiment or the steps needed to address user confusion effectively. Their response lacked coherence and relevance.</div>
+      </div>
+    </div>
+    
+  </div>
+  
+  
+  <!-- Analyzed Questions Section -->
+  <div class="question-section">
+    <div class="section-header">📝 Analyzed Questions</div>
+    <p style="font-size:11px;color:#64748b;margin-bottom:14px;">Each card includes the question, candidate's response, analysis, metrics, and feedback.</p>
+    
+    
+    
+    
+    
+    
+    
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-pill">Question 1 / 5</span>
+        <div class="question-score">
+          <span class="num">0.4</span>
+          <span class="den">/ 5</span>
+        </div>
+      </div>
+      
+      <div class="question-title"><strong>Q:</strong> You're leading a product initiative to enhance user engagement for a platform that currently has around 50K monthly users. You have two options: either build a new feature set that requires significant engineering resources or invest in a third-party analytics tool to better understand user behavior. The catch is, you have a budget constraint that limits you to using only open-source tools. Which direction do you choose, and what do you think you'll lose by not going with the other option?</div>
+      
+      <div class="response-panel">
+        <h4>💬 Candidate Response</h4>
+        <div class="text">I use those findings to redesign our enterprise onboarding program. Around those three pillars.</div>
+      </div>
+      
+      <div class="response-panel analysis">
+        <h4>🔍 System Analysis</h4>
+        <div class="text">The candidate's response is completely irrelevant to the question asked. They did not address the options provided or explain their choice based on the budget constraint. The answer lacks depth, clarity, and does not demonstrate an understanding of the scenario presented. The candidate's response indicates a significant gap in domain knowledge related to product management and decision-making processes.</div>
+      </div>
+      
+      <!-- Question Metrics -->
+      
+      <div class="question-metrics">
+        
+        <div class="q-metric">
+          <div class="name">Communication</div>
+          <div class="bar"><div class="bar-fill low" style="width:10%"></div></div>
+          <div class="score low">0.5</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Experience</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Confidence</div>
+          <div class="bar"><div class="bar-fill low" style="width:21%"></div></div>
+          <div class="score low">1.05</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Domain Knowledge</div>
+          <div class="bar"><div class="bar-fill low" style="width:10%"></div></div>
+          <div class="score low">0.5</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">CV Justification</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Skills</div>
+          <div class="bar"><div class="bar-fill low" style="width:10%"></div></div>
+          <div class="score low">0.5</div>
+        </div>
+        
+      </div>
+      
+      
+      <!-- Strengths & Weaknesses -->
+      <div class="sw-grid">
+        <div class="sw-box">
+          <h4>✅ Strengths</h4>
+          <div class="chips">
+            
+            
+            <span style="color:#64748b;font-size:10px;font-style:italic;">None identified</span>
+            
+          </div>
+        </div>
+        <div class="sw-box">
+          <h4>⚠️ Areas for Improvement</h4>
+          <div class="chips">
+            
+            <span class="chip bad">Completely irrelevant response to the question asked</span>
+            
+            <span class="chip bad">Lacks understanding of the scenario and budget constraint</span>
+            
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-pill">Question 2 / 5</span>
+        <div class="question-score">
+          <span class="num">0.5</span>
+          <span class="den">/ 5</span>
+        </div>
+      </div>
+      
+      <div class="question-title"><strong>Q:</strong> Imagine you're tasked with designing a new feature for a product that currently serves about 10K daily active users. You need to prioritize between enhancing the user interface for better engagement or optimizing the backend for performance. The catch is, you have to do this within a 2-week deadline. How do you decide which path to take, and what factors influence your decision?</div>
+      
+      <div class="response-panel">
+        <h4>💬 Candidate Response</h4>
+        <div class="text">Understand what made them successful with our product.</div>
+      </div>
+      
+      <div class="response-panel analysis">
+        <h4>🔍 System Analysis</h4>
+        <div class="text">The candidate's response is extremely brief and lacks depth or clarity. They fail to address the specific scenario presented in the question, which required a decision-making process between enhancing the user interface or optimizing the backend within a tight deadline. The response provided does not demonstrate an understanding of product development priorities or considerations. The lack of elaboration indicates a significant gap in the candidate's ability to analyze and prioritize tasks effectively.</div>
+      </div>
+      
+      <!-- Question Metrics -->
+      
+      <div class="question-metrics">
+        
+        <div class="q-metric">
+          <div class="name">Communication</div>
+          <div class="bar"><div class="bar-fill low" style="width:20%"></div></div>
+          <div class="score low">1.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Experience</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Confidence</div>
+          <div class="bar"><div class="bar-fill mid" style="width:40%"></div></div>
+          <div class="score mid">2.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Domain Knowledge</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">CV Justification</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Skills</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+      </div>
+      
+      
+      <!-- Strengths & Weaknesses -->
+      <div class="sw-grid">
+        <div class="sw-box">
+          <h4>✅ Strengths</h4>
+          <div class="chips">
+            
+            
+            <span style="color:#64748b;font-size:10px;font-style:italic;">None identified</span>
+            
+          </div>
+        </div>
+        <div class="sw-box">
+          <h4>⚠️ Areas for Improvement</h4>
+          <div class="chips">
+            
+            <span class="chip bad">Lack of depth in the response provided</span>
+            
+            <span class="chip bad">Failure to address the specific scenario and decision-making factors</span>
+            
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-pill">Question 3 / 5</span>
+        <div class="question-score">
+          <span class="num">1.0</span>
+          <span class="den">/ 5</span>
+        </div>
+      </div>
+      
+      <div class="question-title"><strong>Q:</strong> It's 2 AM, and your team just received feedback from a major client that the recent feature rollout is causing confusion among users. You have only a few hours before the client meeting to gather insights and propose a solution. How do you quickly assess user sentiment and what steps do you take to address the issue, given that you can only use open-source tools?</div>
+      
+      <div class="response-panel">
+        <h4>💬 Candidate Response</h4>
+        <div class="text">Tools are our customers used and built a thirty day checklist.</div>
+      </div>
+      
+      <div class="response-panel analysis">
+        <h4>🔍 System Analysis</h4>
+        <div class="text">The candidate's response is extremely vague and lacks coherence. The answer provided does not address the question at all, showcasing a severe lack of understanding of the scenario presented. There is a complete disconnect between the question requirements and the response given, indicating a significant gap in both communication and domain knowledge.</div>
+      </div>
+      
+      <!-- Question Metrics -->
+      
+      <div class="question-metrics">
+        
+        <div class="q-metric">
+          <div class="name">Communication</div>
+          <div class="bar"><div class="bar-fill low" style="width:10%"></div></div>
+          <div class="score low">0.5</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Experience</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Confidence</div>
+          <div class="bar"><div class="bar-fill low" style="width:10%"></div></div>
+          <div class="score low">0.5</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Domain Knowledge</div>
+          <div class="bar"><div class="bar-fill high" style="width:100%"></div></div>
+          <div class="score high">5.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">CV Justification</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Skills</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+      </div>
+      
+      
+      <!-- Strengths & Weaknesses -->
+      <div class="sw-grid">
+        <div class="sw-box">
+          <h4>✅ Strengths</h4>
+          <div class="chips">
+            
+            
+            <span style="color:#64748b;font-size:10px;font-style:italic;">None identified</span>
+            
+          </div>
+        </div>
+        <div class="sw-box">
+          <h4>⚠️ Areas for Improvement</h4>
+          <div class="chips">
+            
+            <span class="chip bad">Failed to understand the scenario and provide a relevant response</span>
+            
+            <span class="chip bad">Lacks basic domain knowledge in addressing user sentiment and proposing solutions</span>
+            
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-pill">Question 4 / 5</span>
+        <div class="question-score">
+          <span class="num">1.0</span>
+          <span class="den">/ 5</span>
+        </div>
+      </div>
+      
+      <div class="question-title"><strong>Q:</strong> Imagine you're tasked with designing a user research strategy for a new product aimed at around 20,000 potential users. You need to gather insights quickly to inform your product roadmap, but the catch is you must do this without using any paid APIs. What methods would you choose to gather user feedback, and how would you ensure the data is actionable for your team?</div>
+      
+      <div class="response-panel">
+        <h4>💬 Candidate Response</h4>
+        <div class="text">Had integrated our API with at least one other internal tool.</div>
+      </div>
+      
+      <div class="response-panel analysis">
+        <h4>🔍 System Analysis</h4>
+        <div class="text">The candidate's response is extremely brief and lacks depth. They only mentioned integrating an API with an internal tool, which does not address the question's requirements of gathering user feedback without paid APIs and ensuring data actionability. The answer provided is incomplete and does not demonstrate an understanding of user research methods or data actionability.</div>
+      </div>
+      
+      <!-- Question Metrics -->
+      
+      <div class="question-metrics">
+        
+        <div class="q-metric">
+          <div class="name">Communication</div>
+          <div class="bar"><div class="bar-fill mid" style="width:40%"></div></div>
+          <div class="score mid">2.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Experience</div>
+          <div class="bar"><div class="bar-fill low" style="width:10%"></div></div>
+          <div class="score low">0.5</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Confidence</div>
+          <div class="bar"><div class="bar-fill mid" style="width:40%"></div></div>
+          <div class="score mid">2.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Domain Knowledge</div>
+          <div class="bar"><div class="bar-fill low" style="width:10%"></div></div>
+          <div class="score low">0.5</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">CV Justification</div>
+          <div class="bar"><div class="bar-fill low" style="width:10%"></div></div>
+          <div class="score low">0.5</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Skills</div>
+          <div class="bar"><div class="bar-fill low" style="width:10%"></div></div>
+          <div class="score low">0.5</div>
+        </div>
+        
+      </div>
+      
+      
+      <!-- Strengths & Weaknesses -->
+      <div class="sw-grid">
+        <div class="sw-box">
+          <h4>✅ Strengths</h4>
+          <div class="chips">
+            
+            
+            <span style="color:#64748b;font-size:10px;font-style:italic;">None identified</span>
+            
+          </div>
+        </div>
+        <div class="sw-box">
+          <h4>⚠️ Areas for Improvement</h4>
+          <div class="chips">
+            
+            <span class="chip bad">Lacks understanding of user research methods and data actionability</span>
+            
+            <span class="chip bad">Incomplete response with minimal detail</span>
+            
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-pill">Question 5 / 5</span>
+        <div class="question-score">
+          <span class="num">0.4</span>
+          <span class="den">/ 5</span>
+        </div>
+      </div>
+      
+      <div class="question-title"><strong>Q:</strong> Your team is in the middle of a critical product launch for a new feature aimed at 30,000 users, but suddenly, your lead engineer informs you that the feature is not performing well in testing and may not meet the launch deadline. The catch is, you have to make a decision on whether to delay the launch or push forward with the current version, knowing that user feedback will be crucial for future iterations. How do you approach this situation, and what factors influence your decision?</div>
+      
+      <div class="response-panel">
+        <h4>💬 Candidate Response</h4>
+        <div class="text">Segment. I started by deeply analyzing our exist enterprise customers to understand what made them successful with our product.</div>
+      </div>
+      
+      <div class="response-panel analysis">
+        <h4>🔍 System Analysis</h4>
+        <div class="text">The candidate's response is extremely brief and lacks depth, failing to address the complexity of the scenario presented. There is a disconnect between the question's context and the answer provided, indicating a lack of understanding or a misinterpretation of the situation. The response does not demonstrate a structured approach to decision-making or consideration of key factors influencing the launch decision.</div>
+      </div>
+      
+      <!-- Question Metrics -->
+      
+      <div class="question-metrics">
+        
+        <div class="q-metric">
+          <div class="name">Communication</div>
+          <div class="bar"><div class="bar-fill low" style="width:20%"></div></div>
+          <div class="score low">1.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Experience</div>
+          <div class="bar"><div class="bar-fill low" style="width:20%"></div></div>
+          <div class="score low">1.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Confidence</div>
+          <div class="bar"><div class="bar-fill low" style="width:21%"></div></div>
+          <div class="score low">1.05</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Domain Knowledge</div>
+          <div class="bar"><div class="bar-fill low" style="width:20%"></div></div>
+          <div class="score low">1.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">CV Justification</div>
+          <div class="bar"><div class="bar-fill low" style="width:20%"></div></div>
+          <div class="score low">1.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Skills</div>
+          <div class="bar"><div class="bar-fill low" style="width:20%"></div></div>
+          <div class="score low">1.0</div>
+        </div>
+        
+      </div>
+      
+      
+      <!-- Strengths & Weaknesses -->
+      <div class="sw-grid">
+        <div class="sw-box">
+          <h4>✅ Strengths</h4>
+          <div class="chips">
+            
+            
+            <span style="color:#64748b;font-size:10px;font-style:italic;">None identified</span>
+            
+          </div>
+        </div>
+        <div class="sw-box">
+          <h4>⚠️ Areas for Improvement</h4>
+          <div class="chips">
+            
+            <span class="chip bad">Lacks understanding of the scenario and fails to address the decision-making process in a critical product launch situation</span>
+            
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+  </div>
+  
+  <!-- Conversation Timeline -->
+  
+  <div class="timeline-section">
+    <div class="timeline-header">💬 Conversation Timeline</div>
+    <div class="timeline-sub">Chronological transcript of the interview</div>
+    
+    <div class="chat">
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Hi Radha Krishnan, welcome..</div>
+            <div class="time">22:34:41</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Radha Krishnan
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Radha Krishnan">
+            </div>
+            <div class="msg-text">Internal champion.</div>
+            <div class="time">22:34:46</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">That's an interesting point! Let's dive into it during the interview. By the way, how's your day going?</div>
+            <div class="time">22:34:54</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Radha Krishnan
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Radha Krishnan">
+            </div>
+            <div class="msg-text">To redesign our enter price onboarding program. Around those three pillars. We assign dedicated</div>
+            <div class="time">22:35:07</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-warmup">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Before we jump into the technical stuff, tell me a little about yourself — how did you end up in this field and what kind of work gets you most excited?</div>
+            <div class="time">22:35:15</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Radha Krishnan
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Radha Krishnan">
+            </div>
+            <div class="msg-text">To 9%. It was a great example of</div>
+            <div class="time">22:35:25</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-warmup">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">That's really interesting, thanks for sharing! Alright, let's get into some technical questions.</div>
+            <div class="time">22:35:30</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">You're leading a product initiative to enhance user engagement for a platform that currently has around 50K monthly users. You have two options: either build a new feature set that requires significant engineering resources or invest in a third-party analytics tool to better understand user behavior. The catch is, you have a budget constraint that limits you to using only open-source tools. Which direction do you choose, and what do you think you'll lose by not going with the other option?</div>
+            <div class="time">22:35:54</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Radha Krishnan
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Radha Krishnan">
+            </div>
+            <div class="msg-text">I use those findings to redesign our enterprise onboarding program. Around those three pillars.</div>
+            <div class="time">22:36:07</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Hmm, interesting — redesigning the onboarding program around those three pillars sounds like a solid approach.</div>
+            <div class="time">22:36:15</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Imagine you're tasked with designing a new feature for a product that currently serves about 10K daily active users. You need to prioritize between enhancing the user interface for better engagement or optimizing the backend for performance. The catch is, you have to do this within a 2-week deadline. How do you decide which path to take, and what factors influence your decision?</div>
+            <div class="time">22:36:36</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Radha Krishnan
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Radha Krishnan">
+            </div>
+            <div class="msg-text">Understand what made them successful with our product.</div>
+            <div class="time">22:36:44</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Yeah, that makes sense — focusing on user success to drive product improvements is key.</div>
+            <div class="time">22:36:50</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">It's 2 AM, and your team just received feedback from a major client that the recent feature rollout is causing confusion among users. You have only a few hours before the client meeting to gather insights and propose a solution. How do you quickly assess user sentiment and what steps do you take to address the issue, given that you can only use open-source tools?</div>
+            <div class="time">22:37:10</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Radha Krishnan
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Radha Krishnan">
+            </div>
+            <div class="msg-text">Tools are our customers used and built a thirty day checklist.</div>
+            <div class="time">22:37:21</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Hmm, interesting — creating a thirty-day checklist for customer tools is a great way to ensure clarity and usability.</div>
+            <div class="time">22:37:29</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Imagine you're tasked with designing a user research strategy for a new product aimed at around 20,000 potential users. You need to gather insights quickly to inform your product roadmap, but the catch is you must do this without using any paid APIs. What methods would you choose to gather user feedback, and how would you ensure the data is actionable for your team?</div>
+            <div class="time">22:37:46</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Radha Krishnan
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Radha Krishnan">
+            </div>
+            <div class="msg-text">Had integrated our API with at least one other internal tool.</div>
+            <div class="time">22:37:57</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Right, okay — integrating your API with another internal tool shows a great understanding of connectivity and collaboration.</div>
+            <div class="time">22:38:06</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Your team is in the middle of a critical product launch for a new feature aimed at 30,000 users, but suddenly, your lead engineer informs you that the feature is not performing well in testing and may not meet the launch deadline. The catch is, you have to make a decision on whether to delay the launch or push forward with the current version, knowing that user feedback will be crucial for future iterations. How do you approach this situation, and what factors influence your decision?</div>
+            <div class="time">22:38:30</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Radha Krishnan
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Radha Krishnan">
+            </div>
+            <div class="msg-text">Segment. I started by deeply analyzing our exist enterprise customers to understand what made them successful with our product.</div>
+            <div class="time">22:38:50</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Nice — deeply analyzing enterprise customers to uncover their success factors is a smart approach for product strategy.</div>
+            <div class="time">22:38:57</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        <div class="msg left type-qa_kickoff">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Thank you for your responses, Radha Krishnan. That concludes the technical portion of our interview. Our team will review your answers carefully. Before we wrap up, do you have any questions for me about the company or the role?</div>
+            <div class="time">22:39:08</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Radha Krishnan
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Radha Krishnan">
+            </div>
+            <div class="msg-text">Created integration playbooks for the top five tools our customers used. And built a thirty day checklist.</div>
+            <div class="time">22:39:22</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-qa_bot_reply">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">That sounds like valuable experience! As a Product Manager in a leadership role, skills like creating integration playbooks and strategic planning are highly relevant. Do you have any questions about the role or the company that I can help with?</div>
+            <div class="time">22:39:35</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Radha Krishnan
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Radha Krishnan">
+            </div>
+            <div class="msg-text">Customers to understand what made them successful with our product. I found three common patterns. They all had a dedicated</div>
+            <div class="time">22:39:57</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-qa_bot_reply">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Understanding customer success patterns is crucial for developing effective product strategies. It seems like you have a strong background in user research, which aligns well with the skills required for the Product Manager role. Is there anything specific you'd like to know about the role or the company?</div>
+            <div class="time">22:40:17</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Radha Krishnan
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Radha Krishnan">
+            </div>
+            <div class="msg-text">67.</div>
+            <div class="time">22:40:23</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-qa_bot_reply">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">It seems like you might be referencing something specific. If you have any questions about the role or the company, feel free to ask. I'm here to help!</div>
+            <div class="time">22:40:39</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        <div class="msg left type-closing">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">We've covered quite a bit! To respect your schedule, we'll wrap up here. Thank you for your time today, and the recruitment team will follow up with next steps. Have a great day!</div>
+            <div class="time">22:40:52</div>
+          </div>
+        </div>
+        
+        
+        
+      
+    </div>
+  </div>
+  
+  
+  <div class="footer">This report is generated by AIRA (Your AI Hiring Agent). For questions or support, contact support@airahr.ai</div>
+</div>
+</body>
+</html>

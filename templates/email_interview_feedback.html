@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Your Feedback Helps Shape AIRA</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f8;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 600px;
+        background-color: #ffffff;
+        margin: 40px auto;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      .header {
+        text-align: center;
+        padding-bottom: 20px;
+      }
+      .header h2 {
+        color: #2b2d42;
+        margin-bottom: 5px;
+      }
+      .header p {
+        font-size: 16px;
+        color: #555555;
+      }
+      .content {
+        color: #333333;
+        line-height: 1.6;
+        font-size: 16px;
+      }
+      ul {
+        margin-top: 10px;
+        padding-left: 20px;
+      }
+      ul li {
+        margin-bottom: 10px;
+      }
+      .button {
+        display: inline-block;
+        margin-top: 25px;
+        background-color: #007bff;
+        color: white !important;
+        padding: 14px 24px;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+      }
+      .footer {
+        margin-top: 30px;
+        font-size: 13px;
+        color: #888888;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Help Us Make AIRA Better</h2>
+        <p>Your opinion truly matters</p>
+      </div>
+      <div class="content">
+        <p>Hi {{CANDIDATE_NAME}},</p>
+        <p>
+          You've experienced what AIRAHR can do — and now we'd love to hear what <strong>you think</strong>.
+        </p>
+        <p>
+          Whether it's a feature you loved or something we can do better, your feedback will directly
+          help us improve and grow AIRAHR into the best AI interview assistant possible.
+        </p>
+        <p><strong>It takes just 2 minutes. Here's why it matters:</strong></p>
+        <ul>
+          <li>✅ Improve features you care about</li>
+          <li>🐞 Fix issues you may have faced</li>
+          <li>🚀 Build a better experience for future users</li>
+        </ul>
+        <p style="text-align: center;">
+          <a class="button" href="{{FEEDBACK_LINK}}" target="_blank">
+            Share Your Feedback
+          </a>
+        </p>
+        <p>
+          Thank you for being part of AIRA's journey.<br />
+          We're listening. 🙌
+        </p>
+        <p>Warm regards,<br /><strong>AIRAHR TEAM</strong></p>
+      </div>
+      <div class="footer">
+        © 2025 AIRA. Built with passion, driven by your feedback.
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,575 @@
+{
+  "interview_analysis": {
+    "score": 75,
+    "recommendation": "The candidate demonstrated a good understanding of SAP UI5 development and related tools, with room for improvement in articulating experiences more clearly."
+  },
+  "verdict": {
+    "passed": true,
+    "icon": "✓",
+    "status": "PASSED INTERVIEW ROUND",
+    "subtitle": "The candidate shows potential and a solid foundation in SAP UI5 development.",
+    "strengths": {
+      "title": "✓ Key Strengths",
+      "items": [
+        "SAP UI5 Development",
+        "SAP BTP Experience",
+        "User Experience Design",
+        "REST Web Services",
+        "Technical Conceptualization"
+      ]
+    },
+    "areas": {
+      "title": "⚠ Areas for Development",
+      "items": ["Clarity in Communication", "Detailed Project Examples"]
+    },
+    "overall_assessment": "The candidate has a strong grasp of SAP UI5 development concepts and tools, showcasing expertise in areas such as SAP BTP, user experience design, and REST web services. However, there is a need to improve clarity in communication and provide more detailed project examples to enhance their overall profile."
+  },
+  "overview": {
+    "summary": "The candidate demonstrated proficiency in Communication (80%), Experience (75%), Confidence (70%), Domain Knowledge (75%), Resume Justification (70%), and Skills (80%).",
+    "metrics": [
+      {
+        "name": "Communication",
+        "score": 80,
+        "color": "#4CAF50"
+      },
+      {
+        "name": "Experience",
+        "score": 75,
+        "color": "#2196F3"
+      },
+      {
+        "name": "Confidence",
+        "score": 70,
+        "color": "#FFC107"
+      },
+      {
+        "name": "Domain Knowledge",
+        "score": 75,
+        "color": "#9C27B0"
+      },
+      {
+        "name": "Resume Justification",
+        "score": 70,
+        "color": "#FF5722"
+      },
+      {
+        "name": "Skills",
+        "score": 80,
+        "color": "#607D8B"
+      }
+    ],
+    "analysis": [
+      {
+        "name": "Communication",
+        "score": 80,
+        "color": "#4CAF50",
+        "description": "Clear and effective communication demonstrated throughout the interview."
+      },
+      {
+        "name": "Experience",
+        "score": 75,
+        "color": "#2196F3",
+        "description": "Solid experience in SAP UI5 development and related tools."
+      },
+      {
+        "name": "Confidence",
+        "score": 70,
+        "color": "#FFC107",
+        "description": "Confidence level is good, with potential for further growth."
+      },
+      {
+        "name": "Domain Knowledge",
+        "score": 75,
+        "color": "#9C27B0",
+        "description": "Sound understanding of SAP domain and related technologies."
+      },
+      {
+        "name": "Resume Justification",
+        "score": 70,
+        "color": "#FF5722",
+        "description": "Alignment of experience with resume details, with room for more detailed justifications."
+      },
+      {
+        "name": "Skills",
+        "score": 80,
+        "color": "#607D8B",
+        "description": "Strong technical skills demonstrated, especially in SAP UI5 development."
+      }
+    ]
+  },
+  "mandatory": {
+    "strengths": ["Java", "Angular", "React", "design patterns", "algorithms"],
+    "improvements": ["JavaScript"],
+    "disclaimer": "This report is generated automatically by AIRA (AI Recruitment Assistant) based on transcript, audio analysis, and resume parsing. It is intended for internal recruitment use only and should be reviewed by a human prior to final hiring decisions."
+  },
+  "questions": {
+    "header": {
+      "title": "AIRA - Detailed Interview Analysis Report",
+      "subtitle": "Comprehensive Question-by-Question Assessment",
+      "description": "This section contains detailed analysis of each interview question and candidate response"
+    },
+    "list": [
+      {
+        "id": 1,
+        "question": "To begin, could you provide a brief summary of your professional background and key qualifications?",
+        "answer": "The candidate provided a detailed overview of their experience in SAP API development at Accenture, showcasing projects like Kendra Post Corporation and Sobest. They demonstrated hands-on experience in developing custom applications and workflow applications.",
+        "analysis": "Strong demonstration of experience in SAP API development and project involvement.",
+        "overall_score": 80,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 85,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 85,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 80,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 85,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 80,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 80,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": [
+          "SAP API Development",
+          "Project Experience",
+          "Workflow Applications"
+        ],
+        "weaknesses": ["Clarity in Articulation"]
+      },
+      {
+        "id": 2,
+        "question": "Can you explain your experience with SAP UI5, including your role in designing and maintaining custom UI5 applications?",
+        "answer": "The candidate described their process of designing UI5 applications using the MVC pattern, highlighting the roles of model, view, and controller. They mentioned handling logic, designing pages, and testing applications.",
+        "analysis": "Good understanding of UI5 application design principles and MVC architecture.",
+        "overall_score": 75,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 75,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 75,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 70,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 75,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 70,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 75,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": ["UI5 Application Design", "MVC Architecture"],
+        "weaknesses": ["Detailed Examples"]
+      },
+      {
+        "id": 3,
+        "question": "How have you utilized SAP Business Application Studio (BAS), SAP Web IDE, SAP GUI, and GitHub in your development tasks?",
+        "answer": "The candidate explained their usage of BAS and Web IDE for developing custom applications, deployment processes, and version control with GitHub.",
+        "analysis": "Demonstrated practical application of development tools and version control.",
+        "overall_score": 70,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 70,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 70,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 65,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 70,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 70,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 70,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": ["Tool Utilization", "Version Control"],
+        "weaknesses": ["Confidence in Tool Usage"]
+      },
+      {
+        "id": 4,
+        "question": "Have you worked on SAP BTP Cockpit for service consumption and SAP Build Work Zone for tile creation and configuration in the Fiori Launchpad? Can you provide examples of your experience in these areas?",
+        "answer": "The candidate detailed their experience with SAP BTP, service consumption, and tile creation in Fiori Launchpad, showcasing the process of configuring services and deploying applications.",
+        "analysis": "Solid understanding of SAP BTP tools and Fiori Launchpad configuration.",
+        "overall_score": 75,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 75,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 75,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 70,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 75,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 70,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 75,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": ["SAP BTP Usage", "Fiori Launchpad Configuration"],
+        "weaknesses": ["Detailed Examples"]
+      },
+      {
+        "id": 5,
+        "question": "How have you contributed to modifications and improvements in SAP UI5/Fiori applications, such as KM webpages and URL webpages applications?",
+        "answer": "The candidate explained their role in creating applications to display documents, emphasizing the use of route names and language-specific content retrieval.",
+        "analysis": "Clear demonstration of application development for document display.",
+        "overall_score": 80,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 85,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 80,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 80,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 80,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 75,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 80,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": ["Application Development", "Content Display Logic"],
+        "weaknesses": ["N/A"]
+      },
+      {
+        "id": 6,
+        "question": "Can you describe a project where you created and configured tiles for applications within the Fiori Launchpad to ensure efficient user navigation and accessibility in multiple languages?",
+        "answer": "The candidate described the process of configuring tiles for multi-language support in Fiori Launchpad, focusing on language-specific tile changes.",
+        "analysis": "Good understanding of multi-language support and tile configuration.",
+        "overall_score": 75,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 75,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 75,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 70,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 75,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 70,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 75,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": [
+          "Multi-language Support",
+          "Fiori Launchpad Configuration"
+        ],
+        "weaknesses": ["Detailed Examples"]
+      },
+      {
+        "id": 7,
+        "question": "Have you worked on OData service creation and implementation in SAP UI5 projects? If so, can you provide examples of your experience in this area?",
+        "answer": "The candidate mentioned their experience in consuming OData services and making calls to the backend for data retrieval and display.",
+        "analysis": "Limited experience in OData service creation but demonstrated proficiency in service consumption.",
+        "overall_score": 65,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 65,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 65,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 60,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 65,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 60,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 65,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": ["OData Service Consumption", "Backend Data Handling"],
+        "weaknesses": ["Service Creation Experience"]
+      },
+      {
+        "id": 8,
+        "question": "How have you demonstrated your ability to turn business requirements into technical concepts and code in your previous SAP UI5 development projects?",
+        "answer": "The candidate explained their process of translating business requirements into technical designs and collaborating with backend developers for implementation.",
+        "analysis": "Good demonstration of translating business needs into technical solutions.",
+        "overall_score": 80,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 85,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 80,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 75,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 80,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 75,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 80,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": ["Requirement Translation", "Collaboration with Backend"],
+        "weaknesses": ["N/A"]
+      },
+      {
+        "id": 9,
+        "question": "Can you explain your experience with REST Web service and how you have utilized it in your software development projects?",
+        "answer": "The candidate described their process of consuming RESTful web services and integrating them into the frontend for data retrieval and updates.",
+        "analysis": "Clear understanding of RESTful web service consumption and integration.",
+        "overall_score": 75,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 75,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 75,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 70,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 75,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 70,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 75,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": ["RESTful Web Service Integration", "Data Retrieval"],
+        "weaknesses": ["Detailed Examples"]
+      },
+      {
+        "id": 10,
+        "question": "What experience do you have with user experience and design concepts in SAP UI5/Fiori development? Can you provide examples of how you have applied this knowledge in your projects?",
+        "answer": "The candidate mentioned following SAP Fiori guidelines for user experience design and applying them to custom applications.",
+        "analysis": "Understanding of UX design principles and adherence to SAP Fiori guidelines.",
+        "overall_score": 70,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 70,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 70,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 65,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 70,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 65,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 70,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": ["UX Design Principles", "Guideline Adherence"],
+        "weaknesses": ["N/A"]
+      },
+      {
+        "id": 11,
+        "question": "How have you adhered to guidelines and quality standards in your software development projects, specifically related to SAP UI5 development and enterprise applications architecture?",
+        "answer": "The candidate mentioned utilizing SAP guidelines and demo kits for control usage and architecture adherence.",
+        "analysis": "Awareness of SAP guidelines and quality standards in development.",
+        "overall_score": 70,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 70,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 70,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 65,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 70,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 65,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 70,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": ["Guideline Adherence", "Quality Standards"],
+        "weaknesses": ["N/A"]
+      }
+    ]
+  },
+  "footer": {
+    "text": "Generated by AIRA • AI Interview Assistant — 2025"
+  }
+}

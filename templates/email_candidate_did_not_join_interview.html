@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Interview Session Terminated</title>
+  <style>
+    .details-container {
+      margin: 15px 0;
+      padding: 15px;
+      background-color: #f8d7da;
+      border-radius: 8px;
+      border-left: 4px solid #dc3545;
+      text-align: center;
+    }
+    
+    .details-container h3 {
+      color: #721c24;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    .details-container p {
+      margin: 5px 0;
+      color: #721c24;
+    }
+    
+    .section {
+      margin: 10px 0;
+      padding: 12px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      border-left: 4px solid #6c757d;
+    }
+    
+    .section-title {
+      font-weight: bold;
+      color: #495057;
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+    
+    .detail {
+      margin: 3px 0;
+      color: #495057;
+    }
+    
+    .status-message {
+      margin: 15px 0;
+      padding: 12px;
+      background-color: #fff3cd;
+      border-radius: 8px;
+      border-left: 4px solid #ffc107;
+      text-align: center;
+      color: #856404;
+    }
+  </style>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.5;">
+    <p>Dear Team,</p>
+
+    <p>We wanted to inform you that the scheduled AI interview session has been <strong>terminated</strong> as the candidate was not present at the scheduled time.</p>
+
+    <div class="details-container">
+        <h3>🚫 Interview Session Terminated</h3>
+        <p style="margin-top: 8px; font-weight: bold; color: #dc3545;">
+            Status: Candidate Did Not Join
+        </p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">👤 Candidate Details</div>
+        <div class="detail"><strong>Name:</strong> {{CANDIDATE_NAME}}</div>
+        <div class="detail"><strong>Email:</strong> {{CANDIDATE_EMAIL}}</div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">💼 Job Details</div>
+        <div class="detail"><strong>Job Role: </strong>{{JOB_TITLE}}</div>
+        <div class="detail"><strong>Company Name: </strong>{{COMPANY_NAME}}</div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">📅 Scheduled Interview Time</div>
+        <div class="detail">{{INTERVIEW_DATETIME}}</div>
+        <div class="detail">{{INTERVIEW_TIMEZONE}}</div>
+    </div>
+
+    <div class="status-message">
+        <p><strong>Next Steps:</strong> If this was unexpected or you'd like to reschedule, please get in touch with the candidate directly or contact our support team for assistance.</p>
+    </div>
+
+    <p>This is an automated notification from AIRA – AI Interview Assistant.</p>
+
+    <p>Warm regards,<br>
+    AIRA Team</p>
+</body>
+</html>

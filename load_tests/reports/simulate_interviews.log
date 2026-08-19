@@ -1,0 +1,30 @@
+2026-07-24 13:19:31,767 [SIM] =================================================================
+2026-07-24 13:19:31,768 [SIM]   AIRA Interview Simulation
+2026-07-24 13:19:31,768 [SIM]   Interviews    : 1
+2026-07-24 13:19:31,768 [SIM]   Job type      : any
+2026-07-24 13:19:31,768 [SIM]   Audio duration: 300s
+2026-07-24 13:19:31,768 [SIM]   Ramp          : 0.0s
+2026-07-24 13:19:31,768 [SIM]   Connect URL   : https://hub.airahr.ai/connect
+2026-07-24 13:19:31,768 [SIM] =================================================================
+2026-07-24 13:19:31,769 [SIM] 
+  Interviews selected:
+2026-07-24 13:19:31,769 [SIM]   [01] iv=6171   Arvind Sharma             | Sales Executive (B2B SaaS) (non_technical)
+2026-07-24 13:19:31,769 [SIM] 
+  Resetting 1 interviews via Connect server…
+2026-07-24 13:19:31,892 [SIM] [iv=6171  Arvind Sharma       ] 🔑 Room created: AIRA-20260724-0749-4690 (116ms)
+2026-07-24 13:19:32,094 [SIM] 
+  ✅ 1/1 interviews ready | ❌ 0 failed
+2026-07-24 13:19:32,094 [SIM] 
+  ⚠️  Make sure aira_3_webrtc_orchestration.py is running!
+2026-07-24 13:19:32,094 [SIM]   Waiting 3s before launching candidates…
+
+2026-07-24 13:19:35,095 [SIM] [iv=6171  Arvind Sharma       ] 🔑 using locally-minted candidate token (.env LiveKit key)
+2026-07-24 13:19:35,107 [SIM] livekit_ffi::server:153:livekit_ffi::server - initializing ffi server v0.12.53
+2026-07-24 13:19:35,108 [SIM] livekit_ffi::cabi:50:livekit_ffi::cabi - initializing ffi server v0.12.53
+2026-07-24 13:19:35,110 [SIM] livekit_api::signal_client::signal_stream:103:livekit_api::signal_client::signal_stream - connecting to wss://livekit-134-195-138-72.sslip.io/rtc?sdk=python&os=Mac+OS&os_version=15.7.1&device_model=MacBookAir10%2C1&protocol=17&auto_subscribe=1&adaptive_stream=0&version=1.1.7
+2026-07-24 13:19:36,205 [SIM] [iv=6171  Arvind Sharma       ] ✅ Connected in 1110ms | room=24-0749-4690
+2026-07-24 13:19:36,236 [SIM] [iv=6171  Arvind Sharma       ] 🎤 Mic published in 30ms
+2026-07-24 13:19:36,236 [SIM] [iv=6171  Arvind Sharma       ] 🔊 Streaming 300s of audio…
+2026-07-24 13:19:59,422 [SIM] [iv=6171  Arvind Sharma       ] 👤 bot-AIRA-20260724-0749-4690 joined
+2026-07-24 13:19:59,425 [SIM] [iv=6171  Arvind Sharma       ] 🤖 Bot joined!
+2026-07-24 13:20:59,425 [SIM] [iv=6171  Arvind Sharma       ] ⚠️  Bot audio not heard within 60s

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>AIRA - HR Behavioral Interview Report</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: #fff; padding: 0; font-size: 12px; line-height: 1.4; }
+  .report { max-width: 100%; margin: 0; background: #fff; }
+
+  /* Header */
+  .header { background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; }
+  .header .title-text { color: #fff; font-size: 18px; font-weight: 700; line-height: 1.4; max-width: 65%; }
+  .header .title-text .role { font-weight: 800; color: #fff; }
+  .header .round-badge { background: rgba(255,255,255,0.2); color: #fff; padding: 4px 12px; border-radius: 12px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .logo-box { background: #fff; padding: 10px 16px; border-radius: 8px; height: 60px; display: flex; align-items: center; }
+  .logo-box img { height: 44px; display: block; }
+
+  /* Overall Score Banner */
+  .score-banner { padding: 18px 20px; display: flex; align-items: center; gap: 16px; background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%); }
+  .score-banner.low { background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); }
+  .score-banner.mid { background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%); }
+  .score-circle { width: 56px; height: 56px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .score-circle .number { font-size: 22px; font-weight: 800; }
+  .score-content { flex: 1; color: #fff; }
+  .score-label { font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+  .score-summary { font-size: 11px; opacity: 0.95; margin-top: 4px; line-height: 1.5; }
+
+  /* Stats Strip */
+  .stats-strip { display: grid; grid-template-columns: repeat(4, 1fr); background: #f8fafc; border-bottom: 1px solid #e5e7eb; }
+  .stat { padding: 12px 8px; text-align: center; border-right: 1px solid #e5e7eb; }
+  .stat:last-child { border-right: none; }
+  .stat .value { font-size: 18px; font-weight: 800; color: #5b21b6; }
+  .stat .label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.3px; color: #64748b; margin-top: 2px; }
+
+  /* Candidate Info */
+  .info-section { display: grid; grid-template-columns: 50% 50%; border-bottom: 1px solid #e5e7eb; }
+  .info-box { padding: 14px 18px; }
+  .info-box:first-child { border-right: 1px solid #e5e7eb; }
+  .info-box .title { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: #5b21b6; font-weight: 700; margin-bottom: 10px; }
+  .info-row { display: flex; gap: 6px; margin-bottom: 5px; }
+  .info-label { font-weight: 600; color: #374151; min-width: 80px; }
+  .info-value { color: #4b5563; }
+
+  /* Dimension Scorecard */
+  .section { padding: 16px 20px; border-bottom: 1px solid #e5e7eb; }
+  .section-title { font-size: 13px; font-weight: 700; color: #5b21b6; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+
+  .dim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .dim-card { background: #f8fafc; border-radius: 8px; padding: 12px 14px; border-left: 4px solid #7c3aed; }
+  .dim-card.high { border-left-color: #059669; }
+  .dim-card.mid { border-left-color: #d97706; }
+  .dim-card.low { border-left-color: #dc2626; }
+  .dim-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+  .dim-name { font-size: 11px; font-weight: 700; color: #1f2937; }
+  .dim-score { font-size: 16px; font-weight: 800; }
+  .dim-score.high { color: #059669; }
+  .dim-score.mid { color: #d97706; }
+  .dim-score.low { color: #dc2626; }
+  .dim-bar { height: 6px; background: #e5e7eb; border-radius: 3px; overflow: hidden; margin-bottom: 6px; }
+  .dim-bar-fill { height: 100%; border-radius: 3px; transition: width 0.3s; }
+  .dim-bar-fill.high { background: linear-gradient(90deg, #059669, #34d399); }
+  .dim-bar-fill.mid { background: linear-gradient(90deg, #d97706, #fbbf24); }
+  .dim-bar-fill.low { background: linear-gradient(90deg, #dc2626, #f87171); }
+  .dim-justification { font-size: 10px; color: #6b7280; line-height: 1.4; font-style: italic; }
+
+  /* Strengths & Concerns */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .highlight-box { border-radius: 8px; padding: 14px; }
+  .strength-box { background: #ecfdf5; border: 1px solid #a7f3d0; }
+  .concern-box { background: #fef2f2; border: 1px solid #fecaca; }
+  .highlight-title { font-size: 11px; font-weight: 700; margin-bottom: 8px; }
+  .strength-box .highlight-title { color: #059669; }
+  .concern-box .highlight-title { color: #dc2626; }
+  .highlight-list { list-style: none; padding: 0; }
+  .highlight-list li { font-size: 11px; color: #374151; padding: 4px 0; padding-left: 16px; position: relative; line-height: 1.4; }
+  .highlight-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; }
+  .strength-box .highlight-list li::before { background: #059669; }
+  .concern-box .highlight-list li::before { background: #dc2626; }
+
+  /* Transcript */
+  .transcript-entry { margin-bottom: 12px; padding: 10px 14px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #7c3aed; }
+  .transcript-entry.exploration { border-left-color: #f59e0b; background: #fffbeb; }
+  .transcript-entry.followup { border-left-color: #6b7280; }
+  .transcript-topic { font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px; color: #7c3aed; font-weight: 700; margin-bottom: 4px; }
+  .transcript-entry.exploration .transcript-topic { color: #d97706; }
+  .transcript-q { font-size: 11px; color: #1f2937; font-weight: 600; margin-bottom: 4px; }
+  .transcript-a { font-size: 11px; color: #4b5563; line-height: 1.5; }
+  .transcript-speaker { font-size: 10px; font-weight: 700; color: #5b21b6; margin-right: 4px; }
+
+  /* Footer */
+  .footer { padding: 12px 20px; background: #f1f5f9; text-align: center; font-size: 9px; color: #94a3b8; }
+
+  @media print {
+    body { font-size: 11px; }
+    .report { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="report">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="title-text">
+      HR Behavioral Interview Report<br>
+      <span class="role">{{ candidate_name }}</span>
+      {% if job_title %} — {{ job_title }}{% endif %}
+      <br>
+      <span class="round-badge">Behavioral Round</span>
+    </div>
+    {% if logo_base64 %}
+    <div class="logo-box">
+      <img src="data:image/png;base64,{{ logo_base64 }}" alt="Logo" />
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- OVERALL SCORE BANNER -->
+  {% set score_class = 'low' if overall_score < 2.5 else ('mid' if overall_score < 3.5 else '') %}
+  <div class="score-banner {{ score_class }}">
+    <div class="score-circle">
+      <span class="number" style="color: {% if overall_score >= 3.5 %}#059669{% elif overall_score >= 2.5 %}#d97706{% else %}#dc2626{% endif %};">{{ overall_score }}/5</span>
+    </div>
+    <div class="score-content">
+      <div class="score-label">
+        {% if overall_score >= 3.5 %}Strong Candidate{% elif overall_score >= 2.5 %}Average Candidate{% else %}Below Expectations{% endif %}
+      </div>
+      <div class="score-summary">{{ summary }}</div>
+    </div>
+  </div>
+
+  <!-- STATS STRIP -->
+  <div class="stats-strip">
+    <div class="stat">
+      <div class="value">{{ topics_covered }}/{{ topics_total }}</div>
+      <div class="label">Topics Covered</div>
+    </div>
+    <div class="stat">
+      <div class="value">{{ total_responses }}</div>
+      <div class="label">Responses</div>
+    </div>
+    <div class="stat">
+      <div class="value">{{ explorations }}</div>
+      <div class="label">Deep Dives</div>
+    </div>
+    <div class="stat">
+      <div class="value">{{ duration_minutes }}m</div>
+      <div class="label">Duration</div>
+    </div>
+  </div>
+
+  <!-- CANDIDATE & INTERVIEW INFO -->
+  <div class="info-section">
+    <div class="info-box">
+      <div class="title">Candidate Details</div>
+      <div class="info-row"><span class="info-label">Name:</span><span class="info-value">{{ candidate_name }}</span></div>
+      {% if candidate_email %}<div class="info-row"><span class="info-label">Email:</span><span class="info-value">{{ candidate_email }}</span></div>{% endif %}
+      {% if job_title %}<div class="info-row"><span class="info-label">Role:</span><span class="info-value">{{ job_title }}</span></div>{% endif %}
+    </div>
+    <div class="info-box">
+      <div class="title">Interview Details</div>
+      <div class="info-row"><span class="info-label">Round:</span><span class="info-value">HR Behavioral</span></div>
+      <div class="info-row"><span class="info-label">Date:</span><span class="info-value">{{ interview_date }}</span></div>
+      <div class="info-row"><span class="info-label">Status:</span><span class="info-value">{{ completion_status }}</span></div>
+      <div class="info-row"><span class="info-label">Phase:</span><span class="info-value">{% if phase == 2 %}Full (Coverage + Exploration){% else %}Coverage Only{% endif %}</span></div>
+    </div>
+  </div>
+
+  <!-- DIMENSION SCORECARD -->
+  <div class="section">
+    <div class="section-title">📊 Dimension Scorecard</div>
+    <div class="dim-grid">
+      {% for dim in dimension_scores %}
+      {% set dc = 'high' if dim.score >= 3.5 else ('mid' if dim.score >= 2.5 else 'low') %}
+      <div class="dim-card {{ dc }}">
+        <div class="dim-header">
+          <span class="dim-name">{{ dim.dimension_name }}</span>
+          <span class="dim-score {{ dc }}">{{ dim.score }}/5</span>
+        </div>
+        <div class="dim-bar"><div class="dim-bar-fill {{ dc }}" style="width: {{ dim.score * 20 }}%"></div></div>
+        <div class="dim-justification">{{ dim.justification }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- STRENGTHS & CONCERNS -->
+  <div class="section">
+    <div class="two-col">
+      <div class="highlight-box strength-box">
+        <div class="highlight-title">✅ Key Strengths</div>
+        <ul class="highlight-list">
+          {% for s in strengths %}
+          <li>{{ s }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="highlight-box concern-box">
+        <div class="highlight-title">⚠️ Areas of Concern</div>
+        <ul class="highlight-list">
+          {% for c in concerns %}
+          <li>{{ c }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FULL TRANSCRIPT -->
+  <div class="section">
+    <div class="section-title">💬 Interview Transcript</div>
+    {% for entry in transcript %}
+    <div class="transcript-entry {{ entry.type }}">
+      <div class="transcript-topic">
+        {% if entry.type == 'exploration' %}🔍 Phase 2 Exploration — {{ entry.topic }}
+        {% elif entry.type == 'followup' %}↪ Follow-up — {{ entry.topic }}
+        {% else %}{{ entry.topic }}{% endif %}
+      </div>
+      <div class="transcript-q"><span class="transcript-speaker">🤖 Interviewer:</span> {{ entry.question }}</div>
+      <div class="transcript-a"><span class="transcript-speaker">👤 Candidate:</span> {{ entry.answer }}</div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated by AIRA HR Engine • {{ interview_date }}
+  </div>
+
+</div>
+</body>
+</html>

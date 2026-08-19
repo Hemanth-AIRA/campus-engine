@@ -1,0 +1,9 @@
+{
+  "name": "data-analyst",
+  "label": "Data Analyst",
+  "role_level": "mid",
+  "base_difficulty": "medium",
+  "skills": ["SQL", "Statistics", "Data Visualization", "Excel", "Python", "Business Intelligence", "Problem-Solving"],
+  "conceptual_ratio": 0.5,
+  "resume_ratio": 0.3
+}

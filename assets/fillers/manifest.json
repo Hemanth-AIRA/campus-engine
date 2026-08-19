@@ -1,0 +1,195 @@
+{
+  "sample_rate": 24000,
+  "voice_id": "b7d50908-b17c-442d-ad8d-810c63997ed9",
+  "clips": [
+    {
+      "id": "opening_alright_let_s_get_started",
+      "phase": "opening",
+      "text": "Alright, let's get started.",
+      "path": "opening/alright_let_s_get_started.pcm",
+      "duration_ms": 1480
+    },
+    {
+      "id": "opening_okay_let_me_pull_up_the_first_question_f",
+      "phase": "opening",
+      "text": "Okay, let me pull up the first question for you.",
+      "path": "opening/okay_let_me_pull_up_the_first_question_f.pcm",
+      "duration_ms": 3059
+    },
+    {
+      "id": "opening_great_let_s_dive_in",
+      "phase": "opening",
+      "text": "Great \u2014 let's dive in.",
+      "path": "opening/great_let_s_dive_in.pcm",
+      "duration_ms": 1944
+    },
+    {
+      "id": "opening_perfect_let_s_begin",
+      "phase": "opening",
+      "text": "Perfect, let's begin.",
+      "path": "opening/perfect_let_s_begin.pcm",
+      "duration_ms": 1201
+    },
+    {
+      "id": "mid_let_me_think_of_a_good_one_for_you",
+      "phase": "mid",
+      "text": "Let me think of a good one for you.",
+      "path": "mid/let_me_think_of_a_good_one_for_you.pcm",
+      "duration_ms": 1573
+    },
+    {
+      "id": "mid_okay_give_me_just_a_second_here",
+      "phase": "mid",
+      "text": "Okay, give me just a second here.",
+      "path": "mid/okay_give_me_just_a_second_here.pcm",
+      "duration_ms": 1573
+    },
+    {
+      "id": "mid_alright_let_me_line_up_the_next_question",
+      "phase": "mid",
+      "text": "Alright, let me line up the next question.",
+      "path": "mid/alright_let_me_line_up_the_next_question.pcm",
+      "duration_ms": 2037
+    },
+    {
+      "id": "mid_mm_let_me_put_together_the_next_one",
+      "phase": "mid",
+      "text": "Mm, let me put together the next one.",
+      "path": "mid/mm_let_me_put_together_the_next_one.pcm",
+      "duration_ms": 2594
+    },
+    {
+      "id": "mid_good_let_me_think_about_where_to_take_th",
+      "phase": "mid",
+      "text": "Good \u2014 let me think about where to take this next.",
+      "path": "mid/good_let_me_think_about_where_to_take_th.pcm",
+      "duration_ms": 2641
+    },
+    {
+      "id": "mid_okay_one_moment_while_i_get_the_next_que",
+      "phase": "mid",
+      "text": "Okay, one moment while I get the next question ready.",
+      "path": "mid/okay_one_moment_while_i_get_the_next_que.pcm",
+      "duration_ms": 2780
+    },
+    {
+      "id": "closing_alright_we_re_almost_there_let_me_get_th",
+      "phase": "closing",
+      "text": "Alright, we're almost there \u2014 let me get the last one.",
+      "path": "closing/alright_we_re_almost_there_let_me_get_th.pcm",
+      "duration_ms": 2408
+    },
+    {
+      "id": "closing_okay_just_one_more_coming_up",
+      "phase": "closing",
+      "text": "Okay, just one more coming up.",
+      "path": "closing/okay_just_one_more_coming_up.pcm",
+      "duration_ms": 1805
+    },
+    {
+      "id": "closing_great_let_me_wrap_up_with_a_final_questi",
+      "phase": "closing",
+      "text": "Great, let me wrap up with a final question.",
+      "path": "closing/great_let_me_wrap_up_with_a_final_questi.pcm",
+      "duration_ms": 2130
+    },
+    {
+      "id": "neutral_okay_one_moment",
+      "phase": "neutral",
+      "text": "Okay, one moment.",
+      "path": "neutral/okay_one_moment.pcm",
+      "duration_ms": 1387
+    },
+    {
+      "id": "neutral_let_me_think_about_that_for_a_second",
+      "phase": "neutral",
+      "text": "Let me think about that for a second.",
+      "path": "neutral/let_me_think_about_that_for_a_second.pcm",
+      "duration_ms": 1619
+    },
+    {
+      "id": "neutral_alright_just_a_moment",
+      "phase": "neutral",
+      "text": "Alright, just a moment.",
+      "path": "neutral/alright_just_a_moment.pcm",
+      "duration_ms": 1433
+    },
+    {
+      "id": "neutral_mm_give_me_a_second_here",
+      "phase": "neutral",
+      "text": "Mm, give me a second here.",
+      "path": "neutral/mm_give_me_a_second_here.pcm",
+      "duration_ms": 2548
+    },
+    {
+      "id": "wait_just_a_moment_please_bear_with_me",
+      "phase": "wait",
+      "text": "Just a moment, please \u2014 bear with me.",
+      "path": "wait/just_a_moment_please_bear_with_me.pcm",
+      "duration_ms": 2966
+    },
+    {
+      "id": "wait_hang_on_one_second_almost_ready",
+      "phase": "wait",
+      "text": "Hang on one second, almost ready.",
+      "path": "wait/hang_on_one_second_almost_ready.pcm",
+      "duration_ms": 2269
+    },
+    {
+      "id": "wait_thanks_for_your_patience_just_a_moment_m",
+      "phase": "wait",
+      "text": "Thanks for your patience, just a moment more.",
+      "path": "wait/thanks_for_your_patience_just_a_moment_m.pcm",
+      "duration_ms": 1898
+    },
+    {
+      "id": "wait_give_me_one_more_second_here",
+      "phase": "wait",
+      "text": "Give me one more second here.",
+      "path": "wait/give_me_one_more_second_here.pcm",
+      "duration_ms": 1805
+    },
+    {
+      "id": "wait_bear_with_me_i_ll_be_right_with_you",
+      "phase": "wait",
+      "text": "Bear with me \u2014 I'll be right with you.",
+      "path": "wait/bear_with_me_i_ll_be_right_with_you.pcm",
+      "duration_ms": 1898
+    },
+    {
+      "id": "waiting_thanks_for_joining_we_re_just_getting_th",
+      "phase": "waiting",
+      "text": "Thanks for joining \u2014 we're just getting things ready for you. Please stay with us, we'll begin in a moment.",
+      "path": "waiting/thanks_for_joining_we_re_just_getting_th.pcm",
+      "duration_ms": 4684
+    },
+    {
+      "id": "waiting_hang_tight_we_re_setting_up_your_intervi",
+      "phase": "waiting",
+      "text": "Hang tight, we're setting up your interview now. It'll just be a moment \u2014 thanks for your patience.",
+      "path": "waiting/hang_tight_we_re_setting_up_your_intervi.pcm",
+      "duration_ms": 5288
+    },
+    {
+      "id": "waiting_almost_ready_please_stay_on_the_line_and",
+      "phase": "waiting",
+      "text": "Almost ready \u2014 please stay on the line, and do make sure your camera and microphone are on. We'll start shortly.",
+      "path": "waiting/almost_ready_please_stay_on_the_line_and.pcm",
+      "duration_ms": 5566
+    },
+    {
+      "id": "waiting_thanks_for_waiting_we_re_preparing_your_",
+      "phase": "waiting",
+      "text": "Thanks for waiting. We're preparing your session and will get started very soon.",
+      "path": "waiting/thanks_for_waiting_we_re_preparing_your_.pcm",
+      "duration_ms": 3523
+    },
+    {
+      "id": "waiting_just_a_little_longer_we_re_finalizing_a_",
+      "phase": "waiting",
+      "text": "Just a little longer \u2014 we're finalizing a few things and will begin your interview shortly. Thanks for bearing with us.",
+      "path": "waiting/just_a_little_longer_we_re_finalizing_a_.pcm",
+      "duration_ms": 6356
+    }
+  ]
+}

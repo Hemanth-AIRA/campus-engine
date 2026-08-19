@@ -1,0 +1,171 @@
+{
+  "header": {
+    "title": "AIRA",
+    "subtitle": "Your AI Hiring Agent<br>Autonomous Interview & Resume Analysis",
+    "logo_url": "https://via.placeholder.com/80x80.png?text=AIRA"
+  },
+  "candidate": {
+    "name": "Kanugu Laxman",
+    "email": "laxman.kanugu@airahr.ai",
+    "phone": "+919676333434",
+    "photo_url": "https://via.placeholder.com/80"
+  },
+  "client": {
+    "company": "Tata Consultancy Services",
+    "position": "Senior Software Engineer"
+  },
+  "interview": {
+    "date": "2025-08-09",
+    "time": "10:00 AM",
+    "timezone": "Asia/Kolkata",
+    "duration": "1h 20m",
+    "questions_count": 12,
+    "mode": "Zoom"
+  },
+  "resume_analysis": {
+    "score": 85,
+    "recommendation": "Recommendation: Resume aligns well. Suggest clarifying latest tech stack and measurable outcomes."
+  },
+  "interview_analysis": {
+    "score": 78,
+    "recommendation": "Recommendation: Good technical depth; improve concise explanation of trade-offs and measurable impacts."
+  },
+  "verdict": {
+    "passed": true,
+    "icon": "✓",
+    "status": "PASSED INTERVIEW ROUND",
+    "subtitle": "Candidate cleared this round - proceed to next stage",
+    "strengths": {
+      "title": "✓ Key Strengths",
+      "items": [
+        "<strong>Technical Competency:</strong> Demonstrates solid understanding of core concepts with strong problem-solving approach",
+        "<strong>Communication Skills:</strong> Clear articulation of ideas and effective explanation of technical solutions",
+        "<strong>Experience Alignment:</strong> Strong background matches role requirements with relevant project experience",
+        "<strong>Confidence Level:</strong> High confidence displayed throughout the interview process"
+      ]
+    },
+    "areas": {
+      "title": "⚠ Areas for Development",
+      "items": [
+        "Advanced technical concepts may require mentoring and hands-on experience",
+        "Domain-specific knowledge could benefit from structured learning path",
+        "Complex problem-solving scenarios need more exposure and practice"
+      ]
+    },
+    "overall_assessment": "The candidate presents a strong profile with solid foundational skills and high potential for growth. They demonstrate readiness for the role with appropriate onboarding and mentorship support. The positive recommendation is based on their technical aptitude, communication abilities, and cultural fit indicators."
+  },
+  "overview": {
+    "summary": "The candidate demonstrated <strong>strong overall performance</strong> with an average score of <strong>82%</strong> across all evaluation categories. Key highlights include <strong>excellent technical skills (85%)</strong> and <strong>solid experience (84%)</strong> with relevant project background. <strong>Domain knowledge (84%)</strong> shows good technical foundation, while <strong>communication (81%)</strong> and <strong>resume justification (81%)</strong> indicate clear articulation and well-supported claims. The candidate showed <strong>good confidence (79%)</strong> throughout the interview, with minor hesitation on complex topics. Overall, this represents a well-rounded candidate with strong technical capabilities.",
+    "metrics": [
+      { "name": "Communication", "score": 81, "color": "#76c7c0" },
+      { "name": "Experience", "score": 84, "color": "#67b26f" },
+      { "name": "Confidence", "score": 79, "color": "#f5b567" },
+      { "name": "Domain Knowledge", "score": 84, "color": "#86b7ff" },
+      { "name": "Resume Justification", "score": 81, "color": "#c99bff" },
+      { "name": "Skills", "score": 85, "color": "#ff9999" }
+    ],
+    "analysis": [
+      {
+        "name": "Communication",
+        "score": 81,
+        "color": "#76c7c0",
+        "description": "Clear articulation with good technical vocabulary. Could improve conciseness."
+      },
+      {
+        "name": "Experience",
+        "score": 84,
+        "color": "#67b26f",
+        "description": "Strong relevant experience with practical problem-solving approach."
+      },
+      {
+        "name": "Confidence",
+        "score": 79,
+        "color": "#f5b567",
+        "description": "Good self-assurance, occasionally hesitant on complex topics."
+      },
+      {
+        "name": "Domain Knowledge",
+        "score": 84,
+        "color": "#86b7ff",
+        "description": "Solid technical foundation with modern development practices."
+      },
+      {
+        "name": "Resume Justification",
+        "score": 81,
+        "color": "#c99bff",
+        "description": "Claims well-supported by examples, minor gaps in recent projects."
+      },
+      {
+        "name": "Skills",
+        "score": 85,
+        "color": "#ff9999",
+        "description": "Strong technical skills with good understanding of best practices."
+      }
+    ]
+  },
+  "mandatory": {
+    "strengths": [
+      "Strong problem solving",
+      "Good collaboration",
+      "Relevant domain experience"
+    ],
+    "improvements": [
+      "Be more concise",
+      "More metrics in answers",
+      "Advanced system-design depth"
+    ],
+    "disclaimer": "This report is generated automatically by AIRA (AI Recruitment Assistant) based on transcript, audio analysis, and resume parsing. It is intended for internal recruitment use only and should be reviewed by a human prior to final hiring decisions."
+  },
+  "questions": {
+    "header": {
+      "title": "AIRA - Detailed Interview Analysis Report",
+      "subtitle": "Comprehensive Question-by-Question Assessment",
+      "description": "This section contains detailed analysis of each interview question and candidate response"
+    },
+    "list": [
+      {
+        "id": 1,
+        "question": "Q1: Explain your approach to diagnosing and resolving a production database performance issue that was causing timeouts for users.",
+        "answer": "In a recent incident, we had intermittent 500 errors on user-facing pages. My approach began with capturing metrics and traces (APM), identifying the time window, and isolating the slow endpoints. I examined slow query logs and discovered a few expensive joins. I created a reproducible load test, added appropriate indexes after analyzing explain plans, and introduced query-level caching for non-critical reads. In parallel, I increased replica read capacity and adjusted connection pool sizing. After deploying changes to staging and validating with synthetic load tests, we rolled out to production with dark traffic first. Post-deployment we saw a 70% reduction in average response time and no more timeouts.",
+        "analysis": "Structured incident handling with monitoring, testing, and staged rollout. Clear trade-offs and measurable impact described (reduction in response time). Could mention rollback plan explicitly.",
+        "overall_score": 86,
+        "metrics": [
+          { "name": "Communication", "score": 86, "color": "#76c7c0" },
+          { "name": "Experience", "score": 92, "color": "#67b26f" },
+          { "name": "Confidence", "score": 80, "color": "#f5b567" },
+          { "name": "Domain Knowledge", "score": 88, "color": "#86b7ff" },
+          { "name": "Resume Justification", "score": 84, "color": "#c99bff" },
+          { "name": "Skills", "score": 89, "color": "#ff9999" }
+        ],
+        "strengths": [
+          "Structured incident response",
+          "Measurable post-deployment impact"
+        ],
+        "weaknesses": ["No explicit rollback details"]
+      },
+      {
+        "id": 2,
+        "question": "Q2: Describe the design of a scalable notification system that supports millions of users with varying delivery guarantees (immediate, delayed, batched).",
+        "answer": "I would build a microservice-based notification pipeline. Producers publish events to a durable message bus (Kafka) partitioned by user or topic. An ingestion layer validates and normalizes payloads, then writes to a store for delayed/batched scheduling (e.g., Redis sorted sets or a time-series store). For immediate deliveries, a set of stateless workers consume from the appropriate topic and perform fan-out asynchronously, using efficient connection pools for external providers. For scheduled or batched deliveries, a scheduler reads due sets and enqueues batched jobs. Backpressure is handled via partitioned consumers and rate-limiting queues. Monitoring, metrics, and dead-letter queues are crucial. Multi-region support uses geo-aware routing and eventual consistency models.",
+        "analysis": "Shows good system design thinking: partitions, backpressure, multi-region concerns. Could include specific SLA targets and how batching affects latency.",
+        "overall_score": 79,
+        "metrics": [
+          { "name": "Communication", "score": 78, "color": "#76c7c0" },
+          { "name": "Experience", "score": 88, "color": "#67b26f" },
+          { "name": "Confidence", "score": 74, "color": "#f5b567" },
+          { "name": "Domain Knowledge", "score": 90, "color": "#86b7ff" },
+          { "name": "Resume Justification", "score": 80, "color": "#c99bff" },
+          { "name": "Skills", "score": 85, "color": "#ff9999" }
+        ],
+        "strengths": [
+          "Good partitioning and backpressure strategy",
+          "Multi-region considerations"
+        ],
+        "weaknesses": ["Missing concrete SLA discussion"]
+      }
+    ]
+  },
+  "footer": {
+    "text": "Generated by AIRA • AI Interview Assistant — 2025"
+  }
+}

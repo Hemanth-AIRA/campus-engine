@@ -1,0 +1,279 @@
+{
+  "header": {
+    "title": "AIRA",
+    "subtitle": "Your AI Hiring Agent<br>Autonomous Interview & Resume Analysis",
+    "logo_url": "https://via.placeholder.com/80x80.png?text=AIRA"
+  },
+  "candidate": {
+    "name": "Alex Morgan",
+    "email": "alex.morgan@example.com",
+    "phone": "+1-555-0123",
+    "photo_url": "https://via.placeholder.com/80"
+  },
+  "client": {
+    "company": "Microsoft",
+    "position": "Senior Full Stack Developer"
+  },
+  "interview": {
+    "date": "2025-08-10",
+    "time": "2:30 PM",
+    "timezone": "America/New_York",
+    "duration": "45m",
+    "questions_count": 10,
+    "mode": "Zoom"
+  },
+  "resume_analysis": {
+    "score": 72,
+    "recommendation": "Recommendation: Resume shows potential but lacks depth in required technologies. Suggest strengthening recent project descriptions and adding measurable achievements."
+  },
+  "interview_analysis": {
+    "score": 58,
+    "recommendation": "Recommendation: Technical knowledge gaps identified in core areas. Candidate would benefit from additional training before being considered for this senior role."
+  },
+  "verdict": {
+    "passed": false,
+    "icon": "✗",
+    "status": "DID NOT PASS INTERVIEW ROUND",
+    "subtitle": "Candidate did not meet the minimum requirements - not recommended for next stage",
+    "strengths": {
+      "title": "✓ Positive Aspects",
+      "items": [
+        "<strong>Enthusiasm:</strong> Showed genuine interest in the role and company culture",
+        "<strong>Basic Understanding:</strong> Demonstrated foundational knowledge in some areas",
+        "<strong>Communication Willingness:</strong> Attempted to explain concepts clearly despite knowledge gaps",
+        "<strong>Learning Attitude:</strong> Expressed willingness to learn and improve technical skills"
+      ]
+    },
+    "areas": {
+      "title": "✗ Critical Gaps",
+      "items": [
+        "Insufficient knowledge of advanced data structures and algorithms required for senior role",
+        "Limited understanding of system design principles and scalability concepts",
+        "Weak grasp of modern development practices and architectural patterns",
+        "Unable to demonstrate problem-solving approach for complex technical scenarios",
+        "Lack of experience with required technology stack and frameworks"
+      ]
+    },
+    "overall_assessment": "The candidate shows enthusiasm and basic technical understanding but lacks the depth of knowledge and experience required for a senior-level position. Significant skill development would be needed before being suitable for this role. Consider for junior positions with appropriate mentoring structure."
+  },
+  "overview": {
+    "summary": "The candidate demonstrated <strong>below-average performance</strong> with an overall score of <strong>61%</strong> across evaluation categories. While showing <strong>adequate communication skills (68%)</strong>, there were significant gaps in <strong>technical skills (52%)</strong> and <strong>domain knowledge (55%)</strong>. The candidate struggled with <strong>confidence (58%)</strong> when discussing complex topics and had difficulty with <strong>resume justification (63%)</strong>. <strong>Experience application (62%)</strong> was limited, indicating insufficient hands-on exposure to senior-level responsibilities. Overall, this represents a candidate who needs substantial development before being ready for this role.",
+    "metrics": [
+      { "name": "Communication", "score": 68, "color": "#f5b567" },
+      { "name": "Experience", "score": 62, "color": "#ff9999" },
+      { "name": "Confidence", "score": 58, "color": "#ff9999" },
+      { "name": "Domain Knowledge", "score": 55, "color": "#ff9999" },
+      { "name": "Resume Justification", "score": 63, "color": "#f5b567" },
+      { "name": "Skills", "score": 52, "color": "#ff9999" }
+    ],
+    "analysis": [
+      {
+        "name": "Communication",
+        "score": 68,
+        "color": "#f5b567",
+        "description": "Basic communication skills present but struggled to explain technical concepts clearly."
+      },
+      {
+        "name": "Experience",
+        "score": 62,
+        "color": "#ff9999",
+        "description": "Limited relevant experience for senior role requirements."
+      },
+      {
+        "name": "Confidence",
+        "score": 58,
+        "color": "#ff9999",
+        "description": "Hesitant responses and uncertainty when discussing technical topics."
+      },
+      {
+        "name": "Domain Knowledge",
+        "score": 55,
+        "color": "#ff9999",
+        "description": "Gaps in fundamental concepts required for the position."
+      },
+      {
+        "name": "Resume Justification",
+        "score": 63,
+        "color": "#f5b567",
+        "description": "Some claims supported but several inconsistencies noted."
+      },
+      {
+        "name": "Skills",
+        "score": 52,
+        "color": "#ff9999",
+        "description": "Technical skills below expectations for senior-level position."
+      }
+    ]
+  },
+  "mandatory": {
+    "strengths": [
+      "Shows enthusiasm",
+      "Willing to learn",
+      "Basic communication skills"
+    ],
+    "improvements": [
+      "Strengthen technical fundamentals",
+      "Gain more hands-on experience",
+      "Improve problem-solving approach",
+      "Study system design principles",
+      "Practice coding challenges"
+    ],
+    "disclaimer": "This report is generated automatically by AIRA (AI Recruitment Assistant) based on transcript, audio analysis, and resume parsing. It is intended for internal recruitment use only and should be reviewed by a human prior to final hiring decisions."
+  },
+  "questions": {
+    "header": {
+      "title": "AIRA - Detailed Interview Analysis Report",
+      "subtitle": "Comprehensive Q&A Assessment with AI-Generated Insights",
+      "description": "Performance analysis across technical competencies and behavioral indicators"
+    },
+    "data": [
+      {
+        "id": 1,
+        "question": "Can you explain the difference between SQL and NoSQL databases and when you would use each?",
+        "answer": "SQL databases are like traditional databases with tables and rows, and NoSQL are more modern. I think SQL is better for structured data and NoSQL for unstructured data. I've mostly worked with MySQL which is SQL-based. NoSQL databases like MongoDB are good for web applications I think.",
+        "metrics": [
+          { "name": "Technical Accuracy", "score": 45, "color": "#ff9999" },
+          { "name": "Depth of Knowledge", "score": 40, "color": "#ff9999" },
+          { "name": "Real-world Application", "score": 35, "color": "#ff9999" },
+          { "name": "Communication Clarity", "score": 65, "color": "#f5b567" }
+        ],
+        "evaluation": {
+          "rating": "Below Expectations",
+          "summary": "Basic understanding shown but lacks depth in explaining key differences, use cases, and trade-offs between SQL and NoSQL databases.",
+          "strengths": [
+            "Shows basic awareness of both types",
+            "Mentions practical experience with MySQL"
+          ],
+          "improvements": [
+            "Explain ACID properties vs eventual consistency",
+            "Discuss specific use cases and trade-offs",
+            "Demonstrate understanding of scalability implications"
+          ]
+        }
+      },
+      {
+        "id": 2,
+        "question": "How would you design a URL shortening service like bit.ly?",
+        "answer": "I would create a web application that takes long URLs and makes them shorter. Maybe use a database to store the mapping between short and long URLs. I'm not sure about the specific architecture but I think you need a web server and database. The short URL could be generated randomly.",
+        "metrics": [
+          { "name": "System Design", "score": 30, "color": "#ff9999" },
+          {
+            "name": "Scalability Considerations",
+            "score": 25,
+            "color": "#ff9999"
+          },
+          { "name": "Technical Components", "score": 40, "color": "#ff9999" },
+          { "name": "Problem Solving", "score": 35, "color": "#ff9999" }
+        ],
+        "evaluation": {
+          "rating": "Inadequate",
+          "summary": "Very basic response lacking system design fundamentals. Missing critical components like load balancing, caching, and scalability considerations.",
+          "strengths": [
+            "Identifies basic need for URL mapping",
+            "Mentions database requirement"
+          ],
+          "improvements": [
+            "Discuss encoding algorithms (base62)",
+            "Consider caching strategies",
+            "Address scalability and load balancing",
+            "Think about analytics and monitoring"
+          ]
+        }
+      },
+      {
+        "id": 3,
+        "question": "Explain how you would optimize a slow-performing database query.",
+        "answer": "I would look at the query and see if it's taking too long. Maybe add some indexes to make it faster. I'm not very experienced with query optimization but I know indexes help. I would also check if there are too many joins in the query.",
+        "metrics": [
+          { "name": "Problem Diagnosis", "score": 50, "color": "#ff9999" },
+          {
+            "name": "Optimization Techniques",
+            "score": 45,
+            "color": "#ff9999"
+          },
+          { "name": "Practical Experience", "score": 30, "color": "#ff9999" },
+          { "name": "Methodical Approach", "score": 40, "color": "#ff9999" }
+        ],
+        "evaluation": {
+          "rating": "Below Expectations",
+          "summary": "Limited knowledge of database optimization techniques. Lacks systematic approach to performance troubleshooting.",
+          "strengths": [
+            "Mentions indexing as optimization technique",
+            "Recognizes joins can impact performance"
+          ],
+          "improvements": [
+            "Learn query execution plans",
+            "Understand different index types",
+            "Practice with performance monitoring tools",
+            "Study query optimization patterns"
+          ]
+        }
+      },
+      {
+        "id": 4,
+        "question": "What's your experience with version control and Git workflows?",
+        "answer": "I use Git for my projects. I know basic commands like git add, git commit, and git push. I usually work on the main branch and sometimes create branches for features. I've used GitHub for some personal projects but haven't worked much with teams on Git.",
+        "metrics": [
+          { "name": "Git Knowledge", "score": 60, "color": "#f5b567" },
+          { "name": "Workflow Understanding", "score": 45, "color": "#ff9999" },
+          {
+            "name": "Collaboration Experience",
+            "score": 35,
+            "color": "#ff9999"
+          },
+          { "name": "Best Practices", "score": 40, "color": "#ff9999" }
+        ],
+        "evaluation": {
+          "rating": "Basic",
+          "summary": "Basic Git knowledge present but lacks understanding of professional workflows and team collaboration practices.",
+          "strengths": [
+            "Knows fundamental Git commands",
+            "Has practical experience with repositories"
+          ],
+          "improvements": [
+            "Learn GitFlow or similar workflows",
+            "Practice with pull requests and code reviews",
+            "Understand merge strategies",
+            "Study branching best practices"
+          ]
+        }
+      },
+      {
+        "id": 5,
+        "question": "How do you handle errors and exceptions in your code?",
+        "answer": "I try to use try-catch blocks when I remember to. Sometimes I just let the program crash if there's an error because I'm not sure how to handle it properly. I know errors are bad but I don't have a systematic approach to dealing with them.",
+        "metrics": [
+          {
+            "name": "Error Handling Strategy",
+            "score": 35,
+            "color": "#ff9999"
+          },
+          {
+            "name": "Best Practices Knowledge",
+            "score": 30,
+            "color": "#ff9999"
+          },
+          { "name": "Debugging Skills", "score": 40, "color": "#ff9999" },
+          { "name": "Code Quality", "score": 35, "color": "#ff9999" }
+        ],
+        "evaluation": {
+          "rating": "Inadequate",
+          "summary": "Poor understanding of error handling principles. Lacks systematic approach to exception management and debugging.",
+          "strengths": [
+            "Aware of try-catch blocks",
+            "Recognizes importance of error handling"
+          ],
+          "improvements": [
+            "Study exception handling patterns",
+            "Learn logging and monitoring",
+            "Practice defensive programming",
+            "Understand error propagation strategies"
+          ]
+        }
+      }
+    ]
+  },
+  "footer": {
+    "text": "Generated by AIRA • AI Interview Assistant — 2025"
+  }
+}

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AIRA Interview Report — John Doe</title>
+<!-- Chart.js from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root{
+    --bg:#f7f9fb;
+    --card:#ffffff;
+    --muted:#6b7280;
+    --primary:#4a90e2;
+    --accent:#67b26f;
+    --soft-1:#e6f8f1;
+    --soft-2:#fef7e6;
+    --soft-3:#eef6ff;
+    --green:#2d7a4b;
+    --orange:#a65e2e;
+    --radius:12px;
+    --shadow: 0 6px 18px rgba(20,30,50,0.06);
+    --max-width:1100px;
+    --mono: "Courier New", monospace;
+  }
+
+  /* Base */
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:var(--bg);
+    color:#111827;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.45;
+  }
+  .wrap{
+    max-width:var(--max-width);
+    margin:20px auto;
+    padding:18px;
+  }
+
+  /* Header */
+  header.report-header{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:18px 20px;
+    border-radius:16px;
+    background:linear-gradient(90deg,var(--primary),#6fc6b8);
+    color:white;
+    box-shadow:var(--shadow);
+  }
+  header img.logo{
+    width:56px;height:56px;border-radius:10px;background:rgba(255,255,255,0.12);
+    object-fit:cover; border:2px solid rgba(255,255,255,0.12);
+  }
+  header .title{
+    display:flex;flex-direction:column;
+  }
+  header h1{font-size:20px;margin:0 0 2px 0;letter-spacing:0.2px}
+  header p{margin:0;font-size:13px;opacity:0.95}
+
+  /* Sections & cards */
+  .section{margin-top:18px}
+  .card{
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:14px;
+    box-shadow:var(--shadow);
+    border:1px solid rgba(15,23,42,0.04);
+  }
+
+  .flex-row{display:flex;gap:16px;flex-wrap:wrap}
+  .col-2{flex:1;min-width:240px}
+  .col-3{flex:1 1 300px;min-width:220px}
+  .col-wide{flex:2;min-width:360px}
+
+  h2.section-title{margin:0 0 8px 0;font-size:16px;color:var(--primary)}
+  h3.small{margin:0 0 8px 0;font-size:15px;color:#111827}
+
+  /* Interview details */
+  .details-list{display:flex;flex-wrap:wrap;gap:10px;font-size:14px;color:var(--muted)}
+  .detail-item{background:var(--soft-3);padding:8px 10px;border-radius:8px;font-weight:600;color:#0f172a}
+
+  /* Analysis score cards */
+  .score-big{font-size:28px;font-weight:700;color:var(--primary);margin-top:6px}
+  .score-sub{font-size:13px;color:var(--muted);margin-top:6px}
+  .rec{margin-top:10px;font-size:13px;color:#374151}
+
+  /* Chart container */
+  .chart-card{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .chart-canvas{width:320px;height:320px;flex:1;min-width:260px;max-width:50%}
+  .chart-legend{flex:1;min-width:240px;max-width:50%}
+
+  /* strengths / improvements */
+  .tags-wrap{display:flex;flex-direction:column;gap:8px}
+  .tag-pill{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px}
+  .tag-green{background:var(--soft-1);color:var(--green)}
+  .tag-orange{background:var(--soft-2);color:var(--orange)}
+
+  /* Mandatory section */
+  .mandatory{font-size:13px;color:#374151;background:#fff7f0;padding:12px;border-radius:10px;border:1px solid rgba(160,120,60,0.08);margin-top:10px}
+
+  /* Questions area */
+  .questions-list{margin-top:10px}
+  .q-card{margin-bottom:16px;padding:14px;border-radius:12px;background:var(--card);box-shadow:var(--shadow);border:1px solid rgba(15,23,42,0.03)}
+  .q-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+  .q-title{font-weight:700;color:#0b3b5b;margin:0 0 6px 0}
+  .q-meta{font-size:13px;color:var(--muted)}
+  .q-response{background:#fbfdff;padding:10px;border-radius:8px;margin:10px 0;font-family:var(--mono)}
+  .q-analysis{font-size:14px;color:#374151;margin-bottom:8px}
+  .q-score{font-weight:800;color:var(--primary);font-size:18px}
+
+  /* mini metric bars (compact) */
+  .mini-metrics{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+  .metric-row{display:flex;align-items:center;gap:8px}
+  .metric-name{width:150px;font-size:13px;color:#334155}
+  .metric-bar{flex:1;height:8px;border-radius:8px;background:#eef2f7;overflow:hidden}
+  .metric-fill{height:100%;border-radius:8px}
+  .metric-score{width:38px;text-align:right;font-size:12px;color:#111827;font-weight:700}
+
+  /* tag lists */
+  .tag-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .tag-s{padding:6px 9px;border-radius:999px;font-weight:700;font-size:12px}
+  .s-good{background:var(--soft-1);color:var(--green)}
+  .s-bad{background:var(--soft-2);color:var(--orange)}
+
+  /* footer */
+  footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px;padding:12px}
+
+  /* responsive */
+  @media (max-width:880px){
+    .chart-canvas{max-width:100%;height:260px}
+    header.report-header{flex-direction:row;gap:12px}
+  }
+  @media (max-width:520px){
+    .metric-name{width:110px}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- HEADER -->
+    <header class="report-header" role="banner" aria-label="AIRA report header">
+      <img class="logo" src="https://via.placeholder.com/80x80.png?text=AIRA" alt="AIRA logo">
+      <div>
+        <h1>AIRA</h1>
+        <p style="opacity:0.95;margin-top:6px">Your AI Recruiting Agent</p>
+        <p style="opacity:0.95;margin-top:6px">Autonomous Interview & Resume Analysis Report</p>
+      </div>
+    </header>
+
+    <!-- INTERVIEW DETAILS -->
+    <section class="section card" aria-labelledby="interview-details">
+      <h2 id="interview-details" class="section-title">Interview Details</h2>
+      <div class="flex-row" style="margin-top:10px">
+        <div class="col-2">
+          <div style="display:flex;gap:12px;align-items:center">
+            <img src="https://via.placeholder.com/110" alt="candidate" style="width:110px;height:110px;border-radius:10px;object-fit:cover">
+            <div>
+              <h3 class="small">Candidate Details</h3>
+              <div style="color:var(--muted);font-size:14px"><strong>Kanugu Laxman</strong></div>
+              <div style="color:var(--muted);font-size:13px;margin-top:6px">laxman.kanugu@airahr.ai</div>
+              <div style="color:var(--muted);font-size:14px">+919676333434</div>
+              <br><br><br>
+              <h3 class="small">Client Details</h3>
+              <div style="color:var(--muted);font-size:14px"><strong> Tata Consultancy Services</strong></div>
+              <div style="color:var(--muted);font-size:14px">Senior Software Engineer</div>
+              <!-- <div style="font-size:14px;color:var(--muted);margin-bottom:4px">Acme Corp</div>
+              <div style="font-size:14px;color:var(--muted);margin-bottom:4px">Senior Software Engineer</div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col-wide" style="flex:2 1 0; min-width:360px; display:flex; flex-direction:column; height:100%;">
+            <div class="details-list" style="margin-top:6px">
+                <div class="detail-item">Date: 2025-08-09</div>
+                <div class="detail-item">Time: 10:00 AM</div>
+                <div class="detail-item">Time Zone: Asia/Kolkatha</div>
+                <div class="detail-item">Duration: 1h 20m</div>
+                <div class="detail-item">Questions Asked: 12</div>
+                <div class="detail-item">Interview Mode : Zoom</div>
+                <!-- <div class="detail-item">Interviewer: <strong>AIRA</strong></div> -->
+            </div>
+
+            <div style="margin-top:12px; display:flex; gap:14px; flex-wrap:wrap; width:100%;">
+                <div class="card" style="min-width:200px; flex:1 1 0; box-sizing:border-box;">
+                    <div style="display:flex; justify-content:space-between; align-items:center">
+                        <div>
+                            <div style="font-size:13px;color:var(--muted)">Resume Analysis</div>
+                            <div class="score-big" style="font-size:22px">85 / 100</div>
+                        </div>
+                        <div style="text-align:right">
+                            <div style="font-size:12px;color:var(--muted)">Confidence:</div>
+                            <div style="font-weight:700;color:#0f172a">High</div>
+                        </div>
+                    </div>
+                    <div class="rec">Recommendation: Resume aligns well. Suggest clarifying latest tech stack and measurable outcomes.</div>
+                </div>
+
+                <div class="card" style="min-width:220px; flex:1 1 0; box-sizing:border-box;">
+                    <div style="display:flex; justify-content:space-between; align-items:center">
+                        <div>
+                            <div style="font-size:13px;color:var(--muted)">Interview Analysis</div>
+                            <div class="score-big" style="font-size:22px">78 / 100</div>
+                        </div>
+                        <div style="text-align:right">
+                            <div style="font-size:12px;color:var(--muted)">Recommendation:</div>
+                            <div style="font-weight:700;color:#0f172a">Consider next round</div>
+                        </div>
+                    </div>
+                    <div class="rec">Recommendation: Good technical depth; improve concise explanation of trade-offs and measurable impacts.</div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUMMARY CHART + CATEGORY ANALYSIS -->
+    <section class="section card" aria-labelledby="summary">
+        <h2 id="summary" class="section-title">Summary & Skills Overview</h2>
+        <div class="chart-card" style="margin-top:8px">
+            <div class="chart-canvas">
+                <canvas id="mainRadar" aria-label="Overall skill chart"></canvas>
+            </div>
+            <div class="chart-legend">
+                <h3 class="small">Category Analysis</h3>
+                <p style="color:var(--muted)">This chart shows aggregated scores across six metrics (0–100). Use per-question metrics below for deeper context.</p>
+                
+                <div style="margin-top:12px;">
+                    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+                        <div style="min-width:140px;flex:1" class="card">
+                            <div style="font-size:13px;color:var(--muted)">Communication</div>
+                            <div style="font-weight:800;font-size:18px;color:#76c7c0;margin-top:4px">81%</div>
+                            <div style="font-size:12px;color:#374151;margin-top:6px">Clear articulation with good technical vocabulary. Could improve conciseness.</div>
+                        </div>
+                        <div style="min-width:140px;flex:1" class="card">
+                            <div style="font-size:13px;color:var(--muted)">Experience</div>
+                            <div style="font-weight:800;font-size:18px;color:#67b26f;margin-top:4px">84%</div>
+                            <div style="font-size:12px;color:#374151;margin-top:6px">Strong relevant experience with practical problem-solving approach.</div>
+                        </div>
+                    </div>
+                    
+                    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+                        <div style="min-width:140px;flex:1" class="card">
+                            <div style="font-size:13px;color:var(--muted)">Confidence</div>
+                            <div style="font-weight:800;font-size:18px;color:#f5b567;margin-top:4px">79%</div>
+                            <div style="font-size:12px;color:#374151;margin-top:6px">Good self-assurance, occasionally hesitant on complex topics.</div>
+                        </div>
+                        <div style="min-width:140px;flex:1" class="card">
+                            <div style="font-size:13px;color:var(--muted)">Domain Knowledge</div>
+                            <div style="font-weight:800;font-size:18px;color:#86b7ff;margin-top:4px">84%</div>
+                            <div style="font-size:12px;color:#374151;margin-top:6px">Solid technical foundation with modern development practices.</div>
+                        </div>
+                    </div>
+                    
+                    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+                        <div style="min-width:140px;flex:1" class="card">
+                            <div style="font-size:13px;color:var(--muted)">Resume Justification</div>
+                            <div style="font-weight:800;font-size:18px;color:#c99bff;margin-top:4px">81%</div>
+                            <div style="font-size:12px;color:#374151;margin-top:6px">Claims well-supported by examples, minor gaps in recent projects.</div>
+                        </div>
+                        <div style="min-width:140px;flex:1" class="card">
+                            <div style="font-size:13px;color:var(--muted)">Skills</div>
+                            <div style="font-weight:800;font-size:18px;color:#ff9999;margin-top:4px">85%</div>
+                            <div style="font-size:12px;color:#374151;margin-top:6px">Strong technical skills with good understanding of best practices.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STRENGTHS & IMPROVEMENTS -->
+    <section class="section card" aria-labelledby="strengths-improvements">
+        <h2 id="strengths-improvements" class="section-title">Mandatory Skills</h2>
+        <div style="margin-top:12px">
+            <div class="tags-wrap">
+                <div>
+                    <strong style="display:block;margin-bottom:8px;color:#2d7a4b;font-size:14px">Key Strengths</strong>
+                    <span class="tag-pill tag-green" title="strong">Strong problem solving</span>
+                    <span class="tag-pill tag-green" title="strong">Good collaboration</span>
+                    <span class="tag-pill tag-green" title="strong">Relevant domain experience</span>
+                </div>
+                <div style="margin-top:16px">
+                    <strong style="display:block;margin-bottom:8px;color:#a65e2e;font-size:14px">Areas for Improvement</strong>
+                    <span class="tag-pill tag-orange" title="improve">Be more concise</span>
+                    <span class="tag-pill tag-orange" title="improve">More metrics in answers</span>
+                    <span class="tag-pill tag-orange" title="improve">Advanced system-design depth</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MANDATORY SECTION -->
+    <section class="section">
+      <div class="card mandatory" role="note">
+        <strong>Mandatory:</strong> This report is generated automatically by AIRA (AI Recruitment Assistant) based on transcript, audio analysis, and resume parsing. It is intended for internal recruitment use only and should be reviewed by a human prior to final hiring decisions.
+      </div>
+    </section>
+
+    <!-- QUESTIONS -->
+    <section class="section card" aria-labelledby="questions">
+      <h2 id="questions" class="section-title">Question & Response Details (12)</h2>
+
+      <div class="questions-list" id="qList"></div>
+    </section>
+
+    <footer>
+      Generated by AIRA • AI Interview Assistant — 2025
+    </footer>
+  </div>
+
+<script>
+/* ---------- Sample data: 12 realistic long tech Q+A ---------- */
+const questionData = [
+  {
+    id:1,
+    q:"Q1: Explain your approach to diagnosing and resolving a production database performance issue that was causing timeouts for users.",
+    a:`In a recent incident, we had intermittent 500 errors on user-facing pages. My approach began with capturing metrics and traces (APM), identifying the time window, and isolating the slow endpoints. I examined slow query logs and discovered a few expensive joins. I created a reproducible load test, added appropriate indexes after analyzing explain plans, and introduced query-level caching for non-critical reads. In parallel, I increased replica read capacity and adjusted connection pool sizing. After deploying changes to staging and validating with synthetic load tests, we rolled out to production with dark traffic first. Post-deployment we saw a 70% reduction in average response time and no more timeouts.`,
+    analysis:"Structured incident handling with monitoring, testing, and staged rollout. Clear trade-offs and measurable impact described (reduction in response time). Could mention rollback plan explicitly.",
+    metrics:[
+      {name:"Communication",score:86,color:"#76c7c0"},
+      {name:"Experience",score:92,color:"#67b26f"},
+      {name:"Confidence",score:80,color:"#f5b567"},
+      {name:"Domain Knowledge",score:88,color:"#86b7ff"},
+      {name:"Resume Justification",score:84,color:"#c99bff"},
+      {name:"Skills",score:89,color:"#ff9999"}
+    ],
+    strengths:["Structured incident response","Measurable post-deployment impact"],
+    weaknesses:["No explicit rollback details"]
+  },
+  {
+    id:2,
+    q:"Q2: Describe the design of a scalable notification system that supports millions of users with varying delivery guarantees (immediate, delayed, batched).",
+    a:`I would build a microservice-based notification pipeline. Producers publish events to a durable message bus (Kafka) partitioned by user or topic. An ingestion layer validates and normalizes payloads, then writes to a store for delayed/batched scheduling (e.g., Redis sorted sets or a time-series store). For immediate deliveries, a set of stateless workers consume from the appropriate topic and perform fan-out asynchronously, using efficient connection pools for external providers. For scheduled or batched deliveries, a scheduler reads due sets and enqueues batched jobs. Backpressure is handled via partitioned consumers and rate-limiting queues. Monitoring, metrics, and dead-letter queues are crucial. Multi-region support uses geo-aware routing and eventual consistency models.`,
+    analysis:"Shows good system design thinking: partitions, backpressure, multi-region concerns. Could include specific SLA targets and how batching affects latency.",
+    metrics:[
+      {name:"Communication",score:78,color:"#76c7c0"},
+      {name:"Experience",score:88,color:"#67b26f"},
+      {name:"Confidence",score:74,color:"#f5b567"},
+      {name:"Domain Knowledge",score:90,color:"#86b7ff"},
+      {name:"Resume Justification",score:80,color:"#c99bff"},
+      {name:"Skills",score:85,color:"#ff9999"}
+    ],
+    strengths:["Good partitioning and backpressure strategy","Multi-region considerations"],
+    weaknesses:["Missing concrete SLA discussion"]
+  },
+  {
+    id:3,
+    q:"Q3: Walk through an algorithm you optimized for performance; include before/after complexity and what changed in caching or data-structures.",
+    a:`We had an O(n^2) aggregation in a reporting job due to nested loops over users and their orders. I refactored to a map-based aggregation using a hash keyed by user ID, reducing to O(n). In addition, I introduced streaming aggregation to avoid loading the entire dataset into memory, and used bloom filters to pre-filter unlikely candidates. Caching hot queries and using read-through caching reduced redundant DB hits. The result: runtime dropped from ~3 hours to 12 minutes for the large dataset. Memory usage decreased significantly and the job became runnable in our regular maintenance window.`,
+    analysis:"Concrete before/after complexity and clear use of hash maps and streaming. Strong technical depth and outcome metrics.",
+    metrics:[
+      {name:"Communication",score:82,color:"#76c7c0"},
+      {name:"Experience",score:91,color:"#67b26f"},
+      {name:"Confidence",score:86,color:"#f5b567"},
+      {name:"Domain Knowledge",score:85,color:"#86b7ff"},
+      {name:"Resume Justification",score:83,color:"#c99bff"},
+      {name:"Skills",score:88,color:"#ff9999"}
+    ],
+    strengths:["Clear algorithmic reasoning","Significant performance gains"],
+    weaknesses:["Could show pseudocode"]
+  },
+  {
+    id:4,
+    q:"Q4: How would you design a rate-limiting system for a public API which needs to enforce per-user, per-API-key, and global throttles?",
+    a:`I would implement a token-bucket based approach with distributed coordination. For per-user and per-key enforcement, a Redis cluster with LUA scripts gives atomic increments and expiry semantics; buckets can be keyed by (userID:apiKey:window). For global throttles, a central quota service can aggregate counts from nodes or use a probabilistic sketch (Count-Min) to bound memory. Clients receive standardized HTTP 429 responses with Retry-After. For high-availability, we fallback to local rate-limits if Redis is unreachable and expose metrics for throttling rates. Rate-limits should be policy-driven with different tiers.`,
+    analysis:"Solid approach: token bucket, Redis/LUA atomicity, global heuristics. Nice consideration for HA fallback and policy tiers.",
+    metrics:[
+      {name:"Communication",score:76,color:"#76c7c0"},
+      {name:"Experience",score:84,color:"#67b26f"},
+      {name:"Confidence",score:72,color:"#f5b567"},
+      {name:"Domain Knowledge",score:80,color:"#86b7ff"},
+      {name:"Resume Justification",score:75,color:"#c99bff"},
+      {name:"Skills",score:82,color:"#ff9999"}
+    ],
+    strengths:["Atomicity with Lua scripts","Resilience & policy-driven limits"],
+    weaknesses:["Could discuss window sizes and burst handling"]
+  },
+  {
+    id:5,
+    q:"Q5: Explain how you would perform a security review of a web application and prioritize fixes for production rollout.",
+    a:`Start with threat modeling: identify assets, trust boundaries, and attack vectors. Combine automated static analysis (SAST), dynamic scanning (DAST), and dependency vulnerability checks (software composition analysis). Prioritize fixes based on CVSS, exploitability, and business impact. Quick wins: fix high-impact misconfigurations (CORS, open S3 buckets), enforce secure headers, rotate secrets, and patch critical dependencies. For code issues, create tickets categorized by severity. For production rollout, create a canary deployment plan and communication plan; use compensating controls when immediate patching is risky.`,
+    analysis:"Good security posture: combines tooling and risk-based prioritization. Pragmatic remediation and rollout plan discussed.",
+    metrics:[
+      {name:"Communication",score:80,color:"#76c7c0"},
+      {name:"Experience",score:82,color:"#67b26f"},
+      {name:"Confidence",score:78,color:"#f5b567"},
+      {name:"Domain Knowledge",score:86,color:"#86b7ff"},
+      {name:"Resume Justification",score:80,color:"#c99bff"},
+      {name:"Skills",score:84,color:"#ff9999"}
+    ],
+    strengths:["Risk-based prioritization","Practical rollout controls"],
+    weaknesses:["Could name specific SAST/DAST tools used"]
+  },
+  {
+    id:6,
+    q:"Q6: Give an example of how you ensured data consistency across microservices that use separate databases.",
+    a:`We used an event-driven design with idempotent event consumers. For operations requiring strong consistency, we used a saga pattern with compensating transactions across services. Events were published to Kafka and stored with durable offsets; consumers used idempotency keys to avoid duplicated side-effects. For read models, we used materialized views refreshed via event handlers and implemented reconciliation jobs to detect and repair drift. For cross-service transactions with high business criticality, we used synchronous APIs with optimistic locking where acceptable.`,
+    analysis:"Good use of sagas, idempotency, and reconciliation. Shows awareness of trade-offs between eventual and strong consistency.",
+    metrics:[
+      {name:"Communication",score:79,color:"#76c7c0"},
+      {name:"Experience",score:85,color:"#67b26f"},
+      {name:"Confidence",score:76,color:"#f5b567"},
+      {name:"Domain Knowledge",score:88,color:"#86b7ff"},
+      {name:"Resume Justification",score:81,color:"#c99bff"},
+      {name:"Skills",score:83,color:"#ff9999"}
+    ],
+    strengths:["Event-driven idempotency","Reconciliation jobs"],
+    weaknesses:["Could explain recovery timing SLAs"]
+  },
+  {
+    id:7,
+    q:"Q7: Discuss your process for designing a CI/CD pipeline that runs tests, builds artifacts, and deploys to multiple environments with rollback support.",
+    a:`Pipeline starts with gated pull requests running unit and lint checks. On merge, CI runs integration tests in ephemeral environments (containers). Build artifacts are versioned and stored in an artifact registry. For deployment, we use declarative manifests (Helm/kustomize) and a CD tool that supports canary and blue/green strategies (ArgoCD/Spinnaker). Rollback is enabled by keeping previous manifests and artifacts and automated health checks that trigger rollbacks when checks fail. Secret management uses vault integration and pipeline credentials are limited with least privilege.`,
+    analysis:"Covers a modern CI/CD flow with ephemeral test environments and canary rollouts. Strong operations-minded approach.",
+    metrics:[
+      {name:"Communication",score:81,color:"#76c7c0"},
+      {name:"Experience",score:83,color:"#67b26f"},
+      {name:"Confidence",score:84,color:"#f5b567"},
+      {name:"Domain Knowledge",score:82,color:"#86b7ff"},
+      {name:"Resume Justification",score:79,color:"#c99bff"},
+      {name:"Skills",score:86,color:"#ff9999"}
+    ],
+    strengths:["Ephemeral test envs","Canary/rollback strategy"],
+    weaknesses:["May need more detail on pipeline parallelism"]
+  },
+  {
+    id:8,
+    q:"Q8: Tell us about a time you mentored junior engineers through a complex feature delivery.",
+    a:`I partnered with three junior engineers on a feature involving a new event-stream processing pipeline. I split the feature into smaller deliverables, held pair-programming sessions, and gave weekly design walkthroughs. I also created detailed acceptance criteria and a sandbox with sample events for experimentation. As they progressed, I delegated more complex tasks while providing code reviews that focused on teaching design principles rather than just corrections. The juniors successfully shipped the feature and later reused the sandbox to prototype additional features.`,
+    analysis:"Strong leadership and mentoring. Good delegation and learning-focused code reviews.",
+    metrics:[
+      {name:"Communication",score:88,color:"#76c7c0"},
+      {name:"Experience",score:80,color:"#67b26f"},
+      {name:"Confidence",score:86,color:"#f5b567"},
+      {name:"Domain Knowledge",score:78,color:"#86b7ff"},
+      {name:"Resume Justification",score:82,color:"#c99bff"},
+      {name:"Skills",score:85,color:"#ff9999"}
+    ],
+    strengths:["Clear mentorship process","Successful delivery"],
+    weaknesses:["Could quantify mentee outcomes"]
+  },
+  {
+    id:9,
+    q:"Q9: How do you reason about trade-offs between consistency and availability when designing a distributed cache?",
+    a:`Trade-offs depend on data criticality. For read-heavy, stale-tolerant data, we use eventual consistency with TTL-based caches and async refresh. For critical transactional data, use write-through caches or cache aside with strict invalidation logic and synchronous coordination. Considering network partitions, prefer degradation to safe defaults (fail closed). I also consider TTL windows, cache warming strategies, and circuit-breaker patterns to avoid thundering herds.`,
+    analysis:"Good explanation of tradeoffs and practical mitigations (TTL, warming, circuit breakers).",
+    metrics:[
+      {name:"Communication",score:80,color:"#76c7c0"},
+      {name:"Experience",score:82,color:"#67b26f"},
+      {name:"Confidence",score:78,color:"#f5b567"},
+      {name:"Domain Knowledge",score:83,color:"#86b7ff"},
+      {name:"Resume Justification",score:79,color:"#c99bff"},
+      {name:"Skills",score:81,color:"#ff9999"}
+    ],
+    strengths:["Clear trade-off reasoning","Mitigation strategies"],
+    weaknesses:["Could show empirical thresholds used"]
+  },
+  {
+    id:10,
+    q:"Q10: Describe your testing strategy for a service that processes financial transactions where correctness is essential.",
+    a:`Testing must be exhaustive: unit tests, property-based tests for invariants, integration tests with sandboxed payment gateways, and end-to-end tests with simulated liquidity flows. We include contract testing between services, chaos tests for resilience, and monitoring for drift with reconciliation jobs. For correctness, we lock critical code paths, use monotonic IDs, and ensure idempotency. We also implement audited logs and replay capability for forensic analysis.`,
+    analysis:"Comprehensive testing approach with property tests and reconciliation. Strong focus on correctness and observability.",
+    metrics:[
+      {name:"Communication",score:82,color:"#76c7c0"},
+      {name:"Experience",score:85,color:"#67b26f"},
+      {name:"Confidence",score:80,color:"#f5b567"},
+      {name:"Domain Knowledge",score:86,color:"#86b7ff"},
+      {name:"Resume Justification",score:84,color:"#c99bff"},
+      {name:"Skills",score:87,color:"#ff9999"}
+    ],
+    strengths:["Property-based tests","Reconciliation & auditing"],
+    weaknesses:["Could give example test coverage numbers"]
+  },
+  {
+    id:11,
+    q:"Q11: How would you approach migrating a monolith to microservices with minimal customer impact?",
+    a:`Plan incremental extraction: identify bounded contexts, build API contracts, and extract non-critical capabilities first. Use strangler pattern and deploy side-by-side with the monolith, gradually routing traffic via feature flags. Ensure robust observability and tracing across both systems. Maintain data compatibility through replication or anti-corruption layers and run parallel runs to validate output parity before cutover.`,
+    analysis:"Practical, risk-aware migration approach with strangler pattern and parity checks.",
+    metrics:[
+      {name:"Communication",score:79,color:"#76c7c0"},
+      {name:"Experience",score:84,color:"#67b26f"},
+      {name:"Confidence",score:78,color:"#f5b567"},
+      {name:"Domain Knowledge",score:82,color:"#86b7ff"},
+      {name:"Resume Justification",score:80,color:"#c99bff"},
+      {name:"Skills",score:83,color:"#ff9999"}
+    ],
+    strengths:["Strangler approach","Parity validation"],
+    weaknesses:["Migration timelines not specified"]
+  },
+  {
+    id:12,
+    q:"Q12: What are the metrics you would track post-deployment to ensure a new feature behaves as expected?",
+    a:`Track business and technical metrics: error rates, latency percentiles (p50/p95/p99), throughput, CPU/memory, DB locks/slow queries, and user-facing KPIs (conversion, engagement). Also track feature-specific metrics and runbooks for alerting thresholds. Use feature flags to compare cohorts via A/B testing and monitor logs for unexpected patterns using anomaly detection.`,
+    analysis:"Comprehensive metrics selection; good inclusion of A/B and anomaly detection.",
+    metrics:[
+      {name:"Communication",score:84,color:"#76c7c0"},
+      {name:"Experience",score:80,color:"#67b26f"},
+      {name:"Confidence",score:82,color:"#f5b567"},
+      {name:"Domain Knowledge",score:86,color:"#86b7ff"},
+      {name:"Resume Justification",score:85,color:"#c99bff"},
+      {name:"Skills",score:84,color:"#ff9999"}
+    ],
+    strengths:["Coverage of technical & business metrics","A/B testing for validation"],
+    weaknesses:["Could mention alert thresholds specifically"]
+  }
+]; // end questionData
+
+/* ---------- Render per-question cards ---------- */
+const qList = document.getElementById('qList');
+
+function renderQuestions(){
+  questionData.forEach(item=>{
+    // compute per-question overall score (average of metrics)
+    const avg = Math.round(item.metrics.reduce((s,m)=>s+m.score,0)/item.metrics.length);
+    const qCard = document.createElement('div');
+    qCard.className = 'q-card';
+    qCard.innerHTML = `
+      <div class="q-header">
+        <div style="flex:1">
+          <p class="q-title">${item.q}</p>
+          <div class="q-meta">Question ID: ${item.id} • Detailed technical response below</div>
+        </div>
+        <div style="text-align:right">
+          <div class="q-score">${avg} / 100</div>
+          <div style="font-size:13px;color:var(--muted);margin-top:6px">Score (avg across 6 metrics)</div>
+        </div>
+      </div>
+
+      <div class="q-response" aria-label="Candidate response">${item.a}</div>
+
+      <div class="q-analysis"><strong>Analysis:</strong> ${item.analysis}</div>
+
+      <div class="mini-metrics">
+        ${item.metrics.map(m=>{
+          return `<div class="metric-row">
+                    <div class="metric-name">${m.name}</div>
+                    <div class="metric-bar"><div class="metric-fill" style="width:${m.score}%;background:${m.color}"></div></div>
+                    <div class="metric-score">${m.score}</div>
+                  </div>`;
+        }).join('')}
+      </div>
+
+      <div class="tag-list" style="margin-top:8px">
+        ${item.strengths.map(s=>`<div class="tag-s s-good">${s}</div>`).join('')}
+        ${item.weaknesses.map(w=>`<div class="tag-s s-bad">${w}</div>`).join('')}
+      </div>
+    `;
+    qList.appendChild(qCard);
+  });
+}
+
+renderQuestions();
+
+/* ---------- MAIN RADAR CHART (Chart.js) ---------- */
+const ctx = document.getElementById('mainRadar').getContext('2d');
+
+// Aggregate average across questionData
+function aggregateMetric(idx){
+  const sum = questionData.reduce((s,q)=>s+q.metrics[idx].score,0);
+  return Math.round(sum/questionData.length);
+}
+const labels = ["Communication","Experience","Confidence","Domain Knowledge","Resume Justification","Skills"];
+const aggData = labels.map((_,i)=>aggregateMetric(i));
+
+// Create modern gradients for the chart
+const primaryGradient = ctx.createLinearGradient(0, 0, 320, 0);
+primaryGradient.addColorStop(0, 'rgba(99, 102, 241, 0.1)');
+primaryGradient.addColorStop(0.5, 'rgba(139, 92, 246, 0.15)');
+primaryGradient.addColorStop(1, 'rgba(244, 63, 94, 0.1)');
+
+const borderGradient = ctx.createLinearGradient(0, 0, 320, 0);
+borderGradient.addColorStop(0, '#6366f1');
+borderGradient.addColorStop(0.5, '#8b5cf6');
+borderGradient.addColorStop(1, '#f43f5e');
+
+const mainRadar = new Chart(ctx, {
+  type:'line',
+  data:{
+    labels: aggData,
+    datasets:[{
+      label:'Performance Metrics',
+      data: labels.map((label, index) => ({x: aggData[index], y: index})),
+      backgroundColor: primaryGradient,
+      borderColor: borderGradient,
+      pointBackgroundColor: '#ffffff',
+      pointBorderColor: '#6366f1',
+      pointBorderWidth: 4,
+      borderWidth: 4,
+      pointRadius: 8,
+      pointHoverRadius: 12,
+      pointHoverBackgroundColor: '#8b5cf6',
+      pointHoverBorderColor: '#ffffff',
+      pointHoverBorderWidth: 4,
+      fill: true,
+      tension: 0.4,
+      segment: {
+        borderColor: function(ctx) {
+          const colors = ['#6366f1', '#8b5cf6', '#ec4899', '#f43f5e'];
+          return colors[ctx.p0DataIndex % colors.length] || '#6366f1';
+        }
+      }
+    }]
+  },
+  options:{
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    animation: {
+      duration: 2000,
+      easing: 'easeInOutQuart'
+    },
+    interaction: {
+      intersect: false,
+      mode: 'point'
+    },
+    scales:{
+      x: {
+        beginAtZero: true,
+        max: 100,
+        grid: {
+          color: function(context) {
+            return context.tick.value === 50 ? 'rgba(139, 92, 246, 0.2)' : 'rgba(156,163,175,0.06)';
+          },
+          drawBorder: false,
+          lineWidth: function(context) {
+            return context.tick.value === 50 ? 2 : 1;
+          }
+        },
+        ticks: {
+          stepSize: 25,
+          color: '#6b7280',
+          font: {
+            size: 11,
+            weight: '600'
+          },
+          padding: 10,
+          callback: function(value) {
+            return value + '%';
+          }
+        },
+        border: {
+          display: false
+        }
+      },
+      y: {
+        grid: {
+          display: false
+        },
+        ticks: {
+          color: '#374151',
+          font: {
+            size: 13,
+            weight: '600'
+          },
+          padding: 20,
+          callback: function(value, index) {
+            return labels[index] || '';
+          }
+        },
+        border: {
+          display: false
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        display: false
+      },
+      tooltip: {
+        backgroundColor: 'rgba(15,23,42,0.95)',
+        titleColor: '#ffffff',
+        bodyColor: '#e5e7eb',
+        borderColor: '#8b5cf6',
+        borderWidth: 2,
+        cornerRadius: 12,
+        displayColors: false,
+        titleFont: {
+          size: 14,
+          weight: '700'
+        },
+        bodyFont: {
+          size: 13,
+          weight: '500'
+        },
+        padding: 16,
+        caretPadding: 8,
+        callbacks: {
+          title: function(context) {
+            return labels[context[0].dataIndex];
+          },
+          label: function(context) {
+            return `Performance: ${aggData[context.dataIndex]}%`;
+          },
+          afterLabel: function(context) {
+            const score = aggData[context.dataIndex];
+            if (score >= 85) return '🔥 Excellent';
+            if (score >= 80) return '✨ Strong';
+            if (score >= 75) return '👍 Good';
+            return '📈 Needs Focus';
+          }
+        }
+      }
+    },
+    elements: {
+      point: {
+        hoverRadius: 12,
+        shadowOffsetX: 2,
+        shadowOffsetY: 2,
+        shadowBlur: 8,
+        shadowColor: 'rgba(139, 92, 246, 0.3)'
+      },
+      line: {
+        shadowOffsetX: 1,
+        shadowOffsetY: 1,
+        shadowBlur: 4,
+        shadowColor: 'rgba(139, 92, 246, 0.2)'
+      }
+    }
+  }
+});
+
+</script>
+</body>
+</html>

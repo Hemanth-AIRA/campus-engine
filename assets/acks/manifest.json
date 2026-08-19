@@ -1,0 +1,1882 @@
+{
+  "sample_rate": 24000,
+  "voice_id": "b7d50908-b17c-442d-ad8d-810c63997ed9",
+  "clips": [
+    {
+      "id": "answer_good_nice_that_was_a_solid_answer_let_s_keep",
+      "bucket": "answer_good",
+      "text": "Nice — that was a solid answer. Let's keep going.",
+      "path": "answer_good/nice_that_was_a_solid_answer_let_s_keep.pcm",
+      "duration_ms": 3430
+    },
+    {
+      "id": "answer_good_great_that_s_exactly_the_kind_of_thinkin",
+      "bucket": "answer_good",
+      "text": "Great, that's exactly the kind of thinking I was looking for. On to the next one.",
+      "path": "answer_good/great_that_s_exactly_the_kind_of_thinkin.pcm",
+      "duration_ms": 4359
+    },
+    {
+      "id": "answer_good_well_explained_let_s_move_ahead",
+      "bucket": "answer_good",
+      "text": "Well explained. Let's move ahead.",
+      "path": "answer_good/well_explained_let_s_move_ahead.pcm",
+      "duration_ms": 2408
+    },
+    {
+      "id": "answer_good_that_s_a_strong_response_good_stuff_let",
+      "bucket": "answer_good",
+      "text": "That's a strong response — good stuff. Let's continue.",
+      "path": "answer_good/that_s_a_strong_response_good_stuff_let.pcm",
+      "duration_ms": 3895
+    },
+    {
+      "id": "answer_good_really_nice_walkthrough_there_let_s_move",
+      "bucket": "answer_good",
+      "text": "Really nice walkthrough there. Let's move to the next question.",
+      "path": "answer_good/really_nice_walkthrough_there_let_s_move.pcm",
+      "duration_ms": 3244
+    },
+    {
+      "id": "answer_good_good_you_clearly_know_this_one_let_s_mov",
+      "bucket": "answer_good",
+      "text": "Good — you clearly know this one. Let's move on.",
+      "path": "answer_good/good_you_clearly_know_this_one_let_s_mov.pcm",
+      "duration_ms": 3291
+    },
+    {
+      "id": "answer_good_perfect_that_covers_it_well_let_s_carry",
+      "bucket": "answer_good",
+      "text": "Perfect, that covers it well. Let's carry on.",
+      "path": "answer_good/perfect_that_covers_it_well_let_s_carry.pcm",
+      "duration_ms": 2362
+    },
+    {
+      "id": "answer_good_awesome_that_was_clear_and_thorough_here",
+      "bucket": "answer_good",
+      "text": "Awesome, that was clear and thorough. Here's the next one.",
+      "path": "answer_good/awesome_that_was_clear_and_thorough_here.pcm",
+      "duration_ms": 2873
+    },
+    {
+      "id": "answer_good_love_it_that_was_well_reasoned_let_s_kee",
+      "bucket": "answer_good",
+      "text": "Love it — that was well reasoned. Let's keep going.",
+      "path": "answer_good/love_it_that_was_well_reasoned_let_s_kee.pcm",
+      "duration_ms": 2780
+    },
+    {
+      "id": "answer_good_nicely_done_let_s_move_to_the_next_quest",
+      "bucket": "answer_good",
+      "text": "Nicely done. Let's move to the next question.",
+      "path": "answer_good/nicely_done_let_s_move_to_the_next_quest.pcm",
+      "duration_ms": 2548
+    },
+    {
+      "id": "answer_good_that_was_sharp_on_to_the_next_one",
+      "bucket": "answer_good",
+      "text": "That was sharp. On to the next one.",
+      "path": "answer_good/that_was_sharp_on_to_the_next_one.pcm",
+      "duration_ms": 1898
+    },
+    {
+      "id": "answer_good_great_answer_you_explained_that_really_c",
+      "bucket": "answer_good",
+      "text": "Great answer — you explained that really clearly. Let's continue.",
+      "path": "answer_good/great_answer_you_explained_that_really_c.pcm",
+      "duration_ms": 4080
+    },
+    {
+      "id": "answer_good_yeah_that_s_spot_on_let_s_move_ahead",
+      "bucket": "answer_good",
+      "text": "Yeah, that's spot on. Let's move ahead.",
+      "path": "answer_good/yeah_that_s_spot_on_let_s_move_ahead.pcm",
+      "duration_ms": 2826
+    },
+    {
+      "id": "answer_good_excellent_you_covered_all_the_key_points",
+      "bucket": "answer_good",
+      "text": "Excellent, you covered all the key points. Next up.",
+      "path": "answer_good/excellent_you_covered_all_the_key_points.pcm",
+      "duration_ms": 2734
+    },
+    {
+      "id": "answer_good_that_s_a_really_good_take_let_s_keep_the",
+      "bucket": "answer_good",
+      "text": "That's a really good take. Let's keep the momentum going.",
+      "path": "answer_good/that_s_a_really_good_take_let_s_keep_the.pcm",
+      "duration_ms": 2641
+    },
+    {
+      "id": "answer_good_solid_i_like_how_you_thought_that_throug",
+      "bucket": "answer_good",
+      "text": "Solid — I like how you thought that through. Let's continue.",
+      "path": "answer_good/solid_i_like_how_you_thought_that_throug.pcm",
+      "duration_ms": 4034
+    },
+    {
+      "id": "answer_good_very_nice_let_s_move_on_to_the_next_one",
+      "bucket": "answer_good",
+      "text": "Very nice. Let's move on to the next one.",
+      "path": "answer_good/very_nice_let_s_move_on_to_the_next_one.pcm",
+      "duration_ms": 2362
+    },
+    {
+      "id": "answer_good_that_was_crisp_and_to_the_point_on_we_go",
+      "bucket": "answer_good",
+      "text": "That was crisp and to the point. On we go.",
+      "path": "answer_good/that_was_crisp_and_to_the_point_on_we_go.pcm",
+      "duration_ms": 2687
+    },
+    {
+      "id": "answer_good_great_job_with_that_let_s_head_to_the_ne",
+      "bucket": "answer_good",
+      "text": "Great job with that. Let's head to the next question.",
+      "path": "answer_good/great_job_with_that_let_s_head_to_the_ne.pcm",
+      "duration_ms": 2919
+    },
+    {
+      "id": "answer_good_good_that_s_a_confident_answer_let_s_car",
+      "bucket": "answer_good",
+      "text": "Good, that's a confident answer. Let's carry on.",
+      "path": "answer_good/good_that_s_a_confident_answer_let_s_car.pcm",
+      "duration_ms": 2362
+    },
+    {
+      "id": "answer_good_you_nailed_the_main_idea_there_let_s_mov",
+      "bucket": "answer_good",
+      "text": "You nailed the main idea there. Let's move ahead.",
+      "path": "answer_good/you_nailed_the_main_idea_there_let_s_mov.pcm",
+      "duration_ms": 2873
+    },
+    {
+      "id": "answer_good_that_s_the_kind_of_detail_i_like_to_hear",
+      "bucket": "answer_good",
+      "text": "That's the kind of detail I like to hear. Next question.",
+      "path": "answer_good/that_s_the_kind_of_detail_i_like_to_hear.pcm",
+      "duration_ms": 3802
+    },
+    {
+      "id": "answer_good_really_well_put_let_s_keep_going",
+      "bucket": "answer_good",
+      "text": "Really well put. Let's keep going.",
+      "path": "answer_good/really_well_put_let_s_keep_going.pcm",
+      "duration_ms": 2037
+    },
+    {
+      "id": "answer_good_nice_reasoning_throughout_on_to_the_next",
+      "bucket": "answer_good",
+      "text": "Nice reasoning throughout. On to the next one.",
+      "path": "answer_good/nice_reasoning_throughout_on_to_the_next.pcm",
+      "duration_ms": 2826
+    },
+    {
+      "id": "answer_good_that_was_a_clean_explanation_let_s_move",
+      "bucket": "answer_good",
+      "text": "That was a clean explanation. Let's move on.",
+      "path": "answer_good/that_was_a_clean_explanation_let_s_move.pcm",
+      "duration_ms": 2548
+    },
+    {
+      "id": "answer_good_good_you_clearly_have_hands_on_experienc",
+      "bucket": "answer_good",
+      "text": "Good — you clearly have hands-on experience with this. Let's continue.",
+      "path": "answer_good/good_you_clearly_have_hands_on_experienc.pcm",
+      "duration_ms": 5241
+    },
+    {
+      "id": "answer_good_impressive_let_s_move_to_the_next_questi",
+      "bucket": "answer_good",
+      "text": "Impressive. Let's move to the next question.",
+      "path": "answer_good/impressive_let_s_move_to_the_next_questi.pcm",
+      "duration_ms": 3012
+    },
+    {
+      "id": "answer_good_that_works_well_let_s_keep_going",
+      "bucket": "answer_good",
+      "text": "That works well. Let's keep going.",
+      "path": "answer_good/that_works_well_let_s_keep_going.pcm",
+      "duration_ms": 1851
+    },
+    {
+      "id": "answer_good_strong_answer_thanks_for_that_on_to_the",
+      "bucket": "answer_good",
+      "text": "Strong answer — thanks for that. On to the next one.",
+      "path": "answer_good/strong_answer_thanks_for_that_on_to_the.pcm",
+      "duration_ms": 3151
+    },
+    {
+      "id": "answer_good_great_you_really_understand_this_let_s_m",
+      "bucket": "answer_good",
+      "text": "Great, you really understand this. Let's move ahead.",
+      "path": "answer_good/great_you_really_understand_this_let_s_m.pcm",
+      "duration_ms": 2501
+    },
+    {
+      "id": "answer_partial_good_start_you_re_on_the_right_track_let",
+      "bucket": "answer_partial",
+      "text": "Good start — you're on the right track. Let's keep building from here.",
+      "path": "answer_partial/good_start_you_re_on_the_right_track_let.pcm",
+      "duration_ms": 4777
+    },
+    {
+      "id": "answer_partial_nice_that_s_part_of_it_let_s_move_on_for",
+      "bucket": "answer_partial",
+      "text": "Nice, that's part of it. Let's move on for now.",
+      "path": "answer_partial/nice_that_s_part_of_it_let_s_move_on_for.pcm",
+      "duration_ms": 2548
+    },
+    {
+      "id": "answer_partial_you_ve_got_the_core_idea_there_let_s_con",
+      "bucket": "answer_partial",
+      "text": "You've got the core idea there. Let's continue.",
+      "path": "answer_partial/you_ve_got_the_core_idea_there_let_s_con.pcm",
+      "duration_ms": 3337
+    },
+    {
+      "id": "answer_partial_that_s_a_reasonable_take_let_s_keep_goin",
+      "bucket": "answer_partial",
+      "text": "That's a reasonable take. Let's keep going.",
+      "path": "answer_partial/that_s_a_reasonable_take_let_s_keep_goin.pcm",
+      "duration_ms": 2641
+    },
+    {
+      "id": "answer_partial_okay_you_re_heading_in_the_right_directi",
+      "bucket": "answer_partial",
+      "text": "Okay, you're heading in the right direction. On to the next one.",
+      "path": "answer_partial/okay_you_re_heading_in_the_right_directi.pcm",
+      "duration_ms": 3848
+    },
+    {
+      "id": "answer_partial_good_effort_there_s_a_bit_more_to_it_but",
+      "bucket": "answer_partial",
+      "text": "Good effort — there's a bit more to it, but let's move ahead.",
+      "path": "answer_partial/good_effort_there_s_a_bit_more_to_it_but.pcm",
+      "duration_ms": 3244
+    },
+    {
+      "id": "answer_partial_nice_thinking_so_far_let_s_continue_with",
+      "bucket": "answer_partial",
+      "text": "Nice thinking so far. Let's continue with the next question.",
+      "path": "answer_partial/nice_thinking_so_far_let_s_continue_with.pcm",
+      "duration_ms": 3291
+    },
+    {
+      "id": "answer_partial_that_s_a_fair_attempt_let_s_keep_the_mom",
+      "bucket": "answer_partial",
+      "text": "That's a fair attempt. Let's keep the momentum going.",
+      "path": "answer_partial/that_s_a_fair_attempt_let_s_keep_the_mom.pcm",
+      "duration_ms": 2966
+    },
+    {
+      "id": "answer_partial_you_re_on_to_something_there_let_s_move",
+      "bucket": "answer_partial",
+      "text": "You're on to something there. Let's move on.",
+      "path": "answer_partial/you_re_on_to_something_there_let_s_move.pcm",
+      "duration_ms": 2083
+    },
+    {
+      "id": "answer_partial_alright_that_s_a_decent_chunk_of_it_next",
+      "bucket": "answer_partial",
+      "text": "Alright, that's a decent chunk of it. Next question.",
+      "path": "answer_partial/alright_that_s_a_decent_chunk_of_it_next.pcm",
+      "duration_ms": 3337
+    },
+    {
+      "id": "answer_partial_good_you_touched_on_the_main_point_let_s",
+      "bucket": "answer_partial",
+      "text": "Good — you touched on the main point. Let's continue.",
+      "path": "answer_partial/good_you_touched_on_the_main_point_let_s.pcm",
+      "duration_ms": 3802
+    },
+    {
+      "id": "answer_partial_that_s_a_solid_beginning_let_s_move_ahea",
+      "bucket": "answer_partial",
+      "text": "That's a solid beginning. Let's move ahead.",
+      "path": "answer_partial/that_s_a_solid_beginning_let_s_move_ahea.pcm",
+      "duration_ms": 2734
+    },
+    {
+      "id": "answer_partial_okay_i_can_see_where_you_re_going_with_t",
+      "bucket": "answer_partial",
+      "text": "Okay, I can see where you're going with that. On we go.",
+      "path": "answer_partial/okay_i_can_see_where_you_re_going_with_t.pcm",
+      "duration_ms": 3059
+    },
+    {
+      "id": "answer_partial_not_bad_you_ve_got_the_general_shape_of",
+      "bucket": "answer_partial",
+      "text": "Not bad — you've got the general shape of it. Let's keep going.",
+      "path": "answer_partial/not_bad_you_ve_got_the_general_shape_of.pcm",
+      "duration_ms": 3244
+    },
+    {
+      "id": "answer_partial_that_s_a_reasonable_start_let_s_move_to",
+      "bucket": "answer_partial",
+      "text": "That's a reasonable start. Let's move to the next one.",
+      "path": "answer_partial/that_s_a_reasonable_start_let_s_move_to.pcm",
+      "duration_ms": 3059
+    },
+    {
+      "id": "answer_partial_good_you_re_thinking_about_it_the_right",
+      "bucket": "answer_partial",
+      "text": "Good, you're thinking about it the right way. Let's continue.",
+      "path": "answer_partial/good_you_re_thinking_about_it_the_right.pcm",
+      "duration_ms": 3105
+    },
+    {
+      "id": "answer_partial_you_covered_some_of_it_well_let_s_move_a",
+      "bucket": "answer_partial",
+      "text": "You covered some of it well. Let's move ahead.",
+      "path": "answer_partial/you_covered_some_of_it_well_let_s_move_a.pcm",
+      "duration_ms": 2919
+    },
+    {
+      "id": "answer_partial_alright_that_s_a_workable_answer_next_up",
+      "bucket": "answer_partial",
+      "text": "Alright, that's a workable answer. Next up.",
+      "path": "answer_partial/alright_that_s_a_workable_answer_next_up.pcm",
+      "duration_ms": 3105
+    },
+    {
+      "id": "answer_partial_nice_you_re_close_on_the_key_idea_let_s",
+      "bucket": "answer_partial",
+      "text": "Nice — you're close on the key idea. Let's keep going.",
+      "path": "answer_partial/nice_you_re_close_on_the_key_idea_let_s.pcm",
+      "duration_ms": 3848
+    },
+    {
+      "id": "answer_partial_that_s_a_fair_point_to_make_let_s_move_o",
+      "bucket": "answer_partial",
+      "text": "That's a fair point to make. Let's move on.",
+      "path": "answer_partial/that_s_a_fair_point_to_make_let_s_move_o.pcm",
+      "duration_ms": 2269
+    },
+    {
+      "id": "answer_partial_okay_good_let_s_build_on_that_as_we_go_n",
+      "bucket": "answer_partial",
+      "text": "Okay, good — let's build on that as we go. Next question.",
+      "path": "answer_partial/okay_good_let_s_build_on_that_as_we_go_n.pcm",
+      "duration_ms": 3662
+    },
+    {
+      "id": "answer_partial_you_ve_got_the_right_instinct_there_let",
+      "bucket": "answer_partial",
+      "text": "You've got the right instinct there. Let's continue.",
+      "path": "answer_partial/you_ve_got_the_right_instinct_there_let.pcm",
+      "duration_ms": 2826
+    },
+    {
+      "id": "answer_partial_that_s_a_reasonable_direction_let_s_keep",
+      "bucket": "answer_partial",
+      "text": "That's a reasonable direction. Let's keep going.",
+      "path": "answer_partial/that_s_a_reasonable_direction_let_s_keep.pcm",
+      "duration_ms": 3012
+    },
+    {
+      "id": "answer_partial_good_attempt_let_s_move_on_and_keep_expl",
+      "bucket": "answer_partial",
+      "text": "Good attempt — let's move on and keep exploring.",
+      "path": "answer_partial/good_attempt_let_s_move_on_and_keep_expl.pcm",
+      "duration_ms": 2780
+    },
+    {
+      "id": "answer_partial_alright_that_s_part_of_the_picture_on_to",
+      "bucket": "answer_partial",
+      "text": "Alright, that's part of the picture. On to the next one.",
+      "path": "answer_partial/alright_that_s_part_of_the_picture_on_to.pcm",
+      "duration_ms": 3059
+    },
+    {
+      "id": "answer_partial_you_made_a_fair_point_there_let_s_move_a",
+      "bucket": "answer_partial",
+      "text": "You made a fair point there. Let's move ahead.",
+      "path": "answer_partial/you_made_a_fair_point_there_let_s_move_a.pcm",
+      "duration_ms": 2548
+    },
+    {
+      "id": "answer_partial_okay_that_s_a_start_worth_building_on_le",
+      "bucket": "answer_partial",
+      "text": "Okay, that's a start worth building on. Let's continue.",
+      "path": "answer_partial/okay_that_s_a_start_worth_building_on_le.pcm",
+      "duration_ms": 2594
+    },
+    {
+      "id": "answer_partial_nice_there_s_more_to_dig_into_but_let_s",
+      "bucket": "answer_partial",
+      "text": "Nice — there's more to dig into, but let's keep moving.",
+      "path": "answer_partial/nice_there_s_more_to_dig_into_but_let_s.pcm",
+      "duration_ms": 3384
+    },
+    {
+      "id": "answer_partial_that_s_heading_in_a_sensible_direction_n",
+      "bucket": "answer_partial",
+      "text": "That's heading in a sensible direction. Next question.",
+      "path": "answer_partial/that_s_heading_in_a_sensible_direction_n.pcm",
+      "duration_ms": 3337
+    },
+    {
+      "id": "answer_partial_good_you_ve_got_a_foothold_on_this_let_s",
+      "bucket": "answer_partial",
+      "text": "Good, you've got a foothold on this. Let's carry on.",
+      "path": "answer_partial/good_you_ve_got_a_foothold_on_this_let_s.pcm",
+      "duration_ms": 2873
+    },
+    {
+      "id": "answer_wrong_thanks_for_giving_that_a_go_let_s_move_o",
+      "bucket": "answer_wrong",
+      "text": "Thanks for giving that a go. Let's move on to the next one.",
+      "path": "answer_wrong/thanks_for_giving_that_a_go_let_s_move_o.pcm",
+      "duration_ms": 3523
+    },
+    {
+      "id": "answer_wrong_no_worries_that_s_a_tricky_one_let_s_kee",
+      "bucket": "answer_wrong",
+      "text": "No worries — that's a tricky one. Let's keep going.",
+      "path": "answer_wrong/no_worries_that_s_a_tricky_one_let_s_kee.pcm",
+      "duration_ms": 3616
+    },
+    {
+      "id": "answer_wrong_appreciate_the_attempt_let_s_try_the_nex",
+      "bucket": "answer_wrong",
+      "text": "Appreciate the attempt. Let's try the next question.",
+      "path": "answer_wrong/appreciate_the_attempt_let_s_try_the_nex.pcm",
+      "duration_ms": 2734
+    },
+    {
+      "id": "answer_wrong_that_s_okay_these_take_practice_let_s_co",
+      "bucket": "answer_wrong",
+      "text": "That's okay, these take practice. Let's continue.",
+      "path": "answer_wrong/that_s_okay_these_take_practice_let_s_co.pcm",
+      "duration_ms": 3059
+    },
+    {
+      "id": "answer_wrong_alright_let_s_move_ahead_to_the_next_one",
+      "bucket": "answer_wrong",
+      "text": "Alright, let's move ahead to the next one.",
+      "path": "answer_wrong/alright_let_s_move_ahead_to_the_next_one.pcm",
+      "duration_ms": 1758
+    },
+    {
+      "id": "answer_wrong_thanks_for_thinking_it_through_let_s_car",
+      "bucket": "answer_wrong",
+      "text": "Thanks for thinking it through. Let's carry on.",
+      "path": "answer_wrong/thanks_for_thinking_it_through_let_s_car.pcm",
+      "duration_ms": 2408
+    },
+    {
+      "id": "answer_wrong_all_good_let_s_move_to_the_next_question",
+      "bucket": "answer_wrong",
+      "text": "All good — let's move to the next question.",
+      "path": "answer_wrong/all_good_let_s_move_to_the_next_question.pcm",
+      "duration_ms": 2223
+    },
+    {
+      "id": "answer_wrong_fair_enough_let_s_keep_going",
+      "bucket": "answer_wrong",
+      "text": "Fair enough — let's keep going.",
+      "path": "answer_wrong/fair_enough_let_s_keep_going.pcm",
+      "duration_ms": 1898
+    },
+    {
+      "id": "answer_wrong_no_problem_that_one_s_tough_let_s_move_o",
+      "bucket": "answer_wrong",
+      "text": "No problem, that one's tough. Let's move on.",
+      "path": "answer_wrong/no_problem_that_one_s_tough_let_s_move_o.pcm",
+      "duration_ms": 3012
+    },
+    {
+      "id": "answer_wrong_thanks_for_trying_that_on_to_the_next_on",
+      "bucket": "answer_wrong",
+      "text": "Thanks for trying that. On to the next one.",
+      "path": "answer_wrong/thanks_for_trying_that_on_to_the_next_on.pcm",
+      "duration_ms": 2455
+    },
+    {
+      "id": "answer_wrong_that_s_alright_let_s_keep_the_interview",
+      "bucket": "answer_wrong",
+      "text": "That's alright — let's keep the interview moving.",
+      "path": "answer_wrong/that_s_alright_let_s_keep_the_interview.pcm",
+      "duration_ms": 2641
+    },
+    {
+      "id": "answer_wrong_okay_let_s_set_that_aside_and_continue",
+      "bucket": "answer_wrong",
+      "text": "Okay, let's set that aside and continue.",
+      "path": "answer_wrong/okay_let_s_set_that_aside_and_continue.pcm",
+      "duration_ms": 2269
+    },
+    {
+      "id": "answer_wrong_no_worries_at_all_let_s_head_to_the_next",
+      "bucket": "answer_wrong",
+      "text": "No worries at all. Let's head to the next question.",
+      "path": "answer_wrong/no_worries_at_all_let_s_head_to_the_next.pcm",
+      "duration_ms": 3012
+    },
+    {
+      "id": "answer_wrong_appreciate_you_working_through_it_let_s",
+      "bucket": "answer_wrong",
+      "text": "Appreciate you working through it. Let's move ahead.",
+      "path": "answer_wrong/appreciate_you_working_through_it_let_s.pcm",
+      "duration_ms": 2966
+    },
+    {
+      "id": "answer_wrong_that_s_fine_let_s_try_a_fresh_one",
+      "bucket": "answer_wrong",
+      "text": "That's fine — let's try a fresh one.",
+      "path": "answer_wrong/that_s_fine_let_s_try_a_fresh_one.pcm",
+      "duration_ms": 1712
+    },
+    {
+      "id": "answer_wrong_thanks_for_that_let_s_keep_going",
+      "bucket": "answer_wrong",
+      "text": "Thanks for that. Let's keep going.",
+      "path": "answer_wrong/thanks_for_that_let_s_keep_going.pcm",
+      "duration_ms": 1712
+    },
+    {
+      "id": "answer_wrong_alright_no_problem_on_to_the_next_one",
+      "bucket": "answer_wrong",
+      "text": "Alright, no problem — on to the next one.",
+      "path": "answer_wrong/alright_no_problem_on_to_the_next_one.pcm",
+      "duration_ms": 2641
+    },
+    {
+      "id": "answer_wrong_these_things_take_reps_let_s_continue",
+      "bucket": "answer_wrong",
+      "text": "These things take reps. Let's continue.",
+      "path": "answer_wrong/these_things_take_reps_let_s_continue.pcm",
+      "duration_ms": 2594
+    },
+    {
+      "id": "answer_wrong_that_s_okay_let_s_move_to_the_next_quest",
+      "bucket": "answer_wrong",
+      "text": "That's okay — let's move to the next question.",
+      "path": "answer_wrong/that_s_okay_let_s_move_to_the_next_quest.pcm",
+      "duration_ms": 2501
+    },
+    {
+      "id": "answer_wrong_good_effort_regardless_let_s_carry_on",
+      "bucket": "answer_wrong",
+      "text": "Good effort regardless. Let's carry on.",
+      "path": "answer_wrong/good_effort_regardless_let_s_carry_on.pcm",
+      "duration_ms": 3662
+    },
+    {
+      "id": "answer_wrong_no_stress_let_s_keep_going",
+      "bucket": "answer_wrong",
+      "text": "No stress — let's keep going.",
+      "path": "answer_wrong/no_stress_let_s_keep_going.pcm",
+      "duration_ms": 2130
+    },
+    {
+      "id": "answer_wrong_thanks_for_the_attempt_let_s_move_ahead",
+      "bucket": "answer_wrong",
+      "text": "Thanks for the attempt. Let's move ahead.",
+      "path": "answer_wrong/thanks_for_the_attempt_let_s_move_ahead.pcm",
+      "duration_ms": 2316
+    },
+    {
+      "id": "answer_wrong_that_s_alright_let_s_not_dwell_on_it_nex",
+      "bucket": "answer_wrong",
+      "text": "That's alright, let's not dwell on it. Next question.",
+      "path": "answer_wrong/that_s_alright_let_s_not_dwell_on_it_nex.pcm",
+      "duration_ms": 2780
+    },
+    {
+      "id": "answer_wrong_okay_let_s_move_on_and_keep_going",
+      "bucket": "answer_wrong",
+      "text": "Okay — let's move on and keep going.",
+      "path": "answer_wrong/okay_let_s_move_on_and_keep_going.pcm",
+      "duration_ms": 2826
+    },
+    {
+      "id": "answer_wrong_no_worries_let_s_try_the_next_one",
+      "bucket": "answer_wrong",
+      "text": "No worries, let's try the next one.",
+      "path": "answer_wrong/no_worries_let_s_try_the_next_one.pcm",
+      "duration_ms": 2408
+    },
+    {
+      "id": "answer_wrong_appreciate_it_let_s_continue",
+      "bucket": "answer_wrong",
+      "text": "Appreciate it. Let's continue.",
+      "path": "answer_wrong/appreciate_it_let_s_continue.pcm",
+      "duration_ms": 2176
+    },
+    {
+      "id": "answer_wrong_that_s_fine_plenty_more_to_cover_let_s_m",
+      "bucket": "answer_wrong",
+      "text": "That's fine — plenty more to cover. Let's move on.",
+      "path": "answer_wrong/that_s_fine_plenty_more_to_cover_let_s_m.pcm",
+      "duration_ms": 4220
+    },
+    {
+      "id": "answer_wrong_alright_let_s_keep_things_rolling",
+      "bucket": "answer_wrong",
+      "text": "Alright, let's keep things rolling.",
+      "path": "answer_wrong/alright_let_s_keep_things_rolling.pcm",
+      "duration_ms": 1573
+    },
+    {
+      "id": "answer_wrong_thanks_for_having_a_go_on_to_the_next_on",
+      "bucket": "answer_wrong",
+      "text": "Thanks for having a go. On to the next one.",
+      "path": "answer_wrong/thanks_for_having_a_go_on_to_the_next_on.pcm",
+      "duration_ms": 2966
+    },
+    {
+      "id": "answer_wrong_no_problem_let_s_move_to_the_next_questi",
+      "bucket": "answer_wrong",
+      "text": "No problem — let's move to the next question.",
+      "path": "answer_wrong/no_problem_let_s_move_to_the_next_questi.pcm",
+      "duration_ms": 3430
+    },
+    {
+      "id": "skip_that_s_completely_fine_let_s_move_on_to",
+      "bucket": "skip",
+      "text": "That's completely fine. Let's move on to the next question.",
+      "path": "skip/that_s_completely_fine_let_s_move_on_to.pcm",
+      "duration_ms": 2919
+    },
+    {
+      "id": "skip_no_problem_at_all_let_s_try_a_different",
+      "bucket": "skip",
+      "text": "No problem at all — let's try a different one.",
+      "path": "skip/no_problem_at_all_let_s_try_a_different.pcm",
+      "duration_ms": 3802
+    },
+    {
+      "id": "skip_sure_we_can_skip_that_here_s_the_next_on",
+      "bucket": "skip",
+      "text": "Sure, we can skip that. Here's the next one.",
+      "path": "skip/sure_we_can_skip_that_here_s_the_next_on.pcm",
+      "duration_ms": 2176
+    },
+    {
+      "id": "skip_that_s_okay_let_s_move_ahead",
+      "bucket": "skip",
+      "text": "That's okay, let's move ahead.",
+      "path": "skip/that_s_okay_let_s_move_ahead.pcm",
+      "duration_ms": 1712
+    },
+    {
+      "id": "skip_no_worries_let_s_continue_with_something",
+      "bucket": "skip",
+      "text": "No worries, let's continue with something else.",
+      "path": "skip/no_worries_let_s_continue_with_something.pcm",
+      "duration_ms": 2269
+    },
+    {
+      "id": "skip_alright_let_s_move_to_the_next_question",
+      "bucket": "skip",
+      "text": "Alright, let's move to the next question.",
+      "path": "skip/alright_let_s_move_to_the_next_question.pcm",
+      "duration_ms": 1712
+    },
+    {
+      "id": "skip_that_s_fine_let_s_keep_going",
+      "bucket": "skip",
+      "text": "That's fine — let's keep going.",
+      "path": "skip/that_s_fine_let_s_keep_going.pcm",
+      "duration_ms": 2501
+    },
+    {
+      "id": "skip_understood_let_s_move_on",
+      "bucket": "skip",
+      "text": "Understood — let's move on.",
+      "path": "skip/understood_let_s_move_on.pcm",
+      "duration_ms": 2269
+    },
+    {
+      "id": "skip_no_problem_we_ll_skip_it_on_to_the_next",
+      "bucket": "skip",
+      "text": "No problem, we'll skip it. On to the next one.",
+      "path": "skip/no_problem_we_ll_skip_it_on_to_the_next.pcm",
+      "duration_ms": 2826
+    },
+    {
+      "id": "skip_sure_thing_let_s_try_the_next_question",
+      "bucket": "skip",
+      "text": "Sure thing — let's try the next question.",
+      "path": "skip/sure_thing_let_s_try_the_next_question.pcm",
+      "duration_ms": 2734
+    },
+    {
+      "id": "skip_that_s_alright_not_everyone_s_covered_ev",
+      "bucket": "skip",
+      "text": "That's alright, not everyone's covered everything. Let's continue.",
+      "path": "skip/that_s_alright_not_everyone_s_covered_ev.pcm",
+      "duration_ms": 3987
+    },
+    {
+      "id": "skip_okay_we_ll_leave_that_one_let_s_move_ahe",
+      "bucket": "skip",
+      "text": "Okay, we'll leave that one. Let's move ahead.",
+      "path": "skip/okay_we_ll_leave_that_one_let_s_move_ahe.pcm",
+      "duration_ms": 2176
+    },
+    {
+      "id": "skip_no_worries_at_all_let_s_keep_going",
+      "bucket": "skip",
+      "text": "No worries at all — let's keep going.",
+      "path": "skip/no_worries_at_all_let_s_keep_going.pcm",
+      "duration_ms": 2687
+    },
+    {
+      "id": "skip_fair_enough_let_s_move_to_the_next_one",
+      "bucket": "skip",
+      "text": "Fair enough — let's move to the next one.",
+      "path": "skip/fair_enough_let_s_move_to_the_next_one.pcm",
+      "duration_ms": 2176
+    },
+    {
+      "id": "skip_that_s_totally_fine_let_s_continue",
+      "bucket": "skip",
+      "text": "That's totally fine. Let's continue.",
+      "path": "skip/that_s_totally_fine_let_s_continue.pcm",
+      "duration_ms": 2316
+    },
+    {
+      "id": "skip_sure_let_s_move_past_that_one",
+      "bucket": "skip",
+      "text": "Sure, let's move past that one.",
+      "path": "skip/sure_let_s_move_past_that_one.pcm",
+      "duration_ms": 1851
+    },
+    {
+      "id": "skip_no_problem_here_s_the_next_question",
+      "bucket": "skip",
+      "text": "No problem — here's the next question.",
+      "path": "skip/no_problem_here_s_the_next_question.pcm",
+      "duration_ms": 2269
+    },
+    {
+      "id": "skip_alright_skipping_ahead_let_s_keep_going",
+      "bucket": "skip",
+      "text": "Alright, skipping ahead. Let's keep going.",
+      "path": "skip/alright_skipping_ahead_let_s_keep_going.pcm",
+      "duration_ms": 2548
+    },
+    {
+      "id": "skip_that_s_okay_let_s_try_something_differen",
+      "bucket": "skip",
+      "text": "That's okay — let's try something different.",
+      "path": "skip/that_s_okay_let_s_try_something_differen.pcm",
+      "duration_ms": 3198
+    },
+    {
+      "id": "skip_understood_we_ll_move_on_next_question",
+      "bucket": "skip",
+      "text": "Understood, we'll move on. Next question.",
+      "path": "skip/understood_we_ll_move_on_next_question.pcm",
+      "duration_ms": 2780
+    },
+    {
+      "id": "skip_no_stress_let_s_continue",
+      "bucket": "skip",
+      "text": "No stress — let's continue.",
+      "path": "skip/no_stress_let_s_continue.pcm",
+      "duration_ms": 2037
+    },
+    {
+      "id": "skip_sure_let_s_set_that_aside_and_move_ahead",
+      "bucket": "skip",
+      "text": "Sure, let's set that aside and move ahead.",
+      "path": "skip/sure_let_s_set_that_aside_and_move_ahead.pcm",
+      "duration_ms": 1990
+    },
+    {
+      "id": "skip_that_s_fine_let_s_keep_the_momentum_next",
+      "bucket": "skip",
+      "text": "That's fine, let's keep the momentum. Next one.",
+      "path": "skip/that_s_fine_let_s_keep_the_momentum_next.pcm",
+      "duration_ms": 2641
+    },
+    {
+      "id": "skip_okay_let_s_move_right_along",
+      "bucket": "skip",
+      "text": "Okay — let's move right along.",
+      "path": "skip/okay_let_s_move_right_along.pcm",
+      "duration_ms": 2362
+    },
+    {
+      "id": "skip_no_problem_let_s_go_to_the_next_question",
+      "bucket": "skip",
+      "text": "No problem, let's go to the next question.",
+      "path": "skip/no_problem_let_s_go_to_the_next_question.pcm",
+      "duration_ms": 2223
+    },
+    {
+      "id": "skip_alright_let_s_keep_going",
+      "bucket": "skip",
+      "text": "Alright — let's keep going.",
+      "path": "skip/alright_let_s_keep_going.pcm",
+      "duration_ms": 1944
+    },
+    {
+      "id": "repeat_sure_let_me_say_that_again",
+      "bucket": "repeat",
+      "text": "Sure, let me say that again.",
+      "path": "repeat/sure_let_me_say_that_again.pcm",
+      "duration_ms": 1619
+    },
+    {
+      "id": "repeat_of_course_here_s_the_question_once_more",
+      "bucket": "repeat",
+      "text": "Of course — here's the question once more.",
+      "path": "repeat/of_course_here_s_the_question_once_more.pcm",
+      "duration_ms": 2826
+    },
+    {
+      "id": "repeat_no_problem_let_me_repeat_that_for_you",
+      "bucket": "repeat",
+      "text": "No problem, let me repeat that for you.",
+      "path": "repeat/no_problem_let_me_repeat_that_for_you.pcm",
+      "duration_ms": 2269
+    },
+    {
+      "id": "repeat_absolutely_listen_again",
+      "bucket": "repeat",
+      "text": "Absolutely — listen again.",
+      "path": "repeat/absolutely_listen_again.pcm",
+      "duration_ms": 2455
+    },
+    {
+      "id": "repeat_sure_thing_here_it_is_again",
+      "bucket": "repeat",
+      "text": "Sure thing, here it is again.",
+      "path": "repeat/sure_thing_here_it_is_again.pcm",
+      "duration_ms": 1944
+    },
+    {
+      "id": "repeat_let_me_repeat_the_question",
+      "bucket": "repeat",
+      "text": "Let me repeat the question.",
+      "path": "repeat/let_me_repeat_the_question.pcm",
+      "duration_ms": 1433
+    },
+    {
+      "id": "repeat_happy_to_here_it_is_once_more",
+      "bucket": "repeat",
+      "text": "Happy to — here it is once more.",
+      "path": "repeat/happy_to_here_it_is_once_more.pcm",
+      "duration_ms": 2780
+    },
+    {
+      "id": "repeat_okay_here_s_the_question_again",
+      "bucket": "repeat",
+      "text": "Okay, here's the question again.",
+      "path": "repeat/okay_here_s_the_question_again.pcm",
+      "duration_ms": 1573
+    },
+    {
+      "id": "repeat_of_course_i_ll_say_it_again",
+      "bucket": "repeat",
+      "text": "Of course, I'll say it again.",
+      "path": "repeat/of_course_i_ll_say_it_again.pcm",
+      "duration_ms": 1433
+    },
+    {
+      "id": "repeat_no_worries_here_s_that_one_more_time",
+      "bucket": "repeat",
+      "text": "No worries, here's that one more time.",
+      "path": "repeat/no_worries_here_s_that_one_more_time.pcm",
+      "duration_ms": 2316
+    },
+    {
+      "id": "repeat_sure_let_me_read_it_out_again",
+      "bucket": "repeat",
+      "text": "Sure — let me read it out again.",
+      "path": "repeat/sure_let_me_read_it_out_again.pcm",
+      "duration_ms": 2083
+    },
+    {
+      "id": "repeat_certainly_here_it_is_again",
+      "bucket": "repeat",
+      "text": "Certainly, here it is again.",
+      "path": "repeat/certainly_here_it_is_again.pcm",
+      "duration_ms": 1851
+    },
+    {
+      "id": "repeat_let_me_go_over_the_question_again_for_yo",
+      "bucket": "repeat",
+      "text": "Let me go over the question again for you.",
+      "path": "repeat/let_me_go_over_the_question_again_for_yo.pcm",
+      "duration_ms": 1990
+    },
+    {
+      "id": "repeat_no_problem_at_all_one_more_time",
+      "bucket": "repeat",
+      "text": "No problem at all — one more time.",
+      "path": "repeat/no_problem_at_all_one_more_time.pcm",
+      "duration_ms": 2455
+    },
+    {
+      "id": "repeat_okay_listen_carefully_here_it_is_again",
+      "bucket": "repeat",
+      "text": "Okay, listen carefully — here it is again.",
+      "path": "repeat/okay_listen_carefully_here_it_is_again.pcm",
+      "duration_ms": 3151
+    },
+    {
+      "id": "repeat_sure_i_ll_repeat_it",
+      "bucket": "repeat",
+      "text": "Sure, I'll repeat it.",
+      "path": "repeat/sure_i_ll_repeat_it.pcm",
+      "duration_ms": 1387
+    },
+    {
+      "id": "repeat_of_course_here_s_the_question_again",
+      "bucket": "repeat",
+      "text": "Of course — here's the question again.",
+      "path": "repeat/of_course_here_s_the_question_again.pcm",
+      "duration_ms": 2501
+    },
+    {
+      "id": "repeat_happy_to_repeat_that_here_you_go",
+      "bucket": "repeat",
+      "text": "Happy to repeat that. Here you go.",
+      "path": "repeat/happy_to_repeat_that_here_you_go.pcm",
+      "duration_ms": 2548
+    },
+    {
+      "id": "repeat_let_me_say_the_question_one_more_time",
+      "bucket": "repeat",
+      "text": "Let me say the question one more time.",
+      "path": "repeat/let_me_say_the_question_one_more_time.pcm",
+      "duration_ms": 1990
+    },
+    {
+      "id": "repeat_no_problem_here_it_is_again",
+      "bucket": "repeat",
+      "text": "No problem — here it is again.",
+      "path": "repeat/no_problem_here_it_is_again.pcm",
+      "duration_ms": 2408
+    },
+    {
+      "id": "rephrase_sure_let_me_put_that_a_different_way",
+      "bucket": "rephrase",
+      "text": "Sure, let me put that a different way.",
+      "path": "rephrase/sure_let_me_put_that_a_different_way.pcm",
+      "duration_ms": 2269
+    },
+    {
+      "id": "rephrase_of_course_let_me_rephrase_that",
+      "bucket": "rephrase",
+      "text": "Of course — let me rephrase that.",
+      "path": "rephrase/of_course_let_me_rephrase_that.pcm",
+      "duration_ms": 2362
+    },
+    {
+      "id": "rephrase_no_problem_here_s_another_way_to_think_a",
+      "bucket": "rephrase",
+      "text": "No problem, here's another way to think about it.",
+      "path": "rephrase/no_problem_here_s_another_way_to_think_a.pcm",
+      "duration_ms": 2826
+    },
+    {
+      "id": "rephrase_let_me_ask_that_differently",
+      "bucket": "rephrase",
+      "text": "Let me ask that differently.",
+      "path": "rephrase/let_me_ask_that_differently.pcm",
+      "duration_ms": 1712
+    },
+    {
+      "id": "rephrase_sure_i_ll_word_it_another_way",
+      "bucket": "rephrase",
+      "text": "Sure, I'll word it another way.",
+      "path": "rephrase/sure_i_ll_word_it_another_way.pcm",
+      "duration_ms": 1851
+    },
+    {
+      "id": "rephrase_happy_to_rephrase_here_it_is",
+      "bucket": "rephrase",
+      "text": "Happy to rephrase — here it is.",
+      "path": "rephrase/happy_to_rephrase_here_it_is.pcm",
+      "duration_ms": 2083
+    },
+    {
+      "id": "rephrase_okay_let_me_phrase_that_more_clearly",
+      "bucket": "rephrase",
+      "text": "Okay, let me phrase that more clearly.",
+      "path": "rephrase/okay_let_me_phrase_that_more_clearly.pcm",
+      "duration_ms": 2083
+    },
+    {
+      "id": "rephrase_let_me_try_saying_that_another_way",
+      "bucket": "rephrase",
+      "text": "Let me try saying that another way.",
+      "path": "rephrase/let_me_try_saying_that_another_way.pcm",
+      "duration_ms": 1619
+    },
+    {
+      "id": "rephrase_sure_here_s_the_same_question_said_diffe",
+      "bucket": "rephrase",
+      "text": "Sure — here's the same question, said differently.",
+      "path": "rephrase/sure_here_s_the_same_question_said_diffe.pcm",
+      "duration_ms": 3059
+    },
+    {
+      "id": "rephrase_no_worries_let_me_reframe_it_for_you",
+      "bucket": "rephrase",
+      "text": "No worries, let me reframe it for you.",
+      "path": "rephrase/no_worries_let_me_reframe_it_for_you.pcm",
+      "duration_ms": 2130
+    },
+    {
+      "id": "rephrase_of_course_let_me_make_that_clearer",
+      "bucket": "rephrase",
+      "text": "Of course, let me make that clearer.",
+      "path": "rephrase/of_course_let_me_make_that_clearer.pcm",
+      "duration_ms": 1619
+    },
+    {
+      "id": "rephrase_let_me_put_it_in_simpler_terms",
+      "bucket": "rephrase",
+      "text": "Let me put it in simpler terms.",
+      "path": "rephrase/let_me_put_it_in_simpler_terms.pcm",
+      "duration_ms": 1758
+    },
+    {
+      "id": "rephrase_sure_thing_here_s_another_angle_on_it",
+      "bucket": "rephrase",
+      "text": "Sure thing — here's another angle on it.",
+      "path": "rephrase/sure_thing_here_s_another_angle_on_it.pcm",
+      "duration_ms": 2130
+    },
+    {
+      "id": "rephrase_okay_let_me_explain_what_i_m_asking",
+      "bucket": "rephrase",
+      "text": "Okay, let me explain what I'm asking.",
+      "path": "rephrase/okay_let_me_explain_what_i_m_asking.pcm",
+      "duration_ms": 1944
+    },
+    {
+      "id": "rephrase_no_problem_let_me_restate_that",
+      "bucket": "rephrase",
+      "text": "No problem — let me restate that.",
+      "path": "rephrase/no_problem_let_me_restate_that.pcm",
+      "duration_ms": 1990
+    },
+    {
+      "id": "rephrase_let_me_rework_that_question_a_little",
+      "bucket": "rephrase",
+      "text": "Let me rework that question a little.",
+      "path": "rephrase/let_me_rework_that_question_a_little.pcm",
+      "duration_ms": 1851
+    },
+    {
+      "id": "rephrase_sure_here_s_a_clearer_version",
+      "bucket": "rephrase",
+      "text": "Sure, here's a clearer version.",
+      "path": "rephrase/sure_here_s_a_clearer_version.pcm",
+      "duration_ms": 1712
+    },
+    {
+      "id": "rephrase_happy_to_let_me_say_it_more_plainly",
+      "bucket": "rephrase",
+      "text": "Happy to — let me say it more plainly.",
+      "path": "rephrase/happy_to_let_me_say_it_more_plainly.pcm",
+      "duration_ms": 2223
+    },
+    {
+      "id": "rephrase_of_course_i_ll_ask_it_a_different_way",
+      "bucket": "rephrase",
+      "text": "Of course — I'll ask it a different way.",
+      "path": "rephrase/of_course_i_ll_ask_it_a_different_way.pcm",
+      "duration_ms": 2408
+    },
+    {
+      "id": "rephrase_let_me_rephrase_so_it_s_easier_to_follow",
+      "bucket": "rephrase",
+      "text": "Let me rephrase so it's easier to follow.",
+      "path": "rephrase/let_me_rephrase_so_it_s_easier_to_follow.pcm",
+      "duration_ms": 2037
+    },
+    {
+      "id": "exit_no_problem_thanks_for_your_time_today_we",
+      "bucket": "exit",
+      "text": "No problem — thanks for your time today. We'll wrap up here.",
+      "path": "exit/no_problem_thanks_for_your_time_today_we.pcm",
+      "duration_ms": 3337
+    },
+    {
+      "id": "exit_that_s_alright_thank_you_for_joining_we",
+      "bucket": "exit",
+      "text": "That's alright. Thank you for joining; we'll end the session here.",
+      "path": "exit/that_s_alright_thank_you_for_joining_we.pcm",
+      "duration_ms": 4452
+    },
+    {
+      "id": "exit_understood_thanks_for_taking_the_time_ta",
+      "bucket": "exit",
+      "text": "Understood. Thanks for taking the time — take care.",
+      "path": "exit/understood_thanks_for_taking_the_time_ta.pcm",
+      "duration_ms": 2966
+    },
+    {
+      "id": "exit_sure_we_can_stop_here_thanks_for_partici",
+      "bucket": "exit",
+      "text": "Sure, we can stop here. Thanks for participating.",
+      "path": "exit/sure_we_can_stop_here_thanks_for_partici.pcm",
+      "duration_ms": 3198
+    },
+    {
+      "id": "exit_okay_we_ll_end_the_interview_here_thank",
+      "bucket": "exit",
+      "text": "Okay, we'll end the interview here. Thank you.",
+      "path": "exit/okay_we_ll_end_the_interview_here_thank.pcm",
+      "duration_ms": 3569
+    },
+    {
+      "id": "exit_thanks_for_your_time_we_ll_close_out_now",
+      "bucket": "exit",
+      "text": "Thanks for your time — we'll close out now.",
+      "path": "exit/thanks_for_your_time_we_ll_close_out_now.pcm",
+      "duration_ms": 2501
+    },
+    {
+      "id": "exit_alright_we_ll_finish_up_here_thanks_for",
+      "bucket": "exit",
+      "text": "Alright, we'll finish up here. Thanks for joining.",
+      "path": "exit/alright_we_ll_finish_up_here_thanks_for.pcm",
+      "duration_ms": 2734
+    },
+    {
+      "id": "exit_no_worries_thank_you_for_your_time_today",
+      "bucket": "exit",
+      "text": "No worries — thank you for your time today.",
+      "path": "exit/no_worries_thank_you_for_your_time_today.pcm",
+      "duration_ms": 2362
+    },
+    {
+      "id": "exit_understood_we_ll_wrap_things_up_take_car",
+      "bucket": "exit",
+      "text": "Understood, we'll wrap things up. Take care.",
+      "path": "exit/understood_we_ll_wrap_things_up_take_car.pcm",
+      "duration_ms": 2316
+    },
+    {
+      "id": "exit_that_s_fine_thanks_for_participating_tod",
+      "bucket": "exit",
+      "text": "That's fine — thanks for participating today.",
+      "path": "exit/that_s_fine_thanks_for_participating_tod.pcm",
+      "duration_ms": 1990
+    },
+    {
+      "id": "exit_okay_we_ll_bring_it_to_a_close_here_than",
+      "bucket": "exit",
+      "text": "Okay, we'll bring it to a close here. Thank you.",
+      "path": "exit/okay_we_ll_bring_it_to_a_close_here_than.pcm",
+      "duration_ms": 2455
+    },
+    {
+      "id": "exit_sure_thanks_for_joining_us_we_ll_end_her",
+      "bucket": "exit",
+      "text": "Sure — thanks for joining us. We'll end here.",
+      "path": "exit/sure_thanks_for_joining_us_we_ll_end_her.pcm",
+      "duration_ms": 3384
+    },
+    {
+      "id": "exit_alright_thank_you_for_your_time_take_car",
+      "bucket": "exit",
+      "text": "Alright, thank you for your time. Take care.",
+      "path": "exit/alright_thank_you_for_your_time_take_car.pcm",
+      "duration_ms": 2455
+    },
+    {
+      "id": "exit_no_problem_at_all_we_ll_close_the_sessio",
+      "bucket": "exit",
+      "text": "No problem at all — we'll close the session now. Thanks.",
+      "path": "exit/no_problem_at_all_we_ll_close_the_sessio.pcm",
+      "duration_ms": 3662
+    },
+    {
+      "id": "neutral_thanks_for_that_let_s_move_on_to_the_nex",
+      "bucket": "neutral",
+      "text": "Thanks for that. Let's move on to the next question.",
+      "path": "neutral/thanks_for_that_let_s_move_on_to_the_nex.pcm",
+      "duration_ms": 2269
+    },
+    {
+      "id": "neutral_got_it_let_s_continue",
+      "bucket": "neutral",
+      "text": "Got it. Let's continue.",
+      "path": "neutral/got_it_let_s_continue.pcm",
+      "duration_ms": 1805
+    },
+    {
+      "id": "neutral_okay_let_s_keep_going",
+      "bucket": "neutral",
+      "text": "Okay, let's keep going.",
+      "path": "neutral/okay_let_s_keep_going.pcm",
+      "duration_ms": 1712
+    },
+    {
+      "id": "neutral_alright_let_s_move_to_the_next_one",
+      "bucket": "neutral",
+      "text": "Alright, let's move to the next one.",
+      "path": "neutral/alright_let_s_move_to_the_next_one.pcm",
+      "duration_ms": 1805
+    },
+    {
+      "id": "neutral_thank_you_let_s_carry_on",
+      "bucket": "neutral",
+      "text": "Thank you. Let's carry on.",
+      "path": "neutral/thank_you_let_s_carry_on.pcm",
+      "duration_ms": 1990
+    },
+    {
+      "id": "neutral_noted_let_s_continue_with_the_next_quest",
+      "bucket": "neutral",
+      "text": "Noted — let's continue with the next question.",
+      "path": "neutral/noted_let_s_continue_with_the_next_quest.pcm",
+      "duration_ms": 2501
+    },
+    {
+      "id": "neutral_okay_moving_on",
+      "bucket": "neutral",
+      "text": "Okay, moving on.",
+      "path": "neutral/okay_moving_on.pcm",
+      "duration_ms": 1340
+    },
+    {
+      "id": "neutral_thanks_let_s_go_to_the_next_question",
+      "bucket": "neutral",
+      "text": "Thanks. Let's go to the next question.",
+      "path": "neutral/thanks_let_s_go_to_the_next_question.pcm",
+      "duration_ms": 2501
+    },
+    {
+      "id": "neutral_alright_let_s_keep_things_moving",
+      "bucket": "neutral",
+      "text": "Alright — let's keep things moving.",
+      "path": "neutral/alright_let_s_keep_things_moving.pcm",
+      "duration_ms": 2269
+    },
+    {
+      "id": "neutral_okay_on_to_the_next_one",
+      "bucket": "neutral",
+      "text": "Okay, on to the next one.",
+      "path": "neutral/okay_on_to_the_next_one.pcm",
+      "duration_ms": 1573
+    },
+    {
+      "id": "neutral_thanks_for_sharing_that_let_s_continue",
+      "bucket": "neutral",
+      "text": "Thanks for sharing that. Let's continue.",
+      "path": "neutral/thanks_for_sharing_that_let_s_continue.pcm",
+      "duration_ms": 2037
+    },
+    {
+      "id": "neutral_right_let_s_move_ahead",
+      "bucket": "neutral",
+      "text": "Right — let's move ahead.",
+      "path": "neutral/right_let_s_move_ahead.pcm",
+      "duration_ms": 1898
+    },
+    {
+      "id": "neutral_good_let_s_keep_going",
+      "bucket": "neutral",
+      "text": "Good — let's keep going.",
+      "path": "neutral/good_let_s_keep_going.pcm",
+      "duration_ms": 2548
+    },
+    {
+      "id": "neutral_okay_let_s_move_on_to_the_next_question",
+      "bucket": "neutral",
+      "text": "Okay, let's move on to the next question.",
+      "path": "neutral/okay_let_s_move_on_to_the_next_question.pcm",
+      "duration_ms": 1851
+    },
+    {
+      "id": "neutral_thank_you_for_that_let_s_carry_on",
+      "bucket": "neutral",
+      "text": "Thank you for that. Let's carry on.",
+      "path": "neutral/thank_you_for_that_let_s_carry_on.pcm",
+      "duration_ms": 1990
+    },
+    {
+      "id": "neutral_alright_next_question_coming_up",
+      "bucket": "neutral",
+      "text": "Alright, next question coming up.",
+      "path": "neutral/alright_next_question_coming_up.pcm",
+      "duration_ms": 1758
+    },
+    {
+      "id": "neutral_let_s_keep_going",
+      "bucket": "neutral",
+      "text": "Let's keep going.",
+      "path": "neutral/let_s_keep_going.pcm",
+      "duration_ms": 1062
+    },
+    {
+      "id": "neutral_okay_let_s_head_to_the_next_one",
+      "bucket": "neutral",
+      "text": "Okay — let's head to the next one.",
+      "path": "neutral/okay_let_s_head_to_the_next_one.pcm",
+      "duration_ms": 2594
+    },
+    {
+      "id": "neutral_thanks_let_s_move_ahead",
+      "bucket": "neutral",
+      "text": "Thanks. Let's move ahead.",
+      "path": "neutral/thanks_let_s_move_ahead.pcm",
+      "duration_ms": 1712
+    },
+    {
+      "id": "neutral_got_it_let_s_continue",
+      "bucket": "neutral",
+      "text": "Got it — let's continue.",
+      "path": "neutral/got_it_let_s_continue.pcm",
+      "duration_ms": 1619
+    },
+    {
+      "id": "neutral_alright_then_let_s_move_on",
+      "bucket": "neutral",
+      "text": "Alright then, let's move on.",
+      "path": "neutral/alright_then_let_s_move_on.pcm",
+      "duration_ms": 1201
+    },
+    {
+      "id": "neutral_okay_let_s_proceed_to_the_next_question",
+      "bucket": "neutral",
+      "text": "Okay, let's proceed to the next question.",
+      "path": "neutral/okay_let_s_proceed_to_the_next_question.pcm",
+      "duration_ms": 1898
+    },
+    {
+      "id": "neutral_thanks_for_that_on_we_go",
+      "bucket": "neutral",
+      "text": "Thanks for that. On we go.",
+      "path": "neutral/thanks_for_that_on_we_go.pcm",
+      "duration_ms": 1573
+    },
+    {
+      "id": "neutral_right_let_s_continue",
+      "bucket": "neutral",
+      "text": "Right, let's continue.",
+      "path": "neutral/right_let_s_continue.pcm",
+      "duration_ms": 1247
+    },
+    {
+      "id": "neutral_let_s_move_to_the_next_question",
+      "bucket": "neutral",
+      "text": "Let's move to the next question.",
+      "path": "neutral/let_s_move_to_the_next_question.pcm",
+      "duration_ms": 1619
+    },
+    {
+      "id": "neutral_okay_moving_right_along",
+      "bucket": "neutral",
+      "text": "Okay — moving right along.",
+      "path": "neutral/okay_moving_right_along.pcm",
+      "duration_ms": 2362
+    },
+    {
+      "id": "neutral_alright_let_s_keep_the_interview_going",
+      "bucket": "neutral",
+      "text": "Alright, let's keep the interview going.",
+      "path": "neutral/alright_let_s_keep_the_interview_going.pcm",
+      "duration_ms": 1990
+    },
+    {
+      "id": "neutral_thank_you_let_s_move_on",
+      "bucket": "neutral",
+      "text": "Thank you. Let's move on.",
+      "path": "neutral/thank_you_let_s_move_on.pcm",
+      "duration_ms": 1712
+    },
+    {
+      "id": "neutral_good_on_to_the_next_question",
+      "bucket": "neutral",
+      "text": "Good — on to the next question.",
+      "path": "neutral/good_on_to_the_next_question.pcm",
+      "duration_ms": 2269
+    },
+    {
+      "id": "neutral_okay_let_s_carry_on",
+      "bucket": "neutral",
+      "text": "Okay, let's carry on.",
+      "path": "neutral/okay_let_s_carry_on.pcm",
+      "duration_ms": 1619
+    },
+    {
+      "id": "answer_good_final_nice_that_was_a_solid_answer_let_s_move",
+      "bucket": "answer_good_final",
+      "text": "Nice — that was a solid answer. Let's move on to your final question.",
+      "path": "answer_good_final/nice_that_was_a_solid_answer_let_s_move.pcm",
+      "duration_ms": 4266
+    },
+    {
+      "id": "answer_good_final_great_well_explained_here_s_your_last_qu",
+      "bucket": "answer_good_final",
+      "text": "Great, well explained. Here's your last question.",
+      "path": "answer_good_final/great_well_explained_here_s_your_last_qu.pcm",
+      "duration_ms": 2269
+    },
+    {
+      "id": "answer_good_final_that_was_strong_let_s_finish_up_with_one",
+      "bucket": "answer_good_final",
+      "text": "That was strong. Let's finish up with one final question.",
+      "path": "answer_good_final/that_was_strong_let_s_finish_up_with_one.pcm",
+      "duration_ms": 2966
+    },
+    {
+      "id": "answer_good_final_really_good_answer_let_s_wrap_up_with_th",
+      "bucket": "answer_good_final",
+      "text": "Really good answer. Let's wrap up with the last one.",
+      "path": "answer_good_final/really_good_answer_let_s_wrap_up_with_th.pcm",
+      "duration_ms": 3384
+    },
+    {
+      "id": "answer_good_final_perfect_you_covered_that_well_on_to_your",
+      "bucket": "answer_good_final",
+      "text": "Perfect — you covered that well. On to your final question.",
+      "path": "answer_good_final/perfect_you_covered_that_well_on_to_your.pcm",
+      "duration_ms": 4173
+    },
+    {
+      "id": "answer_good_final_excellent_let_s_end_with_one_last_questi",
+      "bucket": "answer_good_final",
+      "text": "Excellent. Let's end with one last question.",
+      "path": "answer_good_final/excellent_let_s_end_with_one_last_questi.pcm",
+      "duration_ms": 2919
+    },
+    {
+      "id": "answer_good_final_that_was_sharp_here_s_your_final_questio",
+      "bucket": "answer_good_final",
+      "text": "That was sharp. Here's your final question.",
+      "path": "answer_good_final/that_was_sharp_here_s_your_final_questio.pcm",
+      "duration_ms": 2223
+    },
+    {
+      "id": "answer_good_final_well_done_let_s_move_on_to_the_last_one",
+      "bucket": "answer_good_final",
+      "text": "Well done. Let's move on to the last one.",
+      "path": "answer_good_final/well_done_let_s_move_on_to_the_last_one.pcm",
+      "duration_ms": 2826
+    },
+    {
+      "id": "answer_good_final_good_stuff_let_s_close_out_with_your_fin",
+      "bucket": "answer_good_final",
+      "text": "Good stuff — let's close out with your final question.",
+      "path": "answer_good_final/good_stuff_let_s_close_out_with_your_fin.pcm",
+      "duration_ms": 2687
+    },
+    {
+      "id": "answer_good_final_nicely_done_one_more_to_go_here_s_the_la",
+      "bucket": "answer_good_final",
+      "text": "Nicely done. One more to go — here's the last question.",
+      "path": "answer_good_final/nicely_done_one_more_to_go_here_s_the_la.pcm",
+      "duration_ms": 4080
+    },
+    {
+      "id": "answer_good_final_great_reasoning_there_let_s_finish_with",
+      "bucket": "answer_good_final",
+      "text": "Great reasoning there. Let's finish with your final question.",
+      "path": "answer_good_final/great_reasoning_there_let_s_finish_with.pcm",
+      "duration_ms": 2826
+    },
+    {
+      "id": "answer_good_final_that_was_clear_and_thorough_here_s_the_l",
+      "bucket": "answer_good_final",
+      "text": "That was clear and thorough. Here's the last one.",
+      "path": "answer_good_final/that_was_clear_and_thorough_here_s_the_l.pcm",
+      "duration_ms": 3059
+    },
+    {
+      "id": "answer_good_final_love_it_let_s_wrap_up_with_one_final_que",
+      "bucket": "answer_good_final",
+      "text": "Love it. Let's wrap up with one final question.",
+      "path": "answer_good_final/love_it_let_s_wrap_up_with_one_final_que.pcm",
+      "duration_ms": 2966
+    },
+    {
+      "id": "answer_good_final_solid_answer_on_to_your_last_question",
+      "bucket": "answer_good_final",
+      "text": "Solid answer. On to your last question.",
+      "path": "answer_good_final/solid_answer_on_to_your_last_question.pcm",
+      "duration_ms": 2687
+    },
+    {
+      "id": "answer_partial_final_good_you_re_on_the_right_track_let_s_fin",
+      "bucket": "answer_partial_final",
+      "text": "Good — you're on the right track. Let's finish with your final question.",
+      "path": "answer_partial_final/good_you_re_on_the_right_track_let_s_fin.pcm",
+      "duration_ms": 3709
+    },
+    {
+      "id": "answer_partial_final_nice_that_s_part_of_it_here_s_your_last",
+      "bucket": "answer_partial_final",
+      "text": "Nice, that's part of it. Here's your last question.",
+      "path": "answer_partial_final/nice_that_s_part_of_it_here_s_your_last.pcm",
+      "duration_ms": 2873
+    },
+    {
+      "id": "answer_partial_final_you_ve_got_the_main_idea_let_s_wrap_up_w",
+      "bucket": "answer_partial_final",
+      "text": "You've got the main idea. Let's wrap up with one final question.",
+      "path": "answer_partial_final/you_ve_got_the_main_idea_let_s_wrap_up_w.pcm",
+      "duration_ms": 3709
+    },
+    {
+      "id": "answer_partial_final_that_s_a_fair_attempt_on_to_your_final_q",
+      "bucket": "answer_partial_final",
+      "text": "That's a fair attempt. On to your final question.",
+      "path": "answer_partial_final/that_s_a_fair_attempt_on_to_your_final_q.pcm",
+      "duration_ms": 2408
+    },
+    {
+      "id": "answer_partial_final_okay_good_direction_let_s_close_out_with",
+      "bucket": "answer_partial_final",
+      "text": "Okay, good direction. Let's close out with the last one.",
+      "path": "answer_partial_final/okay_good_direction_let_s_close_out_with.pcm",
+      "duration_ms": 3523
+    },
+    {
+      "id": "answer_partial_final_nice_thinking_here_s_your_final_question",
+      "bucket": "answer_partial_final",
+      "text": "Nice thinking. Here's your final question.",
+      "path": "answer_partial_final/nice_thinking_here_s_your_final_question.pcm",
+      "duration_ms": 2548
+    },
+    {
+      "id": "answer_partial_final_that_s_a_reasonable_take_let_s_finish_wi",
+      "bucket": "answer_partial_final",
+      "text": "That's a reasonable take. Let's finish with the last question.",
+      "path": "answer_partial_final/that_s_a_reasonable_take_let_s_finish_wi.pcm",
+      "duration_ms": 3244
+    },
+    {
+      "id": "answer_partial_final_good_start_let_s_end_with_one_final_ques",
+      "bucket": "answer_partial_final",
+      "text": "Good start. Let's end with one final question.",
+      "path": "answer_partial_final/good_start_let_s_end_with_one_final_ques.pcm",
+      "duration_ms": 2548
+    },
+    {
+      "id": "answer_partial_final_you_re_heading_the_right_way_here_s_your",
+      "bucket": "answer_partial_final",
+      "text": "You're heading the right way. Here's your last question.",
+      "path": "answer_partial_final/you_re_heading_the_right_way_here_s_your.pcm",
+      "duration_ms": 3012
+    },
+    {
+      "id": "answer_partial_final_alright_that_works_let_s_wrap_up_with_th",
+      "bucket": "answer_partial_final",
+      "text": "Alright, that works. Let's wrap up with the final one.",
+      "path": "answer_partial_final/alright_that_works_let_s_wrap_up_with_th.pcm",
+      "duration_ms": 2826
+    },
+    {
+      "id": "answer_partial_final_good_let_s_build_on_that_in_your_final_q",
+      "bucket": "answer_partial_final",
+      "text": "Good — let's build on that in your final question.",
+      "path": "answer_partial_final/good_let_s_build_on_that_in_your_final_q.pcm",
+      "duration_ms": 2966
+    },
+    {
+      "id": "answer_partial_final_that_s_a_decent_chunk_of_it_on_to_the_la",
+      "bucket": "answer_partial_final",
+      "text": "That's a decent chunk of it. On to the last question.",
+      "path": "answer_partial_final/that_s_a_decent_chunk_of_it_on_to_the_la.pcm",
+      "duration_ms": 3059
+    },
+    {
+      "id": "answer_partial_final_nice_effort_let_s_finish_with_one_final",
+      "bucket": "answer_partial_final",
+      "text": "Nice effort. Let's finish with one final question.",
+      "path": "answer_partial_final/nice_effort_let_s_finish_with_one_final.pcm",
+      "duration_ms": 2548
+    },
+    {
+      "id": "answer_partial_final_okay_good_here_s_your_last_question",
+      "bucket": "answer_partial_final",
+      "text": "Okay, good — here's your last question.",
+      "path": "answer_partial_final/okay_good_here_s_your_last_question.pcm",
+      "duration_ms": 2316
+    },
+    {
+      "id": "answer_wrong_final_thanks_for_giving_that_a_go_let_s_finish",
+      "bucket": "answer_wrong_final",
+      "text": "Thanks for giving that a go. Let's finish with your final question.",
+      "path": "answer_wrong_final/thanks_for_giving_that_a_go_let_s_finish.pcm",
+      "duration_ms": 3059
+    },
+    {
+      "id": "answer_wrong_final_no_worries_that_was_a_tough_one_here_s_y",
+      "bucket": "answer_wrong_final",
+      "text": "No worries — that was a tough one. Here's your last question.",
+      "path": "answer_wrong_final/no_worries_that_was_a_tough_one_here_s_y.pcm",
+      "duration_ms": 4313
+    },
+    {
+      "id": "answer_wrong_final_appreciate_the_attempt_let_s_wrap_up_wit",
+      "bucket": "answer_wrong_final",
+      "text": "Appreciate the attempt. Let's wrap up with one final question.",
+      "path": "answer_wrong_final/appreciate_the_attempt_let_s_wrap_up_wit.pcm",
+      "duration_ms": 4080
+    },
+    {
+      "id": "answer_wrong_final_that_s_okay_these_take_practice_on_to_yo",
+      "bucket": "answer_wrong_final",
+      "text": "That's okay, these take practice. On to your final question.",
+      "path": "answer_wrong_final/that_s_okay_these_take_practice_on_to_yo.pcm",
+      "duration_ms": 3755
+    },
+    {
+      "id": "answer_wrong_final_alright_let_s_close_out_with_the_last_on",
+      "bucket": "answer_wrong_final",
+      "text": "Alright — let's close out with the last one.",
+      "path": "answer_wrong_final/alright_let_s_close_out_with_the_last_on.pcm",
+      "duration_ms": 2734
+    },
+    {
+      "id": "answer_wrong_final_thanks_for_working_through_it_here_s_you",
+      "bucket": "answer_wrong_final",
+      "text": "Thanks for working through it. Here's your final question.",
+      "path": "answer_wrong_final/thanks_for_working_through_it_here_s_you.pcm",
+      "duration_ms": 3198
+    },
+    {
+      "id": "answer_wrong_final_no_problem_let_s_finish_with_one_last_qu",
+      "bucket": "answer_wrong_final",
+      "text": "No problem — let's finish with one last question.",
+      "path": "answer_wrong_final/no_problem_let_s_finish_with_one_last_qu.pcm",
+      "duration_ms": 2826
+    },
+    {
+      "id": "answer_wrong_final_that_s_fine_let_s_move_on_to_your_final",
+      "bucket": "answer_wrong_final",
+      "text": "That's fine. Let's move on to your final question.",
+      "path": "answer_wrong_final/that_s_fine_let_s_move_on_to_your_final.pcm",
+      "duration_ms": 2919
+    },
+    {
+      "id": "answer_wrong_final_good_effort_let_s_end_with_the_last_ques",
+      "bucket": "answer_wrong_final",
+      "text": "Good effort. Let's end with the last question.",
+      "path": "answer_wrong_final/good_effort_let_s_end_with_the_last_ques.pcm",
+      "duration_ms": 2548
+    },
+    {
+      "id": "answer_wrong_final_no_stress_here_s_your_final_question",
+      "bucket": "answer_wrong_final",
+      "text": "No stress — here's your final question.",
+      "path": "answer_wrong_final/no_stress_here_s_your_final_question.pcm",
+      "duration_ms": 3151
+    },
+    {
+      "id": "answer_wrong_final_thanks_for_trying_let_s_wrap_up_with_one",
+      "bucket": "answer_wrong_final",
+      "text": "Thanks for trying. Let's wrap up with one final question.",
+      "path": "answer_wrong_final/thanks_for_trying_let_s_wrap_up_with_one.pcm",
+      "duration_ms": 3337
+    },
+    {
+      "id": "answer_wrong_final_that_s_alright_on_to_your_last_question",
+      "bucket": "answer_wrong_final",
+      "text": "That's alright — on to your last question.",
+      "path": "answer_wrong_final/that_s_alright_on_to_your_last_question.pcm",
+      "duration_ms": 2408
+    },
+    {
+      "id": "answer_wrong_final_appreciate_it_let_s_finish_with_the_fina",
+      "bucket": "answer_wrong_final",
+      "text": "Appreciate it. Let's finish with the final question.",
+      "path": "answer_wrong_final/appreciate_it_let_s_finish_with_the_fina.pcm",
+      "duration_ms": 3105
+    },
+    {
+      "id": "answer_wrong_final_no_worries_here_s_your_last_one",
+      "bucket": "answer_wrong_final",
+      "text": "No worries — here's your last one.",
+      "path": "answer_wrong_final/no_worries_here_s_your_last_one.pcm",
+      "duration_ms": 2873
+    },
+    {
+      "id": "skip_final_that_s_completely_fine_let_s_finish_with",
+      "bucket": "skip_final",
+      "text": "That's completely fine. Let's finish with your final question.",
+      "path": "skip_final/that_s_completely_fine_let_s_finish_with.pcm",
+      "duration_ms": 3059
+    },
+    {
+      "id": "skip_final_no_problem_here_s_your_last_question",
+      "bucket": "skip_final",
+      "text": "No problem — here's your last question.",
+      "path": "skip_final/no_problem_here_s_your_last_question.pcm",
+      "duration_ms": 2687
+    },
+    {
+      "id": "skip_final_sure_we_can_skip_that_let_s_wrap_up_with",
+      "bucket": "skip_final",
+      "text": "Sure, we can skip that. Let's wrap up with one final question.",
+      "path": "skip_final/sure_we_can_skip_that_let_s_wrap_up_with.pcm",
+      "duration_ms": 3477
+    },
+    {
+      "id": "skip_final_that_s_okay_on_to_your_final_question",
+      "bucket": "skip_final",
+      "text": "That's okay — on to your final question.",
+      "path": "skip_final/that_s_okay_on_to_your_final_question.pcm",
+      "duration_ms": 2780
+    },
+    {
+      "id": "skip_final_no_worries_let_s_close_out_with_the_last",
+      "bucket": "skip_final",
+      "text": "No worries, let's close out with the last one.",
+      "path": "skip_final/no_worries_let_s_close_out_with_the_last.pcm",
+      "duration_ms": 2223
+    },
+    {
+      "id": "skip_final_understood_here_s_your_final_question",
+      "bucket": "skip_final",
+      "text": "Understood — here's your final question.",
+      "path": "skip_final/understood_here_s_your_final_question.pcm",
+      "duration_ms": 2734
+    },
+    {
+      "id": "skip_final_alright_let_s_finish_with_one_last_quest",
+      "bucket": "skip_final",
+      "text": "Alright, let's finish with one last question.",
+      "path": "skip_final/alright_let_s_finish_with_one_last_quest.pcm",
+      "duration_ms": 2362
+    },
+    {
+      "id": "skip_final_that_s_fine_let_s_move_on_to_your_final",
+      "bucket": "skip_final",
+      "text": "That's fine — let's move on to your final question.",
+      "path": "skip_final/that_s_fine_let_s_move_on_to_your_final.pcm",
+      "duration_ms": 2594
+    },
+    {
+      "id": "skip_final_sure_here_s_your_last_question",
+      "bucket": "skip_final",
+      "text": "Sure — here's your last question.",
+      "path": "skip_final/sure_here_s_your_last_question.pcm",
+      "duration_ms": 2873
+    },
+    {
+      "id": "skip_final_no_problem_at_all_let_s_end_with_the_fin",
+      "bucket": "skip_final",
+      "text": "No problem at all. Let's end with the final question.",
+      "path": "skip_final/no_problem_at_all_let_s_end_with_the_fin.pcm",
+      "duration_ms": 3105
+    },
+    {
+      "id": "skip_final_okay_we_ll_skip_it_here_s_your_last_one",
+      "bucket": "skip_final",
+      "text": "Okay, we'll skip it. Here's your last one.",
+      "path": "skip_final/okay_we_ll_skip_it_here_s_your_last_one.pcm",
+      "duration_ms": 2176
+    },
+    {
+      "id": "skip_final_fair_enough_let_s_wrap_up_with_your_fina",
+      "bucket": "skip_final",
+      "text": "Fair enough — let's wrap up with your final question.",
+      "path": "skip_final/fair_enough_let_s_wrap_up_with_your_fina.pcm",
+      "duration_ms": 2966
+    },
+    {
+      "id": "neutral_final_thanks_for_that_let_s_move_on_to_your_fi",
+      "bucket": "neutral_final",
+      "text": "Thanks for that. Let's move on to your final question.",
+      "path": "neutral_final/thanks_for_that_let_s_move_on_to_your_fi.pcm",
+      "duration_ms": 3151
+    },
+    {
+      "id": "neutral_final_okay_here_s_your_last_question",
+      "bucket": "neutral_final",
+      "text": "Okay — here's your last question.",
+      "path": "neutral_final/okay_here_s_your_last_question.pcm",
+      "duration_ms": 2687
+    },
+    {
+      "id": "neutral_final_alright_let_s_finish_with_one_final_ques",
+      "bucket": "neutral_final",
+      "text": "Alright, let's finish with one final question.",
+      "path": "neutral_final/alright_let_s_finish_with_one_final_ques.pcm",
+      "duration_ms": 2687
+    },
+    {
+      "id": "neutral_final_got_it_on_to_your_final_question",
+      "bucket": "neutral_final",
+      "text": "Got it. On to your final question.",
+      "path": "neutral_final/got_it_on_to_your_final_question.pcm",
+      "duration_ms": 2641
+    },
+    {
+      "id": "neutral_final_thank_you_let_s_wrap_up_with_the_last_on",
+      "bucket": "neutral_final",
+      "text": "Thank you. Let's wrap up with the last one.",
+      "path": "neutral_final/thank_you_let_s_wrap_up_with_the_last_on.pcm",
+      "duration_ms": 2269
+    },
+    {
+      "id": "neutral_final_okay_let_s_close_out_with_your_final_que",
+      "bucket": "neutral_final",
+      "text": "Okay, let's close out with your final question.",
+      "path": "neutral_final/okay_let_s_close_out_with_your_final_que.pcm",
+      "duration_ms": 2455
+    },
+    {
+      "id": "neutral_final_right_here_s_your_final_question",
+      "bucket": "neutral_final",
+      "text": "Right — here's your final question.",
+      "path": "neutral_final/right_here_s_your_final_question.pcm",
+      "duration_ms": 2037
+    },
+    {
+      "id": "neutral_final_let_s_finish_with_one_last_question",
+      "bucket": "neutral_final",
+      "text": "Let's finish with one last question.",
+      "path": "neutral_final/let_s_finish_with_one_last_question.pcm",
+      "duration_ms": 1665
+    },
+    {
+      "id": "neutral_final_alright_here_s_your_last_question",
+      "bucket": "neutral_final",
+      "text": "Alright, here's your last question.",
+      "path": "neutral_final/alright_here_s_your_last_question.pcm",
+      "duration_ms": 1480
+    },
+    {
+      "id": "neutral_final_thanks_let_s_move_on_to_the_final_questi",
+      "bucket": "neutral_final",
+      "text": "Thanks. Let's move on to the final question.",
+      "path": "neutral_final/thanks_let_s_move_on_to_the_final_questi.pcm",
+      "duration_ms": 2594
+    },
+    {
+      "id": "neutral_final_okay_one_more_to_go_here_s_the_last_one",
+      "bucket": "neutral_final",
+      "text": "Okay — one more to go. Here's the last one.",
+      "path": "neutral_final/okay_one_more_to_go_here_s_the_last_one.pcm",
+      "duration_ms": 2966
+    },
+    {
+      "id": "neutral_final_good_let_s_end_with_your_final_question",
+      "bucket": "neutral_final",
+      "text": "Good — let's end with your final question.",
+      "path": "neutral_final/good_let_s_end_with_your_final_question.pcm",
+      "duration_ms": 2594
+    },
+    {
+      "id": "neutral_final_noted_here_s_your_final_question",
+      "bucket": "neutral_final",
+      "text": "Noted. Here's your final question.",
+      "path": "neutral_final/noted_here_s_your_final_question.pcm",
+      "duration_ms": 2455
+    },
+    {
+      "id": "neutral_final_let_s_wrap_up_with_the_last_question",
+      "bucket": "neutral_final",
+      "text": "Let's wrap up with the last question.",
+      "path": "neutral_final/let_s_wrap_up_with_the_last_question.pcm",
+      "duration_ms": 1990
+    }
+  ]
+}

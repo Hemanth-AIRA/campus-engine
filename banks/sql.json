@@ -1,0 +1,27 @@
+{
+  "skill": "SQL",
+  "aliases": ["mysql", "postgres", "postgresql", "queries"],
+  "topics": ["query", "join", "index", "transaction", "transactions", "deadlock", "deadlocking", "lock", "window function", "rank", "orders table", "aggregate", "group by", "normalization", "schema", "row", "table"],
+  "levels": {
+    "junior": {
+      "foundational": [
+        {"id": "sql-j-f-1", "question": "What does a SQL JOIN do, and what is the difference between an INNER JOIN and a LEFT JOIN?", "rubric": "row matching, null-extension, when each is used", "paradigm": "definition"},
+        {"id": "sql-j-f-2", "question": "What is the difference between WHERE and HAVING in a SQL query?", "rubric": "pre- vs post-aggregation filtering, GROUP BY", "paradigm": "definition"}
+      ],
+      "applied": [
+        {"id": "sql-j-a-1", "question": "Given an orders table, how would you write a query to find the total revenue per customer, highest first?", "rubric": "GROUP BY, SUM, ORDER BY DESC, aliasing", "paradigm": "walkthrough"}
+      ],
+      "advanced": [
+        {"id": "sql-j-x-1", "question": "A SQL query that used to be fast is now slow after the table grew. What would you check first?", "rubric": "indexes, EXPLAIN, selectivity, full scans", "paradigm": "diagnosis"}
+      ]
+    },
+    "mid": {
+      "applied": [
+        {"id": "sql-m-a-1", "question": "Walk me through using a window function to rank each employee's salary within their department.", "rubric": "PARTITION BY, RANK/ROW_NUMBER, ORDER BY", "paradigm": "walkthrough"}
+      ],
+      "advanced": [
+        {"id": "sql-m-x-1", "question": "Two transactions keep deadlocking on the same two tables. How would you diagnose and prevent it?", "rubric": "lock ordering, isolation levels, indexes, retry", "paradigm": "diagnosis"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,56 @@
+2026-07-24 13:41:07,177 [SIM] INFO 🔧 env_config loaded: AIRA_ENV=production, DEPLOYMENT=PRODUCTION, SENTINEL=http://3.230.103.46:8099, ENGINE_API=http://54.209.252.190:9092/api/engine, CONNECT=https://hub.airahr.ai/connect
+2026-07-24 13:41:07,181 [SIM] INFO 🔧 aira_sql mode: PRODUCTION (API base: http://54.209.252.190:9092/api/engine)
+2026-07-24 13:41:07,360 [SIM] INFO ══════════════════════════════════════════════════════════════════════
+2026-07-24 13:41:07,360 [SIM] INFO   AIRA LOAD SIM | n=1 | max_answers=4 | max_duration=900s | engine=managed
+2026-07-24 13:41:07,360 [SIM] INFO ══════════════════════════════════════════════════════════════════════
+2026-07-24 13:41:07,392 [SIM] INFO ── Step 1: 1 interview(s) selected
+2026-07-24 13:41:07,392 [SIM] INFO 
+── Step 2: Resetting 1 rooms…
+2026-07-24 13:41:07,527 [SIM] INFO [1/1] ✅ Room reset: 6232 → AIRA-20260724-0811-3EA6 (135ms)
+2026-07-24 13:41:07,528 [SIM] INFO    1 room(s) ready
+2026-07-24 13:41:07,528 [SIM] INFO 
+── Step 3: Fetching candidate LiveKit tokens…
+2026-07-24 13:41:07,730 [SIM] INFO HTTP Request: POST https://hub.airahr.ai/connect/api/livekit-token "HTTP/1.1 200 OK"
+2026-07-24 13:41:07,852 [SIM] INFO    🔑 minted 1 local candidate token(s) (.env LiveKit key)
+2026-07-24 13:41:07,852 [SIM] INFO    1/1 tokens fetched
+2026-07-24 13:41:07,852 [SIM] INFO 
+── Step 3.5: Setting interview_config to match the sim…
+2026-07-24 13:41:07,865 [SIM] INFO    interview_config set: questions_per_round=3, max_duration_minutes=15 (1 interviews)
+2026-07-24 13:41:07,866 [SIM] INFO 🚀 Starting engine: AIRA_MAX_PARALLEL=1 → /Users/sridharkotha/Desktop/campus-engine-final/logs/load_tests/engine_20260724_081107.log
+2026-07-24 13:41:07,870 [SIM] INFO    Waiting 30s for bots to claim rooms & connect…
+2026-07-24 13:41:37,872 [SIM] INFO 
+── Step 5: Launching 1 conversational candidates…
+2026-07-24 13:41:54,463 [SIM] INFO [AIRA-20260724-0811-3EA6] 📚 Loaded 36 answer clips
+2026-07-24 13:41:54,471 [SIM] INFO livekit_ffi::server:153:livekit_ffi::server - initializing ffi server v0.12.53
+2026-07-24 13:41:54,471 [SIM] INFO livekit_ffi::cabi:50:livekit_ffi::cabi - initializing ffi server v0.12.53
+2026-07-24 13:41:54,472 [SIM] INFO livekit_api::signal_client::signal_stream:103:livekit_api::signal_client::signal_stream - connecting to wss://livekit-134-195-138-72.sslip.io/rtc?sdk=python&os=Mac+OS&os_version=15.7.1&device_model=MacBookAir10%2C1&protocol=17&auto_subscribe=1&adaptive_stream=0&version=1.1.7
+2026-07-24 13:41:55,621 [SIM] INFO [AIRA-20260724-0811-3EA6] ✅ Connected (17747ms)
+2026-07-24 13:41:55,622 [SIM] INFO [AIRA-20260724-0811-3EA6] 🔗 Socket.IO presence started
+2026-07-24 13:41:55,624 [SIM] INFO [AIRA-20260724-0811-3EA6] 🎧 Bot audio track captured
+2026-07-24 13:41:55,703 [SIM] INFO livekit::room::e2ee::manager:169:livekit::room::e2ee::manager - packet_trailer not enabled for published track TR_V9vT9mN3VkwBL from candidate-AIRA-20260724-0811-3EA6
+2026-07-24 13:41:55,703 [SIM] INFO [AIRA-20260724-0811-3EA6] 📹 Face video published
+2026-07-24 13:41:55,704 [SIM] INFO 🎥 Streaming face face_05.jpg for 900.0s (interview_id=6232)
+2026-07-24 13:41:55,765 [SIM] INFO [AIRA-20260724-0811-3EA6] 🤖 Bot audio confirmed
+2026-07-24 13:41:55,765 [SIM] INFO [AIRA-20260724-0811-3EA6] 💬 Turn-taking loop started
+2026-07-24 13:41:55,875 [SIM] WARNING [AIRA-20260724-0811-3EA6] ❌ Candidate Socket.IO error: Connection error
+2026-07-24 13:41:55,875 [SIM] WARNING [AIRA-20260724-0811-3EA6] Candidate Socket.IO exception: Connection error
+2026-07-24 13:42:03,048 [SIM] INFO [AIRA-20260724-0811-3EA6] 🗣️  Answering Q1 (clip 1, 10.0s of 53.8s)
+2026-07-24 13:42:27,152 [SIM] INFO [AIRA-20260724-0811-3EA6] 🗣️  Answering Q2 (clip 2, 10.0s of 48.9s)
+2026-07-24 13:42:56,076 [SIM] INFO [AIRA-20260724-0811-3EA6] 🗣️  Answering Q3 (clip 3, 10.0s of 43.9s)
+2026-07-24 13:43:26,745 [SIM] INFO [AIRA-20260724-0811-3EA6] 🗣️  Answering Q4 (clip 4, 10.0s of 48.0s)
+2026-07-24 13:43:37,411 [SIM] INFO [AIRA-20260724-0811-3EA6] 👋 Leaving after 119.5s | answers=4 | reason=max_answers
+2026-07-24 13:43:37,446 [SIM] INFO [AIRA-20260724-0811-3EA6] 🔌 Disconnected: 1
+2026-07-24 13:43:37,462 [SIM] INFO 
+── All candidates finished in 119.6s
+2026-07-24 13:43:37,462 [SIM] INFO ── Waiting for engine batch to finish (≤120s)…
+2026-07-24 13:45:37,606 [SIM] INFO 🛑 Terminating engine subprocess…
+2026-07-24 13:45:37,619 [SIM] INFO 
+══════════════════════════════════════════════════════════════════════
+2026-07-24 13:45:37,619 [SIM] INFO   RESULTS
+2026-07-24 13:45:37,619 [SIM] INFO ──────────────────────────────────────────────────────────────────────
+2026-07-24 13:45:37,619 [SIM] INFO   room                   conn    Qs     Ans    secs    ended/error
+2026-07-24 13:45:37,619 [SIM] INFO   AIRA-20260724-0811-3EA ✅       4      4      120     max_answers
+2026-07-24 13:45:37,620 [SIM] INFO ──────────────────────────────────────────────────────────────────────
+2026-07-24 13:45:37,620 [SIM] INFO   requested=1  ran=1  connected=1  bot_heard=1  total_answers=4  wall=119.6s
+2026-07-24 13:45:37,620 [SIM] INFO ══════════════════════════════════════════════════════════════════════
+2026-07-24 13:45:37,620 [SIM] INFO 📄 JSON report: /Users/sridharkotha/Desktop/campus-engine-final/logs/load_tests/load_sim_20260724_081107.json

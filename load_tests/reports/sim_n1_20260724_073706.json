@@ -1,0 +1,29 @@
+{
+  "n": 1,
+  "wall_s": 2.6278035000432283,
+  "results": [
+    {
+      "idx": 0,
+      "interview_id": 6153,
+      "candidate_name": "Swapna Reddy",
+      "job_title": "HR Manager",
+      "job_type": "non_technical",
+      "room_id": "AIRA-20260724-0737-4C28",
+      "candidate_url": "https://hub.airahr.ai/connect/?t=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhaXJhIiwiYXVkIjoid2VicnRjIiwicm9vbUlkIjoiQUlSQS0yMDI2MDcyNC0wNzM3LTRDMjgiLCJyb2xlIjoiY2FuZGlkYXRlIiwibmFtZSI6IlN3YXBuYSBSZWRkeSIsImp0aSI6ImZlMjdkM2NmLWQ4YzQtNDA3Yy04YjQ0LTdlYjVhZDA2NTIyNyIsImlhdCI6MTc4NDg3ODYyMCwibmJmIjoxNzg0ODc3OTYwLCJleHAiOjE3ODQ4ODIxNjAsImR1ciI6NjB9.QUlPBEcVdx-y0pUe9Y06co1314l5Yfc9_fdV3zy66eU&livekit=1",
+      "reset_ms": 163.69887499604374,
+      "connect_ms": 0.0,
+      "publish_ms": 0.0,
+      "total_s": 2.627356666023843,
+      "reset_ok": true,
+      "connected": false,
+      "published": false,
+      "bot_joined": false,
+      "bot_spoke": false,
+      "error": "Connect error: engine: signal failure: client error: 401 Unauthorized - no permissions to access the room",
+      "timeline": [
+        "07:37:00 \ud83d\udd11 Room created: AIRA-20260724-0737-4C28 (164ms)",
+        "07:37:06 \u274c Connect error: engine: signal failure: client error: 401 Unauthorized - no permissions to access the room"
+      ]
+    }
+  ]
+}

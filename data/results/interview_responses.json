@@ -1,0 +1,670 @@
+[
+  {
+    "question": "Hi RAja Kambalaaa, welcome..",
+    "answer": "BOT NOTE: candidate exited at 21:21:19 and did not return within 5 minutes. Interview terminated."
+  },
+  {
+    "question": "So, let's say you're working on a small project where you need to use PyTorch for a simple machine learning model, and you want to integrate LangChain to help with the data processing. How would you decide between using LangGraph or directly manipulating the data in PyTorch? What factors would influence your choice?",
+    "answer": "Yeah. When it comes to using part of sentence of fluid, let's skip this question."
+  },
+  {
+    "question": "So, imagine you're working on a small project where you need to generate text based on user input. You have the option to use either LangChain with a language model or build something from scratch using PyTorch. What factors would you consider when deciding which approach to take, and why?",
+    "answer": "I don't know much about this."
+  },
+  {
+    "question": "So, let's say you're using LangChain to build a chatbot, and you notice that the responses are sometimes off-topic or irrelevant. What steps would you take to troubleshoot this issue, and what do you think might be causing it?",
+    "answer": "Yeah. I don't know much about this."
+  },
+  {
+    "question": "Can you explain the difference between a list and a tuple in Python, and when you might choose to use one over the other?",
+    "answer": "Yeah. I don't know much about these topics. You can skip this."
+  },
+  {
+    "question": "So, imagine you're building a simple chatbot using langchain and pytorch. You have to decide whether to use langgraph for managing the conversation flow or stick with a more straightforward approach. What factors would you consider in making that choice, and why?",
+    "answer": "Yeah. I don't know much about these topics."
+  },
+  {
+    "question": "So, imagine you're using PyTorch to build a simple neural network for a text classification task. You notice that the model isn't learning well and the accuracy isn't improving. What steps would you take to troubleshoot this issue, and why would you choose those steps?",
+    "answer": "I don't know much about this as well."
+  },
+  {
+    "question": "You're working on a project using LangChain to build a chatbot. During testing, you notice that the responses are often irrelevant or off-topic. What would you look into first to improve the response quality, and why?",
+    "answer": "Yeah. I don't have much experience with any of this. You're talking you can just skip these topics, move on to some some new topics so that I can do when there"
+  },
+  {
+    "question": "So, let's say you're working on a small project where you need to use langchain to build a simple conversational agent. You have the option to use PyTorch for any machine learning components, but you also hear about langgraph for managing the flow of conversation. How do you decide which one to use for your project, and what factors influence your choice?",
+    "answer": "I don't know much about line chain and line graph."
+  },
+  {
+    "question": "Imagine you're building a simple text classification model using PyTorch. You have the option to use pre-trained embeddings from a library like langchain or train your own from scratch. What factors would you consider when making your decision, and why?",
+    "answer": "Yeah. I don't have much experience with any of these topics."
+  },
+  {
+    "question": "Can you explain the difference between a list and a tuple in Python, and when you might choose to use one over the other?",
+    "answer": "I don't know either."
+  },
+  {
+    "question": "So, imagine you're using Langchain to build a simple chatbot. When you set up a chain to process user input, can you walk me through what happens behind the scenes when a user sends a message?",
+    "answer": "BOT NOTE: Interview session terminated due to inactivity — candidate did not enable video for 5 consecutive minutes."
+  },
+  {
+    "question": "So when people talk about how langchain integrates with PyTorch for building language models, what does that actually mean in practice?",
+    "answer": "BOT NOTE: Interview session terminated due to inactivity — candidate did not enable video for 5 consecutive minutes."
+  },
+  {
+    "question": "So when you're working with PyTorch, how would you describe the role of tensors in your projects?",
+    "answer": "BOT NOTE: Interview session terminated due to inactivity — candidate did not enable video for 5 consecutive minutes."
+  },
+  {
+    "question": "Hi Anjali Reddy, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "So, imagine you're working on a small project where you need to build a chatbot. Can you tell me about a time when you used langchain or langgraph to help with that? What was the specific problem you were trying to solve?",
+    "answer": "Can we skip this question?"
+  },
+  {
+    "question": "Imagine you're working on a small project where you need to analyze some text data. Can you share a specific situation where you used PyTorch to build a model for that? What was the goal you were trying to achieve?",
+    "answer": "Yes, sir. I want to skip this question."
+  },
+  {
+    "question": "Can you explain what list comprehensions are in Python and when you would use them?",
+    "answer": "BOT NOTE: the user exited the meeting in the middle of the interview"
+  },
+  {
+    "question": "So, imagine you're using LangChain to build a simple chatbot. When you send a user input to the model, what happens behind the scenes in terms of how LangChain processes that input and interacts with PyTorch?",
+    "answer": "What's I don't know."
+  },
+  {
+    "question": "So, imagine you're working on a small project where you need to build a chatbot. When would you choose to use LangChain over just using PyTorch directly for handling the language processing tasks? What do you think makes LangChain a better fit in that scenario?",
+    "answer": "I want to skip this question."
+  },
+  {
+    "question": "You're building a simple text classification model using PyTorch. Can you explain a situation where you might want to use LangGraph to help with data preprocessing or model evaluation? What would you hope to achieve by integrating it?",
+    "answer": "I don't know much about these topics. Can we skip these topics and move on to other topics?"
+  },
+  {
+    "question": "You're working on a small script that processes user input from a form. One day, a user reports that their input is being cut off after 100 characters, even though the form allows 250. How would you go about troubleshooting this issue in your Python code?",
+    "answer": "I don't know."
+  },
+  {
+    "question": "So when you hear about LangChain and LangGraph, what do you think they help you do in a project that involves PyTorch?",
+    "answer": "I don't know."
+  },
+  {
+    "question": "So when people talk about LangChain, what does that actually mean in practice? How would you explain its purpose and functionality to someone new on your team?",
+    "answer": "I don't know."
+  },
+  {
+    "question": "Hi Priya Nair, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Sowmya Nair, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Dinesh Sharma, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Balaji Rao, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Kamla Devi, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Aakash Mehta, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Radha Krishnan, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Imagine you're tasked with designing a new feature for a product that has around 50K monthly users. You have a two-week deadline to deliver a working prototype, but the catch is that it must be explainable to a non-technical stakeholder. How would you approach the roadmap for this feature, and what key decisions would you make to balance user needs with technical feasibility?",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Imagine you're tasked with designing a new feature for a product that needs to support around 50K monthly users. You have a tight deadline of two weeks to deliver a prototype, but the catch is it must run on a single CPU core. What technologies would you choose, how would you structure the roadmap, and what trade-offs would you consider in terms of performance and stakeholder expectations?",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "You're tasked with integrating a new analytics tool into your existing product that currently serves around 25K monthly users. The catch is, you can only use open-source tools for this integration. What factors do you consider when making this decision, and how do you communicate the potential trade-offs to your stakeholders?",
+    "answer": "A Google search algorithm up."
+  },
+  {
+    "question": "Your team is considering adopting a new cloud-based database solution to handle a growing dataset of around 10TB, but the catch is you must do this without using any paid APIs. What key factors do you evaluate before making this decision, and how do you plan to address the potential risks with your stakeholders?",
+    "answer": "After a third party script."
+  },
+  {
+    "question": "Your team just received feedback from a major user testing session, and the results are mixed. Some users loved the new feature, while others found it confusing and frustrating. The catch is, you have a product launch scheduled in two weeks. How do you prioritize the feedback and decide what changes to implement before the launch?",
+    "answer": "Script. Book conversion back."
+  },
+  {
+    "question": "Imagine you're tasked with designing a user research system that collects feedback from around 50K users on a new product feature. The catch is, you need to do this within a two-week deadline. How would you structure the research process, what methods would you choose, and how would you ensure the findings are actionable for your team?",
+    "answer": "Third party script was added."
+  },
+  {
+    "question": "Your team is in the middle of a critical product launch for a new feature that has been highly anticipated by your users. Suddenly, you learn that a major stakeholder has significant concerns about the feature's usability, and they want to delay the launch. The catch is, you have a hard deadline in just one week. How do you navigate this situation, balance the stakeholder's concerns with the launch timeline, and ensure that the team remains aligned on the product strategy?",
+    "answer": "I started by segmenting the drop by traffic source, device type, geography,"
+  },
+  {
+    "question": "Hi Siddhesh Patil, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "You're tasked with scaling a user feedback system that currently processes feedback from about 5,000 users daily. It's working well, but now the company wants to expand to 500,000 users. The catch is, you can only use open-source tools. What components do you think will struggle first, and how would you redesign the system to handle this increased load?",
+    "answer": "From a pure engineering role,"
+  },
+  {
+    "question": "Your team is considering adopting a new project management tool to improve collaboration and transparency, but the catch is it must run on a single CPU core. You have a user base of about 20,000 active users. What factors do you evaluate before making this decision, and what potential risks do you foresee?",
+    "answer": "I surveyed the junior"
+  },
+  {
+    "question": "Your team is considering adopting a new analytics platform to handle ~50GB of logs per day, but the catch is that it must run on a single CPU core. What factors do you evaluate before making this decision, and how do you manage the trade-offs involved?",
+    "answer": "Recommendation to the board of directors that was initially rejected and had to defend it under intense questioning."
+  },
+  {
+    "question": "You're leading a product initiative for a new feature that aims to improve user engagement, and you've got two options: you can either prioritize a deep integration with existing systems that will take several months to build, or you can go for a simpler, standalone solution that can be delivered in a couple of weeks. The catch is, you have a hard deadline of two weeks to deliver something to stakeholders. How do you decide which path to take, and what do you think you might lose by choosing the quicker option?",
+    "answer": "I replaced it with the"
+  },
+  {
+    "question": "You're leading a product initiative that currently serves around 5,000 users, but the goal is to scale it to 500,000 users in the next six months. You have a tight deadline and the catch is you can only use open-source tools. What components do you anticipate will be the first bottlenecks, and how would you prioritize your roadmap to address them?",
+    "answer": "To address security vulnerabilities we had found in an audit,"
+  },
+  {
+    "question": "You're leading a project to implement a new analytics dashboard for around 50,000 monthly users. The team is debating between building a custom solution from scratch or integrating an existing open-source framework. The catch is, it must be explainable to a non-technical stakeholder. Which direction do you choose, and what are the trade-offs you anticipate in terms of development time and user experience?",
+    "answer": "Lakh engineering decisions, optimizing"
+  },
+  {
+    "question": "Your product currently supports around 10,000 monthly users, but you're gearing up for a major marketing push that could scale that to 1 million users. You need to redesign the system to handle this influx, but the catch is you must do this within a 2-week deadline. What components do you think will be the first to break under this load, and how would you prioritize your architectural changes?",
+    "answer": "Your engineers improved from 55% to 81%."
+  },
+  {
+    "question": "You're tasked with developing a new feature for a product that currently serves ~10K daily active users, but the catch is that it must be explainable to a non-technical stakeholder. Would you prioritize a quick MVP using a simple architecture, or invest time in a robust, scalable solution upfront? What are the trade-offs you consider in your decision?",
+    "answer": "And a quantified risk model showing that the expected"
+  },
+  {
+    "question": "You're tasked with launching a new feature that will impact ~20K monthly users, but you have to choose between a quick MVP that meets only the basic requirements or a more robust solution that aligns with long-term product strategy. The catch is, you have to deliver this within a 2-week deadline. Which path do you choose, and what do you anticipate losing in each scenario?",
+    "answer": "On scope is almost always preferable to promising something you cannot deliver."
+  },
+  {
+    "question": "Your team just completed a round of user interviews for a new feature, but the feedback is mixed and contradictory. The PM is pushing for a decision by the end of the day, but you feel like you need more clarity. How do you approach this situation, especially given that you must do this without using any paid APIs?",
+    "answer": "Found that most felt they lacked a clear growth path."
+  },
+  {
+    "question": "You're tasked with launching a new feature that could significantly enhance user engagement for a product with ~50K monthly users. You have two options: you can either build a fully integrated solution within your existing platform, which could take up to 6 months, or develop a standalone application that could be released in 2 weeks. The catch is, you must do this without using any paid APIs. How do you decide which path to take, and what trade-offs do you anticipate?",
+    "answer": "Changed everything about how I approach my role. I transitioned from a pure engineering role to a product management role mid"
+  },
+  {
+    "question": "You're in the middle of a user research session for a product that's been in development for six months. Suddenly, a key feature that users have been excited about is met with overwhelming criticism, and your team lead wants to pivot the entire strategy based on this feedback. The catch is, you have only two weeks to present a revised plan to stakeholders. How do you approach this situation, and what factors do you consider in deciding whether to pivot or stay the course?",
+    "answer": "Define the right problems to solve."
+  },
+  {
+    "question": "It's 2 AM, and your user research team just discovered that a significant portion of your target audience finds the current product interface confusing. The launch is scheduled for next week, and the feedback is critical. How do you handle this situation? What immediate steps do you take to address the findings, considering you have only a few days to implement changes?",
+    "answer": "In technical terms, was the key to the decision. I presented a recommendation to the board of directors that was initially rejected and had to defend it under intense questioning."
+  },
+  {
+    "question": "You're tasked with redesigning a feature that currently supports around 20,000 daily active users, but you need to scale it to handle 200,000 users in the next quarter. You have two architectural options: you can either refactor the existing monolith to microservices or build a new service from scratch. The catch is, you must do this within a 2-week deadline. Which approach do you choose, and what trade-offs do you anticipate in terms of stakeholder alignment and operational overhead?",
+    "answer": "After forty five minutes of questions, the board approved the delay. The product launched in the following quarter with the security issues resolved, and received no incidents. Presenting risk in financial terms rather than technical terms was the key to the decision. I presented a recommendation to the board of directors that was initially rejected and had to defend it under intense questioning."
+  },
+  {
+    "question": "Your team is considering adopting a new project management tool to improve collaboration and visibility, but the catch is it must run on a single CPU core. You have around 50 active projects with varying complexity. What factors do you evaluate before making this decision, and what do you see as the biggest risk?",
+    "answer": "Technical problems I solve. Was reducing the p 99 late"
+  },
+  {
+    "question": "Your team is tasked with modernizing a legacy e-commerce platform that currently serves around 20,000 daily active users. Leadership wants to transition to a microservices architecture within three months, but the catch is that you must do this without using any paid APIs. How would you approach this migration? What are the key risks you foresee, and how would you communicate your strategy to non-technical stakeholders?",
+    "answer": "New feature development."
+  },
+  {
+    "question": "You're leading a product team that needs to integrate a new analytics tool into your existing platform, which currently serves about 20,000 monthly users. The catch is, you have to do this using only open-source tools. What factors do you consider in your decision-making process, and how do you communicate the potential risks and trade-offs to your stakeholders?",
+    "answer": "In engineering, I have"
+  },
+  {
+    "question": "You're leading a product team that's been asked to prioritize features for a new release aimed at ~20K users. You have two major options: one is a complete overhaul of the user interface to improve usability, and the other is adding a highly requested feature that could increase engagement. The catch is, you need to deliver this within a 2-week deadline. Which direction do you choose, and what do you think you might sacrifice by making that choice?",
+    "answer": "I believe I will divide the two week deadline time into"
+  },
+  {
+    "question": "You're considering integrating a new analytics tool to enhance user insights for a product used by ~50K monthly users. However, the tool has a steep learning curve, and you have a tight budget constraint that must be adhered to. What factors do you weigh in your decision-making process, and how do you communicate the potential trade-offs to your stakeholders?",
+    "answer": "Working with these, then I'll start working on the stakeholder stakeholder requirements and then understand the problem statement clearly. And after understanding the public statement clearly, I'll start bill building my prototype model first. And after prototype after build after completing the prototype, well, then understand the modern and the immediate equipments and start building the other parts of the,"
+  },
+  {
+    "question": "It's 2 AM and your user research team just delivered findings that contradict your product's core assumptions. The data shows that a significant portion of your target audience finds the current features confusing, and your next release is scheduled for next week. How do you handle this situation, and what steps do you take to validate these findings before making any decisions?",
+    "answer": "BOT NOTE: candidate exited at 15:21:55 and did not return within 5 minutes. Interview terminated."
+  },
+  {
+    "question": "You’re leading a product that currently supports about 5,000 users, and your team has just been informed that user demand is expected to surge to 500,000 users within the next quarter. You need to create a roadmap to handle this transition, but the catch is you must do this without using any paid APIs. What are the first steps you take to ensure the system can scale effectively, and what components do you anticipate will be the most challenging to manage?",
+    "answer": "Don't know. Can we skip this question?"
+  },
+  {
+    "question": "You're tasked with redesigning a feature that currently serves about 20,000 daily users, and your stakeholders are pushing for a more robust architecture to support future growth. You have two options: either refactor the existing monolith into microservices or build a new service from scratch using a serverless architecture. The catch is, you must do this within a 2-week deadline. Which approach do you choose, and what trade-offs do you anticipate in terms of scalability and maintainability?",
+    "answer": "BOT NOTE: candidate exited at 15:54:49 and did not return within 5 minutes. Interview terminated."
+  },
+  {
+    "question": "You're leading a product initiative to enhance user engagement for a platform that currently serves about 20,000 daily active users. You have two options: either invest in a major redesign of the user interface to improve usability, or implement a series of incremental feature updates based on user feedback. The catch is, you have a tight deadline of just two weeks to show tangible results. Which path do you choose, and what trade-offs do you anticipate in terms of stakeholder satisfaction and long-term impact?",
+    "answer": "Coming to this. Mama, I'm asking you by three year. Don't know much about these topics."
+  },
+  {
+    "question": "Your team is considering adopting a new analytics platform to handle data from approximately 100,000 daily active users. However, the catch is that you need to implement this solution without using any paid APIs. What factors do you evaluate before making this decision, and what operational risks do you foresee?",
+    "answer": "I'd be going with the one best approach by comparing all of them."
+  },
+  {
+    "question": "Your user testing just revealed that a significant portion of your users, around 30%, are struggling to navigate a critical feature of your application. The catch is, you have only one week to address this issue before a major product launch. How do you prioritize your next steps, and what user research methods would you employ to ensure the changes you make are effective?",
+    "answer": "To make the changes which are effective while we're taking some difference. Where I'll be having the difficulties, and I'll be comparing it with it. And I'll be more in with the solution."
+  },
+  {
+    "question": "Imagine you're tasked with redesigning a feature for a product that serves around 50,000 monthly users. Your team has gathered some initial user feedback, but the catch is you only have access to qualitative data from interviews and no quantitative metrics. How would you approach validating the redesign decisions based on this limited information, and what user research methods would you prioritize to ensure the changes meet user needs?",
+    "answer": "Ones which I need to do, which the users want, and I need to be able to based on their requirements."
+  },
+  {
+    "question": "Hi Aakash Mehta, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Sowmya Nair, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Balaji Rao, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Siddhesh Patil, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Prathima Reddy, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Radha Krishnan, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Hemant Joshi, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Dinesh Sharma, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Saranya Krishnan, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Kamla Devi, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Balaji Rao, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Hemant Joshi, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Prathima Reddy, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Saranya Krishnan, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Sowmya Nair, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Dinesh Sharma, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "Hi Kamla Devi, welcome..",
+    "answer": "BOT NOTE: no answer recorded as candidate is muted."
+  },
+  {
+    "question": "You're leading a product initiative to integrate a new feature that could potentially double user engagement, but your engineering team is already at capacity with existing projects. You have two options: either prioritize this new feature and delay a critical security update, or stick to the current roadmap and risk missing the engagement opportunity. Given that you must complete this within a 2-week deadline, which path do you choose and why?",
+    "answer": "An elastic search for the queryable store. The trickiest part was handling late arriving events caused by mobile clients with intermittent connectivity. I implemented a watermark strategy with a five minute grace window, an item potent event process using a composite key of device ID and sequence number. The pipeline ran in production for two years without a single data loss incident. When I left the team, it was processing over 200,000 events per second, with no architectural changes needed, just horizontal scaling of the Kafka partitions, and Flink job parallelism. I architected a real time data pipe that processed over 100,000 events per second with end to end"
+  },
+  {
+    "question": "You're tasked with launching a new feature that needs to support around 20,000 daily active users, but the catch is you must do this within a 2-week deadline. You have the option to either build a fully integrated solution within your existing monolith or create a separate microservice that communicates via APIs. Which direction do you choose, and what are the trade-offs in terms of deployment speed, maintenance, and potential impact on existing users?",
+    "answer": "When we noticed that our mobile retention numbers were significantly lower than desk top, I initiated a deep dive investigation. I shadowed five mobile users doing screen recordings, analyzed drop off funnels, and ran a survey. The finding was that the mobile onboarding flow had six steps. Compared to three on desktop, and users were abandoning at step four. We simplified the mobile onboarding, used progressive disclosure to defer noncritical steps, and reduced time to first value from eleven minutes to three. Mobile day 30 retention improved from 22% to 38% over the next quarter. The lesson was that the same product on different surfaces often needs fundamentally different interaction design. Not just a resized layout. When we notice that our mobile retention numbers were significantly lower than desktop, I initiated a deep dive investigation. I shadowed five mobile users doing screen recordings, analyzed drop off funnels, and ran a survey. The finding was that the mobile onboarding flow had six steps. Compared to three on desktop, and users were abandoning at step four. We simplified the mobile onboarding, used progressive disclosure to defer noncritical steps and reduce time to first value from eleven minutes to three. Mobile day 30 retention improved from 22% to 38% over the next quarter. The lesson was that the same product on different surfaces often needs fundamentally different interaction design. Not just a resized layout. When we noticed that our mobile retention numbers were significantly lower than desktop, I initiated a deep dive invest investigation. I shadowed five mobile users doing screen recordings, analyzed drop off funnels, and ran a survey. The finding was that the mobile onboarding flow had six steps. Compared to three on desktop, and users were abandoning at step four. We simplified the mobile onboarding Use progressive disclosure to defer noncritical steps and reduced time to first value from eleven minutes to three. Mobile day third retention improved from 22% to 38% over the next quarter. The lesson was that the same product on different surfaces often needs fundamentally different interaction design. Not just a resized layout. When we noticed that our mobile retention numbers were significantly lower than desktop, I initiated a deep dive investigation. I shadowed five mobile users doing screen recordings, analyzed drop off funnels, and ran a survey. The finding was that the mobile onboarding flow had six steps. Compared to three on desktop, and users were abandoning at step four. We simplified the mobile onboarding used progressive disclosure to defer noncritical steps, and reduce time to first value from eleven minutes to three. Mobile day 30 retention improved from 22% to 38% over the next quarter. The lesson was that the same product on different surfaces often needs fundamentally different interaction design. Not just a resized layout. When we notice that our mobile tension numbers were significantly lower than desktop, I initiated a deep dive investigation. I shadowed five mobile users doing screen recordings, analyzed drop off funnels, and ran a survey. The finding was that the mobile onboarding flow had six steps. Compared to three on desktop, and users were abandoning at step four. We simplified the mobile onboarding, used progressive disclosure to defer noncritical steps, and reduce time to first value from eleven minutes to three. Mobile day 30 retention improved from 22% to 38% over the next quarter."
+  },
+  {
+    "question": "Imagine you're tasked with designing a new feature for a product that currently serves about 50K monthly users. The catch is, you have to deliver this within a 2-week deadline. What steps would you take to prioritize features, manage stakeholder expectations, and ensure the architecture can scale effectively? What specific technologies would you choose, and how would you address potential bottlenecks?",
+    "answer": "Later. Curiosity, it turns out, is a better superpower than expertise. The most important professional lesson I have learned is that the quality of your questions matters more than the quality of your answers. Early in my career, I thought expertise meant having the answers. I have since learned that the best engineers and leaders I have worked with are characterized by the precision and depth of their questions. Good questions surface assumptions reveal hidden constraints and create alignment before work begins. I now start every new project with a structured set of questions. What does success look like in six months? What are the top three risks? What would make us kill this project? Who has the most to lose if this fails? These questions consistently reveal things that would have caused problems later. Curiosity, it turns out, is a better superpower than expertise. The most important professional lesson I have learned is that the quality of your questions matters more than the quality of your answers. Early in my career, I thought expertise meant having the answers. I have since learned that the best engineers and leaders I have worked with are characterized by the precision and depth of their questions. Good questions surface assumptions reveal hidden constraints and create alignment before work begins. I now start every new project with a structured set of questions. What does success look like in six months? What are the top three risks? What would make us kill this project? Who has the most to lose if this fails? These questions consistently reveal things that would have caused problems later. Curiosity, it turns out, is a better superpower than expertise. The most important professional lesson I have learned is that the quality of your questions matters more than the quality of your answers. Early in my career, I thought expertise meant having the answers. I have since learned that the best engineers and leaders I have worked with are characterized by the precision and depth of their questions. Good questions surface assumptions reveal hidden constraints and create alignment before work begins. I now start every new project with a structured set of questions. What does success look like in six months? What are the top three risks? What would make us kill this project? Who has the most to lose if this fails? These questions consistently reveal things that would have caused problems later. Curiosity, it turns out, is a better superpower than expertise. The most important professional lesson I have learned is that the quality of your questions matters more than the quality of your answers. Early in my career, I thought expertise meant having the answers. I have since learned that the best engineers and leaders I have worked with are characterized by the precision and depth of their questions. Good question surface assumptions reveal hidden constraints and create alignment before work begins. I now start every new project with a structured set of questions. What does success look like in six months? What are the top three risks? What would make us kill this project? Who has the most to lose if this fails? These questions consistently reveal things that would have caused problems later. Curiosity, it turned out, is a better"
+  },
+  {
+    "question": "Your organization has a legacy monolithic application that serves around 50,000 monthly users, and leadership wants to transition it to a microservices architecture to improve scalability and maintainability. However, the catch is you must do this without using any paid APIs. How would you approach this migration? What are the key phases you would implement, and what risks do you foresee in this process?",
+    "answer": "About a single data loss incident. I left the team, it was processing over 200,000 events per second with no architectural changes needed. Just horizontal scaling of the Kafka partitions and Flink job parallelism. I architected a real time data pipeline that processed over 100,000 events per second with end to end latency under two seconds. The design used Kafka as the event bus, Flink for stream processing, and Elasticsearch for the query of both store. The trickiest part was handling late arriving events caused by mobile clients with intermittent connectivity. I implemented a watermark strategy with a five minute grace window and idempotent event processing using a composite key of device ID and sequence number. The pipeline ran in production for two years without a single data loss incident. When I left the team, it was processing over 200,000 events per second. With no architectural changes needed, just horizontal scaling of the Kafka partitions and Flink job parallelism. I architected a real time data pipeline that processed over 100,000 events per second, with end to end latency under two seconds. The design used Kafka as the event bus, Flink for stream processing, and Elasticsearch for the queryable store. The trickiest part was handling late arriving events caused by mobile clients with intermittent connectivity. Implemented a watermark strategy with a five minute grace window and idempotent event processing using a composite key of device ID and sequence number. The pipeline ran in production for two years without a single data loss incident. When I left the team, it was processing over 200,000 events per second, with no architectural changes needed, just horizontal scaling of the Kafka partitions and Flink job parallelism. I architected a real time data pipeline that processed over 100,000 events per second with end to end latency under two seconds. The nine used Kafka as the event bus, Flink for stream processing, and Elasticsearch for the queryable store. The trickiest part was handling late arriving events caused by mobile clients with intermittent connectivity. I implemented a watermark strategy with a five minute grace window and idempotent event processing using a composite key of device ID and sequence number. The pipeline ran in production for two years without a single data loss incident. When I left the team, it was processing over 200,000 events per second with no architectural changes needed. Just horizontal scaling of the Kafka partitions and Flink job parallelism. I architected a real time data pipeline that processed over 100,000 events per second, with end to end latency under two seconds. The design used Kafka as the event bus, Flink for stream processing, and Elasticsearch for the queryable store. The trickiest part was handling late arriving events caused by mobile clients with intermittent connectivity. I implemented a watermark strategy with a five minute grace window and idempotent event processing using a complete key of device ID and sequence number. The pipeline ran in production for two years without a single data loss incident. When I left the team, it was processing over 200,000 events per second, with no architectural changes needed, just horizontal scaling of the Kafka partitions and Flink job parallelism. I architected a real time data pipeline that processed over 100,000 events per second, with end to end latency under two seconds."
+  },
+  {
+    "question": "You're leading a product initiative to enhance user engagement for a platform that currently has around 50K monthly users. You have two options: either build a new feature set that requires significant engineering resources or invest in a third-party analytics tool to better understand user behavior. The catch is, you have a budget constraint that limits you to using only open-source tools. Which direction do you choose, and what do you think you'll lose by not going with the other option?",
+    "answer": "I use those findings to redesign our enterprise onboarding program. Around those three pillars."
+  },
+  {
+    "question": "Your team is currently managing a product that serves around 10,000 users, and you need to redesign it to support 1 million users. The catch is, you have to do this within a 2-week deadline. What are the first components you would focus on scaling, and how would you communicate these changes to your stakeholders?",
+    "answer": "Was 12 times the cost of the delay. I also presented a communication plan for managing customer expectations during the delay."
+  },
+  {
+    "question": "You're managing a product that currently supports around 5,000 users, but your growth projections show it could scale to 500,000 users in the next year. The catch is, you have to redesign the system to handle this increase within a 2-week deadline. What components do you think would be the first to fail under this load, and how would you prioritize your changes?",
+    "answer": "Meaning the same recall rate."
+  },
+  {
+    "question": "Imagine you're tasked with designing a new feature for a product that currently serves about 10K daily active users. You need to prioritize between enhancing the user interface for better engagement or optimizing the backend for performance. The catch is, you have to do this within a 2-week deadline. How do you decide which path to take, and what factors influence your decision?",
+    "answer": "Understand what made them successful with our product."
+  },
+  {
+    "question": "You're tasked with integrating a new analytics tool into your existing product that serves about 20,000 daily active users, but the catch is you can only use open-source tools. What factors do you consider in terms of compatibility, migration costs, and potential risks? And how would you communicate this decision to stakeholders who may not be technically savvy?",
+    "answer": "I advocate strongly for inclusive hiring practices not just because it is the right thing to do, but because I have seen directly how diverse teams produce better outcomes."
+  },
+  {
+    "question": "Your team is tasked with modernizing a legacy e-commerce platform that currently supports around 50,000 monthly users. Leadership wants to transition to a microservices architecture within three months, but the catch is you must do this without using any paid APIs. How would you approach the migration, and what would be your strategy for managing stakeholder expectations throughout the process?",
+    "answer": "Conversations with every team member to understand how they were feeling and what they needed. I then worked with leadership to get the team committed to a smaller achievable project that could ship within four weeks."
+  },
+  {
+    "question": "You're tasked with launching a new feature for a product that currently serves about 20,000 daily users. The team is debating whether to build this feature as a tightly integrated part of the existing monolith or as a separate microservice. The catch is, you have to deliver this within a two-week deadline. Which approach do you choose, and what are the trade-offs you anticipate in terms of scalability and team collaboration?",
+    "answer": "I ran a blameless post mortem the next day. We introduced automated connection pool validation to our CI pipeline. And the same failure mode has not recurred in the eighteen months since."
+  },
+  {
+    "question": "Your team is considering adopting a new analytics platform to handle ~50K monthly users, but the catch is you must do this without using any paid APIs. What factors do you evaluate before making the switch, and how do you communicate the potential risks to your stakeholders?",
+    "answer": "Channel. The drop was concentrated entirely in organic search traffic on mobile devices. I then analyzed the changes in that period a Google search algorithm update had changed our landing page ranking for key terms. And simultaneously,"
+  },
+  {
+    "question": "It's 2 AM, and your team just received feedback from a major client that the recent feature rollout is causing confusion among users. You have only a few hours before the client meeting to gather insights and propose a solution. How do you quickly assess user sentiment and what steps do you take to address the issue, given that you can only use open-source tools?",
+    "answer": "Tools are our customers used and built a thirty day checklist."
+  },
+  {
+    "question": "You're leading a project to integrate a new analytics platform for a product used by around 50K monthly users, but the catch is it must run on a single CPU core. What factors do you consider when evaluating this technology, and how would you communicate the potential trade-offs to your stakeholders?",
+    "answer": "Rather than running separate conversations, I convened a single working session with all four. Open with a shared statement of the business goal. And asked each person to articulate what success lakh like from their department's perspective. Writing those definitions on a shared board revealed that two of the apparent conflicts were actually about different metrics. Not different goals. Once we agreed on the common metric, the scheduling conflicts resolved themselves."
+  },
+  {
+    "question": "Your team is tasked with modernizing a legacy monolithic application that currently supports around 50,000 monthly users. Leadership wants it fully transitioned to a microservices architecture with zero downtime, but the catch is you must do this using only open-source tools. What would be your step-by-step migration strategy, and how would you assess the risks involved?",
+    "answer": "Resolved and received no incidents."
+  },
+  {
+    "question": "You're tasked with developing a new feature for a product that currently has around 10,000 monthly active users, but you need to ensure it can scale to support 100,000 users within a year. The challenge is that you must do this without using any paid APIs. What key architectural decisions would you make, and how would you manage stakeholder expectations while balancing technical constraints?",
+    "answer": "Which was a requirement for regulatory approval. The model ran inference in under thirty milliseconds per transact. Using a lightweight serving layer. Fraud losses dropped by 28% in the quarter after deployment. I built a machine learning pipeline for four to that reduced false positives"
+  },
+  {
+    "question": "You're tasked with launching a new feature for a product that currently serves around 20,000 daily active users. The engineering team has proposed either a complete rewrite of the existing codebase to integrate this feature or building it as a microservice that communicates with the current system. The catch is, you have a strict two-week deadline to deliver a working prototype. Which approach do you choose, and what are the trade-offs you anticipate in terms of scalability and stakeholder communication?",
+    "answer": "That the best engineers and leaders I have worked with are characterized by the precision and depth of their questions."
+  },
+  {
+    "question": "Imagine your product's user base has grown to 100,000 active users, and you're facing significant performance issues. The leadership team wants a solution that can scale to 1 million users within a month, but the catch is you must do this using only open-source tools. What components do you think will break first, and how would you prioritize your roadmap to address these challenges while keeping stakeholders informed?",
+    "answer": "They were feeling and what they needed I then worked with leadership to get the team committed to a smaller achievable project that could ship within four weeks."
+  },
+  {
+    "question": "Imagine you're tasked with designing a user research strategy for a new product aimed at around 20,000 potential users. You need to gather insights quickly to inform your product roadmap, but the catch is you must do this without using any paid APIs. What methods would you choose to gather user feedback, and how would you ensure the data is actionable for your team?",
+    "answer": "Had integrated our API with at least one other internal tool."
+  },
+  {
+    "question": "You're leading a project to enhance your product's analytics capabilities for around 50,000 monthly users. The team is split between implementing a real-time data processing pipeline or a batch processing system. The catch is, you can only use open-source tools. Which option do you choose, and what are the implications for data accuracy and system performance?",
+    "answer": "The next day, we introduced automated connection pool validation to our CI pipeline. And the same failure mode has not occurred in the eighteen months since."
+  },
+  {
+    "question": "Your team is considering adopting a new project management tool to streamline collaboration across departments, but the catch is you need to implement it within a 2-week deadline. What specific factors do you evaluate regarding integration with your existing systems, team training, and potential pushback from stakeholders? And how do you prioritize these concerns?",
+    "answer": "Our team's diversity improved meaning fully and so did our product quality, particularly in areas where we needed to design for users very different from ourselves. I advocate strongly for inclusive hiring practices not just because it is the right thing to do, but because I have seen directly how diverse"
+  },
+  {
+    "question": "You're managing a product that currently supports around 10,000 users, but you're expecting to scale to 1 million users in the next quarter. The catch is, you have to do this within a 2-week deadline. What components do you think will struggle first, and how would you prioritize your roadmap to address these challenges?",
+    "answer": "And a light touch sales assist. Model for larger ones. We built a scoring system that automatically routed trials to the right track based on company size and usage signals."
+  },
+  {
+    "question": "You're in the middle of a user research session for a new feature, and suddenly, a key participant reveals that they have a completely different use case than what you were targeting. Your team is expecting insights to drive the next sprint, but now everything feels uncertain. How do you handle this situation, especially considering you have only one hour left in the session?",
+    "answer": "Fraud losses dropped by 28% in the quarter after deployment."
+  },
+  {
+    "question": "Your user testing results just came back, and they show that 70% of users are confused by a key feature of your product. The catch is, you only have 48 hours to present a revised user experience to the stakeholders. How do you prioritize your research and design changes, and what trade-offs do you make in that timeframe?",
+    "answer": "Breach and a quantified risk model showing that the expected cost of a breach was 12 times the cost of the delay. I also presented a communication plan for managing customer expectation. During the delay."
+  },
+  {
+    "question": "Your product team is looking to implement a new feature that could potentially increase engagement for ~10K daily active users, but the catch is you must do this within a 2-week deadline. How do you prioritize the feature against existing requests, and what do you consider the biggest risk in this tight timeframe?",
+    "answer": "Geography and act. Acquisition channel. The drop was concentrated entirely in organic search traffic on mobile devices. I then analyzed the changes in that period a Google search algorithm update had changed our landing page rankings for key terms and simultaneous our page load time on mobile had increased from two point one seconds to three point eight seconds after a third party script was added."
+  },
+  {
+    "question": "Your team is responsible for modernizing a legacy system that currently handles around 50,000 transactions per day. Leadership has mandated that this transition must occur without using any paid APIs. How would you approach this migration to a cloud-native architecture? What are the key risks you foresee, and how would you communicate these to stakeholders?",
+    "answer": "Quality of your answers Early in my career, I thought expertise meant having the answers. I have since learned that the best engineers and leaders I have worked with are characterized by the precision"
+  },
+  {
+    "question": "Your team is in the middle of a critical product launch for a new feature aimed at 30,000 users, but suddenly, your lead engineer informs you that the feature is not performing well in testing and may not meet the launch deadline. The catch is, you have to make a decision on whether to delay the launch or push forward with the current version, knowing that user feedback will be crucial for future iterations. How do you approach this situation, and what factors influence your decision?",
+    "answer": "Segment. I started by deeply analyzing our exist enterprise customers to understand what made them successful with our product."
+  },
+  {
+    "question": "Your user research team just presented findings that contradict the assumptions you've been operating under for your product roadmap. The PM is pushing for immediate changes based on this new data, but you have a launch scheduled in two weeks. How do you handle this situation, especially considering you must do this within a 2-week deadline?",
+    "answer": "My first priority was listening. I held individual conversations with every team member to understand how they were feeling and what they needed. I then worked with leadership to get the team committed to a smaller achievable project that could ship within four weeks."
+  },
+  {
+    "question": "It's 2 AM, and you've just received feedback from a major user testing session that contradicts your team's previous assumptions about user needs. The product is set to launch in two weeks, but now you’re facing a potential pivot. What steps do you take to validate this new information quickly, and how do you communicate the implications to your team and stakeholders, especially given that you must do this with no more than 2GB of RAM for any tools you might use?",
+    "answer": "I advocate strongly for inclusive hiring practices Not just because it is the right thing to do, but because I have seen direct how diverse teams produce better outcomes."
+  },
+  {
+    "question": "Your company has a legacy monolithic application serving around 10K daily active users, and leadership wants to modernize it to a microservices architecture within a 2-week deadline. However, the catch is you must do this with no external dependencies. What’s your migration strategy, what risks do you foresee, and how would you handle a rollback if something goes wrong?",
+    "answer": "To articulate what success looked like from their department's perspective. Writing those definitions on a shared board revealed that two of the apparent conflicts were actually about different metrics. Not different goals."
+  },
+  {
+    "question": "Your team just launched a new feature, and within hours, user feedback indicates that it’s causing confusion among ~10K daily active users. Your PM is asking for insights to address this before the next release in a week, but the catch is you can only rely on existing user research data and must do this without any new surveys or interviews. How do you approach this situation?",
+    "answer": "I'm on mobile. Had increased from two point one seconds to three point eight seconds. After a third party script was added."
+  },
+  {
+    "question": "You're overseeing a product that currently processes around 50,000 transactions per day, but you're anticipating a surge to 5 million transactions daily. The challenge is that this must be achieved using only open-source tools. What specific parts of your architecture do you think will face the most strain, and how would you adjust your product strategy to accommodate this scale?",
+    "answer": "Made was choosing between a product led and a sales led motion. For our mid market expansion."
+  },
+  {
+    "question": "Imagine you're leading a user research initiative for a new product feature aimed at improving user engagement. You have a tight deadline of two weeks to gather insights from at least 1,000 users, but the challenge is that you can only use open-source tools for your research. What steps would you take to design this research effectively, and how would you prioritize which user segments to focus on, especially given the limited time and resources?",
+    "answer": "Approval. The model ran inference in under thirty milliseconds per transaction. Using a lightweight serving layer. Fraud losses dropped by 28% in the quarter after deployment."
+  },
+  {
+    "question": "Your team just completed a round of user interviews for a new feature, but the feedback is mixed and some users are expressing confusion about the core functionality. It's 10 PM, and the product manager needs a clear direction for the next sprint planning meeting in the morning. How do you prioritize the feedback, what steps do you take to clarify user needs, and how would you communicate your findings to the team, given that you must do this within a 2-week deadline?",
+    "answer": "I have since learned that the best engineers and leaders I have worked with are characterized by the"
+  },
+  {
+    "question": "Imagine you're tasked with designing a user research framework for a new product aimed at 50,000 potential users. The catch is, you have to do this using only open-source tools. What key components would you include in your research strategy, and how would you ensure that your findings are actionable for the product team?",
+    "answer": "I walked through the specific vulnerabilities the potential regulatory and reputational consequences of a breach. And a quantified risk model showing that the expected cost of a breach was 12 times the cost of the delay. I also presented a communicate plan for managing customer"
+  },
+  {
+    "question": "You're tasked with redesigning a user research process for a product that currently serves around 10,000 users, and leadership wants to scale it to support 1 million users. However, the catch is you must do this using only open-source tools. What specific methods would you implement to gather user feedback at scale, and what potential challenges do you foresee in this transition?",
+    "answer": "What they needed. I then worked with leadership to get the team committed to a smaller achievable project that could ship within four weeks."
+  },
+  {
+    "question": "Given new research from your user team that goes against what you thought about your upcoming product feature, launching in two weeks, would you pivot based on this data or stick to the original plan without more user testing? How would you explain and defend your choice to your team and stakeholders?",
+    "answer": "Occurred in the eighteen months since The experience fundamentally changed how I think about on call road rotations and run book quality."
+  },
+  {
+    "question": "Your team just completed a round of user testing for a new feature, but the feedback is overwhelmingly negative. The product launch is scheduled for next week, and your stakeholders are eager for results. How do you approach this situation, especially considering you have to make a decision without any additional user research data?",
+    "answer": "Oceans in terms of revenue per sales dollar spent. The key was not picking one motion."
+  },
+  {
+    "question": "Imagine you're tasked with designing a user research system for a new product that needs to gather insights from 10,000 users within a month. The catch is, you must do this without using any paid APIs. How would you structure your approach to ensure you gather meaningful data while considering the limitations of your tools? What specific methods would you employ, and how would you handle potential biases in your research?",
+    "answer": "In areas where we needed to design for users very different from ourselves. I advocate strongly for inclusive hiring practices Not just because it is the right thing to do, But because I have seen direct how diverse teams produce better outcomes."
+  },
+  {
+    "question": "It's 2 AM and your team just discovered a major bug in the latest release that affects a critical feature used by your top 1,000 customers. Your product manager is on a call with stakeholders, and they expect a solution within the hour. How do you prioritize your response, what immediate steps do you take to address the issue, and how do you communicate with both your team and the stakeholders, especially given that you need to balance technical constraints and product strategy?",
+    "answer": "For regulatory approval. The model ran in"
+  },
+  {
+    "question": "It's 2 AM and your team just wrapped up a major user research initiative for a new feature. You discover that the insights gathered are conflicting, and your product manager is expecting a clear presentation to stakeholders in just 30 minutes. How do you prioritize which insights to present, and what steps do you take to ensure the team is aligned on the messaging?",
+    "answer": "And ask each person to articulate what success looked like from their department's perspective. Writing those definitions on a shared board revealed that two of the apparent conflicts were actually about different metrics. Not different goals. Once we agreed on the common match,"
+  },
+  {
+    "question": "Imagine you're tasked with redesigning a user onboarding process for a product that currently supports ~20K monthly users. The challenge is that you must do this using only open-source tools. What steps would you take to gather user insights, and how would you prioritize changes based on that feedback, considering the potential impact on user retention?",
+    "answer": "On mobile devices. I then analyzed the changes in that period a Google search algorithm update had changed our landing page ranking for key terms, and simultaneous simultaneously, our page load time on mobile"
+  },
+  {
+    "question": "Your product just launched, and within 24 hours, user feedback reveals that 80% of users are struggling with a key feature. Your team is split: one side wants to roll back the feature entirely, while the other insists on a quick fix that could take a week. The catch is, you have to make a decision within the next hour. What do you choose, and how do you justify your decision to both the team and the stakeholders?",
+    "answer": "And a quantified risk"
+  },
+  {
+    "question": "Can you tell me about your experience working with Jira?",
+    "answer": "We identified the route cause as a myth."
+  },
+  {
+    "question": "Your team is in the middle of a major product launch for a new feature that could potentially double engagement for ~15K daily active users. Suddenly, your lead developer informs you that a critical bug was discovered that could delay the launch by two weeks. The catch is, you must communicate this to stakeholders who are expecting the launch next week. How do you handle the situation, and what steps do you take to realign the roadmap while managing stakeholder expectations?",
+    "answer": "BOT NOTE: the user exited the meeting in the middle of the interview"
+  },
+  {
+    "question": "Imagine you're tasked with designing a user research system for a new product that needs to gather insights from around 1,000 users within a tight two-week deadline. Your goal is to ensure that the findings are actionable and can guide the product development team effectively. What methods would you choose to gather this data, how would you prioritize which insights to focus on, and what tools or technologies would you leverage to facilitate this process, given that you must do this using only open-source tools?",
+    "answer": "Project with a struct should set of questions."
+  },
+  {
+    "question": "Your product team is gearing up to launch a new feature that aims to improve user engagement for your app, which currently has around 30,000 active users. However, halfway through the development, you receive feedback from a key stakeholder that the feature doesn't align with the overall product vision. The catch is, you have to present a revised roadmap to the team within the next week. How do you approach this situation, and what factors do you consider in balancing stakeholder expectations with the product strategy?",
+    "answer": "Major outage that lasted four hours."
+  },
+  {
+    "question": "It's 2 AM, and your team just discovered that a key feature for your upcoming product launch, which is set for next month, is not meeting the performance benchmarks you promised to stakeholders. Your PM is about to present this feature to a major client in 15 minutes. How do you handle the situation, especially considering you must communicate this effectively to both your technical team and non-technical stakeholders?",
+    "answer": "BOT NOTE: The user asked to repeat the question maximum number of times so considering the response to this question as NO RESPONSE."
+  },
+  {
+    "question": "Your team is in the middle of a critical product launch when you discover that a key feature is not meeting the performance benchmarks expected by your stakeholders. The product is set to go live in three weeks, but the catch is you must do this with no more than 2GB of RAM. How do you adjust your roadmap to address this issue while keeping everyone aligned and informed?",
+    "answer": "I've been worked with leadership. To get the team"
+  },
+  {
+    "question": "It's 2 AM, and your product team just learned that a major competitor is launching a similar feature ahead of your planned release. Your roadmap is set for the next quarter, but now the CEO wants to know how you can expedite your timeline without compromising quality. How do you approach this situation, what immediate steps do you take to assess the impact on stakeholders, and how do you communicate your strategy to the team, given that you must do this within a two-week deadline?",
+    "answer": "BOT NOTE: The user asked to repeat the question maximum number of times so considering the response to this question as NO RESPONSE."
+  },
+  {
+    "question": "Imagine you're tasked with designing a user research strategy for a new mobile app aimed at 100,000 potential users. You have two options: conduct extensive in-person interviews with a small group of users or deploy a large-scale online survey to gather quantitative data. The catch is, you must complete this within a 2-week deadline. Which approach do you choose, and what are the trade-offs in terms of depth of insights versus breadth of data?",
+    "answer": "Pure emotions in terms of revenue per sales dollars. Spent."
+  },
+  {
+    "question": "Your team just discovered that a key feature in your product, which was set to launch in a month, is not meeting the necessary compliance standards. The catch is, you have to decide whether to delay the launch or pivot your roadmap to include a workaround that might compromise user experience. What do you do?",
+    "answer": "But have a longer time to value."
+  },
+  {
+    "question": "You're leading a project to integrate a new analytics tool into your existing platform that supports around 50K monthly users. The team is excited, but you have to ensure it aligns with your current architecture. The catch is, you need to do this within a 2-week deadline. What factors do you consider before moving forward, and what potential risks do you foresee?",
+    "answer": "I see multiple potential risk here."
+  },
+  {
+    "question": "Your team is tasked with modernizing a legacy monolithic application that currently serves around 20,000 daily users. Leadership wants to transition to a microservices architecture with zero downtime, but the catch is you must do this using only open-source tools. How would you approach this migration? What steps would you take, and what risks would you need to manage?",
+    "answer": "Take, two to three steps. To manage these."
+  },
+  {
+    "question": "Your team is tasked with modernizing a legacy monolithic application that currently serves about 50,000 monthly users, and leadership wants it fully containerized and cloud-native within three months. But the catch is, you must do this without using any paid APIs. How do you plan the migration in phases, what risks do you foresee, and what would your rollback strategy look like?",
+    "answer": "Me right now. Can we skip this question?"
+  },
+  {
+    "question": "You're leading a product initiative to scale a data analytics platform that currently supports about 10,000 daily users. The goal is to enhance its capabilities to handle 1 million users, but the catch is you have to do this using only open-source tools. What components do you anticipate will be the first to struggle under this load, and how would you prioritize your roadmap to address these issues?",
+    "answer": "Oh, continue with the next question. I don't have answer for this."
+  },
+  {
+    "question": "Your user testing session just wrapped up, and the feedback is overwhelmingly negative. The team is gearing up for a big launch in two weeks, but the catch is you have to pivot your user research approach using only open-source tools. What immediate steps do you take to address the feedback and ensure the product aligns with user needs?",
+    "answer": "BOT NOTE: the user exited the meeting in the middle of the interview"
+  },
+  {
+    "question": "Your team just completed a round of user interviews for a new feature, but the feedback is overwhelmingly negative. Your product manager is pushing to launch in two weeks, and you need to present a compelling argument to either pivot the design or push back the timeline. What steps do you take to analyze the feedback and communicate your findings effectively, especially considering you have no more than 2GB of RAM for any data analysis tools?",
+    "answer": "Skip this question."
+  },
+  {
+    "question": "Imagine you're tasked with designing a user research system to gather feedback from around 50,000 users on a new product feature. The catch is, you must do this within a two-week deadline. How would you structure your research approach, what methods would you choose to ensure you get actionable insights, and how would you prioritize which user segments to focus on?",
+    "answer": "BOT NOTE: the user exited the meeting in the middle of the interview"
+  },
+  {
+    "question": "Your team is considering adopting a new project management tool to improve collaboration across departments, but the catch is you need to implement it within a 2-week deadline. What factors do you evaluate to ensure it aligns with your product strategy, and how do you communicate potential risks to stakeholders?",
+    "answer": "I don't know."
+  },
+  {
+    "question": "You're tasked with launching a new feature for a product that currently serves around 20,000 daily active users. You have two options: either build a robust in-house solution that allows for extensive customization or integrate a third-party service that can be up and running quickly. The catch is, you need to deliver this within a two-week deadline. Which route do you take, and what are the trade-offs you anticipate in terms of long-term maintainability and user experience?",
+    "answer": "So I would go with the third party thing. If it is costing me within my budget or, you know, if it is free of cost, we can use it using, you know, using different API calls."
+  },
+  {
+    "question": "Your team is considering adopting a new project management tool to improve collaboration and visibility, but the catch is you must do this using only open-source tools. You have a rough estimate of needing to manage around 50 ongoing projects simultaneously. What factors do you weigh in your decision-making process, and how do you assess the potential risks of this transition?",
+    "answer": "Right. We are seeing it based on the performance."
+  },
+  {
+    "question": "Imagine you're overseeing a product that currently handles about 50,000 monthly users. You've just received feedback that the user experience is suffering due to performance issues, and you need to redesign the system to support 5 million users. The catch is, you can only use open-source tools for this overhaul. What components do you think will break first, and how would you prioritize your roadmap to address these issues?",
+    "answer": "So yeah. Implementing something, of course, things will break in the back. But, you know, you have to have the catch where in you see that the things don't lakh, actually. And, yeah, I would use a different open source tools wherein you get more robustness and active working of the output. Yeah."
+  },
+  {
+    "question": "Your organization has a legacy monolithic application serving around 20,000 daily users, and leadership wants to modernize it into a microservices architecture without downtime. The catch is you must do this within a 2-week deadline. How would you approach the migration, what steps would you prioritize, and what risks do you foresee in this tight timeframe?",
+    "answer": "Yeah. The given cache is, good, but I be choosing some other one."
+  },
+  {
+    "question": "Your user research team just presented findings that suggest a significant portion of your target audience is struggling with a key feature of your product. However, the data is based on a small focus group of only 20 users. Your product launch is scheduled for next month, and the catch is you must make a decision on whether to pivot your design based on this feedback without any additional user testing. What do you do, and what factors influence your decision?",
+    "answer": "Other factors which enhance by additions are the comparing. And the outputs and the benchmarks that I get for the different products, I become comparing those benchmarks and finalizing with one decision. Let it be Apache, Kafka, or APIs. Let it be anything here. I'd be comparing those door their benchmark and moving forward."
+  },
+  {
+    "question": "Your team just conducted a user research study on a new feature, but the results are conflicting and the data seems unreliable. It's 2 AM, and your product manager needs a clear direction for the upcoming sprint in just a few hours. What steps do you take to assess the validity of the findings and how do you communicate your recommendations, given that you must do this without using any paid APIs?",
+    "answer": "So first, I would see that, where, you know, we have using the API calls and what. So basically, minimize API calls, use it where it is required, And if something is broken at 2AM, first, we'll diagnose it, diagnose the issue, lakh the issue, and then, you know, fix it. Maybe not give up a temporary fix. Think of a permanent fix because if that occurs again in the future, then would not be a good thing to present in front of the team manager."
+  },
+  {
+    "question": "Imagine you're tasked with redesigning a user onboarding process for a SaaS product that's currently seeing a 70% drop-off rate after the first week. The catch is you have to base your decisions solely on qualitative feedback from 30 users who participated in a recent usability study. How would you approach this redesign? What specific user research methods would you employ to validate your assumptions, and how would you prioritize changes given the limited data?",
+    "answer": "Can we skip this interview?"
+  },
+  {
+    "question": "Imagine you're tasked with designing a user research framework for a new product feature aimed at 100,000 potential users. Your goal is to gather actionable insights within a tight two-week deadline. The catch is, you can only rely on qualitative methods, like interviews and focus groups, without using any paid APIs. How would you structure your research process, what specific methods would you choose, and how would you ensure the findings are reliable and representative?",
+    "answer": "I would use, the way of interviews in the following researches system."
+  },
+  {
+    "question": "Your team just discovered that a critical feature in your product is causing significant user churn, and the data suggests it's impacting around 15,000 active users. However, the catch is you have to make a decision on how to address this issue without any additional user research or testing. What immediate steps do you take to prioritize the roadmap and communicate the strategy to stakeholders?",
+    "answer": "We skip this?"
+  },
+  {
+    "question": "Your team is in the middle of developing a new feature for a product that currently serves around 100,000 users. Suddenly, your CEO informs you that a major competitor is launching a similar feature next month, and you need to accelerate your timeline. The catch is, you have to do this without using any paid APIs. How do you adjust your roadmap and communicate these changes to your stakeholders while ensuring that the product still meets quality standards?",
+    "answer": "So first of all, the feature, and it's important And coming to a place where, is releasing it in a month. Or so. We were, you know, things and, made the release faster than I thought. And, yeah, I would make the share all list on the release and the features so that all the users in the market are being dragged by us and not by a competitor just because we are releasing early. That doesn't mean that we have things broken. So, yeah, everything working perfect. Perfectly shall be released very soon then."
+  },
+  {
+    "question": "Hi Kamla Devi, welcome..",
+    "answer": "BOT NOTE: candidate exited at 14:58:37 and did not return within 5 minutes. Interview terminated."
+  },
+  {
+    "question": "Your team is considering adopting a new analytics platform to handle ~50K monthly users, but the catch is it must run on a single CPU core. What factors do you evaluate before making this decision, and how do you communicate the potential risks to stakeholders?",
+    "answer": "BOT NOTE: candidate exited at 15:01:39 and did not return within 5 minutes. Interview terminated."
+  },
+  {
+    "question": "You're leading a project to integrate a new analytics tool into your existing platform, which currently handles about 20,000 daily active users. The stakeholders are eager for insights but have a tight deadline of two weeks to see initial results. Given that you must use only open-source tools, what factors do you consider before making a decision on the technology to adopt? What potential risks do you foresee?",
+    "answer": "BOT NOTE: candidate exited at 15:04:36 and did not return within 5 minutes. Interview terminated."
+  },
+  {
+    "question": "You're leading a product initiative for a new feature that aims to enhance user engagement for an app with ~50K monthly users. Your team is split on whether to prioritize a deep integration with existing features or to build a standalone module that could be released faster. But the catch is, you have to deliver this within a 2-week deadline. Which direction do you choose, and what are the trade-offs you foresee in terms of stakeholder buy-in and long-term product strategy?",
+    "answer": "Technical stakeholder. I don't know about these."
+  },
+  {
+    "question": "Your team is considering adopting a new project management tool to improve collaboration across departments, but the catch is it must be explainable to a non-technical stakeholder. What factors do you evaluate before making a decision, and how do you address potential resistance from team members who are comfortable with the current tool?",
+    "answer": "I don't know about these."
+  },
+  {
+    "question": "Your team is considering adopting a new analytics platform to replace your existing solution, which currently handles ~10TB of data daily. However, the new platform has a steep learning curve and requires significant migration effort. But the catch is, you can only use open-source tools. What factors do you evaluate before making this decision, and what do you see as the biggest operational risk?",
+    "answer": "I I don't know either."
+  },
+  {
+    "question": "How would you select the best project management tool without paid APIs within two weeks and ensure stakeholders are onboard with the change?",
+    "answer": "I don't know either."
+  },
+  {
+    "question": "Imagine you're tasked with designing a new feature for a product that has around 50K monthly users. You have a tight deadline of two weeks to deliver this feature, but you need to ensure it aligns with the broader product strategy and stakeholder expectations. What steps would you take to prioritize requirements and manage stakeholder feedback, especially given that you must do this without using any paid APIs?",
+    "answer": "Can you skip these questions?"
+  },
+  {
+    "question": "You're leading a product initiative to enhance user engagement for a platform with around 50K monthly users. You have two options: either build a new feature set that requires significant engineering resources but promises high user retention, or invest in optimizing existing features that could improve user experience without major changes. The catch is, you have a tight deadline of two weeks to present a working prototype. Which direction do you choose, and what trade-offs do you anticipate?",
+    "answer": "Yeah. I don't know, Ida. Let's move on to the next question."
+  },
+  {
+    "question": "Your team is currently managing a product that serves around 20,000 users, but you’ve just received a projection that user growth will push that number to 1 million within the next year. You need to redesign the product strategy to accommodate this growth, but the catch is you have to do it within a 2-week deadline. What are the first steps you take, and how do you prioritize the key components of the roadmap?",
+    "answer": "Can you skip this question? I don't know the answer for this, to be frank."
+  },
+  {
+    "question": "You're tasked with developing a new feature for a product that currently has around 50,000 active users. The feature is expected to significantly enhance user engagement, but you can only use open-source tools. How do you decide between building a microservices architecture to support this feature or integrating it into the existing monolithic system? What are the trade-offs you consider, and what potential risks do you foresee?",
+    "answer": "Can you skip this question? I don't answer for this. Raju? Can you skip this question? I don't know answer for this."
+  },
+  {
+    "question": "You're tasked with launching a new feature that allows users to customize their dashboards. You have two options: build a fully customizable front-end using a modern framework, or create a simpler version with limited customization using existing components. The catch is, you need to deliver this within a 2-week deadline. Which approach do you choose, and what are the trade-offs in terms of user satisfaction and technical debt?",
+    "answer": "BOT NOTE: the user exited the meeting in the middle of the interview"
+  },
+  {
+    "question": "Your user testing just revealed that a significant portion of your target audience finds your product unintuitive, and the feedback is coming in fast. However, your team is already behind schedule on the next release, which is critical for your upcoming marketing campaign. How do you prioritize addressing this user feedback while still meeting the release deadline, but the catch is you have to do it without using any paid APIs?",
+    "answer": "Don't have any questions."
+  },
+  {
+    "question": "Imagine you're tasked with designing a user research framework for a new product aimed at a specific demographic, but the catch is you have to do it using only open-source tools. How would you structure your research process to gather meaningful insights from at least 5,000 potential users? What methods would you prioritize, and how would you ensure the data you collect is actionable?",
+    "answer": "BOT NOTE: the user exited the meeting in the middle of the interview"
+  },
+  {
+    "question": "You're tasked with scaling a user feedback system that currently processes feedback from around 5,000 users a day. The system is running smoothly, but your CEO just announced a goal to handle 1 million users daily. The catch is, you have to achieve this within a two-week deadline. What components do you think will struggle first, and how would you approach redesigning the system to meet this demand?",
+    "answer": "BOT NOTE: candidate exited at 11:03:49 and did not return within 5 minutes. Interview terminated."
+  }
+]

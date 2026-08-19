@@ -1,0 +1,100 @@
+{
+  "name": "OpenAI GPT-4o-mini Question Gen",
+  "run_at": "2026-06-17T08:43:50.871352",
+  "magic_number": 25,
+  "warn_number": 25,
+  "baseline_p95": 1929.8509999998714,
+  "steps": [
+    {
+      "n": 1,
+      "p50_ms": 1929.9,
+      "p90_ms": 1929.9,
+      "p95_ms": 1929.9,
+      "p99_ms": 1929.9,
+      "max_ms": 1929.9,
+      "mean_ms": 1929.9,
+      "success": 1,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 2,
+      "p50_ms": 1618.4,
+      "p90_ms": 1933.4,
+      "p95_ms": 1972.8,
+      "p99_ms": 2004.3,
+      "max_ms": 2012.2,
+      "mean_ms": 1618.4,
+      "success": 2,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 5,
+      "p50_ms": 1196.4,
+      "p90_ms": 1281.0,
+      "p95_ms": 1283.2,
+      "p99_ms": 1285.0,
+      "max_ms": 1285.5,
+      "mean_ms": 1203.6,
+      "success": 5,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 10,
+      "p50_ms": 1100.2,
+      "p90_ms": 1269.4,
+      "p95_ms": 1305.9,
+      "p99_ms": 1335.2,
+      "max_ms": 1342.5,
+      "mean_ms": 1130.2,
+      "success": 10,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 15,
+      "p50_ms": 1177.0,
+      "p90_ms": 1371.7,
+      "p95_ms": 1384.7,
+      "p99_ms": 1389.6,
+      "max_ms": 1390.8,
+      "mean_ms": 1196.0,
+      "success": 15,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 20,
+      "p50_ms": 1180.6,
+      "p90_ms": 1354.1,
+      "p95_ms": 1475.0,
+      "p99_ms": 1724.9,
+      "max_ms": 1787.4,
+      "mean_ms": 1223.8,
+      "success": 20,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 25,
+      "p50_ms": 1227.3,
+      "p90_ms": 1404.9,
+      "p95_ms": 1416.2,
+      "p99_ms": 2920.7,
+      "max_ms": 3395.3,
+      "mean_ms": 1288.7,
+      "success": 25,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    }
+  ]
+}

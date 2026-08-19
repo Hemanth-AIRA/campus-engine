@@ -1,0 +1,172 @@
+{
+  "header": {
+    "title": "AIRA",
+    "subtitle": "Your AI Hiring Agent<br>Autonomous Interview & Resume Analysis",
+    "logo_url": "https://via.placeholder.com/80x80.png?text=AIRA"
+  },
+  "candidate": {
+    "name": "John Doe",
+    "email": "john.doe@email.com",
+    "phone": "+1234567890",
+    "photo_url": "https://via.placeholder.com/80"
+  },
+  "client": {
+    "company": "TechCorp Inc",
+    "position": "SAP UI5 Developer"
+  },
+  "interview": {
+    "date": "2025-01-16",
+    "time": "10:00 AM",
+    "timezone": "UTC",
+    "duration": "1h 20m",
+    "questions_count": 11,
+    "mode": "Zoom"
+  },
+  "resume_analysis": {
+    "score": 85,
+    "recommendation": "Strong technical background with relevant experience"
+  },
+  "interview_analysis": {
+    "score": 85,
+    "recommendation": "1-2 line recommendation based on interview performance"
+  },
+  "verdict": {
+    "passed": true,
+    "icon": "✓",
+    "status": "PASSED INTERVIEW ROUND",
+    "subtitle": "Further steps: Schedule for next technical round",
+    "strengths": {
+      "title": "✓ Key Strengths",
+      "items": [
+        "Strong domain knowledge in SAP API development",
+        "Experience in developing custom applications",
+        "In-depth understanding of workflow applications",
+        "Strong understanding of SAP UI5 development process",
+        "Experience in designing UI5 applications",
+        "Ability to explain technical concepts clearly",
+        "Good understanding of SAP development tools",
+        "Clear explanation of deployment and version control processes",
+        "Strong understanding of SAP BTP and SAP Build Work Zone",
+        "Ability to explain complex processes clearly",
+        "Experience in deploying applications to Cloud Foundry",
+        "Hands-on experience in SAP UI5/Fiori applications development",
+        "Knowledge of routing and data retrieval mechanisms",
+        "Ability to customize content based on user's language preference"
+      ]
+    },
+    "areas": {
+      "title": "⚠ Areas for Development",
+      "items": [
+        "Could improve on articulating specific technical challenges faced during projects",
+        "Minor issues with terminology and clarity in some parts of the explanation"
+      ]
+    },
+    "overall_assessment": "The candidate demonstrated a strong understanding of SAP UI5 development and related technologies. Communication and domain knowledge were consistently strong. Some minor improvements in articulating technical challenges and clarity in explanations could enhance overall performance."
+  },
+  "overview": {
+    "summary": "Overall, the candidate performed well across all metrics, with an average score of 85%. Communication and Domain Knowledge were particularly strong, each scoring an average of 88%. Experience and Skills also showed solid performance, with an average score of 84%.",
+    "metrics": [
+      {"name": "Communication", "score": 88, "color": "#4CAF50"},
+      {"name": "Experience", "score": 84, "color": "#2196F3"},
+      {"name": "Confidence", "score": 81, "color": "#FFC107"},
+      {"name": "Domain Knowledge", "score": 88, "color": "#9C27B0"},
+      {"name": "Resume Justification", "score": 83, "color": "#FF5722"},
+      {"name": "Skills", "score": 83, "color": "#607D8B"}
+    ],
+    "analysis": [
+      {"name": "Communication", "score": 85, "color": "#4CAF50", "description": "Consistently clear and effective communication throughout the interview."},
+      {"name": "Experience", "score": 85, "color": "#2196F3", "description": "Demonstrated practical experience in SAP UI5 development and related areas."},
+      {"name": "Confidence", "score": 82, "color": "#FFC107", "description": "Showed confidence in discussing technical topics, with room for further assertiveness."},
+      {"name": "Domain Knowledge", "score": 88, "color": "#9C27B0", "description": "Impressive depth of knowledge in SAP UI5 and related technologies."},
+      {"name": "Resume Justification", "score": 83, "color": "#FF5722", "description": "Linked experiences and skills on the resume effectively to interview responses."},
+      {"name": "Skills", "score": 83, "color": "#607D8B", "description": "Demonstrated proficiency in key technical skills relevant to the role."}
+    ]
+  },
+  "mandatory": {
+    "strengths": ["Java", "Angular", "React", "JavaScript"],
+    "improvements": ["design patterns", "algorithms"],
+    "disclaimer": "This report is generated automatically by AIRA (AI Recruitment Assistant) based on transcript, audio analysis, and resume parsing. It is intended for internal recruitment use only and should be reviewed by a human prior to final hiring decisions."
+  },
+  "questions": {
+    "header": {
+      "title": "AIRA - Detailed Interview Analysis Report",
+      "subtitle": "Comprehensive Question-by-Question Assessment",
+      "description": "This section contains detailed analysis of each interview question and candidate response"
+    },
+    "list": [
+      {
+        "id": 1,
+        "overall_score": 85,
+        "metrics": [
+          {"name": "Communication", "score": 90, "color": "#76c7c0"},
+          {"name": "Experience", "score": 85, "color": "#67b26f"},
+          {"name": "Confidence", "score": 80, "color": "#f5b567"},
+          {"name": "Domain Knowledge", "score": 90, "color": "#86b7ff"},
+          {"name": "Resume Justification", "score": 80, "color": "#c99bff"},
+          {"name": "Skills", "score": 85, "color": "#ff9999"}
+        },
+        "strengths": ["Strong domain knowledge in SAP API development", "Experience in developing custom applications", "In-depth understanding of workflow applications"],
+        "weaknesses": ["Could improve on articulating specific technical challenges faced during projects"]
+      },
+      {
+        "id": 2,
+        "overall_score": 85,
+        "metrics": [
+          {"name": "Communication", "score": 90, "color": "#76c7c0"},
+          {"name": "Experience", "score": 85, "color": "#67b26f"},
+          {"name": "Confidence", "score": 80, "color": "#f5b567"},
+          {"name": "Domain Knowledge", "score": 90, "color": "#86b7ff"},
+          {"name": "Resume Justification", "score": 85, "color": "#c99bff"},
+          {"name": "Skills", "score": 85, "color": "#ff9999"}
+        },
+        "strengths": ["Strong understanding of SAP UI5 development process", "Experience in designing UI5 applications", "Ability to explain technical concepts clearly"],
+        "weaknesses": []
+      },
+      {
+        "id": 3,
+        "overall_score": 85,
+        "metrics": [
+          {"name": "Communication", "score": 85, "color": "#76c7c0"},
+          {"name": "Experience", "score": 80, "color": "#67b26f"},
+          {"name": "Confidence", "score": 85, "color": "#f5b567"},
+          {"name": "Domain Knowledge", "score": 90, "color": "#86b7ff"},
+          {"name": "Resume Justification", "score": 85, "color": "#c99bff"},
+          {"name": "Skills", "score": 80, "color": "#ff9999"}
+        },
+        "strengths": ["Good understanding of SAP development tools", "Clear explanation of deployment and version control processes"],
+        "weaknesses": ["Minor issues with terminology and clarity in some parts of the explanation"]
+      },
+      {
+        "id": 4,
+        "overall_score": 85,
+        "metrics": [
+          {"name": "Communication", "score": 90, "color": "#76c7c0"},
+          {"name": "Experience", "score": 85, "color": "#67b26f"},
+          {"name": "Confidence", "score": 80, "color": "#f5b567"},
+          {"name": "Domain Knowledge", "score": 90, "color": "#86b7ff"},
+          {"name": "Resume Justification", "score": 85, "color": "#c99bff"},
+          {"name": "Skills", "score": 80, "color": "#ff9999"}
+        },
+        "strengths": ["Strong understanding of SAP BTP and SAP Build Work Zone", "Ability to explain complex processes clearly", "Experience in deploying applications to Cloud Foundry"],
+        "weaknesses": []
+      },
+      {
+        "id": 5,
+        "overall_score": 85,
+        "metrics": [
+          {"name": "Communication", "score": 90, "color": "#76c7c0"},
+          {"name": "Experience", "score": 85, "color": "#67b26f"},
+          {"name": "Confidence", "score": 80, "color": "#f5b567"},
+          {"name": "Domain Knowledge", "score": 90, "color": "#86b7ff"},
+          {"name": "Resume Justification", "score": 80, "color": "#c99bff"},
+          {"name": "Skills", "score": 85, "color": "#ff9999"}
+        },
+        "strengths": ["Hands-on experience in SAP UI5/Fiori applications development", "Knowledge of routing and data retrieval mechanisms", "Ability to customize content based on user's language preference"],
+        "weaknesses": []
+      }
+    ]
+  },
+  "footer": {
+    "text": "Generated by AIRA • AI Interview Assistant — 2025"
+  }
+}

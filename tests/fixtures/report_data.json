@@ -1,0 +1,636 @@
+{
+  "interview_analysis": {
+    "score": 80.0,
+    "recommendation": "The candidate demonstrated a solid understanding of the required skills and concepts, with room for growth in certain areas."
+  },
+  "verdict": {
+    "passed": true,
+    "icon": "✓",
+    "status": "PASSED INTERVIEW ROUND",
+    "subtitle": "Recommend proceeding to the next stage of the interview process.",
+    "strengths": {
+      "title": "✓ Key Strengths",
+      "items": [
+        "Communication",
+        "Domain Knowledge",
+        "Java",
+        "Design Patterns",
+        "Algorithms"
+      ]
+    },
+    "areas": {
+      "title": "⚠ Areas for Development",
+      "items": [
+        "Experience",
+        "Confidence",
+        "Resume Justification"
+      ]
+    },
+    "overall_assessment": "The candidate performed well overall, particularly excelling in communication and domain knowledge. Areas such as experience and confidence could be further developed, but the candidate shows promise and potential for growth."
+  },
+  "overview": {
+    "summary": "The candidate demonstrated strong communication skills (84%) and solid domain knowledge (82%). Experience (78%) and confidence (76%) could be further developed. The candidate's skills (79%) were generally good, with room for improvement in resume justification (75%).",
+    "metrics": [
+      {
+        "name": "Communication",
+        "score": 84,
+        "color": "#4CAF50"
+      },
+      {
+        "name": "Experience",
+        "score": 78,
+        "color": "#2196F3"
+      },
+      {
+        "name": "Confidence",
+        "score": 76,
+        "color": "#FFC107"
+      },
+      {
+        "name": "Domain Knowledge",
+        "score": 82,
+        "color": "#9C27B0"
+      },
+      {
+        "name": "Resume Justification",
+        "score": 75,
+        "color": "#FF5722"
+      },
+      {
+        "name": "Skills",
+        "score": 79,
+        "color": "#607D8B"
+      }
+    ],
+    "analysis": [
+      {
+        "name": "Communication",
+        "score": 84,
+        "color": "#4CAF50",
+        "description": "The candidate effectively conveyed ideas and responded clearly to questions."
+      },
+      {
+        "name": "Experience",
+        "score": 78,
+        "color": "#2196F3",
+        "description": "The candidate has a good foundation but may benefit from more hands-on experience."
+      },
+      {
+        "name": "Confidence",
+        "score": 76,
+        "color": "#FFC107",
+        "description": "The candidate appeared somewhat hesitant in certain responses."
+      },
+      {
+        "name": "Domain Knowledge",
+        "score": 82,
+        "color": "#9C27B0",
+        "description": "The candidate demonstrated a strong understanding of relevant concepts."
+      },
+      {
+        "name": "Resume Justification",
+        "score": 75,
+        "color": "#FF5722",
+        "description": "The candidate could provide more detailed justifications for experiences listed on the resume."
+      },
+      {
+        "name": "Skills",
+        "score": 79,
+        "color": "#607D8B",
+        "description": "The candidate showcased proficiency in key technical skills such as Java and design patterns."
+      }
+    ]
+  },
+  "mandatory": {
+    "strengths": [
+      "Java",
+      "design patterns",
+      "algorithms"
+    ],
+    "improvements": [
+      "Angular",
+      "React",
+      "JavaScript"
+    ],
+    "disclaimer": "This report is generated automatically by AIRA (AI Recruitment Assistant) based on transcript, audio analysis, and resume parsing. It is intended for internal recruitment use only and should be reviewed by a human prior to final hiring decisions."
+  },
+  "questions": {
+    "header": {
+      "title": "AIRA - Detailed Interview Analysis Report",
+      "subtitle": "Comprehensive Question-by-Question Assessment",
+      "description": "This section contains detailed analysis of each interview question and candidate response"
+    },
+    "list": [
+      {
+        "id": 1,
+        "question": "To begin, could you provide a brief summary of your professional background and key qualifications?",
+        "answer": "Sure. You for giving me that opportunity. So myself, Anghul Anil Kumar. From Andhra Pradesh, Kirpa District. I have overall, four years, six months of experience into SAP API development. So I'm currently working in Accenture. Here, I have joined your in the year of twenty twenty three December. After that, I'll get to my first project here, which is Kendra Post Corporation. Here, I got the opportunity to develop two custom applications, so which are URL web pages and KM web pages. So when it comes to the, KM web pages, it is generally to show the, documents to the users. So for that reason, we have created, SAP applications. So while creating the tile, we are, providing the route name. When, route name is, clicked, the URL level, So, the same name we are maintaining in the UI level as well. So once it is matched, we are showing the documents to the users. So this is about the about the first application. Which is, okay, in your web pages. And, the second application is URL web pages. So it is also similar to that application. So for that, we are, you know, maintaining all the required URLs in the back end table. So when once we click on the tile, again, we are maintaining the route name. Based on the route name, you know, in the application level, I'm just reading the route name, and I'm adding the prefix based on the u user's login language. If it is EN, I'm adding the prefix as EN. If it is FR, I'm adding the pre, prefix and I'm sending to the back end. So based on the back end response, I'm just navigating to the URL and showing it up to the users. And I also, got to work for the Sobest project as well. So there, I have worked for you know, activating the standard apps. And also, I have involved in, troubleshooting the errors if there are any. And, I've got part of, cutover activities and those things. And before that, I have also worked for, worked for the vendor master application. So it is the, workflow application. So it can start two pages. Where user is able to, fill the application and send it for approval. And where, approver is responsible for creating or approving or rejected workflow.",
+        "analysis": "The candidate provides a detailed overview of their professional background, highlighting specific projects and experiences in SAP API development, showcasing their technical skills and project involvement.",
+        "overall_score": 85,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 90,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 85,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 80,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 90,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 80,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 85,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": [
+          "Strong domain knowledge in SAP API development",
+          "Experience in developing custom applications",
+          "Ability to troubleshoot errors and participate in cutover activities"
+        ],
+        "weaknesses": [
+          "Could improve on articulating specific achievements and outcomes in projects"
+        ]
+      },
+      {
+        "id": 2,
+        "question": "Can you explain your experience with SAP UI5, including your role in designing and maintaining custom UI5 applications?",
+        "answer": "Yeah. So whenever we got any requirement from business users, so first, we will, get the apply using BASS tool. So, here, it consists of, I know or it it consists of Embassy pattern, So model view controller. So model, we will get the data from the back end. So for this back end developer, will be assigned. And for the view, we will be designed using XML. And the, respective controller, we will be handling all the logic. So once we get the requirement, we will design the page, and, we will be adding the you know, respect to table or a list. Based on the requirements. So after that, I'll be, service you know, adding the data from using manifest file. And I'll be designing. So that, application will be ready to test.",
+        "analysis": "The candidate provides a detailed explanation of their experience with SAP UI5, showcasing their understanding of the development process and key components involved.",
+        "overall_score": 85,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 90,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 85,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 80,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 90,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 80,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 85,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": [
+          "Clear understanding of SAP UI5 development process",
+          "Ability to explain technical concepts clearly",
+          "Experience in designing UI5 applications"
+        ],
+        "weaknesses": []
+      },
+      {
+        "id": 3,
+        "question": "How have you utilized SAP Business Application Studio (BAS), SAP Web IDE, SAP GUI, and GitHub in your development tasks?",
+        "answer": "Yes. So as you mentioned, SAP batch and web IDEA, we used for developing the custom applications. So once we get the requirement, so we generally go for, templating freestyle application. So where it will, give you the empty application where we can go under create all our controls like SAP, m, and f controls. So based on the requirement, we will be adding the controls like, table list input button, whatever the requirement. So after that, we will be deploying this to the repository or in the BTP cloud based on the requirement based on the platform we are using. So similarly, WebID also same. So but currently, WebID is decommissioned. We are using BaaS tool for the development purpose. And, GBA is once we, you know, application is developed, we will be deploying the application to your repository, So before that while deploying, we will be choosing the package name and the TR details so that the application will be deployed to the repository. And, as I mentioned, the last one is, like, GitHub. Once the you know, application is deployed to the production, so it is it will be we will be using for versioning purpose. So the, main main it will be consisting main page main branch. So once the data is moved to production, that will be moved to the main branch. So once if there is any requirement, on top of that, we'll be creating one feature branch again. So we will be, you know, leading, doing the changes on top of that. And, once the change is ready, we will be deploying and ask the user to test If all this goes well, then we will be merging with the production. Sorry. We'll be merging with them a master branch.",
+        "analysis": "The candidate demonstrates a strong understanding and practical experience with SAP Business Application Studio, SAP Web IDE, SAP GUI, and GitHub in their development tasks. They explain the process from requirements gathering to deployment and version control effectively.",
+        "overall_score": 90,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 85,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 95,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 85,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 95,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 90,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 90,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": [
+          "Strong practical experience with SAP tools",
+          "Clear explanation of development process from requirements to deployment",
+          "Effective use of version control with GitHub"
+        ],
+        "weaknesses": []
+      },
+      {
+        "id": 4,
+        "question": "Have you worked on SAP BTP Cockpit for service consumption and SAP Build Work Zone for tile creation and configuration in the Fiori Launchpad? Can you provide examples of your experience in these areas?",
+        "answer": "Yes. I have worked on SAP BTP, Cox and SAP BTP work zone. So before, we were using, about repository on the SAP field launch pad, cust for, designing the tiles. But now we are using SAP BTP in order to, do the destinations or configuration. Once we do the destinations, and from there, we will be, fetching the service details data service. And so that we will be getting the data from the back end. Once the data is we receive, and we'll be, you know, designing the application on the front end. So once our, application is ready, we will be deploying to the BTP, Cloud Foundry. So that the application is called as, you know, HTML file application. So after that, we will be subscribing to build work zone. So there we have, b two b, you know, side side directory and, content manager and content channel. The application is deployed to the Cloud Foundry, the application is called as HTML file application. Then, we will be refreshing the content manager. So that, you know, if we we can see the latest changes available in the confound tree. So that once applications deployed, then we will go to the content channel where we have a option to create the tile and, create the tile and go to all catalog and groupings. So after that, we'll be assigning this to the users, to the everyone role so that users will be accessing the tiles. From there.",
+        "analysis": "The candidate demonstrates hands-on experience with SAP BTP and related tools, showcasing a detailed process flow from service consumption to tile creation and configuration in the Fiori Launchpad.",
+        "overall_score": 85,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 90,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 90,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 80,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 90,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 80,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 85,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": [
+          "Hands-on experience with SAP BTP",
+          "Detailed understanding of service consumption and tile creation in Fiori Launchpad",
+          "Ability to explain complex technical processes clearly"
+        ],
+        "weaknesses": [
+          "Slight room for improvement in articulating the benefits or impact of the described processes",
+          "Could enhance confidence in delivery"
+        ]
+      },
+      {
+        "id": 5,
+        "question": "How have you contributed to modifications and improvements in SAP UI5/Fiori applications, such as KM webpages and URL webpages applications?",
+        "answer": "Yes. So, actually, we have created these applications to show the documents to the users because, as I mentioned, I work Kendra Bush Corporation project. So it is, so, it is a a postulated project. They have a lot of documents to display to the users. So for that reason, we have created this style. So how I created is, like, so while creating the tile, so we are maintaining the route name. The same route name we are maintaining in the constant dot j s file. So when once the user is clicked on the tile, the route name is get, gets called. The same date name is if it is the same route name is maintained in the application level, then the respective the data which are maintaining in the agent file, that will that will be called and that will be, showing you to the users. Based on the user's login language. If it is, French, then we are, getting the data from the French file, which is I eight n underscore f four. If they are logging in with the English, then, there, it will be showing the content as English. So, similarly, we have there is a more than 30 tiles tiles available with this app.",
+        "analysis": "The candidate demonstrates hands-on experience in developing SAP UI5/Fiori applications for document display, showcasing knowledge of routing, language-specific content retrieval, and handling multiple tiles within the application.",
+        "overall_score": 85,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 90,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 85,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 80,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 90,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 85,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 85,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": [
+          "Hands-on experience in SAP UI5/Fiori applications development",
+          "Knowledge of routing and data retrieval mechanisms",
+          "Ability to handle multilingual content presentation"
+        ],
+        "weaknesses": []
+      },
+      {
+        "id": 6,
+        "question": "Can you describe a project where you created and configured tiles for applications within the Fiori Launchpad to ensure efficient user navigation and accessibility in multiple languages?",
+        "answer": "Yeah. So as I said, while creating that file, so, we have a option, I know, in the field plan, we can go with the multiple language. Right? Based on the country so the first long ways is Ian. So Canada, it is there using French. Right? So if the language, en, then that should be fine. If the, language is switched to f r, so we are maintaining the text in French. Accordingly, if the, tile is, you know, tile on the keywords to be changed, then we will go to the C63 transaction code. And from there, we will give them, file application ID so that we will be we will be adding the French translation details over there. So that, the when users change the language to f four, then they will be see able to see the tile names. In in French.",
+        "analysis": "The candidate demonstrates experience in configuring tiles for applications in Fiori Launchpad with multilingual support, showcasing knowledge of language settings and translation processes.",
+        "overall_score": 75,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 80,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 75,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 70,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 85,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 70,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 75,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": [
+          "Experience in Fiori Launchpad configuration",
+          "Knowledge of multilingual support in applications",
+          "Understanding of translation processes"
+        ],
+        "weaknesses": [
+          "Clarity in verbal communication",
+          "Confidence in explaining technical details"
+        ]
+      },
+      {
+        "id": 7,
+        "question": "Have you worked on OData service creation and implementation in SAP UI5 projects? If so, can you provide examples of your experience in this area?",
+        "answer": "I mean, I did not work on creating the service. In the back end, in the CPG way. I will port of consuming the word data services on the, web part of doing the good calls to the back end, create create post calls so that, I'll be getting the data from the back end. And displaying to to the users level so that, you know, the application will work accordingly based on the, back end calls.",
+        "analysis": "The candidate lacks direct experience in OData service creation and implementation in SAP UI5 projects, but demonstrates some understanding of consuming data services and making calls to the backend.",
+        "overall_score": 50,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 60,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 40,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 50,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 40,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 30,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 50,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": [
+          "Demonstrates understanding of consuming data services"
+        ],
+        "weaknesses": [
+          "Lacks direct experience in OData service creation and implementation"
+        ]
+      },
+      {
+        "id": 8,
+        "question": "How have you demonstrated your ability to turn business requirements into technical concepts and code in your previous SAP UI5 development projects?",
+        "answer": "Yeah. So whenever we have a requirement to develop let's take example as vendor application. Right? So where we have, no. As I mentioned, we have user base and, approver base. User is able to, you know, is having the access to the his space so that he is he can can add the data and and send it for approval. So, in approval page, the approval is response. For creating and or rejecting or approving the page. So based on the requirement, we have the back end developers assigned. We both will be communicating and, I know get decided to what to be designed, what what is the back end what is the tables, that needs to be get the data, so that, we will be designing the page and getting the data to the front end so that if there is any group calls is available, then based on the rest we will be sending on getting the data from the back end.",
+        "analysis": "The candidate provides a detailed explanation of their process in translating business requirements into technical solutions, showcasing their understanding of the development workflow.",
+        "overall_score": 75,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 80,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 70,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 75,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 80,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 70,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 75,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": [
+          "Clear understanding of the development process",
+          "Ability to collaborate with backend developers",
+          "Experience in designing frontend pages"
+        ],
+        "weaknesses": [
+          "Lack of specific technical examples",
+          "Could provide more details on coding implementation"
+        ]
+      },
+      {
+        "id": 9,
+        "question": "Can you explain your experience with REST Web service and how you have utilized it in your software development projects?",
+        "answer": "Yeah. Resh web service is nothing but, you know, consuming the service. So as I mentioned, so whenever we got the restful web services, we get the service, we will be declaring it in manifest file in the data source structure, and then we'll be doing for the default model or named model for that. So according to the requirement, when there is something we need to fetch or update to the back end, we will be first reading the data source. That means the URL. Then whatever the entity set we have, we will send it to the back end. If there is any key field or any payload that we need to send to the back end, we'll be sending it to the back end. We will be including the entity set, and then based on the rest data, that will be displayed to the user level.",
+        "analysis": "The candidate demonstrates a basic understanding of REST web services and explains the process of consuming and utilizing them in software development projects.",
+        "overall_score": 75,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 80,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 70,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 75,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 70,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 80,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 75,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": [
+          "Basic understanding of REST web services",
+          "Ability to explain the process of utilizing REST services in projects"
+        ],
+        "weaknesses": [
+          "Lack of specific examples or detailed technical explanations"
+        ]
+      },
+      {
+        "id": 10,
+        "question": "What experience do you have with user experience and design concepts in SAP UI5/Fiori development? Can you provide examples of how you have applied this knowledge in your projects?",
+        "answer": "Yes. So for user experience, we have dedicated SAP theory guidelines. It's available. So for this, we will be, referring to the SAP Fiori guidelines and, we'll be doing the changes, and we'll be designing the custom applications based on the you know, guidelines. So how to display the, user messages, on the how to, display any messages. So there, everything will be available. Based on the, few guidelines, I'll be following, and, I'll do the UX changes, and the validations if there are any.",
+        "analysis": "The candidate demonstrates familiarity with SAP Fiori guidelines and the application of user experience concepts in SAP UI5/Fiori development projects.",
+        "overall_score": 85,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 90,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 85,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 80,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 90,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 80,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 85,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": [
+          "Familiarity with SAP Fiori guidelines",
+          "Application of user experience concepts",
+          "Following UX guidelines"
+        ],
+        "weaknesses": []
+      },
+      {
+        "id": 11,
+        "question": "How have you adhered to guidelines and quality standards in your software development projects, specifically related to SAP UI5 development and enterprise applications architecture?",
+        "answer": "Yeah. For this we have SAP PD. Guidelines. It's available, for public, for all the users. So it is not, specifically to the any one user or something like that. So everyone can be accessible. It is available in public. And we and also we have a demo kit, for all the controls, which controls we need to use, under which is the architecture we need to follow, and everything is available in the demo kit. So for there, I'll go and I refer if I have any doubt, you know, what is the control, I need to use. So I'll refer that, and I'll be doing the changes accordingly.",
+        "analysis": "The candidate demonstrates familiarity with SAP PD guidelines and utilizing demo kits for controls and architecture, showing a structured approach to adhering to guidelines and standards.",
+        "overall_score": 85,
+        "metrics": [
+          {
+            "name": "Communication",
+            "score": 90,
+            "color": "#4CAF50"
+          },
+          {
+            "name": "Experience",
+            "score": 80,
+            "color": "#2196F3"
+          },
+          {
+            "name": "Confidence",
+            "score": 85,
+            "color": "#FFC107"
+          },
+          {
+            "name": "Domain Knowledge",
+            "score": 90,
+            "color": "#9C27B0"
+          },
+          {
+            "name": "Resume Justification",
+            "score": 80,
+            "color": "#FF5722"
+          },
+          {
+            "name": "Skills",
+            "score": 85,
+            "color": "#607D8B"
+          }
+        ],
+        "strengths": [
+          "Familiarity with SAP PD guidelines",
+          "Utilization of demo kits for controls and architecture",
+          "Structured approach to following guidelines"
+        ],
+        "weaknesses": []
+      }
+    ]
+  },
+  "footer": {
+    "text": "Generated by AIRA • AI Interview Assistant — 2025"
+  }
+}

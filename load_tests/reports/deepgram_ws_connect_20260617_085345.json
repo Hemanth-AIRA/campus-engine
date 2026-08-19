@@ -1,0 +1,74 @@
+{
+  "name": "Deepgram WS Connect",
+  "run_at": "2026-06-17T08:53:21.386503",
+  "magic_number": 100,
+  "warn_number": 50,
+  "baseline_p95": 1569.6749233999071,
+  "steps": [
+    {
+      "n": 30,
+      "p50_ms": 1523.4,
+      "p90_ms": 1566.6,
+      "p95_ms": 1569.7,
+      "p99_ms": 1587.5,
+      "max_ms": 1594.1,
+      "mean_ms": 1518.2,
+      "success": 30,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 40,
+      "p50_ms": 1389.8,
+      "p90_ms": 1455.1,
+      "p95_ms": 1484.9,
+      "p99_ms": 1490.5,
+      "max_ms": 1491.5,
+      "mean_ms": 1393.3,
+      "success": 40,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 50,
+      "p50_ms": 1610.0,
+      "p90_ms": 1702.6,
+      "p95_ms": 1784.1,
+      "p99_ms": 1785.4,
+      "max_ms": 1786.0,
+      "mean_ms": 1587.1,
+      "success": 50,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 75,
+      "p50_ms": 2338.5,
+      "p90_ms": 2573.5,
+      "p95_ms": 2599.7,
+      "p99_ms": 2614.1,
+      "max_ms": 2614.8,
+      "mean_ms": 2417.9,
+      "success": 75,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe1 WARM"
+    },
+    {
+      "n": 100,
+      "p50_ms": 2453.1,
+      "p90_ms": 2518.5,
+      "p95_ms": 2522.3,
+      "p99_ms": 2526.2,
+      "max_ms": 2526.7,
+      "mean_ms": 2408.5,
+      "success": 100,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe1 WARM"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "name": "Deepgram WS Connect",
+  "run_at": "2026-06-17T08:46:08.156283",
+  "magic_number": 25,
+  "warn_number": 25,
+  "baseline_p95": 970.3429999999571,
+  "steps": [
+    {
+      "n": 1,
+      "p50_ms": 970.3,
+      "p90_ms": 970.3,
+      "p95_ms": 970.3,
+      "p99_ms": 970.3,
+      "max_ms": 970.3,
+      "mean_ms": 970.3,
+      "success": 1,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 2,
+      "p50_ms": 888.6,
+      "p90_ms": 888.9,
+      "p95_ms": 888.9,
+      "p99_ms": 889.0,
+      "max_ms": 889.0,
+      "mean_ms": 888.6,
+      "success": 2,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 5,
+      "p50_ms": 857.8,
+      "p90_ms": 873.7,
+      "p95_ms": 874.5,
+      "p99_ms": 875.2,
+      "max_ms": 875.3,
+      "mean_ms": 847.2,
+      "success": 5,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 10,
+      "p50_ms": 915.9,
+      "p90_ms": 922.0,
+      "p95_ms": 929.2,
+      "p99_ms": 935.1,
+      "max_ms": 936.5,
+      "mean_ms": 903.2,
+      "success": 10,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 15,
+      "p50_ms": 1070.2,
+      "p90_ms": 1075.5,
+      "p95_ms": 1075.6,
+      "p99_ms": 1075.7,
+      "max_ms": 1075.7,
+      "mean_ms": 1054.0,
+      "success": 15,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 20,
+      "p50_ms": 1145.5,
+      "p90_ms": 1151.1,
+      "p95_ms": 1151.3,
+      "p99_ms": 1153.0,
+      "max_ms": 1153.4,
+      "mean_ms": 1104.0,
+      "success": 20,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 25,
+      "p50_ms": 1345.5,
+      "p90_ms": 1354.9,
+      "p95_ms": 1355.5,
+      "p99_ms": 1356.3,
+      "max_ms": 1356.6,
+      "mean_ms": 1254.1,
+      "success": 25,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    }
+  ]
+}

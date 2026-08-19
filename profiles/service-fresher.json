@@ -1,0 +1,9 @@
+{
+  "name": "service-fresher",
+  "label": "Service Company — Fresher / Graduate Engineer Trainee",
+  "role_level": "junior",
+  "base_difficulty": "easy",
+  "skills": ["Programming Fundamentals", "OOP Concepts", "SQL", "DBMS", "Data Structures", "Operating Systems", "Communication"],
+  "conceptual_ratio": 0.6,
+  "resume_ratio": 0.3
+}

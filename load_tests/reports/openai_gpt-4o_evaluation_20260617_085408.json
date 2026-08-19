@@ -1,0 +1,74 @@
+{
+  "name": "OpenAI GPT-4o Evaluation",
+  "run_at": "2026-06-17T08:53:21.766031",
+  "magic_number": 100,
+  "warn_number": 75,
+  "baseline_p95": 3144.3261828497266,
+  "steps": [
+    {
+      "n": 30,
+      "p50_ms": 2430.8,
+      "p90_ms": 2808.9,
+      "p95_ms": 3144.3,
+      "p99_ms": 3500.6,
+      "max_ms": 3626.5,
+      "mean_ms": 2480.8,
+      "success": 30,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 40,
+      "p50_ms": 2323.9,
+      "p90_ms": 2599.3,
+      "p95_ms": 2741.7,
+      "p99_ms": 9934.6,
+      "max_ms": 14365.0,
+      "mean_ms": 2588.6,
+      "success": 40,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 50,
+      "p50_ms": 2318.9,
+      "p90_ms": 2923.6,
+      "p95_ms": 3043.6,
+      "p99_ms": 4742.7,
+      "max_ms": 6335.4,
+      "mean_ms": 2447.0,
+      "success": 50,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 75,
+      "p50_ms": 2656.3,
+      "p90_ms": 3241.3,
+      "p95_ms": 3744.3,
+      "p99_ms": 4493.5,
+      "max_ms": 4688.1,
+      "mean_ms": 2649.1,
+      "success": 75,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 100,
+      "p50_ms": 3076.5,
+      "p90_ms": 4178.6,
+      "p95_ms": 5441.8,
+      "p99_ms": 6864.6,
+      "max_ms": 7069.6,
+      "mean_ms": 3292.3,
+      "success": 100,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe1 WARM"
+    }
+  ]
+}

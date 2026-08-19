@@ -1,0 +1,74 @@
+{
+  "name": "OpenAI GPT-4o-mini Question Gen",
+  "run_at": "2026-06-17T08:53:37.860118",
+  "magic_number": 100,
+  "warn_number": 75,
+  "baseline_p95": 1643.6384161502247,
+  "steps": [
+    {
+      "n": 30,
+      "p50_ms": 1325.6,
+      "p90_ms": 1507.3,
+      "p95_ms": 1643.6,
+      "p99_ms": 1689.8,
+      "max_ms": 1702.1,
+      "mean_ms": 1316.2,
+      "success": 30,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 40,
+      "p50_ms": 1345.8,
+      "p90_ms": 1562.6,
+      "p95_ms": 1570.6,
+      "p99_ms": 1802.8,
+      "max_ms": 1894.2,
+      "mean_ms": 1348.4,
+      "success": 40,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 50,
+      "p50_ms": 1510.5,
+      "p90_ms": 1873.3,
+      "p95_ms": 1921.1,
+      "p99_ms": 3350.9,
+      "max_ms": 3850.6,
+      "mean_ms": 1545.6,
+      "success": 50,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 75,
+      "p50_ms": 1797.9,
+      "p90_ms": 2300.7,
+      "p95_ms": 2407.1,
+      "p99_ms": 3592.7,
+      "max_ms": 3817.4,
+      "mean_ms": 1875.5,
+      "success": 75,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 100,
+      "p50_ms": 2247.2,
+      "p90_ms": 2754.4,
+      "p95_ms": 2829.4,
+      "p99_ms": 3047.7,
+      "max_ms": 7665.3,
+      "mean_ms": 2241.6,
+      "success": 100,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe1 WARM"
+    }
+  ]
+}

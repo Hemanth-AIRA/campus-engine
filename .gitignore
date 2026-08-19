@@ -1,0 +1,15 @@
+.env
+.env.*
+*.bak
+calender_v1/google_sync/creds/service_account.json
+boom_bhoom.txt
+tests/integration/generate_interview_report.py
+__pycache__/
+*.pyc
+.pytest_cache/
+node_modules/
+logs/
+recordings/
+sessions/
+best_faces/
+captured_tiles/

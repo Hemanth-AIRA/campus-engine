@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AIRA Sentinel Security Report</title>
+<style>
+  :root {
+    --bg: #f7f9fb;
+    --card: #ffffff;
+    --muted: #6b7280;
+    --color-clean: #27ae60;
+    --color-warning: #f39c12;
+    --color-critical: #e74c3c;
+    --primary: #e74c3c;
+    --accent: #27ae60;
+    --soft-1: #e8f5e8;
+    --soft-2: #fef2f2;
+    --soft-3: #f0f4f8;
+    --warning: #f39c12;
+    --danger: #e74c3c;
+    --success: #27ae60;
+    --info: #3498db;
+    --radius: 12px;
+    --shadow: 0 6px 18px rgba(20,30,50,0.06);
+    --max-width: 1100px;
+    --mono: "Courier New", monospace;
+    --danger-subtle: #ff9999;
+    --warning-subtle: #ffb84d;
+    --info-subtle: #66b3ff;
+  }
+ 
+  /* Base Styles */
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    background: var(--bg);
+    color: #111827;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.45;
+  }
+ 
+  .wrap {
+    max-width: var(--max-width);
+    margin: 10px auto;
+    padding: 12px;
+  }
+
+  .flex-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  /* Sections & Cards */
+  .section {
+    margin-top: 12px;
+  }
+
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 12px;
+    border: 1px solid rgba(15,23,42,0.08);
+    margin-bottom: 8px;
+  }
+
+  /* Typography */
+  h2.section-title {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #1f2937;
+    font-weight: 700;
+  }
+
+  h3.subsection {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: #374151;
+    font-weight: 600;
+  }
+
+  /* Alert Cards */
+  .alert-card {
+    border-left: 4px solid;
+    margin-bottom: 12px;
+    padding: 12px;
+    border-radius: var(--radius);
+  }
+
+  .alert-critical {
+    border-left-color: var(--danger);
+    background: #fef2f2;
+    color: #7f1d1d;
+  }
+
+  .alert-warning {
+    border-left-color: var(--warning);
+    background: #fefbf0;
+    color: #92400e;
+  }
+
+  .alert-info {
+    border-left-color: var(--info);
+    background: #eff6ff;
+    color: #1e40af;
+  }
+
+  .alert-success {
+    border-left-color: var(--success);
+    background: var(--soft-1);
+    color: #064e3b;
+  }
+
+  /* Security Metrics */
+  .security-metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .security-metric:last-child {
+    border-bottom: none;
+  }
+
+  .metric-label {
+    font-weight: 500;
+    color: #374151;
+  }
+
+  .metric-value {
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  /* Badges */
+  .status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .status-secure {
+    background: var(--soft-1);
+    color: var(--success);
+  }
+
+  .badge-enrolled,
+  .badge-active,
+  .badge-enabled {
+    background: var(--success);
+    color: white;
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .badge-not-enrolled {
+    background: #e74c3c;
+    color: white;
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /* Timeline - Desktop Styles */
+  .timeline {
+    position: relative;
+  }
+
+  .timeline-wrapper {
+    min-height: auto;
+    padding-bottom: 10px;
+    padding-top: 50px;
+    position: relative;
+    margin-top: 0px;
+    overflow: visible;
+  }
+
+  .timeline::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: rgba(243,156,18,0.16);
+    z-index: 0;
+  }
+
+  .timeline-item {
+    position: relative;
+    width: 47%;
+    clear: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .timeline-item:nth-child(odd) {
+    float: left;
+    flex-direction: row;
+    padding-right: 50px;
+    justify-content: flex-end;
+  }
+
+  .timeline-item:nth-child(even) {
+    float: right;
+    flex-direction: row-reverse;
+    padding-left: 50px;
+    margin-top: -60px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: white;
+    border: 4px solid;
+    z-index: 3;
+    top: 18px;
+  }
+
+  .timeline-item:nth-child(odd)::before {
+    right: 6px;
+  }
+
+  .timeline-item:nth-child(even)::before {
+    left: 7px;
+  }
+
+  .timeline-critical::before {
+    border-color: var(--danger-subtle);
+  }
+
+  .timeline-warning::before {
+    border-color: var(--warning-subtle);
+  }
+
+  .timeline-low::before {
+    border-color: var(--info-subtle);
+  }
+
+  /* Event Content */
+  .event-content {
+    flex: 1;
+    position: relative;
+  }
+
+  .timeline-item:nth-child(odd) .event-content {
+    text-align: right;
+  }
+
+  .timeline-item:nth-child(even) .event-content {
+    text-align: left;
+  }
+
+  .event-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 8px;
+    position: relative;
+  }
+
+  .timeline-item:nth-child(odd) .event-header {
+    align-items: flex-end;
+  }
+
+  .timeline-item:nth-child(even) .event-header {
+    align-items: flex-start;
+  }
+
+  .timeline-item .event-header::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    height: 1px;
+    width: 250px;
+    border-bottom: 2px dashed rgba(0,0,0,0.32);
+    background: transparent;
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  .timeline-item:nth-child(odd) .event-header::after {
+    right: 0;
+    left: auto;
+    transform-origin: right center;
+  }
+
+  .timeline-item:nth-child(even) .event-header::after {
+    left: 0;
+    right: auto;
+    transform-origin: left center;
+  }
+
+  .timestamp-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+    flex-wrap: nowrap;
+    min-width: fit-content;
+  }
+
+  .timeline-item:nth-child(odd) .timestamp-row {
+    justify-content: flex-end;
+  }
+
+  .timeline-item:nth-child(even) .timestamp-row {
+    justify-content: flex-start;
+  }
+
+  .event-timestamp {
+    position: relative;
+    display: inline-block;
+    font-size: 10px;
+    color: #374151;
+    font-family: var(--mono);
+    font-weight: 700;
+    background: #e6e9ec;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    margin: 0;
+    flex-shrink: 0;
+    z-index: 2;
+  }
+
+  .timeline-critical .event-timestamp {
+    background: #fde8e8;
+    color: #7f1d1d;
+  }
+
+  .timeline-warning .event-timestamp {
+    background: #fff7ed;
+    color: #92400e;
+  }
+
+  .timeline-low .event-timestamp {
+    background: #eff8ff;
+    color: #075985;
+  }
+
+  .event-severity {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+    letter-spacing: 0.5px;
+    margin-bottom: 0;
+    margin-top: 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .severity-high {
+    background: var(--danger-subtle);
+    color: white;
+  }
+
+  .severity-medium {
+    background: var(--warning-subtle);
+    color: white;
+  }
+
+  .severity-low {
+    background: var(--info-subtle);
+    color: white;
+  }
+
+  .event-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: #1f2937;
+    margin: 4px 0 0 0;
+    line-height: 1.3;
+    width: 100%;
+  }
+
+  .timeline-critical .event-title {
+    color: var(--danger-subtle);
+  }
+
+  .timeline-warning .event-title {
+    color: var(--warning-subtle);
+  }
+
+  .timeline-low .event-title {
+    color: var(--info-subtle);
+  }
+
+  .event-description {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .event-meta {
+    font-size: 11px;
+    color: #374151;
+    display: flex;
+    gap: 12px;
+    margin-top: 6px;
+  }
+
+  .timeline-item:nth-child(odd) .event-meta {
+    justify-content: flex-end;
+  }
+
+  .timeline-item:nth-child(even) .event-meta {
+    justify-content: flex-start;
+  }
+
+  .event-image {
+    width: 220px;
+    min-width: 220px;
+    height: 150px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    border: 4px solid;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 2;
+    margin-top: 0px;
+    overflow: hidden;
+    padding: 4px;
+  }
+
+  .event-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+  }
+
+  .timeline-critical .event-image {
+    background: white;
+    color: var(--danger-subtle);
+    border-color: var(--danger-subtle);
+  }
+
+  .timeline-warning .event-image {
+    background: white;
+    color: var(--warning-subtle);
+    border-color: var(--warning-subtle);
+  }
+
+  .timeline-low .event-image {
+    background: white;
+    color: var(--info-subtle);
+    border-color: var(--info-subtle);
+  }
+
+  /* Evidence Gallery */
+  .evidence-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    margin: 12px 0;
+  }
+
+  .evidence-item {
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+  }
+
+  .evidence-image {
+    width: 100%;
+    height: 100px;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #9ca3af;
+    overflow: hidden;
+    padding: 3px;
+  }
+
+  .evidence-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+  }
+
+  .evidence-caption {
+    padding: 6px;
+    font-size: 10px;
+    color: #6b7280;
+    text-align: center;
+    background: #f9fafb;
+  }
+
+  /* Logo Section */
+  .logo-section {
+    width: 100%;
+    box-sizing: border-box;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    padding: 24px 12px;
+    margin-bottom: 24px;
+    page-break-after: avoid;
+  }
+
+  .logo-section > div {
+    font-size: 56px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--primary);
+    text-align: center;
+  }
+
+  .logo-section img {
+    display: block;
+    max-height: 60px;
+    max-width: 320px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 24px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    padding: 16px;
+  }
+
+  /* Column Layouts */
+  .col-2 {
+    flex: 1 1 calc(50% - 6px);
+    min-width: 0;
+    max-width: calc(50% - 6px);
+    box-sizing: border-box;
+  }
+
+  .col-3 {
+    flex: 1 1 300px;
+    min-width: 220px;
+    max-width: calc(33.333% - 8px);
+  }
+
+  /* ========================================
+     PDF PRINT STYLES
+     ======================================== */
+  @media print {
+    * {
+      -webkit-print-color-adjust: exact !important;
+      color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+   
+    body {
+      background: white !important;
+      font-size: 12px !important;
+      line-height: 1.3 !important;
+    }
+   
+    .wrap {
+      max-width: none !important;
+      margin: 0 !important;
+      padding: 10px !important;
+    }
+   
+    .section {
+      margin-top: 6px !important;
+      margin-bottom: 4px !important;
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+      orphans: 3;
+      widows: 3;
+    }
+   
+    .card {
+      padding: 8px !important;
+      margin-bottom: 6px !important;
+      box-shadow: none !important;
+      border: 1px solid #e5e7eb !important;
+    }
+
+    /* Timeline Center Line */
+    .timeline::before {
+      content: '' !important;
+      position: absolute !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      top: 0 !important;
+      bottom: 0 !important;
+      width: 3px !important;
+      background: rgba(243,156,18,0.25) !important;
+      z-index: 1 !important;
+    }
+
+    .timeline::after {
+      content: '' !important;
+      display: table !important;
+      clear: both !important;
+    }
+
+    /* Timeline Wrapper */
+    .timeline-wrapper {
+      min-height: auto !important;
+      padding-bottom: 10px !important;
+      padding-top: 50px !important;
+      position: relative;
+      margin-top: 0px !important;
+      overflow: visible !important;
+    }
+    
+    .timeline {
+      position: relative !important;
+      overflow: visible !important;
+    }
+
+    /* Timeline Items - BASE STYLES */
+    .timeline-item {
+      margin-bottom: 40px !important;
+      min-height: 100px !important;
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+      gap: 10px !important;
+      position: relative !important;
+      padding-bottom: 0px !important;
+      width: 50% !important;
+      display: flex !important;
+      align-items: flex-start !important;
+      box-sizing: border-box !important;
+    }
+    /* LEFT SIDE ITEMS (Odd) */
+    .timeline-item:nth-child(odd) {
+      float: left !important;
+      clear: right !important;
+      flex-direction: row !important;
+      justify-content: flex-end !important;
+      padding-right: 20px !important;
+      padding-left: 0 !important;
+      margin-top: -60px !important;
+      text-align: right !important;
+    }
+
+    /* RIGHT SIDE ITEMS (Even) */
+    .timeline-item:nth-child(even) {
+      float: right !important;
+      clear: left !important;
+      flex-direction: row-reverse !important;
+      justify-content: flex-start !important;
+      padding-left: 20px !important;
+      padding-right: 0 !important;
+      margin-top: -60px !important;
+      text-align: left !important;
+    }
+
+    .timeline-item:first-child {
+      margin-top: 0 !important;
+    }
+
+    /* Timeline Dots Position */
+    .timeline-item::before {
+      content: '' !important;
+      position: absolute !important;
+      width: 14px !important;
+      height: 14px !important;
+      border-radius: 50% !important;
+      border: 3px solid !important;
+      background: white !important;
+      z-index: 10 !important;
+      top: 20px !important;
+    }
+
+    /* Dot position for LEFT items (odd) - dot on RIGHT edge */
+    .timeline-item:nth-child(odd)::before {
+      right: -9px !important;
+      left: auto !important;
+    }
+
+    /* Dot position for RIGHT items (even) - dot on LEFT edge */
+    .timeline-item:nth-child(even)::before {
+      left: -10px !important;
+      right: auto !important;
+    }
+
+    /* Dot Colors */
+    .timeline-critical::before {
+      border-color: #ff9999 !important;
+    }
+
+    .timeline-warning::before {
+      border-color: #ffb84d !important;
+    }
+
+    .timeline-low::before {
+      border-color: #66b3ff !important;
+    }
+
+
+    /* Event Images */
+    .event-image {
+      width: 110px !important;
+      min-width: 110px !important;
+      height: 90px !important;
+      font-size: 28px !important;
+      border: 3px solid !important;
+      flex-shrink: 0 !important;
+      margin-top: 0px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .event-image img {
+      width: 110% !important;
+      height: 150% !important;
+      object-fit: fill !important;
+    }
+
+    .timeline-critical .event-image {
+      border-color: #ff9999 !important;
+      background: white !important;
+    }
+
+    .timeline-warning .event-image {
+      border-color: #ffb84d !important;
+      background: white !important;
+    }
+
+    .timeline-low .event-image {
+      border-color: #66b3ff !important;
+      background: white !important;
+    }
+
+    /* Event Content Container */
+    .event-content {
+      flex: 1 !important;
+      min-width: 0 !important;
+      position: relative !important;
+    }
+
+    /* Text alignment for content */
+    .timeline-item:nth-child(odd) .event-content {
+      text-align: right !important;
+    }
+    .timeline-item:nth-child(even) .event-content {
+      text-align: left !important;
+    }
+
+    /* Event Header */
+    .event-header {
+      position: relative !important;
+      margin-bottom: 8px !important;
+    }
+
+    .timeline-item:nth-child(odd) .event-header {
+      text-align: right !important;
+    }
+
+    .timeline-item:nth-child(even) .event-header {
+      text-align: left !important;
+    }
+
+    /* Dashed Lines connecting to center */
+    .timeline-item .event-header::after {
+      content: '' !important;
+      position: absolute !important;
+      top: 25px !important;
+      height: 1px !important;
+      width: 150px !important;
+      border-bottom: 2px dashed rgba(0,0,0,0.3) !important;
+      z-index: 2 !important;
+    }
+
+    .timeline-item:nth-child(odd) .event-header::after {
+      right: 0px !important;
+      left: auto !important;
+    }
+
+    .timeline-item:nth-child(even) .event-header::after {
+      left: 0px !important;
+      right: auto !important;
+    }
+
+    /* Timestamp Row */
+    .timestamp-row {
+      display: flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      margin-bottom: 6px !important;
+      flex-wrap: nowrap !important;
+    }
+
+    .timeline-item:nth-child(odd) .timestamp-row {
+      justify-content: flex-end !important;
+    }
+
+    .timeline-item:nth-child(even) .timestamp-row {
+      justify-content: flex-start !important;
+    }
+
+    /* Timestamp Badge */
+    .event-timestamp {
+      font-size: 8px !important;
+      padding: 3px 6px !important;
+      margin: 0 !important;
+      white-space: nowrap !important;
+    }
+
+    .timeline-critical .event-timestamp {
+      background: #fde8e8 !important;
+      color: #7f1d1d !important;
+    }
+
+    .timeline-warning .event-timestamp {
+      background: #fff7ed !important;
+      color: #92400e !important;
+    }
+
+    .timeline-low .event-timestamp {
+      background: #eff8ff !important;
+      color: #075985 !important;
+    }
+
+    /* Severity Badge */
+    .event-severity {
+      font-size: 7px !important;
+      padding: 3px 6px !important;
+      margin: 0 !important;
+      white-space: nowrap !important;
+    }
+    .severity-high {
+      background: #ff9999 !important;
+      color: white !important;
+    }
+    .severity-medium {
+      background: #ffb84d !important;
+      color: white !important;
+    }
+    .severity-low {
+      background: #66b3ff !important;
+      color: white !important;
+    }
+
+    /* Event Title */
+    .event-title {
+      font-size: 12px !important;
+      margin: 6px 0 4px 0 !important;
+      font-weight: 700 !important;
+      line-height: 1.3 !important;
+    }
+
+    .timeline-critical .event-title {
+      color: #ff9999 !important;
+    }
+
+    .timeline-warning .event-title {
+      color: #ffb84d !important;
+    }
+
+    .timeline-low .event-title {
+      color: #66b3ff !important;
+    }
+
+    /* Event Description */
+    .event-description {
+      font-size: 9px !important;
+      line-height: 1.3 !important;
+      margin: 4px 0 !important;
+      color: #6b7280 !important;
+    }
+
+    /* Event Meta */
+    .event-meta {
+      font-size: 8px !important;
+      margin-top: 4px !important;
+      display: flex !important;
+      gap: 8px !important;
+    }
+
+    .timeline-item:nth-child(odd) .event-meta {
+      justify-content: flex-end !important;
+    }
+
+    .timeline-item:nth-child(even) .event-meta {
+      justify-content: flex-start !important;
+    }
+
+    /* Evidence Gallery */
+    .evidence-gallery {
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)) !important;
+      gap: 8px !important;
+    }
+
+    .evidence-image {
+      height: 80px !important;
+      font-size: 18px !important;
+    }
+
+    .evidence-caption {
+      padding: 4px !important;
+      font-size: 8px !important;
+    }
+
+    /* Logo Section */
+    .logo-section {
+      min-height: 45vh !important;
+      padding: 18px !important;
+      margin-bottom: 18px !important;
+    }
+
+    .logo-section img {
+      max-height: 60px !important;
+      max-width: 260px !important;
+    }
+
+    /* Session Metadata Grid */
+    .session-metadata-grid {
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 10px !important;
+    }
+
+    /* Columns */
+    .col-2 {
+      flex: 1 1 48% !important;
+      min-width: 0 !important;
+      max-width: 48% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Behavioral Analysis Section */
+    .section.card.behavioral,
+    .section.card.behavioral * {
+      page-break-before: avoid !important;
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+    }
+
+    .section.card.behavioral .flex-row,
+    .section.card.behavioral .flex-row > div,
+    .section.card.behavioral > div > div,
+    .section.card.behavioral .col-3 {
+      display: block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      flex: none !important;
+      min-width: 100% !important;
+      box-sizing: border-box !important;
+      margin: 0 0 12px 0 !important;
+    }
+    .section.card.behavioral + .section.card {
+      page-break-before: avoid !important;
+    }
+
+    .section.card.behavioral .card {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 12px !important;
+      margin-bottom: 12px !important;
+    }
+
+    /* Page Breaks */
+    .section:first-of-type {
+      page-break-after: always !important;
+    }
+
+    .section:nth-of-type(2),
+    .section:nth-of-type(3) {
+      page-break-before: avoid !important;
+    }
+
+  } /* END @media print */
+
+  @page {
+    size: A4;
+    margin: 0.4in;
+  }
+
+  /* Responsive Mobile */
+  @media (max-width: 768px) {
+    .col-2, .col-3 {
+      min-width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    .evidence-gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+ 
+    <!-- HEADER -->
+    <section class="logo-section">
+      {% if header.logo_url %}
+        <img src="{{ header.logo_url }}" alt="AIRA Logo" />
+      {% else %}
+        <div>AIRA</div>
+      {% endif %}
+    </section>
+ 
+    <!-- INTERVIEW SESSION DETAILS -->
+    <section class="section" style="page-break-after:always;">
+      <div class="card" style="background:#ffffff;border:1px solid #e5e7eb;padding:24px;">
+        <h2 class="section-title" style="color:#1f2937;margin-bottom:24px;font-size:18px;">📋 Session Information</h2>
+       
+        <!-- Candidate Details - Full Width -->
+        <div style="margin-bottom:24px;">
+          <div class="card" style="background:#f9fafb;border:1px solid #e5e7eb;padding:20px;">
+            <h3 style="color:#1f2937;font-size:14px;font-weight:700;margin:0 0 16px 0;display:flex;align-items:center;gap:8px;">
+              <span style="color:#6b7280;">👤</span> Candidate Details
+            </h3>
+            <div style="display:flex;gap:20px;align-items:center;">
+              <!-- Photo -->
+              <div style="flex:0 0 auto;">
+                {% if candidate.enrolled_face_url %}
+                <div style="width:100px;height:100px;border-radius:8px;overflow:hidden;border:2px solid #d1d5db;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                  <img src="{{ candidate.enrolled_face_url }}" alt="Enrolled Face" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                {% else %}
+                <div style="width:100px;height:100px;border-radius:8px;background:#e5e7eb;display:flex;align-items:center;justify-content:center;color:#9ca3af;font-size:40px;border:2px solid #d1d5db;">👤</div>
+                {% endif %}
+              </div>
+             
+              <!-- Info Grid -->
+              <div style="flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+                <div>
+                  <div style="color:#6b7280;font-size:11px;font-weight:600;text-transform:uppercase;margin-bottom:6px;">Name</div>
+                  <div style="font-weight:700;color:#1f2937;font-size:16px;">{{ candidate.name }}</div>
+                </div>
+                <div>
+                  <div style="color:#6b7280;font-size:11px;font-weight:600;text-transform:uppercase;margin-bottom:6px;">Email</div>
+                  <div style="font-weight:600;color:#374151;font-size:14px;">{{ candidate.email }}</div>
+                </div>
+                <div>
+                  <div style="color:#6b7280;font-size:11px;font-weight:600;text-transform:uppercase;margin-bottom:6px;">Status</div>
+                  {% if candidate.enrollment_status == 'secure' %}
+                  <span class="badge-enrolled">{{ candidate.enrollment_text }}</span>
+                  {% else %}
+                  <span class="badge-not-enrolled">{{ candidate.enrollment_text }}</span>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+        <!-- Session Metadata - Full Width -->
+        <div>
+          <div class="card" style="background:#f9fafb;border:1px solid #e5e7eb;padding:20px;">
+            <h3 style="color:#1f2937;font-size:14px;font-weight:700;margin:0 0 16px 0;display:flex;align-items:center;gap:8px;">
+              <span style="color:#6b7280;">📅</span> Session Metadata
+            </h3>
+            <div class="session-metadata-grid" style="display:grid;grid-template-columns:repeat(4, 1fr);gap:16px;">
+              <div>
+                <div style="color:#6b7280;font-size:11px;font-weight:600;text-transform:uppercase;margin-bottom:6px;">Interview ID</div>
+                <div style="font-weight:700;color:#1f2937;font-size:13px;font-family:monospace;word-break:break-all;">{{ session.interview_id }}</div>
+              </div>
+ 
+              <div style="grid-column:span 2;">
+                <div style="color:#6b7280;font-size:11px;font-weight:600;text-transform:uppercase;margin-bottom:6px;">Date & Time</div>
+                <div style="font-weight:700;color:#1f2937;font-size:13px;">{{ session.datetime }}</div>
+              </div>
+ 
+              <div>
+                <div style="color:#6b7280;font-size:11px;font-weight:600;text-transform:uppercase;margin-bottom:6px;">Platform</div>
+                <div style="font-weight:700;color:#1f2937;font-size:13px;">Sentinel</div>
+              </div>
+            </div>
+            <div style="margin-top:16px;padding-top:16px;border-top:1px solid #e5e7eb;">
+              <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:flex-start;">
+                <!-- Monitoring group -->
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <div style="color:#6b7280;font-size:11px;font-weight:600;text-transform:uppercase;">Monitoring</div>
+                  <span class="badge-enabled">{{ session.recording_text }}</span>
+                </div>
+ 
+                <!-- small deliberate spacer to keep Recording nearby but not flush to the edge -->
+                <div style="width:32px;flex:0 0 auto;"></div>
+ 
+                <!-- Recording group (keeps close to Monitoring) -->
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <div style="color:#6b7280;font-size:11px;font-weight:600;text-transform:uppercase;">Recording</div>
+                  <span class="badge-enabled">{{ session.recording_text }}</span>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- EXECUTIVE SUMMARY -->
+    <section class="section card" style="page-break-before:always; page-break-after:avoid;">
+      <h2 class="section-title">🛡️ Security Assessment Summary</h2>
+      <div style="width:100%;overflow:hidden;">
+        <!-- REMOVED flex-row class and changed to vertical stacking -->
+        <div style="margin-top:12px;width:100%;display:flex;flex-direction:column;gap:12px;">
+         
+          <!-- First Card: Status Alert (Full Width) -->
+          <div style="width:100%;">
+            <div class="alert-card alert-{{ overall_security.alert_type }}">
+              <!-- Status Title -->
+              <div style="margin-bottom:16px;">
+                {% if overall_security.violation_percentage == 0 %}
+                <div style="font-size:18px;font-weight:700;color:#064e3b;text-transform:uppercase;letter-spacing:0.5px;">
+                {% elif overall_security.violation_percentage < 11 %}
+                <div style="font-size:18px;font-weight:700;color:#d97706;text-transform:uppercase;letter-spacing:0.5px;">
+                {% else %}
+                <div style="font-size:18px;font-weight:700;color:#7f1d1d;text-transform:uppercase;letter-spacing:0.5px;">
+                {% endif %}
+                  {{ overall_security.status_text }}
+                </div>
+              </div>
+           
+              <!-- Violation Details -->
+              <div style="margin-bottom:12px;">
+                <div style="font-size:15px;color:#374151;line-height:1.6;">
+                  <strong style="color:#1f2937;">{{ overall_security.violation_percentage }}%</strong> of violation in overall session
+                  <span style="color:#6b7280;">({{ session_stats.violation_time }} out of {{ session_stats.session_duration }})</span>
+                </div>
+              </div>
+             
+              <!-- Review Recommendation -->
+              {% if overall_security.violation_percentage > 0 %}
+              <div style="font-size:14px;color:#92400e;font-weight:600;margin-top:12px;">
+                Review recommended
+              </div>
+              {% endif %}
+            </div>
+          </div>
+         
+          <!-- Second Card: Key Metrics (Full Width) -->
+          <div style="width:100%;">
+            {% if overall_security.violation_percentage == 0 %}
+            <div class="card" style="background:#e8f5e8;border-left:4px solid #27ae60;">
+            {% elif overall_security.violation_percentage < 11 %}
+            <div class="card" style="background:#fefbf0;border-left:4px solid #f39c12;">
+            {% else %}
+            <div class="card" style="background:#fef2f2;border-left:4px solid #e74c3c;">
+            {% endif %}
+              <h3 class="subsection">📊 Key Metrics</h3>
+              <div class="security-metric">
+                <span class="metric-label">Total Violations</span>
+                <span class="metric-value" style="color:#1f2937;">{{ session_stats.total_violations }}</span>
+              </div>
+              <div class="security-metric">
+                <span class="metric-label">Session Duration</span>
+                <span class="metric-value" style="color:#1f2937;">{{ session_stats.duration }}</span>
+              </div>
+              <div class="security-metric">
+                <span class="metric-label">Violation Time</span>
+                <span class="metric-value" style="color:#1f2937;">{{ session_stats.violation_time }}</span>
+              </div>
+              <div class="security-metric">
+                <span class="metric-label">Violation %</span>
+                <span class="metric-value" style="color:#1f2937;">{{ overall_security.violation_percentage }}%</span>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </section>
+ 
+    <!-- EVIDENCE COLLECTION - KEY SNAPSHOTS -->
+    {% if evidence.has_evidence %}
+    <section class="section card" style="page-break-after:always;margin-top:32px;">
+      <h2 class="section-title">📸 Evidence Collection</h2>
+      <div style="margin-top:16px;">
+        <div style="margin-bottom:20px;">
+          <span class="status-badge status-secure">{{ evidence.total_snapshots }} Key Evidence Files Collected</span>
+        </div>
+       
+        <h3 class="subsection">Key Security Evidence</h3>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Critical snapshots captured during the interview session for audit and verification purposes.</p>
+       
+        <div class="evidence-gallery" style="grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap:10px;">
+          {% for item in evidence.snapshots %}
+          <div class="evidence-item">
+            <div class="evidence-image" style="height:140px;">
+              {% if item.image_url %}
+              <img src="{{ item.image_url }}" alt="{{ item.type_display }}">
+              {% else %}
+              <div style="font-size:48px;">📷</div>
+              {% endif %}
+            </div>
+            <div class="evidence-caption">
+              <div style="font-weight:700;color:#1f2937;font-size:12px;margin-bottom:4px;">{{ item.type_display }}</div>
+              <div style="font-size:11px;color:var(--muted);font-family:monospace;">{{ item.timestamp }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    {% endif %}
+ 
+    <!-- SECURITY VIOLATIONS TIMELINE -->
+    {% if violations.has_violations %}
+    <section class="section card" style="page-break-before:always; page-break-after:avoid;">
+      <div class="card">
+        <h2 class="section-title text-{{ violations_severity.color_grade }}">
+          {% if violations_severity.color_grade == 'critical' %}🚨{% else %}⚠️{% endif %}
+          Security Violations Detected ({{ violations.total_count }})
+        </h2>
+        <div class="alert-card alert-{{ violations_severity.alert_type }}" style="margin-top:12px;margin-bottom:24px;">
+          <strong>
+            {% if violations_severity.color_grade == 'critical' %}🚨 CRITICAL ALERT:{% else %}⚠️ WARNING:{% endif %}
+          </strong>
+          {{ violations_severity.violation_message }}
+        </div>
+      </div>
+         
+      <div class="timeline-wrapper" style="position:relative;padding-bottom:60px;padding-top:20px;margin-top:0;">
+        <div class="timeline">
+          {% for violation in violations.events %}
+          <div class="timeline-item timeline-{{ violation.severity }}">
+          <div class="event-image">
+            {% if violation.image_url %}
+            <img src="{{ violation.image_url }}" alt="Evidence" onerror="this.style.display='none'; this.parentElement.innerHTML='{{ violation.icon }}';" />
+            {% else %}
+            {{ violation.icon }}
+            {% endif %}
+          </div>
+            <div class="event-content">
+              <div class="event-header">
+                <div class="timestamp-row">
+                  <div class="event-timestamp">{{ violation.timestamp }}</div>
+                  <span class="event-severity severity-{{ violation.severity_level }}">{{ violation.severity_display }}</span>
+                </div>
+                <h3 class="event-title">{{ violation.event_type_display }}</h3>
+              </div>
+              <div class="event-description">
+                {{ violation.description }}
+              </div>
+              <div class="event-meta">
+                {% if violation.confidence %}
+                <span><strong>Confidence:</strong> {{ violation.confidence }}%</span>
+                {% endif %}
+                {% if violation.duration %}
+                <span><strong>Duration:</strong> {{ violation.duration }}</span>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+    </section>
+    {% else %}
+    <section class="section card">
+      <h2 class="section-title">✅ Security Status</h2>
+      <div class="alert-card alert-success">
+        <strong>🛡️ SESSION SECURE:</strong> No security violations detected during the interview session. The candidate maintained proper interview conduct throughout.
+      </div>
+    </section>
+    {% endif %}
+ 
+    <!-- BEHAVIORAL ANALYSIS -->
+    {% if violations.has_violations %}
+    <section class="section card behavioral" style="page-break-inside:avoid;">
+      <h2 class="section-title">🔍 Behavioral Analysis</h2>
+      <div style="margin-top:12px;width:100%;display:flex;flex-direction:column;gap:12px;">
+        <div style="width:100%;">
+ 
+          <div style="width:100%;">
+            <div class="card" style="padding:16px;">
+              <h3 class="subsection" style="text-align:center;margin-bottom:12px;">Identity Verification</h3>
+              <div style="font-size:18px;font-weight:700;color:#374151;margin:12px 0;text-align:center;">
+                {{ identity_analysis.summary }}
+              </div>
+              <div style="margin-top:12px;text-align:center;">
+                <div style="font-size:12px;margin-bottom:4px;"><strong>Total Swap Time:</strong> {{ identity_analysis.total_swap_time }}s</div>
+                <div style="font-size:12px;"><strong>Longest Swap Duration:</strong> {{ identity_analysis.longest_swap }}s</div>
+              </div>
+            </div>
+          </div>
+ 
+          <div style="width:100%;">
+            <div class="card" style="padding:16px;">
+              <h3 class="subsection" style="text-align:center;margin-bottom:12px;">Presence Monitoring</h3>
+              <div style="font-size:18px;font-weight:700;color:#374151;margin:12px 0;text-align:center;">
+                {{ presence_analysis.summary }}
+              </div>
+              <div style="margin-top:12px;text-align:center;">
+                <div style="font-size:12px;margin-bottom:4px;"><strong>Time Present:</strong> {{ presence_analysis.time_present }}%</div>
+                <div style="font-size:12px;margin-bottom:4px;"><strong>Total Time Absent:</strong> {{ presence_analysis.total_absence_seconds }}s</div>
+                <div style="font-size:12px;"><strong>Longest Absence:</strong> {{ presence_analysis.longest_absence }}s</div>
+              </div>
+            </div>
+          </div>
+ 
+          <div style="width:100%;">
+            <div class="card" style="padding:16px;">
+              <h3 class="subsection" style="text-align:center;margin-bottom:12px;">Multi-Person Detection</h3>
+              <div style="font-size:18px;font-weight:700;color:#374151;margin:12px 0;text-align:center;">
+                {{ multi_person_analysis.summary }}
+              </div>
+              <div style="margin-top:12px;text-align:center;">
+                <div style="font-size:12px;margin-bottom:4px;">
+                  <strong>Max People Detected:</strong> {{ multi_person_analysis.max_people }}
+                </div>
+                <div style="font-size:12px;margin-bottom:4px;">
+                  <strong>Total Duration:</strong> {{ multi_person_analysis.total_duration }}s
+                </div>
+                <div style="font-size:12px;">
+                  <strong>Longest Duration:</strong> {{ multi_person_analysis.longest_duration }}s
+                </div>
+              </div>
+            </div>
+          </div>
+ 
+        </div> <!-- closes the vertical flex container -->
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- Security Concerns -->
+    {% if violations.has_violations and violations.critical_count > 0 %}
+    <section class="section card" style="page-break-inside:avoid;">
+      <h2 class="section-title">⚠️ Security Concerns</h2>
+      <div style="margin-top:12px;">
+        <div class="alert-card alert-warning">
+          <ul style="margin:0;padding-left:20px;">
+            {% for concern in recommendations.security_concerns %}
+            <li style="margin-bottom:4px;">{{ concern }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+    <footer>
+      <div style="border-top:2px solid var(--soft-3);padding-top:12px;">
+        {{ footer.disclaimer }}<br>
+        <em>{{ footer.confidentiality }}</em>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

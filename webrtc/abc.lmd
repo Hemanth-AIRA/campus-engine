@@ -1,0 +1,464 @@
+evaluation_prompt = f"""Analyze this screening conversation and evaluate if the candidate's answers are acceptable.
+
+{job_context_block}
+
+SCREENING QUESTIONS THAT WERE ASKED:
+{questions_section}
+
+🚨🚨🚨 MATH TRUTH FOR SALARY EVALUATION 🚨🚨🚨
+•⁠  ⁠If the Candidate's EXPECTED salary is LESS THAN OR EQUAL TO the budget ({budget} LPA), it is a PASS (ACCEPT).
+•⁠  ⁠Example: If candidate wants 2.0 LPA and budget is 4.0 LPA, then 2.0 ≤ 4.0 is TRUE. Result: ACCEPT.
+•⁠  ⁠Example: If candidate wants 5.0 LPA and budget is 4.0 LPA, then 5.0 ≤ 4.0 is FALSE. Result: REJECT.
+•⁠  ⁠DO NOT flip these numbers. Lower expectation is BETTER.
+
+CONVERSATION:
+{conversation_text}
+
+🚨🚨🚨 MANDATORY: INCLUDE ALL QUESTIONS (CRITICAL) 🚨🚨🚨
+You MUST include EVERY question from the SCREENING QUESTIONS list above in your output ⁠ questions ⁠ array.
+•⁠  ⁠If the user answered clearly → ACCEPT or REJECT
+•⁠  ⁠If the user asked a counter-question, gave an irrelevant/incoherent response, or didn't answer → NOT_ANSWERED
+•⁠  ⁠NEVER skip or omit a question. The output MUST have exactly one entry per screening question listed above.
+
+🚨🚨🚨 ANSWER ATTRIBUTION (CRITICAL) 🚨🚨🚨
+The "answer" field MUST contain ONLY what the USER/CANDIDATE said, NEVER what the AGENT said.
+•⁠  ⁠For each screening question, find the USER's response that comes AFTER the AGENT asked that question.
+•⁠  ⁠If the user asked a counter-question (e.g. "Will I be paid for overtime?") and the AGENT answered it, the "answer" field must be the USER's counter-question, NOT the AGENT's response.
+•⁠  ⁠EXAMPLE:
+  AGENT: "Are you comfortable working overtime?"
+  USER: "Will I be paid for overtime?"
+  AGENT: "Yes, you will be compensated."
+  → answer = "Will I be paid for overtime?" (the USER's words)
+  → verdict = NOT_ANSWERED (user asked a counter-question instead of answering)
+  → WRONG answer: "Yes, you will be compensated." (that is the AGENT's words, NOT the user's!)
+
+🔄 RE-ASKED QUESTIONS:
+Sometimes Aira re-asks the SAME question because the user didn't answer properly the first time.
+In these cases:
+•⁠  ⁠The question appears MULTIPLE times in the conversation.
+•⁠  ⁠Evaluate ONLY the response where the user ACTUALLY ANSWERED with a real answer.
+•⁠  ⁠Ignore non-answers like "hello?", "what?", "huh?", silence, or irrelevant responses.
+•⁠  ⁠Output the question ONCE in your results with the FINAL valid answer.
+•⁠  ⁠EXAMPLE:
+  AGENT: "Are you able to commence employment within the next thirty days?"
+  USER: "hello?"
+  AGENT: "Are you able to commence employment within the next thirty days?"
+  USER: "oh yeah I am ok with that"
+  → Evaluate as: Q: "Are you able to commence..." A: "oh yeah I am ok with that" → ACCEPT
+  → Do NOT create two separate entries for the same question.
+
+VERDICT RULES:
+•⁠  ⁠ACCEPT: User gave a valid answer that meets requirement
+•⁠  ⁠REJECT: User gave a valid answer that CLEARLY and UNAMBIGUOUSLY does NOT meet requirement
+•⁠  ⁠NOT_ANSWERED: User asked a clarifying question, gave an irrelevant/incoherent response, or didn't give a direct answer
+
+🚨 LISTED-OPTIONS EVALUATION (CRITICAL — e.g. languages, specific skills):
+When a question LISTS specific items and asks the candidate about them (e.g., "Are you fluent in Gujarati, Bengali, Punjabi, Tamil, Telugu, Malayalam, or Kannada?"):
+•⁠  ⁠ANY affirmative response = ACCEPT. This includes: "yes", "yeah", "sure", "of course", "all of them", "all the languages", "I'm proficient in all", "yes I am", "yes yes". The candidate does NOT need to name each item individually.
+  - Example: Q: "Are you fluent in Gujarati, Bengali, Tamil?" → A: "Yes" → ACCEPT
+  - Example: Q: "Are you fluent in Gujarati, Bengali, Tamil?" → A: "Yes. Yes. I'm proficient in all the languages." → ACCEPT
+  - Example: Q: "Are you fluent in Gujarati, Bengali, Tamil?" → A: "I speak Tamil" → ACCEPT (confirmed one from list)
+•⁠  ⁠ONLY REJECT if the candidate explicitly says NO, or mentions ONLY items NOT in the list.
+  - Example: Q: "Are you fluent in Gujarati, Bengali, Tamil?" → A: "English" → REJECT (not in the listed options)
+  - Example: Q: "Are you fluent in Gujarati, Bengali, Tamil?" → A: "No, I don't speak any of those" → REJECT
+•⁠  ⁠Use the FULL JOB DESCRIPTION provided above to cross-reference what specific skills, languages, or qualifications are required for accurate evaluation.
+
+⚠️ LENIENCY RULES (CRITICAL — WHEN IN DOUBT, ACCEPT):
+•⁠  ⁠CONDITIONAL ACCEPTANCE = ACCEPT: If the candidate hesitates but ultimately agrees, that is ACCEPT. Examples:
+  - "Not really, but if the company demands it, I'm okay with it" → ACCEPT (they agreed conditionally)
+  - "I prefer remote, but I can do on-site if needed" → ACCEPT (willing to comply)
+  - "I'm not sure, but yeah I think I can manage" → ACCEPT (agreed despite hesitation)
+•⁠  ⁠SPLIT-TURN ANSWERS: A candidate's answer may be split across MULTIPLE consecutive USER turns (due to real-time speech). Read ALL consecutive USER messages together as ONE answer. Do NOT evaluate only the first fragment.
+  - Example: USER: "Not really. But if the company's demand" USER: "a flexible time shift, then I'm okay with it. Yeah." → Full answer = "Not really. But if the company demands a flexible time shift, then I'm okay with it. Yeah." → ACCEPT
+•⁠  ⁠ASR NOISE / STUTTERS: "Yes. Yes. We I have" or "Yeah, I, yes, I am" are POSITIVE responses with speech-to-text noise → ACCEPT.
+•⁠  ⁠INTERNSHIP / TRAINING = VALID EXPERIENCE: Internships, training periods, and project work count as real experience.
+•⁠  ⁠The JOB CONTEXT fields above (work mode, location, shift timings, skills) are provided so you can understand the job requirements and evaluate answers ACCURATELY — NOT to be stricter. 
+
+Return a JSON object with this exact format:
+{{
+    "overall_verdict": "PASS" or "FAIL",
+    "pass_rate": 0-100,
+    "summary": "Brief one-line explanation",
+    "questions": [
+        {{
+            "question": "the question text",
+            "category": "a short unique slug DERIVED from the question content (see CATEGORY RULES below)",
+            "verdict": "ACCEPT/REJECT/NOT_ANSWERED",
+            "answer": "what the USER said (NEVER the agent's words)",
+            "reason": "why"
+        }}
+    ]
+}}
+
+CATEGORY RULES — DERIVE FROM QUESTION (no predefined list):
+1.⁠ ⁠Read the question text and generate a short, descriptive slug (lowercase, underscores, 1-3 words max).
+2.⁠ ⁠For skill/technology questions, use: skill(name) — e.g. skill(python), skill(java), skill(sql), skill(react), skill(aws)
+3.⁠ ⁠For salary questions, use: salary
+4.⁠ ⁠For all other questions, derive the slug from the question's core topic:
+   - "are you willing to relocate" → relocation
+   - "can you work legally in this country" → legal_authorization
+   - "what is your notice period" → notice_period
+   - "do you have experience with team management" → team_management
+   - "are you comfortable with night shifts" → night_shifts
+   - "when are you available to start" → start_date
+   - "do you have a valid passport" → passport
+   - "how many years of experience do you have in Python" → skill(python)
+5.⁠ ⁠EVERY question MUST have a UNIQUE category. If two questions would get the same slug, make the second one more specific (e.g. "experience" and "experience_management").
+6.⁠ ⁠NEVER use generic "other" — always derive something meaningful.
+
+🚨 EXPERIENCE / NUMERIC RANGE EVALUATION RULES (CRITICAL):
+When a question asks about years of experience with a RANGE (e.g. "3 to 15 years"):
+•⁠  ⁠Extract the ACTUAL numeric value from the candidate's answer. Ignore filler words like "No", "well", "actually".
+•⁠  ⁠Convert word-numbers to digits: "four" = 4, "three and a half" = 3.5, "four plus" = 4+, "around five" ≈ 5.
+•⁠  ⁠Check if the extracted value falls WITHIN the specified range (inclusive on BOTH ends).
+•⁠  ⁠If the value is >= minimum → ACCEPT (Even if it exceeds the maximum, more experience is good).
+•⁠  ⁠If the value is < minimum → REJECT.
+•⁠  ⁠DECIMAL LOGIC: "point" means decimal. "four point three" = 4.3. Remember standard math: 4.3 is GREATER than 3. If minimum is 3, 4.3 >= 3 is TRUE.
+•⁠  ⁠EXAMPLES:
+  - Q: "Do you have 3 to 15 years of experience?" A: "No. I have four plus years" → Extract 4. 4 >= 3 → ACCEPT
+  - Q: "Do you have 3 to 15 years of experience?" A: "I have 3.5 years" → Extract 3.5. 3.5 >= 3 → ACCEPT
+  - Q: "Do you have 3 to 15 years of experience?" A: "I have a total four point three years" → Extract 4.3. 4.3 >= 3 → ACCEPT
+  - Q: "Do you have 3 to 15 years of experience?" A: "2 years" → Extract 2. 2 < 3 → REJECT
+  - Q: "Do you have 3 to 15 years of experience?" A: "I have about 3 years" → Extract 3. 3 >= 3 → ACCEPT
+•⁠  ⁠CRITICAL: The candidate saying "No" at the start does NOT mean rejection! They often say "No" then clarify with the actual number. ALWAYS extract and evaluate the NUMBER.
+•⁠  ⁠For "X+ years" or "X plus years", treat as >= X (i.e., the minimum value is X).
+•⁠  ⁠⚠️ FRESHERS / INTERNS / TRAINEES: If the EXPERIENCE REQUIRED field above shows a range starting at 0 (e.g. "0-2", "0-3", "0-1"), then candidates with ANY amount of experience (including internships, training, projects, or zero professional experience) MUST be ACCEPTED. "0" in the range means FRESHERS are explicitly welcome.
+•⁠  ⁠⚠️ INTERNSHIP = VALID EXPERIENCE: Internship experience counts as real experience. 8 months of internship = 0.67 years of experience. If the required range is "0-2", 0.67 falls within 0–2, so it is ACCEPT.
+
+VERDICT LOGIC:
+•⁠  ⁠overall_verdict MUST be "PASS" if there are NO "REJECT" verdicts (completely ignore NOT_ANSWERED)
+•⁠  ⁠overall_verdict MUST be "FAIL" if ANY question has a "REJECT" verdict
+•⁠  ⁠NEVER output "INCOMPLETE". NOT_ANSWERED does NOT block PASS.
+
+🚨 SALARY EVALUATION RULES (if salary question exists):
+•⁠  ⁠Company Budget: {budget} LPA (original DB value: {salary_budget})
+•⁠  ⁠If budget is 0 LPA = no budget specified → ALWAYS mark salary as ACCEPT
+•⁠  ⁠ONLY compare EXPECTED salary vs budget (ignore current salary)
+•⁠  ⁠Expected ≤ budget → ACCEPT, Expected > budget → REJECT
+•⁠  ⁠⚠️ IGNORE CURRENCY SYMBOLS (like $). If a candidate says "$6.5 lakhs", treat it as 6.5 lakhs INR (6.5 LPA).
+•⁠  ⁠⚠️ DO NOT OVERESTIMATE LAKHS. 6.5 lakhs is exactly 6.5 LPA. Do NOT convert it to 650,000!
+•⁠  ⁠⚠️ MATH TRUTH: Treat "lakhs" and "LPA" as the EXACT SAME SCALE. "6 lakhs" is 6.0 LPA. If budget is {budget} LPA, 6.0 is mathematically LESS than {budget}. Lower is BETTER!
+
+🚨🚨🚨 SALARY UNIT CONTEXT FROM DATABASE (CRITICAL) 🚨🚨🚨
+The budget from the database is: "{salary_budget}".
+{"- The budget is expressed in MONTHLY terms. When the candidate states a raw number without saying 'LPA' or 'lakhs', assume it is MONTHLY. Convert to LPA: multiply by 12, then divide by 100000." if budget_unit == "monthly" else "- The budget is expressed in annual/LPA terms." if budget_unit == "lpa" else "- No explicit unit in budget. Use context clues from the conversation."}
+•⁠  ⁠EXAMPLES (when budget is monthly):
+  - Candidate says "50,000" → 50,000 per month = 50000 × 12 / 100000 = 6.0 LPA
+  - Candidate says "70,000" → 70,000 per month = 70000 × 12 / 100000 = 8.4 LPA
+  - Candidate says "35,000" → 35,000 per month = 35000 × 12 / 100000 = 4.2 LPA
+•⁠  ⁠If the candidate explicitly says "LPA" or "lakhs", use that unit regardless of budget unit.
+
+🚨🚨🚨 NEGOTIATION-AWARE SALARY EXTRACTION (CRITICAL) 🚨🚨🚨
+If the conversation contains salary NEGOTIATION (the agent pushed back and the candidate revised their number), you MUST use the candidate's FINAL/LAST stated salary expectation, NOT their initial ask.
+•⁠  ⁠EXAMPLE: Candidate first says "10 LPA", agent negotiates, candidate says "I can do 7 LPA" → The answer is "7 LPA", NOT "10 LPA".
+•⁠  ⁠EXAMPLE: Candidate says "12 LPA", agent says that's above range, candidate says "okay, 8 is fine" → The answer is "8 LPA".
+•⁠  ⁠EXAMPLE: Candidate says "15 LPA" and never changes after 3 rounds of negotiation → The answer is "15 LPA" (they never budged).
+•⁠  ⁠ALWAYS scan the ENTIRE salary discussion and pick the LAST number the CANDIDATE stated as their expectation.
+
+🚨🚨🚨 CONSISTENCY CHECK (CRITICAL) 🚨🚨🚨
+If the AI Assistant explicitly stated during the conversation that the candidate's final salary is "within our budget", "works for us", "we can do that", or acknowledges it positively:
+•⁠  ⁠You MUST mark the salary as ACCEPT.
+•⁠  ⁠Do NOT reject the candidate if the AI Assistant has already accepted the number.
+•⁠  ⁠The assistant's confirmation that the salary is within budget OVERRIDES any mathematical confusion.
+
+STEP 1: IGNORE THE CURRENT SALARY COMPLETELY! Only extract EXPECTED/DESIRED salary.
+STEP 2: Find ALL salary expectations stated by the candidate throughout the conversation. If negotiation occurred, use the LAST/FINAL figure.
+STEP 3: UNIT CONVERSION — Use the DB budget unit as reference:
+  - If budget is MONTHLY: candidate's raw numbers (e.g., 50000) = monthly → multiply by 12, divide by 100000 for LPA.
+  - If budget is ANNUAL/LPA: candidate's raw numbers in lakhs/LPA → use as-is.
+  - If candidate explicitly says "LPA", "lakhs", or "per month", honor their stated unit.
+STEP 4: If normalized expected ≤ {budget} → ACCEPT, else REJECT.
+
+Return ONLY valid JSON, no other text."""
+            
+            response = await asyncio.to_thread(
+                openai_client.chat.completions.create,
+                model="gpt-4o-mini",
+                messages=[{"role": "user", "content": evaluation_prompt}],
+                temperature=0.1,
+                max_tokens=1000
+            )
+            
+            result_text = response.choices[0].message.content.strip()
+            
+            if result_text.startswith("⁠ "):
+                result_text = result_text.split(" ⁠")[1]
+                if result_text.startswith("json"):
+                    result_text = result_text[4:]
+            
+            evaluation = json.loads(result_text)
+            
+            # Store evaluation result in metrics for final DB save
+            call_metrics["verdict_data"] = evaluation
+            logger.info(f"✅ [VERDICT] Evaluation stored in call_metrics")
+            
+            # Get question results (new format: array of question objects)
+            question_results = evaluation.get("questions", [])
+            
+            # ===== BACKWARD COMPAT: Convert old 'categories' dict to 'questions' array =====
+            if not question_results and evaluation.get("categories"):
+                logger.warning(f"⚠️ [VERDICT] LLM returned old 'categories' format — converting to 'questions' array")
+                categories = evaluation.get("categories", {})
+                question_results = []
+                for cat_name, cat_data in categories.items():
+                    if isinstance(cat_data, dict):
+                        question_results.append({
+                            "question": cat_name,
+                            "verdict": cat_data.get("verdict", "NOT_ANSWERED"),
+                            "answer": cat_data.get("answer", ""),
+                            "reason": cat_data.get("reason", "")
+                        })
+                evaluation["questions"] = question_results
+                call_metrics["verdict_data"] = evaluation
+            
+            # ===== FORCE SALARY ACCEPT WHEN BUDGET IS 0 (UNDEFINED) =====
+            if budget == 0.0:
+                for q_result in question_results:
+                    q_text = (q_result.get("question", "") or "").lower()
+                    q_cat = (q_result.get("category", "") or "").lower()
+                    if "salary" in q_cat or any(kw in q_text for kw in ["salary", "compensation", "ctc", "expecting", "package"]):
+                        if q_result.get("verdict") == "REJECT":
+                            logger.warning(f"⚠️ [VERDICT] Overriding salary REJECT → ACCEPT (budget=0, undefined)")
+                            q_result["verdict"] = "ACCEPT"
+                            q_result["reason"] = "No salary budget specified for this role — auto-accepted."
+
+            # ===== CODE-LEVEL SALARY MATH OVERRIDE =====
+            # Also handles negotiation: extract the LAST salary figure from conversation
+            if budget > 0:
+                for q_result in question_results:
+                    q_text = (q_result.get("question", "") or "").lower()
+                    q_cat = (q_result.get("category", "") or "").lower()
+                    if "salary" in q_cat or any(kw in q_text for kw in ["salary", "compensation", "ctc", "expecting", "package"]):
+                        salary_answer = q_result.get("answer", "")
+                        
+                        # Extract the LAST salary figure from the full conversation
+                        # to catch negotiated-down amounts the LLM may have missed
+                        last_user_salary = None
+                        
+                        word_nums = {
+                            'one': '1', 'two': '2', 'three': '3', 'four': '4', 'five': '5',
+                            'six': '6', 'seven': '7', 'eight': '8', 'nine': '9', 'ten': '10',
+                            'eleven': '11', 'twelve': '12', 'thirteen': '13', 'fourteen': '14',
+                            'fifteen': '15', 'sixteen': '16', 'seventeen': '17', 'eighteen': '18',
+                            'nineteen': '19', 'twenty': '20', 'thirty': '30', 'forty': '40', 'fifty': '50',
+                            'half': '0.5'
+                        }
+                        
+                        in_salary_context = False
+                        
+                        for msg in llm_context.messages:
+                            role = msg.get("role")
+                            content = (msg.get("content") or "").lower().replace(",", "")
+                            
+                            if role == "assistant":
+                                if any(w in content for w in ["salary", "budget", "lpa", "lakh", "adjustment", "lower", "flexible", "flexibility", "range", "compensation", "tight"]):
+                                    in_salary_context = True
+                                    
+                            if role == "user" and content:
+                                # Convert word numbers to digits for parsing
+                                for w, d in word_nums.items():
+                                    content = re.sub(rf'\b{w}\b', d, content)
+                                    
+                                # Look for explicit salary patterns
+                                salary_patterns = re.findall(
+                                    r'(\d+\.?\d*)\s*(?:lpa|lakhs?|lacs?|l\b|per\s*(?:annum|year))',
+                                    content
+                                )
+                                
+                                if not salary_patterns:
+                                    # Match plain numbers if we are in a salary discussion context
+                                    # (e.g., user says "7" or "that works" during negotiation)
+                                    user_salary_words = ["salary", "lpa", "lakh", "expect", "okay", "fine", "can do", "willing", "accept", "settle", "work", "works", "sure", "alright", "agreed", "done", "yes"]
+                                    if in_salary_context or any(w in content for w in user_salary_words):
+                                        salary_patterns = re.findall(r'(\d+\.?\d*)', content)
+                                        
+                                if salary_patterns:
+                                    raw_val = float(salary_patterns[-1])
+                                    # Use DB budget unit as context for raw numbers
+                                    # If budget is "monthly" and candidate says "70000" (no unit),
+                                    # treat it as monthly: 70000 * 12 / 100000 = 8.4 LPA
+                                    salary_text = str(raw_val)
+                                    has_explicit_unit = any(kw in content for kw in ["lpa", "lakh", "lac", "l.p.a", "month", "annual", "annum", "year"])
+                                    if not has_explicit_unit and budget_unit:
+                                        salary_text = f"{raw_val} {budget_unit}"
+                                    val = normalize_salary_to_lpa(salary_text)
+                                    if 0.1 <= val <= 200:  # Reasonable LPA range
+                                        last_user_salary = val
+                                        # Do NOT break, continue loop to find the LAST stated salary in chronological order
+                        
+                        if q_result.get("verdict") == "REJECT":
+                            # ── REJECT → ACCEPT override ──
+                            # Gate: salary_answer OR last_user_salary must be available.
+                            # Bug-fix: previously gated on ⁠ salary_answer ⁠ being truthy, which
+                            # caused the entire override to be skipped when the LLM left the
+                            # answer field empty (e.g. "3 lakhs" answer returned as "").
+                            parsed_expected = normalize_salary_to_lpa(salary_answer) if salary_answer else 0.0
+                            
+                            # Use the LAST salary from conversation if it's lower
+                            # (candidate negotiated down) OR if the LLM's answer was unparseable
+                            effective_salary = parsed_expected
+                            if last_user_salary is not None:
+                                if last_user_salary < parsed_expected or parsed_expected == 0.0:
+                                    logger.warning(
+                                        f"🔄 [SALARY NEGOTIATION] LLM used {parsed_expected} LPA but "
+                                        f"candidate's LAST stated salary is {last_user_salary} LPA "
+                                        f"— using {last_user_salary} LPA for evaluation"
+                                    )
+                                    effective_salary = last_user_salary
+                                    q_result["answer"] = f"{last_user_salary} LPA (extracted from conversation)"
+                            
+                            if effective_salary > budget:
+                                logger.warning(f"🚨 [SALARY REJECTION] Candidate's final ask {effective_salary} LPA EXCEEDS budget of {budget} LPA")
+                            if effective_salary > 0 and effective_salary <= budget:
+                                logger.warning(
+                                    f"⚠️ [VERDICT] MATH OVERRIDE: LLM said REJECT but "
+                                    f"{effective_salary} LPA ≤ {budget} LPA → forcing ACCEPT"
+                                )
+                                q_result["verdict"] = "ACCEPT"
+                                q_result["reason"] = f"Expected {effective_salary} LPA is within budget of {budget} LPA (math-corrected)."
+                        
+                        elif q_result.get("verdict") == "ACCEPT" and last_user_salary is not None:
+                            # Double-check: only flip ACCEPT→REJECT if the extracted salary
+                            # clearly and unambiguously EXCEEDS budget (use a 10% safety margin
+                            # to avoid flipping correct ACCEPTs due to noisy number extraction).
+                            # Bug-fix: previously flipped even when last_user_salary was well
+                            # below budget (e.g. 3 LPA vs 7.2 LPA budget) due to broad plain-
+                            # number fallback matching picking up unrelated digits.
+                            safety_margin = budget * 1.10  # 10% above budget before we override
+                            if last_user_salary > safety_margin:
+                                logger.warning(
+                                    f"⚠️ [VERDICT] LLM said ACCEPT but last stated salary "
+                                    f"{last_user_salary} LPA > budget {budget} LPA (+10% margin {safety_margin:.1f}) → correcting to REJECT"
+                                )
+                                q_result["verdict"] = "REJECT"
+                                q_result["reason"] = f"Final salary expectation {last_user_salary} LPA exceeds budget of {budget} LPA."
+                            elif last_user_salary > budget:
+                                logger.info(
+                                    f"ℹ️ [VERDICT] last_user_salary {last_user_salary} LPA is marginally above budget "
+                                    f"{budget} LPA (within 10% margin) — keeping LLM ACCEPT verdict"
+                                )
+
+            # ===== CODE-LEVEL EXPERIENCE OVERRIDE =====
+            # The LLM sometimes rejects candidates for having MORE experience than the
+            # maximum in a range (e.g. "20 years exceeds maximum of 2"). This is wrong —
+            # more experience is always good. Only LESS than minimum should reject.
+            try:
+              if jp_experience:
+                # Parse the experience range to extract minimum (e.g. "0-2" → min=0, "3 to 15" → min=3)
+                import re as _re
+                exp_nums = _re.findall(r'\d+\.?\d*', str(jp_experience))
+                if exp_nums:
+                    exp_min = float(exp_nums[0])  # First number is the minimum
+                    
+                    for q_result in question_results:
+                        q_text = (q_result.get("question", "") or "").lower()
+                        q_cat = (q_result.get("category", "") or "").lower()
+                        q_reason = (q_result.get("reason", "") or "").lower()
+                        
+                        # Detect experience-related questions
+                        is_exp_question = (
+                            "experience" in q_cat
+                            or "experience" in q_text
+                            or "years" in q_text
+                        )
+                        
+                        if is_exp_question and q_result.get("verdict") == "REJECT":
+                            # Check if the reason mentions "exceeds" — classic false rejection
+                            if "exceed" in q_reason or "more than" in q_reason or "over" in q_reason:
+                                logger.warning(
+                                    f"⚠️ [VERDICT] EXPERIENCE OVERRIDE: LLM rejected for exceeding "
+                                    f"max experience — forcing ACCEPT (more experience is good). "
+                                    f"Range={jp_experience}, reason={q_result.get('reason')!r}"
+                                )
+                                q_result["verdict"] = "ACCEPT"
+                                q_result["reason"] = (
+                                    f"Candidate's experience exceeds the range ({jp_experience}) "
+                                    f"but more experience is always acceptable (math-corrected)."
+                                )
+                            else:
+                                # Even if reason doesn't say "exceeds", extract the number
+                                # from the answer and check if it's >= minimum
+                                answer_text = (q_result.get("answer", "") or "").lower()
+                                # Convert common word-numbers
+                                word_nums_exp = {
+                                    'one': '1', 'two': '2', 'three': '3', 'four': '4',
+                                    'five': '5', 'six': '6', 'seven': '7', 'eight': '8',
+                                    'nine': '9', 'ten': '10', 'eleven': '11', 'twelve': '12',
+                                    'fifteen': '15', 'twenty': '20', 'thirty': '30',
+                                    'forty': '40', 'fifty': '50',
+                                }
+                                converted_answer = answer_text
+                                for word, digit in word_nums_exp.items():
+                                    converted_answer = converted_answer.replace(word, digit)
+                                
+                                answer_nums = _re.findall(r'\d+\.?\d*', converted_answer)
+                                if answer_nums:
+                                    # Take the largest number as the candidate's experience
+                                    candidate_exp = max(float(n) for n in answer_nums)
+                                    if candidate_exp >= exp_min:
+                                        logger.warning(
+                                            f"⚠️ [VERDICT] EXPERIENCE MATH OVERRIDE: "
+                                            f"Candidate has {candidate_exp} years, min required is {exp_min}. "
+                                            f"{candidate_exp} >= {exp_min} → forcing ACCEPT"
+                                        )
+                                        q_result["verdict"] = "ACCEPT"
+                                        q_result["reason"] = (
+                                            f"Candidate has {candidate_exp} years of experience, "
+                                            f"which meets the minimum requirement of {exp_min} years (math-corrected)."
+                                        )
+            except Exception as exp_override_err:
+                logger.error(f"❌ [VERDICT] Experience override failed (non-fatal, continuing): {exp_override_err}")
+
+            # ===== RECALCULATE OVERALL VERDICT after code-level overrides =====
+            # The LLM's original overall_verdict may be stale after salary/experience corrections
+            has_any_reject = any(
+                (q.get("verdict") or "").upper() == "REJECT" for q in question_results
+            )
+            corrected_verdict = "FAIL" if has_any_reject else "PASS"
+            if corrected_verdict != evaluation.get("overall_verdict"):
+                logger.warning(
+                    f"🔄 [VERDICT] Overriding overall_verdict: "
+                    f"{evaluation.get('overall_verdict')} → {corrected_verdict} "
+                    f"(after code-level salary/math corrections)"
+                )
+                evaluation["overall_verdict"] = corrected_verdict
+                call_metrics["verdict_data"] = evaluation
+
+            logger.info(f"🔍 [VERDICT] {evaluation.get('overall_verdict')} - {evaluation.get('summary')}")
+            for q_result in question_results:
+                q_v = q_result.get("verdict", "?")
+                q_t = q_result.get("question", "")[:50]
+                q_cat = q_result.get("category", "other")
+                emoji = "✅" if q_v.upper() == "ACCEPT" else ("❌" if q_v.upper() == "REJECT" else "⏳")
+                logger.info(f"🔍 [VERDICT]   {emoji} [{q_cat}] {q_t}: {q_v}")
+            
+            # --- SAVE QA HISTORY TO DB ---
+            if screening_id:
+                try:
+                    qa_history = []
+                    q_num = 1
+                    for q_result in question_results:
+                        if isinstance(q_result, dict):
+                            category_key = q_result.get("category", "other").lower().strip()
+                            qa_history.append({
+                                "question_for": category_key,
+                                "question_no": q_num,
+                                "question": q_result.get("question", ""),
+                                "answer": q_result.get("answer", "..."),
+                                "verdict": q_result.get("verdict", "unknown")
+                            })
+                            q_num += 1
+                    
+                    asyncio.create_task(
+                        asyncio.to_thread(
+                            repo.update_screening,
+                            int(screening_id),
+                            {
+                                "interview_qa_history": json.dumps(qa_history), 
+                                "result": evaluation.get("overall_verdict", "UNKNOWN")
+                            }
+                        )
+                    )
+                    logger.info("📝 Saved QA History and Result to DB")
+                except Exception as save_err:
+                    logger.error(f"❌ Failed to save QA history: {save_err}")

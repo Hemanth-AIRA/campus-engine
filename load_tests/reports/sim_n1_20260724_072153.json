@@ -1,0 +1,29 @@
+{
+  "n": 1,
+  "wall_s": 2.2997323329909705,
+  "results": [
+    {
+      "idx": 0,
+      "interview_id": 6118,
+      "candidate_name": "Riya Bansal",
+      "job_title": "Senior React Frontend Developer",
+      "job_type": "technical",
+      "room_id": "AIRA-20260724-0721-7AE3",
+      "candidate_url": "https://hub.airacampus.com/connect/?t=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhaXJhIiwiYXVkIjoid2VicnRjIiwicm9vbUlkIjoiQUlSQS0yMDI2MDcyNC0wNzIxLTdBRTMiLCJyb2xlIjoiY2FuZGlkYXRlIiwibmFtZSI6IlJpeWEgQmFuc2FsIiwianRpIjoiMjg4MTI0NGMtZTgzYy00ODljLWFjODktOThiM2MyOTIzYTc3IiwiaWF0IjoxNzg0ODc3NzA4LCJuYmYiOjE3ODQ4NzcwNDcsImV4cCI6MTc4NDg4MTI0NywiZHVyIjo2MH0.TdDn2RVVdV2Ye38Vf0W-urzPi-0MUg363hYpJV2_uw0&livekit=1",
+      "reset_ms": 134.16175002930686,
+      "connect_ms": 0.0,
+      "publish_ms": 0.0,
+      "total_s": 2.2992947080056183,
+      "reset_ok": true,
+      "connected": false,
+      "published": false,
+      "bot_joined": false,
+      "bot_spoke": false,
+      "error": "Connect error: engine: signal failure: client error: 401 Unauthorized - no permissions to access the room",
+      "timeline": [
+        "07:21:48 \ud83d\udd11 Room created: AIRA-20260724-0721-7AE3 (134ms)",
+        "07:21:53 \u274c Connect error: engine: signal failure: client error: 401 Unauthorized - no permissions to access the room"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "skill": "Python",
+  "aliases": ["python3", "py"],
+  "topics": ["decorator", "generator", "iterator", "list", "tuple", "dictionary", "comprehension", "closure", "functools", "GIL", "memory", "reference cycle", "async", "threads", "stream"],
+  "levels": {
+    "junior": {
+      "foundational": [
+        {"id": "py-j-f-1", "question": "In Python, what is the difference between a list and a tuple, and when would you choose one over the other?", "rubric": "mutability, use-cases, hashability", "paradigm": "definition"},
+        {"id": "py-j-f-2", "question": "What does a Python dictionary give you, and how do you look up a value by its key?", "rubric": "key-value mapping, O(1) lookup, KeyError vs get", "paradigm": "definition"}
+      ],
+      "applied": [
+        {"id": "py-j-a-1", "question": "Walk me through how you would read a text file in Python and count how many times each word appears.", "rubric": "open/with, split, dict/Counter, close semantics", "paradigm": "walkthrough"}
+      ],
+      "advanced": [
+        {"id": "py-j-x-1", "question": "You have a Python list of 1,000,000 numbers and your code is slow. What would you look at first to make it faster?", "rubric": "comprehensions, generators, built-ins, complexity", "paradigm": "diagnosis"}
+      ]
+    },
+    "mid": {
+      "foundational": [
+        {"id": "py-m-f-1", "question": "Explain how Python's `is` differs from `==`, and give a case where confusing them causes a bug.", "rubric": "identity vs equality, interning, mutable defaults", "paradigm": "definition"}
+      ],
+      "applied": [
+        {"id": "py-m-a-1", "question": "How would you use a decorator to add timing/logging around a function without changing the function itself? Walk me through it.", "rubric": "closures, functools.wraps, args/kwargs", "paradigm": "walkthrough"}
+      ],
+      "advanced": [
+        {"id": "py-m-x-1", "question": "Your Python service leaks memory over hours. Describe how you'd find the cause and what Python-specific culprits you'd suspect.", "rubric": "reference cycles, gc, caches, generators, tracemalloc", "paradigm": "diagnosis"}
+      ]
+    },
+    "senior": {
+      "advanced": [
+        {"id": "py-s-x-1", "question": "You need to process a stream that doesn't fit in memory and return partial results as they're ready. How would you design this in Python, and what are the trade-offs of your approach?", "rubric": "generators/iterators, backpressure, async vs threads, GIL", "paradigm": "design"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "product-sde",
+  "label": "Product Company — Software Engineer",
+  "role_level": "senior",
+  "base_difficulty": "hard",
+  "skills": ["Data Structures", "Algorithms", "System Design", "SQL", "Operating Systems", "Object-Oriented Design", "Problem-Solving"],
+  "conceptual_ratio": 0.4,
+  "resume_ratio": 0.2
+}

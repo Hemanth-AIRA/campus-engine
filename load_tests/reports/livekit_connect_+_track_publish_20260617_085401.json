@@ -1,0 +1,61 @@
+{
+  "name": "LiveKit Connect + Track Publish",
+  "run_at": "2026-06-17T08:53:21.623625",
+  "magic_number": 75,
+  "warn_number": 50,
+  "baseline_p95": 4260.5948729494685,
+  "steps": [
+    {
+      "n": 40,
+      "p50_ms": 3816.3,
+      "p90_ms": 4237.8,
+      "p95_ms": 4260.6,
+      "p99_ms": 4303.2,
+      "max_ms": 4305.6,
+      "mean_ms": 3878.5,
+      "success": 40,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 50,
+      "p50_ms": 4260.7,
+      "p90_ms": 4572.7,
+      "p95_ms": 4671.0,
+      "p99_ms": 4702.4,
+      "max_ms": 4711.5,
+      "mean_ms": 4126.3,
+      "success": 50,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 75,
+      "p50_ms": 6749.1,
+      "p90_ms": 7409.8,
+      "p95_ms": 7431.4,
+      "p99_ms": 7504.5,
+      "max_ms": 7513.9,
+      "mean_ms": 6589.1,
+      "success": 75,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udfe1 WARM"
+    },
+    {
+      "n": 100,
+      "p50_ms": 13576.4,
+      "p90_ms": 17022.0,
+      "p95_ms": 17239.0,
+      "p99_ms": 17477.4,
+      "max_ms": 17478.2,
+      "mean_ms": 12983.4,
+      "success": 100,
+      "errors": 0,
+      "success_pct": 100.0,
+      "status": "\ud83d\udd34 DEGRADED"
+    }
+  ]
+}

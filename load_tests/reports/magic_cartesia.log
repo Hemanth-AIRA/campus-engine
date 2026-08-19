@@ -1,0 +1,15 @@
+2026-06-17 14:14:39,619 [TTS-MAGIC] ============================================================
+2026-06-17 14:14:39,619 [TTS-MAGIC]   Cartesia TTS TTFA — Magic Number Benchmark
+2026-06-17 14:14:39,620 [TTS-MAGIC]   Metric: ttfa | Steps: [1, 2, 5, 10, 15, 20, 25]
+2026-06-17 14:14:39,620 [TTS-MAGIC] ============================================================
+2026-06-17 14:14:39,620 [TTS-MAGIC] ┌─ Ladder: Cartesia TTS TTFA
+2026-06-17 14:14:39,620 [TTS-MAGIC] │  Steps: [1, 2, 5, 10, 15, 20, 25]
+2026-06-17 14:14:39,620 [TTS-MAGIC] │  ── n=1   …
+2026-06-17 14:14:39,740 [TTS-MAGIC] │  n=1    p50=     0  p95=     0  p99=     0  max=     0  errors=1/1  ❌
+2026-06-17 14:14:39,740 [TTS-MAGIC] │  (cooldown 3.0s)
+2026-06-17 14:14:42,742 [TTS-MAGIC] │  ── n=2   …
+2026-06-17 14:14:42,799 [TTS-MAGIC] │  n=2    p50=     0  p95=     0  p99=     0  max=     0  errors=2/2  ❌
+2026-06-17 14:14:42,799 [TTS-MAGIC] │  ⛔ Early stop: error rate too high at n=2
+2026-06-17 14:14:42,799 [TTS-MAGIC] └─ Done.
+2026-06-17 14:14:43,186 [TTS-MAGIC] Report saved: /Users/sridharkotha/Desktop/AIRA_ENGINE_REPORT/load_tests/reports/cartesia_tts_ttfa_20260617_084442.md
+2026-06-17 14:14:43,186 [TTS-MAGIC] Report: /Users/sridharkotha/Desktop/AIRA_ENGINE_REPORT/load_tests/reports/cartesia_tts_ttfa_20260617_084442.md

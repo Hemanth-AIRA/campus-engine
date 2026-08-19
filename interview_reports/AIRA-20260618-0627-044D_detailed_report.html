@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AIRA - Detailed Interview Report</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: #fff; padding: 0; font-size: 12px; line-height: 1.4; }
+  .report { max-width: 100%; margin: 0; background: #fff; }
+  
+  /* Header with Logo */
+  .header { background: linear-gradient(135deg, #93c5fd 0%, #bfdbfe 100%); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; }
+  .header .title-text { color: #000; font-size: 18px; font-weight: 700; line-height: 1.4; max-width: 60%; }
+  .header .title-text .role { font-weight: 800; color: #0f172a; }
+  .header .title-text .company { font-weight: 700; color: #1e3a8a; }
+  .logo-box { background: #fff; padding: 10px 16px; border-radius: 8px; height: 60px; display: flex; align-items: center; }
+  .logo-box img { height: 44px; display: block; }
+
+  /* VERDICT BANNER */
+  .verdict-banner { padding: 18px 20px; display: flex; align-items: center; gap: 16px; }
+  .verdict-banner.pass { background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%); }
+  .verdict-banner.fail { background: #fca5a5; padding: 14px 20px; }
+  .verdict-badge { width: 56px; height: 56px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0; color: #fca5a5; }
+  .verdict-content { flex: 1; color: #000; }
+  .verdict-status { font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+  .verdict-subtitle { font-size: 12px; opacity: 0.9; margin-top: 2px; }
+  .verdict-score-box { text-align: center; background: #fff; border-radius: 8px; padding: 8px 12px; }
+  .verdict-score-box .number { font-size: 26px; font-weight: 800; color: #fca5a5; }
+  .verdict-score-box .label { font-size: 8px; color: #000; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+  
+  /* Quick Stats Strip */
+  .stats-strip { display: grid; grid-template-columns: 25% 25% 25% 25%; background: #f8fafc; border-bottom: 1px solid #e5e7eb; }
+  .stat { padding: 12px 8px; text-align: center; border-right: 1px solid #e5e7eb; }
+  .stat:last-child { border-right: none; }
+  .stat .value { font-size: 18px; font-weight: 800; color: #1e3a8a; }
+  .stat .label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.3px; color: #64748b; margin-top: 2px; }
+  
+  /* Candidate + Interview Row */
+  .info-section { display: grid; grid-template-columns: 50% 50%; border-bottom: 1px solid #e5e7eb; }
+  .info-box { padding: 14px 18px 8px 18px ; }
+  .info-box:first-child { border-right: 1px solid #e5e7eb; }
+  .info-box .title { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: #1e3a8a; font-weight: 700; margin-bottom: 10px; }
+  
+  /* Updated Candidate Card Layout */
+  .candidate-card { display: flex; gap: 16px; align-items: stretch; }
+  .candidate-avatar { 
+    width: 200px; 
+    height: 200px; 
+    min-width: 200px;
+    border-radius: 12px; 
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6); 
+    color: #fff; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 72px; 
+    font-weight: 700; 
+    flex-shrink: 0; 
+    overflow: hidden; 
+  }
+  .candidate-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .candidate-info-wrapper { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px;
+    min-height: 200px;
+    margin-top: 50px;
+  }
+  .candidate-info-title { 
+    font-size: 10px; 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+    color: #1e3a8a; 
+    font-weight: 700; 
+    margin-bottom: 8px; 
+  }
+  .candidate-details { 
+    background: #f8fafc; 
+    padding: 10px 12px; 
+    border-radius: 6px; 
+    margin-bottom: 6px;
+  }
+  .candidate-details .name { font-size: 12px; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
+  .candidate-details .email { font-size: 10px; color: #64748b; margin-top: 3px; }
+  .candidate-details .phone { font-size: 10px; color: #64748b; margin-top: 3px; }
+  .candidate-details .label { font-size: 9px; text-transform: uppercase; color: #94a3b8; font-weight: 600; margin-bottom: 2px; }
+  .candidate-details .value { font-size: 11px; font-weight: 600; color: #334155; }
+  .candidate-details .position-tag { display: inline-block; background: #e0e7ff; color: #3730a3; padding: 4px 10px; border-radius: 4px; font-size: 10px; font-weight: 600; margin-top: 8px; }
+  .company-box { 
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9); 
+    border: 1px solid #e2e8f0; 
+    border-radius: 8px; 
+    padding: 10px 12px; 
+    margin-top: auto;
+  }
+  .company-box .company-label { font-size: 9px; text-transform: uppercase; color: #64748b; font-weight: 600; margin-bottom: 3px; }
+  .company-box .company-name { font-size: 13px; font-weight: 700; color: #0f172a; display: flex; align-items: center; gap: 6px; }
+  
+  .interview-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 8px; 
+  }
+  .interview-cell { 
+    background: #f8fafc; 
+    padding: 8px 10px; 
+    border-radius: 6px; 
+  }
+  .interview-cell.wide { grid-column: span 2; }
+  .interview-cell .value.mono { font-family: monospace; font-size: 10px; }
+  .interview-cell.company-position-cell { 
+    grid-column: 1 / -1;  /* Span full width - row 1 */
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+  }
+  .interview-cell .info-item { 
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .interview-cell .info-item .label { 
+    font-size: 9px; 
+    text-transform: uppercase; 
+    color: #94a3b8; 
+    font-weight: 600;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+  .interview-cell .info-item .value { 
+    font-size: 11px; 
+    font-weight: 600; 
+    color: #334155;
+    margin-top: 0;
+  }
+  
+  /* Section styling */
+  .section { padding: 14px 18px; border-bottom: 1px solid #e5e7eb; }
+  .section-header { font-size: 12px; font-weight: 700; color: #1e3a8a; margin-bottom: 10px; }
+  
+  /* Analysis Cards - Resume & Interview */
+  .analysis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .analysis-card { background: linear-gradient(180deg, #f8fafc, #fff); border: 1px solid #e5e7eb; border-radius: 10px; padding: 14px; }
+  .analysis-card .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .analysis-card .card-title { font-size: 11px; font-weight: 700; color: #334155; }
+  .analysis-card .card-score { font-size: 24px; font-weight: 800; }
+  .analysis-card .card-score.high { color: #059669; }
+  .analysis-card .card-score.mid { color: #d97706; }
+  .analysis-card .card-score.low { color: #dc2626; }
+  .analysis-card .card-text { font-size: 11px; color: #64748b; line-height: 1.5; }
+  
+  /* Assessment Summary */
+  .assessment-text { background: #f0f9ff; padding: 12px; border-radius: 8px; border-left: 3px solid #0ea5e9; font-size: 11px; color: #0c4a6e; line-height: 1.55; }
+  
+  /* Strengths & Areas */
+  .feedback-section { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 14px 18px; background: #fafbfc; border-bottom: 1px solid #e5e7eb; }
+  .feedback-box { border-radius: 10px; padding: 14px; }
+  .feedback-box.strengths { background: linear-gradient(180deg, #ecfdf5, #d1fae5); border: 1px solid #a7f3d0; }
+  .feedback-box.areas { background: linear-gradient(180deg, #fff7ed, #ffedd5); border: 1px solid #fed7aa; }
+  .feedback-box h3 { font-size: 12px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .feedback-box.strengths h3 { color: #065f46; }
+  .feedback-box.areas h3 { color: #9a3412; }
+  .feedback-list { list-style: none; }
+  .feedback-list li { font-size: 11px; padding: 5px 0; border-bottom: 1px dashed rgba(0,0,0,0.08); display: flex; align-items: flex-start; gap: 6px; }
+  .feedback-list li:last-child { border-bottom: none; }
+  .feedback-box.strengths .feedback-list li { color: #064e3b; }
+  .feedback-box.areas .feedback-list li { color: #7c2d12; }
+  
+  /* Performance Metrics - Horizontal 2-Column Layout */
+  .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
+  .metric-row { display: flex; align-items: center; gap: 10px; padding: 8px 10px; background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 6px; }
+  .metric-row .name { width: 110px; font-size: 11px; color: #334155; font-weight: 600; flex-shrink: 0; }
+  .metric-row .bar { flex: 1; height: 8px; background: #e5e7eb; border-radius: 4px; overflow: hidden; min-width: 60px; }
+  .metric-row .bar-fill { height: 100%; border-radius: 4px; }
+  .metric-row .bar-fill.high { background: linear-gradient(90deg, #10b981, #34d399); }
+  .metric-row .bar-fill.mid { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .metric-row .bar-fill.low { background: linear-gradient(90deg, #ef4444, #f87171); }
+  .metric-row .score { min-width: 32px; font-size: 13px; font-weight: 800; text-align: right; }
+  .metric-row .score.high { color: #059669; }
+  .metric-row .score.mid { color: #d97706; }
+  .metric-row .score.low { color: #dc2626; }
+  
+  /* Skills Section */
+  .skills-gap-box { background: linear-gradient(180deg, #fffbeb, #fef3c7); border: 1px solid #fcd34d; border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; }
+  .skills-gap-box h4 { font-size: 11px; font-weight: 700; color: #92400e; margin-bottom: 4px; }
+  .skills-gap-box p { font-size: 10px; color: #78350f; line-height: 1.45; margin: 0; }
+  
+  /* Skills Table */
+  .skills-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
+  .skills-table th { text-align: left; font-size: 9px; text-transform: uppercase; letter-spacing: 0.4px; color: #64748b; padding: 8px 10px; background: #f8fafc; border-bottom: 2px solid #e5e7eb; }
+  .skills-table th:nth-child(3), .skills-table th:nth-child(4) { text-align: center; }
+  .skills-table td { padding: 10px; border-bottom: 1px solid #f1f5f9; font-size: 11px; vertical-align: middle; }
+  .skills-table tr:last-child td { border-bottom: none; }
+  .skills-table .skill-name { font-weight: 600; color: #334155; }
+  .skills-table .proficiency { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 9px; font-weight: 700; text-transform: uppercase; }
+  .skills-table .proficiency.high { background: #d1fae5; color: #065f46; }
+  .skills-table .proficiency.mid { background: #fef3c7; color: #92400e; }
+  .skills-table .proficiency.low { background: #fee2e2; color: #991b1b; }
+  .skills-table .score-pill { display: inline-block; padding: 3px 8px; border-radius: 12px; font-weight: 700; font-size: 11px; }
+  .skills-table .score-pill.high { background: #d1fae5; color: #059669; }
+  .skills-table .score-pill.mid { background: #fef3c7; color: #d97706; }
+  .skills-table .score-pill.low { background: #fee2e2; color: #dc2626; }
+  .skills-table .status { text-align: center; }
+  .skills-table .status-icon { width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; }
+  .skills-table .status-icon.pass { background: #d1fae5; color: #059669; }
+  .skills-table .status-icon.fail { background: #fee2e2; color: #dc2626; }
+  
+  /* Detailed Skill Analysis Cards */
+  .skill-detail-card { padding: 10px 12px; border-radius: 8px; margin-bottom: 8px; border-left: 3px solid; }
+  .skill-detail-card.high { background: #f0fdf4; border-color: #10b981; }
+  .skill-detail-card.mid { background: #fffbeb; border-color: #f59e0b; }
+  .skill-detail-card.low { background: #fef2f2; border-color: #ef4444; }
+  .skill-detail-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+  .skill-detail-header .left { display: flex; align-items: center; gap: 6px; }
+  .skill-detail-header .skill-name { font-weight: 700; font-size: 11px; color: #0f172a; }
+  .skill-detail-header .level-badge { font-size: 8px; padding: 2px 5px; border-radius: 3px; font-weight: 600; }
+  .skill-detail-header .level-badge.high { background: #d1fae5; color: #065f46; }
+  .skill-detail-header .level-badge.mid { background: #fef3c7; color: #92400e; }
+  .skill-detail-header .level-badge.low { background: #fee2e2; color: #991b1b; }
+  .skill-detail-header .score { font-size: 12px; font-weight: 800; }
+  .skill-detail-header .score.high { color: #059669; }
+  .skill-detail-header .score.mid { color: #d97706; }
+  .skill-detail-header .score.low { color: #dc2626; }
+  .skill-detail-body { font-size: 10px; color: #475569; line-height: 1.45; }
+  .skill-detail-body .row { margin-bottom: 3px; }
+  .skill-detail-body strong { color: #334155; }
+  
+  /* Question Cards */
+  .question-section { padding: 14px 18px; border-bottom: 1px solid #e5e7eb; }
+  .question-card { border: 1px solid #e5e7eb; border-radius: 10px; padding: 14px; margin-bottom: 12px; background: #fafbfc; }
+  .question-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
+  .question-pill { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #1e3a8a; background: linear-gradient(180deg, #eef4ff, #e3edff); border: 1px solid #cfe1ff; border-radius: 20px; }
+  .question-score { display: flex; align-items: baseline; gap: 4px; background: linear-gradient(180deg, #f7fbff, #e7f0ff); border: 2px solid #cfe1ff; border-radius: 8px; padding: 6px 12px; font-weight: 800; }
+  .question-score .num { font-size: 20px; color: #2563eb; }
+  .question-score .den { color: #64748b; font-weight: 700; font-size: 12px; }
+  .question-title { font-size: 13px; font-weight: 600; color: #0f172a; margin-bottom: 10px; }
+  .question-title strong { font-weight: 800; color: #1e3a8a; }
+  
+  .response-panel { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px; margin-bottom: 8px; }
+  .response-panel.analysis { background: #ecfdf5; border-color: #a7f3d0; }
+  .response-panel h4 { font-size: 10px; text-transform: uppercase; letter-spacing: 0.4px; color: #64748b; margin-bottom: 6px; }
+  .response-panel .text { font-size: 11px; line-height: 1.5; color: #334155; }
+  
+  /* Question Metrics Grid */
+  .question-metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-bottom: 10px; }
+  .q-metric { display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: #fff; border: 1px solid #e5e7eb; border-radius: 6px; }
+  .q-metric .name { flex: 1; font-size: 10px; font-weight: 600; color: #334155; }
+  .q-metric .bar { width: 40px; height: 4px; background: #e5e7eb; border-radius: 2px; overflow: hidden; }
+  .q-metric .bar-fill { height: 100%; border-radius: 2px; }
+  .q-metric .bar-fill.high { background: linear-gradient(90deg, #10b981, #34d399); }
+  .q-metric .bar-fill.mid { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .q-metric .bar-fill.low { background: linear-gradient(90deg, #ef4444, #f87171); }
+  .q-metric .score { font-size: 10px; font-weight: 700; min-width: 24px; text-align: right; }
+  .q-metric .score.high { color: #059669; }
+  .q-metric .score.mid { color: #d97706; }
+  .q-metric .score.low { color: #dc2626; }
+  
+  /* Chips */
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 600; }
+  .chip.good { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+  .chip.bad { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+  
+  /* Strengths/Weaknesses in Question */
+  .sw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .sw-box h4 { font-size: 10px; text-transform: uppercase; letter-spacing: 0.4px; color: #64748b; margin-bottom: 6px; }
+  
+  /* Authenticity Evidence Styles (displayed as metric row, evidence shown for medium/low) */
+  .authenticity-evidence { border-radius: 8px; padding: 10px; margin-top: 8px; }
+  .authenticity-evidence.high { background: linear-gradient(180deg, #fef2f2, #fee2e2); border: 1px solid #f87171; }
+  .authenticity-evidence.high h4 { color: #991b1b; }
+  .authenticity-evidence.high .evidence-text { color: #7c2d12; }
+  .authenticity-evidence.high .observation { color: #991b1b; }
+  .authenticity-evidence.medium { background: linear-gradient(180deg, #fffbeb, #fef3c7); border: 1px solid #fcd34d; }
+  .authenticity-evidence.medium h4 { color: #92400e; }
+  .authenticity-evidence.medium .evidence-text { color: #78350f; }
+  .authenticity-evidence.medium .observation { color: #92400e; }
+  .authenticity-evidence h4 { font-size: 10px; text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 4px; }
+  .authenticity-evidence .evidence-text { font-size: 11px; line-height: 1.45; }
+  .authenticity-evidence .observation { padding: 4px 0; border-bottom: 1px dashed rgba(0, 0, 0, 0.1); font-size: 10px; }
+  .authenticity-evidence .observation:last-child { border-bottom: none; }
+  
+  /* Timeline */
+  .timeline-section { padding: 14px 18px; border-bottom: 1px solid #e5e7eb; }
+  .timeline-header { font-size: 14px; font-weight: 700; color: #1e3a8a; text-align: center; margin-bottom: 4px; }
+  .timeline-sub { font-size: 11px; color: #64748b; text-align: center; margin-bottom: 12px; }
+  
+  .chat { margin-top: 10px; }
+  .msg { display: flex; gap: 8px; margin-bottom: 10px; }
+  .msg.left { justify-content: flex-start; }
+  .msg.right { justify-content: flex-end; }
+  
+  .bubble { max-width: 70%; border-radius: 12px; padding: 10px 12px; background: #fff; border: 1px solid #e5e7eb; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .msg.right .bubble { background: linear-gradient(180deg, #eaf5ff, #dff0ff); border-color: #b9ddff; }
+  .bubble .who { font-size: 10px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+  .msg.left .bubble .who { color: #1e40af; }
+  .msg.right .bubble .who { color: #0e7490; justify-content: flex-end; }
+  .bubble .who img { width: 20px; height: 20px; border-radius: 50%; object-fit: cover; }
+  .bubble .msg-text { font-size: 11px; line-height: 1.45; color: #0f172a; }
+  .bubble .time { font-size: 9px; margin-top: 4px; color: #64748b; }
+  .msg.left .bubble .time { text-align: left; }
+  .msg.right .bubble .time { text-align: right; }
+  
+  /* Warning/Exit message styles */
+  .msg.type-warning .bubble, .msg.type-video_off .bubble { background: linear-gradient(180deg, #fff3bf, #fde68a); border-color: #f59e0b; }
+  .msg.type-warning .bubble .who, .msg.type-video_off .bubble .who { color: #92400e; }
+  .msg.type-exit .bubble { background: linear-gradient(180deg, #fecaca, #fca5a5); border-color: #ef4444; }
+  .msg.type-exit .bubble .who { color: #991b1b; }
+  
+  .footer { text-align: center; padding: 12px;background: linear-gradient(135deg, #93c5fd 0%, #bfdbfe 100%); color: #64748b; font-size: 10px; }
+  
+  /* Print styles */
+  @page { size: A4; margin: 5mm; }
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    body { font-size: 10px; }
+    .question-card, .skill-detail-card, .msg { page-break-inside: avoid !important; break-inside: avoid !important; }
+    .section-header, .question-header { page-break-after: avoid !important; }
+  }
+</style>
+</head>
+<body>
+<div class="report">
+  <!-- Header with Logo -->
+  <div class="header">
+    <div class="title-text">
+      Detailed Interview Report
+    </div>
+    <div class="logo-box">
+      <img src="./interview_reports/AIRA_LOGO.jpg" alt="AIRA Logo" />
+    </div>
+  </div>
+  
+  <!-- VERDICT BANNER -->
+  <div class="verdict-banner fail">
+    <div class="verdict-badge">✗</div>
+    <div class="verdict-content">
+      <div class="verdict-status">FAILED INTERVIEW ROUND</div>
+      <div class="verdict-subtitle">
+        
+        
+        
+        
+          Candidate requires further evaluation or training before proceeding.
+        
+      </div>
+    </div>
+    <div class="verdict-score-box">
+      <div class="number">0.2</div>
+      <div class="label">Overall Score</div>
+    </div>
+  </div>
+  
+  <!-- Quick Stats -->
+  <div class="stats-strip">
+    <div class="stat">
+      <div class="value">5/5</div>
+      <div class="label">Questions</div>
+    </div>
+    <div class="stat">
+      <div class="value">6 minutes and 57 seconds</div>
+      <div class="label">Duration</div>
+    </div>
+    <div class="stat">
+      <div class="value">0/5</div>
+      <div class="label">Skills Passed</div>
+    </div>
+    <div class="stat">
+      <div class="value">Connect</div>
+      <div class="label">Mode</div>
+    </div>
+  </div>
+  
+  <!-- Candidate + Interview -->
+  <div class="info-section">
+    <div class="info-box">
+      <div class="candidate-card">
+        <div class="candidate-avatar">
+          
+          <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Candidate Photo" />
+          
+        </div>
+        <div class="candidate-info-wrapper">
+          <div class="candidate-info-title">Candidate Details</div>
+          <div class="candidate-details">
+            <div class="value">Manish Saxena</div>
+            <div class="value">manish.saxena.devops_cloud.test@airahr.ai</div>
+            <div class="value">None</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="info-box">
+      <div class="title">📅 Interview Details</div>
+      <div class="interview-grid">
+        <div class="interview-cell company-position-cell">
+          <div class="info-item">
+            <div class="label">Company:</div>
+            <div class="value">AIRA Load Test Corp</div>
+          </div>
+          <div class="info-item">
+            <div class="label">Position:</div>
+            <div class="value">DevOps / Cloud Engineer</div>
+          </div>
+        </div>
+        <div class="interview-cell">
+          <div class="info-item">
+            <div class="label">Date:</div>
+            <div class="value">2026-06-18</div>
+          </div>
+        </div>
+        <div class="interview-cell">
+          <div class="info-item">
+            <div class="label">Time:</div>
+            <div class="value">02:26 AM</div>
+          </div>
+        </div>
+        <div class="interview-cell">
+          <div class="info-item">
+            <div class="label">Timezone:</div>
+            <div class="value">Asia/Kolkata</div>
+          </div>
+        </div>
+        <div class="interview-cell">
+          <div class="info-item">
+            <div class="label">Room ID:</div>
+            <div class="value mono">AIRA-20260618-0627-044D</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Resume & Interview Analysis Cards -->
+  <div class="section">
+    <div class="section-header">📊 Performance Analysis</div>
+    <div class="analysis-grid">
+      <div class="analysis-card">
+        <div class="card-header">
+          <div class="card-title">📋 Resume Analysis</div>
+          <div class="card-score high">3.8/5</div>
+        </div>
+        <div class="card-text">Strong infrastructure background. Cloud cost optimisation and incident management experience to be probed.</div>
+      </div>
+      <div class="analysis-card">
+        <div class="card-header">
+          <div class="card-title">🎯 Interview Analysis</div>
+          <div class="card-score low">0.2/5</div>
+        </div>
+        <div class="card-text">The candidate consistently performed poorly across all questions, providing inadequate and irrelevant responses that lacked technical depth and problem-solving skills. Their answers frequently failed to address the questions asked, highlighting a significant gap in domain knowledge and communication abilities. Additionally, there was a technical issue with displaying the candidate's image.</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Overall Assessment -->
+  
+  <div class="section">
+    <div class="section-header">📝 Overall Assessment</div>
+    <div class="assessment-text">
+      The candidate achieved a score of 0.2/5 (failed interview round). The candidate consistently performed poorly across all questions, providing inadequate and irrelevant responses that lacked technical depth and problem-solving skills. Their answers frequently failed to address the questions asked, highlighting a significant gap in domain knowledge and communication abilities. Additionally, there was a technical issue with displaying the candidate's image. Based on the comprehensive evaluation across 5 interview questions, further development is recommended.
+    </div>
+  </div>
+  
+  
+  <!-- Authenticity Analysis -->
+  
+  <div class="section">
+    <div class="section-header">🔍 Authenticity Analysis</div>
+    <div class="assessment-text" style="display: flex; gap: 16px; align-items: flex-start;">
+      <div style="flex: 0 0 80px; text-align: center; padding: 12px; background: linear-gradient(180deg, #fefce8, #fef9c3); border-radius: 10px;">
+        <div style="font-size: 24px; font-weight: 800; color: #ca8a04;">50%</div>
+        <div style="font-size: 9px; color: #64748b; text-transform: uppercase;">Authenticity</div>
+      </div>
+      <div style="flex: 1;">
+        <div style="font-weight: 600; margin-bottom: 6px; color: #ca8a04;">
+          ⚡ Mixed Signals
+        </div>
+        <div style="font-size: 11px; color: #475569; line-height: 1.5;">
+          
+            Some responses appear polished while others show natural patterns. Recommend careful review if score is near threshold.
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- Strengths & Areas -->
+  
+  <div class="feedback-section">
+    <div class="feedback-box strengths">
+      <h3>✓ Key Strengths</h3>
+      <ul class="feedback-list">
+        
+        <li>✓ Technical Knowledge</li>
+        
+        <li>✓ Experience</li>
+        
+      </ul>
+    </div>
+    <div class="feedback-box areas">
+      <h3>⚠ Areas for Development</h3>
+      <ul class="feedback-list">
+        
+        <li>⚠ Requires fundamental training in core job requirements and domain knowledge</li>
+        
+        <li>⚠ Needs significant improvement in interview preparation and question comprehension</li>
+        
+        <li>⚠ Candidate requires comprehensive training before being suitable for this position</li>
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+  <!-- Performance Metrics - Horizontal 2-Column Layout -->
+  
+  <div class="section">
+    <div class="section-header">📊 Performance Metrics</div>
+    <div class="metrics-grid">
+      
+      <div class="metric-row">
+        <div class="name">Communication</div>
+        <div class="bar"><div class="bar-fill low" style="width:14%"></div></div>
+        <div class="score low">0.7</div>
+      </div>
+      
+      <div class="metric-row">
+        <div class="name">Experience</div>
+        <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+        <div class="score low">0.0</div>
+      </div>
+      
+      <div class="metric-row">
+        <div class="name">Confidence</div>
+        <div class="bar"><div class="bar-fill low" style="width:14%"></div></div>
+        <div class="score low">0.7</div>
+      </div>
+      
+      <div class="metric-row">
+        <div class="name">Domain Knowledge</div>
+        <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+        <div class="score low">0.0</div>
+      </div>
+      
+      <div class="metric-row">
+        <div class="name">CV Justification</div>
+        <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+        <div class="score low">0.0</div>
+      </div>
+      
+      <div class="metric-row">
+        <div class="name">Skills</div>
+        <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+        <div class="score low">0.0</div>
+      </div>
+      
+    </div>
+  </div>
+  
+  
+  <!-- Mandatory Skills Evaluation -->
+  
+  <div class="section">
+    <div class="section-header">🎯 Mandatory Skills Evaluation</div>
+    
+    
+    <div class="skills-gap-box">
+      <h4>📋 Skills Gap Summary</h4>
+      <p>The candidate demonstrated a complete lack of knowledge and understanding across all tested skills, including Kubernetes troubleshooting, CI/CD pipeline management, critical incident management, and Terraform configuration management. Their responses were irrelevant and did not reflect any practical experience or problem-solving abilities in these areas.</p>
+    </div>
+    
+    
+    <!-- Skills Summary Stats -->
+    <div style="display: flex; gap: 12px; margin-bottom: 14px;">
+      <div style="flex: 1; background: linear-gradient(180deg, #ecfdf5, #d1fae5); border: 1px solid #a7f3d0; border-radius: 8px; padding: 12px; text-align: center;">
+        <div style="font-size: 24px; font-weight: 800; color: #059669;">0/5</div>
+        <div style="font-size: 10px; color: #065f46; text-transform: uppercase; font-weight: 600;">Skills Passed</div>
+      </div>
+      <div style="flex: 1; background: linear-gradient(180deg, #f0f9ff, #e0f2fe); border: 1px solid #7dd3fc; border-radius: 8px; padding: 12px; text-align: center;">
+        <div style="font-size: 24px; font-weight: 800; color: #0284c7;">0.0/5</div>
+        <div style="font-size: 10px; color: #0369a1; text-transform: uppercase; font-weight: 600;">Overall Skills Score</div>
+      </div>
+    </div>
+    
+    <!-- Skills Table -->
+    <table class="skills-table">
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>Proficiency</th>
+          <th>Score</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td class="skill-name">Kubernetes Troubleshooting</td>
+          <td><span class="proficiency low">None</span></td>
+          <td style="text-align:center"><span class="score-pill low">0.0</span></td>
+          <td class="status"><span class="status-icon fail">✗</span></td>
+        </tr>
+        
+        <tr>
+          <td class="skill-name">CI/CD Pipeline Troubleshooting</td>
+          <td><span class="proficiency low">None</span></td>
+          <td style="text-align:center"><span class="score-pill low">0.0</span></td>
+          <td class="status"><span class="status-icon fail">✗</span></td>
+        </tr>
+        
+        <tr>
+          <td class="skill-name">Critical Incident Management</td>
+          <td><span class="proficiency low">None</span></td>
+          <td style="text-align:center"><span class="score-pill low">0.0</span></td>
+          <td class="status"><span class="status-icon fail">✗</span></td>
+        </tr>
+        
+        <tr>
+          <td class="skill-name">Terraform Configuration Management</td>
+          <td><span class="proficiency low">None</span></td>
+          <td style="text-align:center"><span class="score-pill low">0.0</span></td>
+          <td class="status"><span class="status-icon fail">✗</span></td>
+        </tr>
+        
+        <tr>
+          <td class="skill-name">Terraform Incident Recovery</td>
+          <td><span class="proficiency low">None</span></td>
+          <td style="text-align:center"><span class="score-pill low">0.0</span></td>
+          <td class="status"><span class="status-icon fail">✗</span></td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+    <!-- Detailed Skill Analysis -->
+    <div class="section-header" style="margin-top:14px;">🔍 Detailed Skill Analysis</div>
+    
+    <div class="skill-detail-card low">
+      <div class="skill-detail-header">
+        <div class="left">
+          <span>✗</span>
+          <span class="skill-name">Kubernetes Troubleshooting</span>
+          <span class="level-badge low">None</span>
+        </div>
+        <span class="score low">0.0/5</span>
+      </div>
+      <div class="skill-detail-body">
+        
+        <div class="row"><strong>Questions Asked:</strong> You're deploying a microservice using Docker containers on a Kubernetes cluster in AWS. Suddenly, you notice that the service is failing to start due to a missing environment variable. What steps do you take to identify and resolve the issue, and what do you think could have been done differently to prevent this from happening?</div>
+        
+        <div class="row"><strong>Evidence:</strong> The candidate provided a completely irrelevant response, stating 'Members used to get context quickly.'</div>
+        <div class="row"><strong>Assessment:</strong> The candidate demonstrated no understanding of Kubernetes troubleshooting or the steps needed to resolve issues related to environment variables in a microservice deployment. Their response was entirely off-topic and showed a lack of familiarity with the subject matter.</div>
+      </div>
+    </div>
+    
+    <div class="skill-detail-card low">
+      <div class="skill-detail-header">
+        <div class="left">
+          <span>✗</span>
+          <span class="skill-name">CI/CD Pipeline Troubleshooting</span>
+          <span class="level-badge low">None</span>
+        </div>
+        <span class="score low">0.0/5</span>
+      </div>
+      <div class="skill-detail-body">
+        
+        <div class="row"><strong>Questions Asked:</strong> You've set up a CI/CD pipeline that automatically deploys your application to a Kubernetes cluster whenever code is pushed to the main branch. One day, a deployment goes live, and users start reporting that the application is returning 500 errors. What steps do you take to troubleshoot this issue, and what changes would you consider making to your pipeline to prevent similar problems in the future?</div>
+        
+        <div class="row"><strong>Evidence:</strong> The candidate's response was 'One page capturing the context,' which does not address troubleshooting steps or changes to the CI/CD pipeline.</div>
+        <div class="row"><strong>Assessment:</strong> The candidate failed to demonstrate any knowledge or understanding of how to troubleshoot a CI/CD pipeline issue, particularly in the context of a 500 error. Their answer was completely inadequate and did not reflect any relevant experience.</div>
+      </div>
+    </div>
+    
+    <div class="skill-detail-card low">
+      <div class="skill-detail-header">
+        <div class="left">
+          <span>✗</span>
+          <span class="skill-name">Critical Incident Management</span>
+          <span class="level-badge low">None</span>
+        </div>
+        <span class="score low">0.0/5</span>
+      </div>
+      <div class="skill-detail-body">
+        
+        <div class="row"><strong>Questions Asked:</strong> It's 2 AM, and your CI/CD pipeline just failed during a critical deployment. Your application is now stuck in a half-deployed state, and you have users waiting. What immediate steps do you take to address the situation, and how do you communicate with your team and stakeholders while you resolve it?</div>
+        
+        <div class="row"><strong>Evidence:</strong> The candidate stated 'Also improved the quality of,' which does not provide any actionable steps or communication strategies for managing a critical deployment failure.</div>
+        <div class="row"><strong>Assessment:</strong> The candidate did not provide any relevant information or demonstrate an understanding of how to manage critical incidents effectively. Their response lacked clarity and actionable content.</div>
+      </div>
+    </div>
+    
+    <div class="skill-detail-card low">
+      <div class="skill-detail-header">
+        <div class="left">
+          <span>✗</span>
+          <span class="skill-name">Terraform Configuration Management</span>
+          <span class="level-badge low">None</span>
+        </div>
+        <span class="score low">0.0/5</span>
+      </div>
+      <div class="skill-detail-body">
+        
+        <div class="row"><strong>Questions Asked:</strong> Your team is tasked with migrating an application to a new cloud provider using Terraform for infrastructure as code. Midway through the migration, you realize that some resources are being created in the wrong region due to a misconfiguration in your Terraform files. What steps do you take to identify the issue, correct it, and ensure that the resources are provisioned correctly without causing downtime for the existing application?</div>
+        
+        <div class="row"><strong>Evidence:</strong> The candidate's response was 'The decision made and the reasoning,' which does not address identifying or correcting misconfigurations in Terraform.</div>
+        <div class="row"><strong>Assessment:</strong> The candidate failed to demonstrate any understanding of how to manage Terraform configurations or troubleshoot issues related to resource provisioning. Their response was vague and did not reflect any relevant experience.</div>
+      </div>
+    </div>
+    
+    <div class="skill-detail-card low">
+      <div class="skill-detail-header">
+        <div class="left">
+          <span>✗</span>
+          <span class="skill-name">Terraform Incident Recovery</span>
+          <span class="level-badge low">None</span>
+        </div>
+        <span class="score low">0.0/5</span>
+      </div>
+      <div class="skill-detail-body">
+        
+        <div class="row"><strong>Questions Asked:</strong> It's 2 AM, and your Terraform deployment just failed because a critical resource was accidentally removed from the configuration. Your application is now in a broken state, and users are affected. What steps do you take to quickly diagnose the issue, restore functionality, and prevent this from happening in the future?</div>
+        
+        <div class="row"><strong>Evidence:</strong> The candidate stated 'Decision documentation on my team,' which does not provide any actionable steps to diagnose or restore functionality after a Terraform deployment failure.</div>
+        <div class="row"><strong>Assessment:</strong> The candidate did not demonstrate any understanding of how to recover from a Terraform deployment failure or the urgency of addressing user impact. Their response was insufficient and lacked depth.</div>
+      </div>
+    </div>
+    
+  </div>
+  
+  
+  <!-- Analyzed Questions Section -->
+  <div class="question-section">
+    <div class="section-header">📝 Analyzed Questions</div>
+    <p style="font-size:11px;color:#64748b;margin-bottom:14px;">Each card includes the question, candidate's response, analysis, metrics, and feedback.</p>
+    
+    
+    
+    
+    
+    
+    
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-pill">Question 1 / 5</span>
+        <div class="question-score">
+          <span class="num">0.34</span>
+          <span class="den">/ 5</span>
+        </div>
+      </div>
+      
+      <div class="question-title"><strong>Q:</strong> You're deploying a microservice using Docker containers on a Kubernetes cluster in AWS. Suddenly, you notice that the service is failing to start due to a missing environment variable. What steps do you take to identify and resolve the issue, and what do you think could have been done differently to prevent this from happening?</div>
+      
+      <div class="response-panel">
+        <h4>💬 Candidate Response</h4>
+        <div class="text">Members used to get context quickly.</div>
+      </div>
+      
+      <div class="response-panel analysis">
+        <h4>🔍 System Analysis</h4>
+        <div class="text">This response is completely irrelevant to the question asked, providing no insights into the steps to identify and resolve the issue with the missing environment variable in a Docker-Kubernetes setup. The answer lacks any technical depth or understanding of the scenario presented. It demonstrates a severe lack of domain knowledge and fails to address the core of the technical problem presented in the question.</div>
+      </div>
+      
+      <!-- Question Metrics -->
+      
+      <div class="question-metrics">
+        
+        <div class="q-metric">
+          <div class="name">Communication</div>
+          <div class="bar"><div class="bar-fill low" style="width:20%"></div></div>
+          <div class="score low">1.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Experience</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Confidence</div>
+          <div class="bar"><div class="bar-fill low" style="width:21%"></div></div>
+          <div class="score low">1.05</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Domain Knowledge</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">CV Justification</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Skills</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+      </div>
+      
+      
+      <!-- Strengths & Weaknesses -->
+      <div class="sw-grid">
+        <div class="sw-box">
+          <h4>✅ Strengths</h4>
+          <div class="chips">
+            
+            
+            <span style="color:#64748b;font-size:10px;font-style:italic;">None identified</span>
+            
+          </div>
+        </div>
+        <div class="sw-box">
+          <h4>⚠️ Areas for Improvement</h4>
+          <div class="chips">
+            
+            <span class="chip bad">Completely irrelevant response with no technical insights or problem-solving approach</span>
+            
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-pill">Question 2 / 5</span>
+        <div class="question-score">
+          <span class="num">0.0</span>
+          <span class="den">/ 5</span>
+        </div>
+      </div>
+      
+      <div class="question-title"><strong>Q:</strong> You've set up a CI/CD pipeline that automatically deploys your application to a Kubernetes cluster whenever code is pushed to the main branch. One day, a deployment goes live, and users start reporting that the application is returning 500 errors. What steps do you take to troubleshoot this issue, and what changes would you consider making to your pipeline to prevent similar problems in the future?</div>
+      
+      <div class="response-panel">
+        <h4>💬 Candidate Response</h4>
+        <div class="text">One page capturing the context.</div>
+      </div>
+      
+      <div class="response-panel analysis">
+        <h4>🔍 System Analysis</h4>
+        <div class="text">This response is completely inadequate and does not address the technical question provided. The candidate failed to demonstrate any troubleshooting steps or suggest changes to the CI/CD pipeline. The answer lacks depth, relevance, and does not showcase any domain knowledge or problem-solving skills related to CI/CD pipelines or Kubernetes clusters.</div>
+      </div>
+      
+      <!-- Question Metrics -->
+      
+      <div class="question-metrics">
+        
+        <div class="q-metric">
+          <div class="name">Communication</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Experience</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Confidence</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Domain Knowledge</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">CV Justification</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Skills</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+      </div>
+      
+      
+      <!-- Strengths & Weaknesses -->
+      <div class="sw-grid">
+        <div class="sw-box">
+          <h4>✅ Strengths</h4>
+          <div class="chips">
+            
+            
+            <span style="color:#64748b;font-size:10px;font-style:italic;">None identified</span>
+            
+          </div>
+        </div>
+        <div class="sw-box">
+          <h4>⚠️ Areas for Improvement</h4>
+          <div class="chips">
+            
+            <span class="chip bad">Failed to address the troubleshooting steps for resolving 500 errors in the CI/CD pipeline</span>
+            
+            <span class="chip bad">Did not suggest any changes to the pipeline to prevent similar issues in the future</span>
+            
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-pill">Question 3 / 5</span>
+        <div class="question-score">
+          <span class="num">0.17</span>
+          <span class="den">/ 5</span>
+        </div>
+      </div>
+      
+      <div class="question-title"><strong>Q:</strong> It's 2 AM, and your CI/CD pipeline just failed during a critical deployment. Your application is now stuck in a half-deployed state, and you have users waiting. What immediate steps do you take to address the situation, and how do you communicate with your team and stakeholders while you resolve it?</div>
+      
+      <div class="response-panel">
+        <h4>💬 Candidate Response</h4>
+        <div class="text">Also improved the quality of</div>
+      </div>
+      
+      <div class="response-panel analysis">
+        <h4>🔍 System Analysis</h4>
+        <div class="text">This response is incomplete and does not address the question at all. The candidate failed to provide any actionable steps or communication strategies to handle a critical deployment failure scenario. The answer lacks depth, clarity, and relevance, indicating a significant gap in the candidate's problem-solving and communication skills in a high-pressure situation.</div>
+      </div>
+      
+      <!-- Question Metrics -->
+      
+      <div class="question-metrics">
+        
+        <div class="q-metric">
+          <div class="name">Communication</div>
+          <div class="bar"><div class="bar-fill low" style="width:10%"></div></div>
+          <div class="score low">0.5</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Experience</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Confidence</div>
+          <div class="bar"><div class="bar-fill low" style="width:10%"></div></div>
+          <div class="score low">0.5</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Domain Knowledge</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">CV Justification</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Skills</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+      </div>
+      
+      
+      <!-- Strengths & Weaknesses -->
+      <div class="sw-grid">
+        <div class="sw-box">
+          <h4>✅ Strengths</h4>
+          <div class="chips">
+            
+            
+            <span style="color:#64748b;font-size:10px;font-style:italic;">None identified</span>
+            
+          </div>
+        </div>
+        <div class="sw-box">
+          <h4>⚠️ Areas for Improvement</h4>
+          <div class="chips">
+            
+            <span class="chip bad">Failed to provide any actionable steps or communication strategies in a critical deployment failure scenario</span>
+            
+            <span class="chip bad">Lacks problem-solving skills and ability to handle high-pressure situations</span>
+            
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-pill">Question 4 / 5</span>
+        <div class="question-score">
+          <span class="num">0.33</span>
+          <span class="den">/ 5</span>
+        </div>
+      </div>
+      
+      <div class="question-title"><strong>Q:</strong> Your team is tasked with migrating an application to a new cloud provider using Terraform for infrastructure as code. Midway through the migration, you realize that some resources are being created in the wrong region due to a misconfiguration in your Terraform files. What steps do you take to identify the issue, correct it, and ensure that the resources are provisioned correctly without causing downtime for the existing application?</div>
+      
+      <div class="response-panel">
+        <h4>💬 Candidate Response</h4>
+        <div class="text">The decision made and the reasoning.</div>
+      </div>
+      
+      <div class="response-panel analysis">
+        <h4>🔍 System Analysis</h4>
+        <div class="text">This response is incomplete and lacks the necessary depth to address the scenario provided in the question. The candidate did not provide any specific steps or actions to identify and correct the misconfiguration in the Terraform files. The answer is vague and does not demonstrate a clear understanding of the technical process involved in troubleshooting and resolving such issues. The candidate needs to provide a more detailed and structured response to showcase their problem-solving skills and technical knowledge.</div>
+      </div>
+      
+      <!-- Question Metrics -->
+      
+      <div class="question-metrics">
+        
+        <div class="q-metric">
+          <div class="name">Communication</div>
+          <div class="bar"><div class="bar-fill low" style="width:20%"></div></div>
+          <div class="score low">1.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Experience</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Confidence</div>
+          <div class="bar"><div class="bar-fill low" style="width:20%"></div></div>
+          <div class="score low">1.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Domain Knowledge</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">CV Justification</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Skills</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+      </div>
+      
+      
+      <!-- Strengths & Weaknesses -->
+      <div class="sw-grid">
+        <div class="sw-box">
+          <h4>✅ Strengths</h4>
+          <div class="chips">
+            
+            
+            <span style="color:#64748b;font-size:10px;font-style:italic;">None identified</span>
+            
+          </div>
+        </div>
+        <div class="sw-box">
+          <h4>⚠️ Areas for Improvement</h4>
+          <div class="chips">
+            
+            <span class="chip bad">Lack of specific steps to address the misconfiguration in Terraform files</span>
+            
+            <span class="chip bad">Failure to demonstrate technical knowledge in troubleshooting cloud infrastructure issues</span>
+            
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    
+    <div class="question-card">
+      <div class="question-header">
+        <span class="question-pill">Question 5 / 5</span>
+        <div class="question-score">
+          <span class="num">0.34</span>
+          <span class="den">/ 5</span>
+        </div>
+      </div>
+      
+      <div class="question-title"><strong>Q:</strong> It's 2 AM, and your Terraform deployment just failed because a critical resource was accidentally removed from the configuration. Your application is now in a broken state, and users are affected. What steps do you take to quickly diagnose the issue, restore functionality, and prevent this from happening in the future?</div>
+      
+      <div class="response-panel">
+        <h4>💬 Candidate Response</h4>
+        <div class="text">Decision documentation on my team.</div>
+      </div>
+      
+      <div class="response-panel analysis">
+        <h4>🔍 System Analysis</h4>
+        <div class="text">The candidate's response is extremely brief and lacks any actionable steps or depth. The answer provided is vague and does not demonstrate a clear understanding of the situation or the necessary steps to address a critical incident like a failed Terraform deployment. The response is incomplete and does not provide any insights into the candidate's problem-solving skills or technical knowledge in handling such scenarios.</div>
+      </div>
+      
+      <!-- Question Metrics -->
+      
+      <div class="question-metrics">
+        
+        <div class="q-metric">
+          <div class="name">Communication</div>
+          <div class="bar"><div class="bar-fill low" style="width:20%"></div></div>
+          <div class="score low">1.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Experience</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Confidence</div>
+          <div class="bar"><div class="bar-fill low" style="width:21%"></div></div>
+          <div class="score low">1.05</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Domain Knowledge</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">CV Justification</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+        <div class="q-metric">
+          <div class="name">Skills</div>
+          <div class="bar"><div class="bar-fill low" style="width:0%"></div></div>
+          <div class="score low">0.0</div>
+        </div>
+        
+      </div>
+      
+      
+      <!-- Strengths & Weaknesses -->
+      <div class="sw-grid">
+        <div class="sw-box">
+          <h4>✅ Strengths</h4>
+          <div class="chips">
+            
+            
+            <span style="color:#64748b;font-size:10px;font-style:italic;">None identified</span>
+            
+          </div>
+        </div>
+        <div class="sw-box">
+          <h4>⚠️ Areas for Improvement</h4>
+          <div class="chips">
+            
+            <span class="chip bad">Lacks specific steps to diagnose and resolve the Terraform deployment failure</span>
+            
+            <span class="chip bad">Fails to address the impact on users or the urgency of the situation</span>
+            
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+  </div>
+  
+  <!-- Conversation Timeline -->
+  
+  <div class="timeline-section">
+    <div class="timeline-header">💬 Conversation Timeline</div>
+    <div class="timeline-sub">Chronological transcript of the interview</div>
+    
+    <div class="chat">
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Hi Manish Saxena, welcome..</div>
+            <div class="time">11:57:45</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Manish Saxena
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Manish Saxena">
+            </div>
+            <div class="msg-text">Three one. Within six months, we had over 40 decision records.</div>
+            <div class="time">11:57:55</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">That's interesting! It sounds like you've had some significant achievements. How's your day going?</div>
+            <div class="time">11:58:01</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Manish Saxena
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Manish Saxena">
+            </div>
+            <div class="msg-text">Practice also improved</div>
+            <div class="time">11:58:06</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-warmup">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Before we get into the technical questions, I'd love to hear a bit about your background. What got you into this field and what's been keeping you excited about it lately?</div>
+            <div class="time">11:58:14</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Manish Saxena
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Manish Saxena">
+            </div>
+            <div class="msg-text">Practices and has since spread to three other teams in the organization.</div>
+            <div class="time">11:58:23</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-warmup">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">That's really interesting, thanks for sharing! Alright, let's get into some technical questions.</div>
+            <div class="time">11:58:28</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">You're deploying a microservice using Docker containers on a Kubernetes cluster in AWS. Suddenly, you notice that the service is failing to start due to a missing environment variable. What steps do you take to identify and resolve the issue, and what do you think could have been done differently to prevent this from happening?</div>
+            <div class="time">11:58:45</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Manish Saxena
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Manish Saxena">
+            </div>
+            <div class="msg-text">Members used to get context quickly.</div>
+            <div class="time">11:58:58</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Right, okay — it's great to hear that team members were able to get context quickly. That kind of efficiency really helps in a fast-paced environment.</div>
+            <div class="time">11:59:07</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">You've set up a CI/CD pipeline that automatically deploys your application to a Kubernetes cluster whenever code is pushed to the main branch. One day, a deployment goes live, and users start reporting that the application is returning 500 errors. What steps do you take to troubleshoot this issue, and what changes would you consider making to your pipeline to prevent similar problems in the future?</div>
+            <div class="time">11:59:29</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Manish Saxena
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Manish Saxena">
+            </div>
+            <div class="msg-text">One page capturing the context.</div>
+            <div class="time">11:59:35</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Hmm, interesting — so you emphasize having a one-page document for context, that's a smart way to streamline communication.</div>
+            <div class="time">11:59:43</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">It's 2 AM, and your CI/CD pipeline just failed during a critical deployment. Your application is now stuck in a half-deployed state, and you have users waiting. What immediate steps do you take to address the situation, and how do you communicate with your team and stakeholders while you resolve it?</div>
+            <div class="time">11:59:59</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Manish Saxena
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Manish Saxena">
+            </div>
+            <div class="msg-text">Also improved the quality of</div>
+            <div class="time">12:00:04</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Gotcha — improving quality is always a key focus, especially in CI/CD processes. That attention to detail really pays off!</div>
+            <div class="time">12:00:15</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Your team is tasked with migrating an application to a new cloud provider using Terraform for infrastructure as code. Midway through the migration, you realize that some resources are being created in the wrong region due to a misconfiguration in your Terraform files. What steps do you take to identify the issue, correct it, and ensure that the resources are provisioned correctly without causing downtime for the existing application?</div>
+            <div class="time">12:00:36</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Manish Saxena
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Manish Saxena">
+            </div>
+            <div class="msg-text">The decision made and the reasoning.</div>
+            <div class="time">12:00:42</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Right, okay — focusing on the decision-making process and the reasoning behind it is crucial for clarity in any migration project.</div>
+            <div class="time">12:00:50</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">It's 2 AM, and your Terraform deployment just failed because a critical resource was accidentally removed from the configuration. Your application is now in a broken state, and users are affected. What steps do you take to quickly diagnose the issue, restore functionality, and prevent this from happening in the future?</div>
+            <div class="time">12:01:07</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Manish Saxena
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Manish Saxena">
+            </div>
+            <div class="msg-text">It became one of the most</div>
+            <div class="time">12:01:14</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Gotcha — it sounds like you were about to share an important insight.</div>
+            <div class="time">12:01:20</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">It's 2 AM, and your Terraform deployment just failed because a critical resource was accidentally removed from the configuration. Your application is now in a broken state, and users are affected. What steps do you take to quickly diagnose the issue, restore functionality, and prevent this from happening in the future?</div>
+            <div class="time">12:01:37</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Manish Saxena
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Manish Saxena">
+            </div>
+            <div class="msg-text">Lakh accessible to everyone.</div>
+            <div class="time">12:01:43</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Hmm, interesting — making resources accessible to everyone is such an important aspect of cloud engineering. It's great to see that focus!</div>
+            <div class="time">12:01:53</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">It's 2 AM, and your Terraform deployment just failed because a critical resource was accidentally removed from the configuration. Your application is now in a broken state, and users are affected. What steps do you take to quickly diagnose the issue, restore functionality, and prevent this from happening in the future?</div>
+            <div class="time">12:02:09</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Manish Saxena
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Manish Saxena">
+            </div>
+            <div class="msg-text">Three other teams in the organization.</div>
+            <div class="time">12:02:14</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Right, okay — collaborating with three other teams really highlights the importance of communication in a DevOps environment.</div>
+            <div class="time">12:02:22</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">It's 2 AM, and your Terraform deployment just failed because a critical resource was accidentally removed from the configuration. Your application is now in a broken state, and users are affected. What steps do you take to quickly diagnose the issue, restore functionality, and prevent this from happening in the future?</div>
+            <div class="time">12:02:39</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Manish Saxena
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Manish Saxena">
+            </div>
+            <div class="msg-text">Decision records that new</div>
+            <div class="time">12:02:45</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Hmm, interesting — it sounds like you're emphasizing the importance of decision records in your process. That's a great way to keep track of changes!</div>
+            <div class="time">12:02:55</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">It's 2 AM, and your Terraform deployment just failed because a critical resource was accidentally removed from the configuration. Your application is now in a broken state, and users are affected. What steps do you take to quickly diagnose the issue, restore functionality, and prevent this from happening in the future?</div>
+            <div class="time">12:03:11</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Manish Saxena
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Manish Saxena">
+            </div>
+            <div class="msg-text">Decision documentation on my team.</div>
+            <div class="time">12:03:19</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-technical_qa">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Yeah, that makes sense — having solid decision documentation on your team can really help maintain clarity and accountability.</div>
+            <div class="time">12:03:28</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        <div class="msg left type-qa_kickoff">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Thank you for your responses, Manish Saxena. That concludes the technical portion of our interview. Our team will review your answers carefully. Before we wrap up, do you have any questions for me about the company or the role?</div>
+            <div class="time">12:03:40</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Manish Saxena
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Manish Saxena">
+            </div>
+            <div class="msg-text">Quickly and recurring debate</div>
+            <div class="time">12:03:46</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-qa_bot_reply">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">It sounds like you might be ready to end the interview. If you have any questions about the role, feel free to ask. If you're ready to wrap up, just let me know!</div>
+            <div class="time">12:03:56</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Manish Saxena
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Manish Saxena">
+            </div>
+            <div class="msg-text">We're thinking before the meeting.</div>
+            <div class="time">12:04:02</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-qa_bot_reply">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">Sure, take your time. If you have any questions about the role or anything else, feel free to ask whenever you're ready.</div>
+            <div class="time">12:04:09</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        
+        
+        <div class="msg right">
+          <div class="bubble">
+            <div class="who">
+              Manish Saxena
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiIGZpbGw9IiNEREREREQiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTIgMTJDMTQuNDg1MyAxMiAxNi41IDkuOTg1MjggMTYuNSA3LjVDMTYuNSA1LjAxNDcyIDE0LjQ4NTMgMyAxMiAzQzkuNTE0NzIgMyA3LjUgNS4wMTQ3MiA3LjUgNy41QzcuNSA5Ljk4NTI4IDkuNTE0NzIgMTIgMTIgMTJaIiBmaWxsPSIjNjY2NjY2Ii8+CjxwYXRoIGQ9Ik0yMC4xMTggMTkuODg1QzE4LjI3MSAxOC4wMzggMTUuMjYxIDE3IDEyIDE3SDZDNC43MzkgMTcgMS43MjkgMTguMDM4IDUuODgyIDE5Ljg4NUMyLjA2NSAyMS43NTIgMi4wNjUgMjIuMjQ4IDUuODgyIDI0LjExNUM3LjcyOSAyNS45NjIgMTAuNzM5IDI3IDEyIDI3QzEzLjI2MSAyNyAxOC4yNzEgMjUuOTYyIDIwLjExOCAyNC4xMTVDMjEuOTM1IDIyLjI0OCAyMS45MzUgMjEuNzUyIDIwLjExOCAxOS44ODVaIiBmaWxsPSIjNjY2NjY2Ii8+Cjwvc3ZnPgo8L3N2Zz4K" alt="Manish Saxena">
+            </div>
+            <div class="msg-text">Documentation on my team.</div>
+            <div class="time">12:04:16</div>
+          </div>
+        </div>
+        
+      
+        
+        <div class="msg left type-qa_bot_reply">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">I don't have specific documentation details about the team you'll be working with. However, the recruitment team will be able to provide more information about the team structure and resources. Do you have any other questions I can assist with?</div>
+            <div class="time">12:04:29</div>
+          </div>
+        </div>
+        
+        
+        
+      
+        
+        <div class="msg left type-closing">
+          <div class="bubble">
+            <div class="who">
+              <img src="./interview_reports/Aira_bot.jpg" alt="AIRA" /> AIRA
+            </div>
+            <div class="msg-text">We've covered quite a bit! To respect your schedule, we'll wrap up here. Thank you for your time today, and the recruitment team will follow up with next steps. Have a great day!</div>
+            <div class="time">12:04:38</div>
+          </div>
+        </div>
+        
+        
+        
+      
+    </div>
+  </div>
+  
+  
+  <div class="footer">This report is generated by AIRA (Your AI Hiring Agent). For questions or support, contact support@airahr.ai</div>
+</div>
+</body>
+</html>

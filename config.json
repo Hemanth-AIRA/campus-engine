@@ -1,0 +1,11 @@
+{
+  "HARDCODED_EMAILS": [
+    "Hemanth.Nalabolu@airahr.ai"
+  ],
+  "INTERVIEW_PASS_THRESHOLD_PERCENTAGE": 50,
+  "SKILL_RATIO": {
+    "mandatory": 4,
+    "optional": 1
+  },
+  "COMMENT": "All scores in the system are now on 0-100 scale. Pass threshold is 50%."
+}

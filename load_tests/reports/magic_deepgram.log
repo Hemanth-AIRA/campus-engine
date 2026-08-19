@@ -1,0 +1,24 @@
+2026-06-17 14:23:21,386 [DG-MAGIC] ============================================================
+2026-06-17 14:23:21,386 [DG-MAGIC]   Deepgram WS Connect — Magic Number Benchmark
+2026-06-17 14:23:21,386 [DG-MAGIC]   Steps: [30, 40, 50, 75, 100]
+2026-06-17 14:23:21,387 [DG-MAGIC]   Metric: connect
+2026-06-17 14:23:21,387 [DG-MAGIC] ============================================================
+2026-06-17 14:23:21,387 [DG-MAGIC] ┌─ Ladder: Deepgram WS Connect
+2026-06-17 14:23:21,387 [DG-MAGIC] │  Steps: [30, 40, 50, 75, 100]
+2026-06-17 14:23:21,387 [DG-MAGIC] │  ── n=30  …
+2026-06-17 14:23:23,275 [DG-MAGIC] │  n=30   p50=  1523  p95=  1570  p99=  1587  max=  1594  errors=0/30  🟢
+2026-06-17 14:23:23,275 [DG-MAGIC] │  (cooldown 3.0s)
+2026-06-17 14:23:26,276 [DG-MAGIC] │  ── n=40  …
+2026-06-17 14:23:28,085 [DG-MAGIC] │  n=40   p50=  1390  p95=  1485  p99=  1491  max=  1492  errors=0/40  🟢
+2026-06-17 14:23:28,085 [DG-MAGIC] │  (cooldown 3.0s)
+2026-06-17 14:23:31,085 [DG-MAGIC] │  ── n=50  …
+2026-06-17 14:23:33,166 [DG-MAGIC] │  n=50   p50=  1610  p95=  1784  p99=  1785  max=  1786  errors=0/50  🟢
+2026-06-17 14:23:33,166 [DG-MAGIC] │  (cooldown 3.0s)
+2026-06-17 14:23:36,167 [DG-MAGIC] │  ── n=75  …
+2026-06-17 14:23:39,677 [DG-MAGIC] │  n=75   p50=  2339  p95=  2600  p99=  2614  max=  2615  errors=0/75  🟡
+2026-06-17 14:23:39,678 [DG-MAGIC] │  (cooldown 3.0s)
+2026-06-17 14:23:42,679 [DG-MAGIC] │  ── n=100 …
+2026-06-17 14:23:45,499 [DG-MAGIC] │  n=100  p50=  2453  p95=  2522  p99=  2526  max=  2527  errors=0/100  🟡
+2026-06-17 14:23:45,500 [DG-MAGIC] └─ Done.
+2026-06-17 14:23:46,414 [DG-MAGIC] Report saved: /Users/sridharkotha/Desktop/AIRA_ENGINE_REPORT/load_tests/reports/deepgram_ws_connect_20260617_085345.md
+2026-06-17 14:23:46,414 [DG-MAGIC] Report: /Users/sridharkotha/Desktop/AIRA_ENGINE_REPORT/load_tests/reports/deepgram_ws_connect_20260617_085345.md

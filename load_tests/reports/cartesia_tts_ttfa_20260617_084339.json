@@ -1,0 +1,35 @@
+{
+  "name": "Cartesia TTS TTFA",
+  "run_at": "2026-06-17T08:43:36.042230",
+  "magic_number": 1,
+  "warn_number": 1,
+  "baseline_p95": 0.0,
+  "steps": [
+    {
+      "n": 1,
+      "p50_ms": 0.0,
+      "p90_ms": 0.0,
+      "p95_ms": 0.0,
+      "p99_ms": 0.0,
+      "max_ms": 0.0,
+      "mean_ms": 0.0,
+      "success": 0,
+      "errors": 1,
+      "success_pct": 0.0,
+      "status": "\ud83d\udfe2 OK"
+    },
+    {
+      "n": 2,
+      "p50_ms": 0.0,
+      "p90_ms": 0.0,
+      "p95_ms": 0.0,
+      "p99_ms": 0.0,
+      "max_ms": 0.0,
+      "mean_ms": 0.0,
+      "success": 0,
+      "errors": 2,
+      "success_pct": 0.0,
+      "status": "\ud83d\udfe2 OK"
+    }
+  ]
+}
