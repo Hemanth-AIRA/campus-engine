@@ -8,6 +8,7 @@ the bot joins. A dedicated *pacer* thread is the only writer to the output
 streams; on every tick it writes exactly enough data to keep each track locked
 to real elapsed time:
 
+
   • Video  → exactly TARGET_FPS frames/sec. Holds the last camera frame, or
              emits BLACK when the candidate's camera is off / not yet joined /
              has left. Encoded live by FFmpeg (raw RGBA → VP8 WebM).
@@ -41,6 +42,7 @@ import subprocess
 import threading
 import time
 import wave
+from collections import deque
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
@@ -66,6 +68,20 @@ CAND_RATE = 48000   # candidate audio sample rate (LiveKit AudioStream)
 BOT_RATE = 24000    # bot audio sample rate (Cartesia TTS output)
 
 _BLACK_FRAME = bytes(REC_WIDTH * REC_HEIGHT * 4)  # RGBA all-zero = black
+
+# Capture-queue depth, in 20ms frames, for each audio track. The producers are
+# the bot's asyncio event loop (playback) and its LiveKit audio callback — neither
+# may ever block on disk or on a lock, so they only append here and a dedicated
+# writer thread does the I/O. ~10s of slack absorbs any disk stall; beyond that we
+# drop and say so rather than growing memory without limit.
+AUDIO_QUEUE_FRAMES = int(os.environ.get("REC_AUDIO_QUEUE_FRAMES", "500"))
+
+# How far behind wall clock the silence padding stops. Frames arrive with network
+# jitter; padding all the way to "now" writes silence into the slot a frame that is
+# still in flight belongs in, and that frame then lands AFTER its own silence —
+# a permanent shift that every later frame inherits. Holding the padding back by
+# this much leaves late frames room to land where they belong.
+AUDIO_PAD_GRACE_S = float(os.environ.get("REC_AUDIO_PAD_GRACE_S", "0.25"))
  
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -96,7 +112,7 @@ def _install_recording_deletion_tracer() -> None:
             return False
         if not p.startswith(_rec_dir):
             return False
-        return p.endswith((".webm", ".wav", ".fflog"))
+        return p.endswith((".webm", ".wav", ".fflog", ".mkv"))
 
     def _log(op, path, extra=""):
         stack = "".join(_traceback.format_stack()[:-1][-10:])
@@ -179,7 +195,11 @@ class LocalVideoRecorder:
         # H.264/MP4: libx264 is ~10x cheaper than libvpx VP8 to encode, which is the
         # dominant per-interview CPU cost (VP8's cost floor doesn't shrink with
         # resolution). Container is MP4 accordingly.
-        self._video_only_path = self._dir / f"{base}_video.mp4"
+        # MKV stores timestamps as absolute values per cluster — no fragment-base-offset
+        # ambiguity that fragmented MP4 (default_base_moof) introduces. MKV is also
+        # natively crash-tolerant (each cluster is independently readable) so we keep
+        # crash-recovery without the A/V sync problems caused by fragmented MP4 stream-copy.
+        self._video_only_path = self._dir / f"{base}_video.mkv"
         self._final_path = self._dir / f"{base}_{ts}.mp4"
 
         # Audio writers
@@ -197,14 +217,34 @@ class LocalVideoRecorder:
         # The single clock. Set in start().
         self._t0 = 0.0
 
-        # Pacer thread — the ONLY writer to all output streams.
+        # Pacer thread — the only writer to the VIDEO pipe.
         self._pacer: Optional[threading.Thread] = None
         self._stop_evt = threading.Event()
         self._frame_interval = 1.0 / TARGET_FPS
 
+        # Audio writer thread — the only writer to BOTH WAV files. It drains the
+        # capture queues below, writes real frames, and pads each track up to
+        # wall clock. One owner means the pad/write counters can never race:
+        # padding only ever fills what is genuinely missing, never a frame that
+        # is still sitting in a queue (which would insert silence ahead of it).
+        self._audio_writer: Optional[threading.Thread] = None
+        self._audio_stop_evt = threading.Event()
+        self._audio_interval = 0.02  # 20ms — one frame period
+        self._cand_q = deque()
+        self._bot_q = deque()
+        self._cand_dropped = 0
+        self._bot_dropped = 0
+        self._cand_overfed = 0
+        self._bot_overfed = 0
+
         # Latest camera frame (already scaled to REC_WIDTH x REC_HEIGHT).
         self._latest_frame = _BLACK_FRAME
         self._have_real_frame = False
+        # True while the candidate's camera is off. The pacer re-writes the last
+        # frame every tick to hold video on wall clock, so without this the
+        # recording freezes on whatever was on screen when they hit the button
+        # and shows it for the rest of the interview.
+        self._video_blanked = False
 
         # Counters (in SAMPLES / FRAMES) tracking what's been written so far.
         self._cand_samples = 0
@@ -256,8 +296,13 @@ class LocalVideoRecorder:
             self._frames_written = 0
             self._candidate_bytes = 0
             self._bot_bytes = 0
+            self._cand_q.clear()
+            self._bot_q.clear()
+            self._cand_dropped = 0
+            self._bot_dropped = 0
             self._latest_frame = _BLACK_FRAME
             self._have_real_frame = False
+            self._video_blanked = False
             self._capture_frozen = False
 
             self._start_ffmpeg()
@@ -266,11 +311,17 @@ class LocalVideoRecorder:
             self._stop_evt.clear()
             self._t0 = time.monotonic()
 
-        # Pacer started outside the lock; it acquires locks per tick.
+        # Both started outside the lock; they acquire it per tick.
         self._pacer = threading.Thread(
             target=self._pace_loop, name=f"recorder-pacer-{self.room_id}", daemon=True
         )
         self._pacer.start()
+
+        self._audio_stop_evt.clear()
+        self._audio_writer = threading.Thread(
+            target=self._audio_loop, name=f"recorder-audio-{self.room_id}", daemon=True
+        )
+        self._audio_writer.start()
 
         logger.info(
             "🎬 [process id: %s][room: %s] Synchronized recording STARTED "
@@ -318,16 +369,19 @@ class LocalVideoRecorder:
             "-s", f"{REC_WIDTH}x{REC_HEIGHT}",
             "-r", str(TARGET_FPS),
             "-i", "pipe:0",
-            # H.264 via libx264, ultrafast — far cheaper than libvpx VP8 (the CPU
-            # hog). zerolatency suits realtime pipe input. Fragmented-MP4 flags make
-            # the file playable even if ffmpeg is killed mid-interview (no trailing
-            # moov needed), so the salvage/sweep path still recovers video.
+            # H.264/MKV — libx264 ultrafast, far cheaper than libvpx VP8.
+            # MKV container: crash-tolerant without needing fragmented-MP4 flags
+            # (each MKV cluster is independently readable). No -tune zerolatency:
+            # that flag restricts reference frames for lower latency but we are
+            # writing to disk (not live-streaming), so the latency savings are
+            # irrelevant and the quality penalty is not.
             "-c:v", "libx264",
             "-preset", os.environ.get("REC_X264_PRESET", "ultrafast"),
-            "-tune", "zerolatency",
-            "-b:v", os.environ.get("REC_VIDEO_BITRATE", "1M"),
+            # CRF lets the encoder self-tune quality: more bits on motion,
+            # fewer on static frames. For talking-head 320x240@10fps this gives
+            # better perceptual quality than a fixed -b:v ceiling at no extra CPU.
+            "-crf", os.environ.get("REC_VIDEO_CRF", "23"),
             "-pix_fmt", "yuv420p",
-            "-movflags", "+frag_keyframe+empty_moov+default_base_moof",
             str(self._video_only_path),
         ]
         # Redirect stderr to a file (NOT a PIPE) — an unread PIPE deadlocks a
@@ -451,14 +505,102 @@ class LocalVideoRecorder:
                 except Exception:
                     pass
 
-        # ── Audio: pad silence up to the wall-clock target on each track ──
+        # Audio is not written here. The audio writer thread owns both WAV files,
+        # their sample counters and their silence padding — see _audio_loop().
+
+    # ────────────────────────────────────────────────────────────────────
+    # Audio writer — sole writer of both WAV files
+    # ────────────────────────────────────────────────────────────────────
+
+    def _audio_loop(self):
+        """Drain the capture queues to disk and keep both tracks on wall clock.
+
+        Runs on its own thread so that neither producer — the bot's playback
+        loop nor its LiveKit audio callback, both on the asyncio event loop —
+        ever touches `self._lock` or the filesystem.
+        """
+        while not self._audio_stop_evt.is_set():
+            self._drain_audio_once()
+            self._audio_stop_evt.wait(self._audio_interval)
+        # Final pass: flush what is still queued and close the grace gap so the
+        # track ends exactly on wall clock.
+        self._drain_audio_once(final=True)
+
+    def _drain_audio_once(self, final: bool = False):
+        elapsed = time.monotonic() - self._t0
+        pad_to = elapsed if final else elapsed - AUDIO_PAD_GRACE_S
         with self._lock:
-            self._pad_silence_locked(
-                self._candidate_wf, CAND_RATE, elapsed, is_bot=False
-            )
-            self._pad_silence_locked(
-                self._bot_wf, BOT_RATE, elapsed, is_bot=True
-            )
+            # Real frames FIRST (each at its own capture time), THEN top up the
+            # remaining silence. Both orderings matter: frames go where they
+            # belong, and padding only ever fills what is genuinely missing.
+            self._flush_queue_locked(self._cand_q, self._candidate_wf, CAND_RATE, is_bot=False)
+            self._flush_queue_locked(self._bot_q, self._bot_wf, BOT_RATE, is_bot=True)
+            if pad_to > 0:
+                self._pad_silence_locked(self._candidate_wf, CAND_RATE, pad_to, is_bot=False)
+                self._pad_silence_locked(self._bot_wf, BOT_RATE, pad_to, is_bot=True)
+
+    def _flush_queue_locked(self, q, wf, rate, is_bot):
+        """Write queued frames AT THEIR CAPTURE TIME. Caller must hold self._lock.
+
+        Appending each frame wherever the file happens to end is what makes
+        candidate audio drift out of sync with video: a frame delayed by network
+        jitter lands after the silence already written for its slot, and every
+        later frame inherits that offset for the rest of the interview. Seeking
+        to `(captured_at - t0) * rate` instead keeps every frame anchored to the
+        same wall clock the video is paced against.
+        """
+        if wf is None:
+            return
+        while True:
+            try:
+                ts, pcm = q.popleft()
+            except IndexError:
+                return
+            written = self._bot_samples if is_bot else self._cand_samples
+
+            # Hard ceiling at wall clock. A track can only ever be as long as the
+            # interview; if the write head is already past "now" then more audio
+            # is arriving than real time can account for — a duplicated source,
+            # or a burst being replayed. Writing it anyway is what produced the
+            # 2.4x candidate track in production (2809s over an 1183s interview),
+            # which makes the audio drift steadily behind the video for the whole
+            # recording. Drop it and say so, rather than corrupting the timeline.
+            now_samples = int((time.monotonic() - self._t0) * rate)
+            if written > now_samples + rate // 10:      # 100ms of slack
+                if is_bot:
+                    self._bot_overfed += 1
+                else:
+                    self._cand_overfed += 1
+                continue
+
+            target = int((ts - self._t0) * rate)
+            if target > written:
+                # Genuine gap before this frame (candidate muted, not yet joined,
+                # or a real pause) — fill it so the frame lands on its timestamp.
+                self._write_silence_locked(wf, target - written, is_bot)
+            try:
+                wf.writeframes(pcm)
+            except Exception:
+                return
+            if is_bot:
+                self._bot_samples += len(pcm) // 2
+                self._bot_bytes += len(pcm)
+            else:
+                self._cand_samples += len(pcm) // 2
+                self._candidate_bytes += len(pcm)
+
+    def _write_silence_locked(self, wf, nsamples, is_bot):
+        """Append `nsamples` of silence and account for it. Caller holds the lock."""
+        if nsamples <= 0:
+            return
+        try:
+            wf.writeframes(b"\x00\x00" * nsamples)
+        except Exception:
+            return
+        if is_bot:
+            self._bot_samples += nsamples
+        else:
+            self._cand_samples += nsamples
 
     def _pad_silence_locked(self, wf, rate, elapsed, is_bot):
         """Fill the track with silence up to round(elapsed * rate) samples.
@@ -467,17 +609,7 @@ class LocalVideoRecorder:
             return
         target = int(elapsed * rate)
         written = self._bot_samples if is_bot else self._cand_samples
-        deficit = target - written
-        if deficit <= 0:
-            return
-        try:
-            wf.writeframes(b"\x00\x00" * deficit)
-        except Exception:
-            return
-        if is_bot:
-            self._bot_samples += deficit
-        else:
-            self._cand_samples += deficit
+        self._write_silence_locked(wf, target - written, is_bot)
 
     # ────────────────────────────────────────────────────────────────────
     # Capture inputs (called from the bot client's async callbacks)
@@ -486,7 +618,7 @@ class LocalVideoRecorder:
     def write_video_frame(self, rgba_data: bytes, width: int, height: int):
         """Store the latest camera frame (scaled to fixed geometry). The pacer
         thread is what actually feeds FFmpeg, so this never blocks on I/O."""
-        if not self._active or self._capture_frozen:
+        if not self._active or self._capture_frozen or self._video_blanked:
             return
         scaled = self._scale_frame(rgba_data, width, height)
         if scaled is None:
@@ -494,6 +626,28 @@ class LocalVideoRecorder:
         with self._video_lock:
             self._latest_frame = scaled
             self._have_real_frame = True
+
+    def set_video_blank(self, blank: bool, *, sticky: bool = True):
+        """Blank (or restore) the recorded video when the camera goes off/on.
+
+        The pacer holds video on wall clock by re-writing `_latest_frame` every
+        tick. When the candidate mutes their camera no new frames arrive, so that
+        buffer keeps the last image and the recording freezes on it. Swapping in
+        black makes the recording reflect what actually happened.
+
+        `sticky` keeps incoming frames suppressed until explicitly restored — used
+        for an explicit mute, where a straggler frame could otherwise arrive after
+        the event and re-freeze the picture. Track unsubscribes pass sticky=False,
+        since a resubscribe legitimately resumes frames.
+        """
+        with self._video_lock:
+            if blank:
+                self._latest_frame = _BLACK_FRAME
+                self._have_real_frame = False
+                if sticky:
+                    self._video_blanked = True
+            else:
+                self._video_blanked = False
 
     def _scale_frame(self, rgba_data: bytes, width: int, height: int) -> Optional[bytes]:
         """Scale an arbitrary-size RGBA frame to REC_WIDTH x REC_HEIGHT."""
@@ -515,34 +669,61 @@ class LocalVideoRecorder:
             return None
 
     def write_candidate(self, pcm_bytes: bytes):
-        """Write candidate PCM16 audio (48 kHz mono) at its true time offset."""
+        """Queue candidate PCM16 audio (48 kHz mono) for the writer thread.
+
+        Called from the bot's asyncio callback. Appends only — no lock, no disk.
+        `deque.append` is atomic under the GIL, so the event loop can never block
+        here; a blocking acquire in this path stalls the WHOLE loop, which breaks
+        the bot's 20ms playback cadence and is heard as cracking by the candidate.
+        """
         if not self._active or self._capture_frozen:
             return
-        with self._lock:
-            if self._candidate_wf:
-                try:
-                    self._candidate_wf.writeframes(pcm_bytes)
-                    self._cand_samples += len(pcm_bytes) // 2
-                    self._candidate_bytes += len(pcm_bytes)
-                except Exception:
-                    pass
+        if len(self._cand_q) >= AUDIO_QUEUE_FRAMES:
+            self._cand_dropped += 1
+            return
+        # Timestamp at ARRIVAL, not at write time — this is what positions the
+        # frame correctly when the writer runs late or the frame was delayed.
+        self._cand_q.append((time.monotonic(), pcm_bytes))
 
     def write_bot(self, pcm_bytes: bytes):
-        """Write bot PCM16 audio (24 kHz mono) at its true time offset."""
+        """Queue bot PCM16 audio (24 kHz mono) for the writer thread.
+
+        Called from `_drain_loop` on the event loop, once per 20ms playback frame.
+        Appends only — see write_candidate() for why this must never block.
+        """
         if not self._active or self._capture_frozen:
             return
-        with self._lock:
-            if self._bot_wf:
-                try:
-                    self._bot_wf.writeframes(pcm_bytes)
-                    self._bot_samples += len(pcm_bytes) // 2
-                    self._bot_bytes += len(pcm_bytes)
-                except Exception:
-                    pass
+        if len(self._bot_q) >= AUDIO_QUEUE_FRAMES:
+            self._bot_dropped += 1
+            return
+        self._bot_q.append((time.monotonic(), pcm_bytes))
 
     # ────────────────────────────────────────────────────────────────────
     # Stop & finalize
     # ────────────────────────────────────────────────────────────────────
+
+    def _stop_audio_writer(self):
+        """Signal the audio writer to finish and wait for its final flush."""
+        writer = self._audio_writer
+        if writer is None:
+            return
+        self._audio_stop_evt.set()
+        writer.join(timeout=10)
+        self._audio_writer = None
+        if self._cand_dropped or self._bot_dropped:
+            logger.warning(
+                "⚠️ [process id: %s][room: %s] Audio capture queue overflowed — "
+                "dropped %d candidate / %d bot frames (disk too slow?)",
+                self.process_id, self.room_id, self._cand_dropped, self._bot_dropped,
+            )
+        if self._cand_overfed or self._bot_overfed:
+            logger.error(
+                "🔴 [process id: %s][room: %s] Audio arriving FASTER than real time — "
+                "discarded %d candidate / %d bot frames past the wall-clock ceiling. "
+                "A duplicated audio source would look like this; the recording is "
+                "kept in sync but that audio is lost.",
+                self.process_id, self.room_id, self._cand_overfed, self._bot_overfed,
+            )
 
     def end_capture(self) -> None:
         """Freeze the recording at the END OF THE CONVERSATION, without finalizing.
@@ -563,6 +744,7 @@ class LocalVideoRecorder:
         if pacer:
             pacer.join(timeout=10)
             self._pacer = None
+        self._stop_audio_writer()
         logger.info(
             "🎬 [process id: %s][room: %s] Capture frozen at conversation end "
             "(video=%d frames, %.1fs) — post-interview tail will not be recorded",
@@ -583,6 +765,10 @@ class LocalVideoRecorder:
         if self._pacer:
             self._pacer.join(timeout=10)
             self._pacer = None
+
+        # Then the audio writer, which flushes anything still queued. This has to
+        # finish before the WAV files are closed below, or that audio is lost.
+        self._stop_audio_writer()
 
         with self._lock:
             if self._candidate_wf:
@@ -819,29 +1005,36 @@ class LocalVideoRecorder:
         # front so the file plays without downloading fully.
         vcopy = ["-c:v", "copy"]
         vreenc = ["-c:v", "libx264", "-preset", os.environ.get("REC_X264_PRESET", "ultrafast"),
-                  "-tune", "zerolatency", "-pix_fmt", "yuv420p"]
+                  "-pix_fmt", "yuv420p"]
 
+        # -avoid_negative_ts make_zero: normalises any residual timestamp offsets from
+        # the intermediate so audio and video share the same t=0 in the final container.
         def _cmd(inputs, filt, vopt, acodec):
             return (["ffmpeg", "-y"] + inputs + filt + vopt
-                    + ["-c:a", acodec, "-b:a", "128k", "-movflags", "+faststart", out])
+                    + ["-c:a", acodec, "-b:a", "128k",
+                       "-avoid_negative_ts", "make_zero",
+                       "-movflags", "+faststart", out])
 
         strategies = []  # list of (label, cmd), best first
         if has_candidate_audio and has_bot_audio:
             ins = ["-i", vid, "-i", bot, "-i", cand]
-            join = ["-filter_complex",
-                    "[1:a]aresample=48000[b];"
-                    "[b][2:a]join=inputs=2:channel_layout=stereo[a]",
-                    "-map", "0:v", "-map", "[a]"]
-            # amerge is more tolerant than join when input layouts/lengths differ.
+            # amerge first: tolerates slightly different track lengths (rounding of
+            # int(elapsed*rate) at different sample rates can leave bot/candidate WAVs
+            # 1-2 samples apart). join requires strict equality and fails silently by
+            # truncating whichever stream is longer.
             amerge = ["-filter_complex",
                       "[1:a]aresample=48000[b];[2:a]aresample=48000[c];"
                       "[b][c]amerge=inputs=2[a]",
                       "-map", "0:v", "-map", "[a]"]
+            join = ["-filter_complex",
+                    "[1:a]aresample=48000[b];"
+                    "[b][2:a]join=inputs=2:channel_layout=stereo[a]",
+                    "-map", "0:v", "-map", "[a]"]
             strategies += [
-                ("join+aac+copy",     _cmd(ins, join,   vcopy,  "aac")),
-                ("join+aac+reencode", _cmd(ins, join,   vreenc, "aac")),
-                ("amerge+aac+copy",   _cmd(ins, amerge, vcopy,  "aac")),
-                ("join+aac+reencode2", _cmd(ins, join,  vreenc, "aac")),
+                ("amerge+aac+copy",     _cmd(ins, amerge, vcopy,  "aac")),
+                ("amerge+aac+reencode", _cmd(ins, amerge, vreenc, "aac")),
+                ("join+aac+copy",       _cmd(ins, join,   vcopy,  "aac")),
+                ("join+aac+reencode",   _cmd(ins, join,   vreenc, "aac")),
             ]
         elif has_candidate_audio or has_bot_audio:
             aud = cand if has_candidate_audio else bot
@@ -855,8 +1048,10 @@ class LocalVideoRecorder:
             ins = ["-i", vid]
             m = ["-map", "0:v"]
             strategies += [
-                ("video-copy",     ["ffmpeg", "-y"] + ins + m + vcopy + ["-movflags", "+faststart", out]),
-                ("video-reencode", ["ffmpeg", "-y"] + ins + m + vreenc + ["-movflags", "+faststart", out]),
+                ("video-copy",     ["ffmpeg", "-y"] + ins + m + vcopy
+                                   + ["-avoid_negative_ts", "make_zero", "-movflags", "+faststart", out]),
+                ("video-reencode", ["ffmpeg", "-y"] + ins + m + vreenc
+                                   + ["-avoid_negative_ts", "make_zero", "-movflags", "+faststart", out]),
             ]
 
         for label, cmd in strategies:
